@@ -1,7 +1,8 @@
 import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import test from "./test2.jpg";
+import test from "./Cover.jpg";
 import "./App.css";
+import 'fontsource-roboto';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -52,15 +53,12 @@ function App() {
         <div className="outer">
           <div className="inner">
             <Grid container spacing={0}>
-              <Grid item xs={8} sm={5}>
+              <Grid item xs={1}>
                 <Switch>
                   <Route exact path="/" component={Login} />
                   <Route path="/signin" component={Login} />
                   <Route path="/signup" component={SignUp} />
                 </Switch>
-              </Grid>
-              <Grid item xs={3} sm={1} >
-                <img display={{ xs: "none", lg: "block" }} src={test} alt="test" className="img"></img>
               </Grid>
             </Grid>
 
@@ -69,7 +67,7 @@ function App() {
                 <Col xs={3} md={7}>
               
                 </Col>
-                <Col xs={1} md={5} style={{ backgroundColor: "#c5c6c7" }}>
+                <Col xs={1} md={5} style={{ backgroundColor: "#c5c  c7" }}>
                 </Col>
               </Row>
             </Container> */}

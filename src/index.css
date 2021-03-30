@@ -17,10 +17,10 @@ code {
 
 body {
   margin: auto;
-  min-height: 100vh;
+  min-height: 1vh;
   display: flex;
   font-weight: 400;
-  font-family: sans-serif;
+  font-family: "Roboto";
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,10 +48,9 @@ html,
 }
 
 .inner {
-  width: 750px;
+  width: 500px;
   margin: auto;
   background: #1f2833;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   border-radius: 15px;
   transition: all 0.3s;
 }
@@ -69,20 +68,18 @@ html,
 }
 
 .img {
-  width: 300px;
+  width: 610px;
   height: 610px;
   object-fit: cover;
   border-radius: 0px 15px 15px 0px;
-  filter: grayscale(50%);
+  filter: grayscale(20%);
 }
 
 .bg-image {
   /* The image used */
-  background-image: url("https://ia803100.us.archive.org/25/items/mbid-60abea5b-0c5d-4897-9587-c6e92c67acc9/mbid-60abea5b-0c5d-4897-9587-c6e92c67acc9-24777784995.jpg");
+  background-image: url("./Cover.jpg");
   /* Add the blur effect */
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-
+  filter: brightness(30%) grayscale(50%);
   /* Full height */
   height: 100%;
   width: 100%;
