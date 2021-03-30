@@ -1,0 +1,54 @@
+.input {
+  width: 390px;
+  background-color: #67e0d0;
+  border-radius: 10px;
+}
+.input .MuiOutlinedInput-root {
+  border-radius: 10px;
+  border-width: 20px;
+  border-color: "grey";
+}
+.input .MuiInput-underline:after {
+  border-radius: 10px;
+  border-width: 20px;
+  border-color: "grey";
+}
+.input .Mui-focused fieldset {
+  border-radius: 10px;
+  border-width: 20px;
+  border-color: "grey";
+}
+.text {
+  color: #c5c6c7;
+}
+.form {
+  margin: 50px;
+  width: 400px;
+}
+.custom-control-label {
+  font-weight: 400;
+  color: #c5c6c7;
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  color: #c5c6c7;
+  margin: 0;
+}
+
+.forgot-password a {
+  color: #c5c6c7;
+}
+
+.signup-text,
+.signup-text a {
+  color: #c5c6c7;
+  margin-top: 80px;
+}
+
+.signup-text a {
+  color: #c5c6c7;
+  margin-top: 80px;
+}
