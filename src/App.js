@@ -52,15 +52,15 @@ function App() {
         <div className="outer">
           <div className="inner">
             <Grid container spacing={0}>
-              <Grid item xs={8} sm={5}>
+              <Grid item xs={8}>
                 <Switch>
                   <Route exact path="/" component={Login} />
                   <Route path="/signin" component={Login} />
                   <Route path="/signup" component={SignUp} />
                 </Switch>
               </Grid>
-              <Grid item xs={3} sm={1} >
-                <img display={{ xs: "none", lg: "block" }} src={test} alt="test" className="img"></img>
+              <Grid item xs={3}>
+                <img src={test} alt="test" className="img"></img>
               </Grid>
             </Grid>
 
