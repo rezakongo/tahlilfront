@@ -52,14 +52,25 @@ function App() {
 
         <div className="outer">
           <div className="inner">
+<<<<<<< HEAD
             <Grid container spacing={0}>
               <Grid item xs={1}>
+=======
+            <Grid container spacing={3}>
+              <Grid item xs={8}>
+>>>>>>> dd3c1f0314a39e80dcb6aa27e3eccc462110ff6a
                 <Switch>
                   <Route exact path="/" component={Login} />
                   <Route path="/signin" component={Login} />
                   <Route path="/signup" component={SignUp} />
                 </Switch>
               </Grid>
+<<<<<<< HEAD
+=======
+              <Grid item xs={3}>
+                <img src={test} alt="test" className="img"></img>
+              </Grid>
+>>>>>>> dd3c1f0314a39e80dcb6aa27e3eccc462110ff6a
             </Grid>
 
             {/* <Container>
