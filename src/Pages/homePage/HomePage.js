@@ -2,6 +2,7 @@
 import './HomePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row ,Col} from 'react-bootstrap';
+import Navbar from "./Components/NavBar/Navbar.js"
 
 
 function HomePage() {
@@ -9,7 +10,7 @@ function HomePage() {
   return (
       <Container left className="pageBody">
         <Row>
-          NavBar
+          <Navbar></Navbar>
         </Row>
         <Row className="bdy">
           <div className="slideBar">

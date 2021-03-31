@@ -1,0 +1,11 @@
+.Navbar{
+    width: 100%;
+    color: aliceblue;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.SlideItem{
+    background-image: url("./slash.png");
+    height: 250px;
+}
