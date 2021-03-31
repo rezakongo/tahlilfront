@@ -2,15 +2,15 @@
 import './HomePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row ,Col} from 'react-bootstrap';
-import Navbar from "./Components/NavBar/Navbar.js"
+import Nav from "./Components/NavBar/Navbar.js"
 
 
 function HomePage() {
   
   return (
       <Container left className="pageBody">
-        <Row>
-          <Navbar></Navbar>
+        <Row className="nav">
+          <Nav></Nav>
         </Row>
         <Row className="bdy">
           <div className="slideBar">
