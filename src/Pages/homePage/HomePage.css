@@ -1,0 +1,57 @@
+.pageBody{
+  left: 0px;
+  right: 0px;
+}
+
+.bdy{
+  background-image: url("./back.jpg");
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  color: antiquewhite;
+  left: 0%;
+  right: 0%;
+  justify-content: center;
+}
+
+.Tops{
+  background-color: rgba(0, 0, 0, 0.493);
+  border: 2px white solid;
+  border-radius: 5px;
+  min-height: 45rem;
+  margin: 1%;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-size:xx-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.slideBar{
+  width: 98%;
+  left: 5px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.493);
+  border: 2px white solid;
+  border-radius: 5px;
+  min-height: 12rem;
+  margin: 5px;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-size:xx-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Foot{
+  min-height: 10rem;
+  background-color: black;
+  border-top: 4px white solid;
+  font-size: medium;
+  font-family: 'Times New Roman', Times, serif;
+  color: aliceblue;
+  text-align: center;
+}
+
+.footItems{
+  
+}
