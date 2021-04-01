@@ -76,8 +76,9 @@ color: blue;
     color: white;
 }
 .dboxItem:hover{
-    color: black;
-    background-color: white;
+    background: rgb(2,0,36);
+    background: rgb(0,212,255);
+    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,0.5998774509803921) 48%, rgba(2,0,36,0) 100%);
     transition: 0.2s all ease-in;
 }
 
@@ -91,3 +92,7 @@ color: blue;
     transition:0.3s all ease-in;
 }
 
+
+.tp{
+    background-color: transparent;
+}
