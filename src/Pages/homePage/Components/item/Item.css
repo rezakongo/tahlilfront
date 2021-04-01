@@ -7,38 +7,54 @@
 }
 
 .card{
-    height: 14rem;
-    width: 10rem;
-    background-color: rgba(0, 0, 0, 0.616);
+    display: flex;
+    height: 15rem;
+    width: 11rem;
+    background-color: rgba(0, 0, 0, 0.651);
     border: 1px transparent solid;
     border-radius: 5px;
 }
 
-.im{
-    grid-area: im;
-    width: 3rem;
-    height: 3.5rem;
-    
+.card:hover{
+    background-color: rgba(0, 0, 0, 0.829);
+    cursor: pointer;
+    transition: 0.2s all ease-in;
 }
 
-.tx{
-    grid-area: tx;
-    text-align: center;
-    justify-content: center;
+.r1{
+    height: 1rem;
+}
+
+.r2{
+    height: 7rem;
+    border-radius: 5px;
+    image-rendering: auto;
+}
+.r3{
+    display: flex;
+    left: 0%;
+    right: 0%;
+    justify-items: center;
+}
+
+.titles{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 20px;
     color: white;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-    grid-template-areas: "tx1" "tx2";
 }
 
-.tx1{
-    grid-area: tx1;
-    font-size: 18px;
+.disc{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:normal;
+    font-size: 14px;
+    color: white;
 }
 
-.tx2{
-    grid-area: tx2;
-    font-size: 11px;
+.rate{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:lighter;
+    font-size: 14px;
+    color: white;
 }
-
 
