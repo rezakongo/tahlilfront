@@ -9,10 +9,11 @@ body{
 }
 
 .bdy{
+  display: flex !important;
   font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
   color: antiquewhite;
-  width: 96%;
+  width:100% !important;
   justify-self: center;
 }
 
@@ -26,21 +27,18 @@ body{
   font-size:xx-large;
   font-weight: bold;
   text-align: center;
+  display: block;
+  justify-content: center;
 }
 
 .slideBar{
-  display: flex;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.493);
-  border: 2px white solid;
-  border-radius: 5px;
-  min-height: 12rem;
-  margin: 5px;
-  color: white;
-  font-family: 'Times New Roman', Times, serif;
-  font-size:xx-large;
-  font-weight: bold;
-  justify-content: center;
+  margin-top: 2px;
+  margin-bottom: 1rem;
+  min-height: 16rem;
+  border-top: 2px gray solid;
+  width: 100% !important;
+  background: rgb(156,156,156);
+background: linear-gradient(90deg, rgba(156,156,156,0) 0%, rgba(56,56,129,1) 44%, rgba(58,58,133,1) 56%, rgba(136,136,136,0) 100%);
 }
 .slideContainer{
   display: flex;
@@ -55,7 +53,7 @@ body{
   font-family: 'Times New Roman', Times, serif;
   color: aliceblue;
   text-align: center;
-  margin-top: 30px;
+  
 }
 
 
@@ -64,4 +62,13 @@ body{
 
 .menu{
   background-color:rgba(0, 0, 0, 0.548);
+}
+
+
+.titles{
+  margin-top: 30px;
+  font-size: 28px;
+  color: white;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
 }

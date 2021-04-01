@@ -1,16 +1,17 @@
 
 
 .bod{
-    color: white;
-    border: 0ch transparent solid;
-    border-bottom: 2px gray solid;
-    height: 4rem;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: "im tx";
-    align-items: center;
+    height: 100%;
+    display: flex;
+    align-items: center !important;
+}
+
+.card{
+    height: 14rem;
+    width: 10rem;
+    background-color: rgba(0, 0, 0, 0.616);
+    border: 1px transparent solid;
+    border-radius: 5px;
 }
 
 .im{
@@ -38,13 +39,6 @@
 .tx2{
     grid-area: tx2;
     font-size: 11px;
-}
-
-.bod:hover{
-    background: rgb(0,212,255);
-    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,0.5998774509803921) 48%, rgba(2,0,36,0) 100%);
-    transition:0.5ms all ease-in-out; 
-    cursor: pointer;  
 }
 
 

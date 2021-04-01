@@ -1,0 +1,103 @@
+.Navbar{
+    width: 100%;
+
+}
+
+.menu{
+    background-color: rgba(0, 0, 0, 0.658);
+    color: white;
+}
+
+
+
+.SlideItem{
+    height: 400px;
+}
+.sim{
+    height: 200px;
+}
+.menuItem{
+    border-bottom: 3px rgba(0, 0, 255, 0) solid;
+    color: white;
+    border-right: 1px gray solid;
+}
+
+.menuItem:hover{
+    border-bottom: 3px blue solid;
+    transition:0.3s all ease-in;
+color: blue;
+}
+
+.searchBar{
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border: 1px white solid;
+    border-radius: 5px;
+    margin-right: 5px;
+
+}
+
+.but{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border: 1px white solid;
+    border-radius: 5px;
+    margin: 2px;
+
+}
+
+.but:hover{
+    background-color: white;
+    color: black;
+    transition: 0.3s all ease-in;
+}
+
+.but:active{
+    background-color: gray;
+    color: black;
+    transition: 0.1s all ease-in;
+}
+
+.sa{
+    float: right;
+    right: 0%;
+}
+
+.dbox{
+    left: 0px;
+    max-height: 250px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.486);
+    color: white;
+}
+.dboxItem{
+    color: white;
+}
+.dboxItem:hover{
+    background: rgb(2,0,36);
+    background: rgb(0,212,255);
+    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,0.5998774509803921) 48%, rgba(2,0,36,0) 100%);
+    transition: 0.2s all ease-in;
+}
+
+.pic{
+    border-bottom: 3px  transparent solid;
+    height: 35px;
+    width: 35px;
+    align-self: center !important;
+    padding: 2px;
+    border-left: 1px gray solid;
+    border-right: 1px gray solid;
+}
+.pic:hover{
+    cursor: pointer;
+    transition:0.3s all ease-in;
+    border-bottom: 2px blue solid;
+}
+
+
+.tp{
+    background-color: transparent;
+}

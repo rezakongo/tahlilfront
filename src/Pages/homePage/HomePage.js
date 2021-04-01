@@ -12,73 +12,26 @@ function HomePage() {
     <Nav></Nav>
     <div className="bdy" class="container" >
       <div className="slideContainer" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+        <div><h1 class="titles">New Musics</h1></div>
         <div className="slideBar">
-          SlideShow
         </div>
       </div>
-      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-        <div className="Tops">
-        Top10 Musics
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-        <div className="Tops">
-        Top10 Genres
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-        <div className="Tops">
-        Top10 Artists
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-        <div className="Tops">
-        Top10 Albums
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
-            </div>
+      <div className="slideContainer" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+        <div><h1 class="titles">Top 10 Musics</h1></div>
+        <div className="slideBar">
         </div>
       </div>
-    </div>
+      <div className="slideContainer" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+        <div><h1 class="titles">Top 10 Albums</h1></div>
+        <div className="slideBar">
+        </div>
+      </div>
+      <div className="slideContainer" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+        <div><h1 class="titles">Top 10 Artists</h1></div>
+        <div className="slideBar">
+        </div>
+      </div>
+    </div> 
     <div className="Foot">
       <div class="container-fluid !direction !spacing">
         <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
