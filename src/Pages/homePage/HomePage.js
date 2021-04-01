@@ -2,6 +2,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './Components/Navbar/Navbar'
+import SlideItem from "./Components/slideItem/Item"
+import Item from "./Components/item/Item"
 
 function HomePage() {
   
@@ -17,22 +19,62 @@ function HomePage() {
       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
         <div class="col-md-3 col-sm-6 col-xs-12">
         <div className="Tops">
-              Top10 Musics
+        Top10 Musics
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
             </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
         <div className="Tops">
-              Top10 Musics
+        Top10 Genres
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
             </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
         <div className="Tops">
-              Top10 Musics
+        Top10 Artists
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
             </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
         <div className="Tops">
-              Top10 Musics
+        Top10 Albums
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
+                <Item></Item>
             </div>
         </div>
       </div>

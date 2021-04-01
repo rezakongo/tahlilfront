@@ -1,0 +1,50 @@
+
+
+.bod{
+    color: white;
+    border: 0ch transparent solid;
+    border-bottom: 2px gray solid;
+    height: 4rem;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "im tx";
+    align-items: center;
+}
+
+.im{
+    grid-area: im;
+    width: 3rem;
+    height: 3.5rem;
+    
+}
+
+.tx{
+    grid-area: tx;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "tx1" "tx2";
+}
+
+.tx1{
+    grid-area: tx1;
+    font-size: 18px;
+}
+
+.tx2{
+    grid-area: tx2;
+    font-size: 11px;
+}
+
+.bod:hover{
+    background: rgb(0,212,255);
+    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,0.5998774509803921) 48%, rgba(2,0,36,0) 100%);
+    transition:0.5ms all ease-in-out; 
+    cursor: pointer;  
+}
+
+
