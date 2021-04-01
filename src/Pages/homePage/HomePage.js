@@ -1,63 +1,58 @@
 
-import './HomePage.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row ,Col} from 'react-bootstrap';
-import Nav from "./Components/NavBar/Navbar.js"
-
+import logo from './logo.svg';
+import './App.css';
+import Nav from './Components/Navbar/Navbar'
 
 function HomePage() {
   
   return (
-      <Container left className="pageBody">
-        <Row className="nav">
-          <Nav></Nav>
-        </Row>
-        <Row className="bdy">
-          <div className="slideBar">
-            SlideShow
+    <div>
+    <Nav></Nav>
+    <div className="bdy" class="container" >
+      <div className="slideContainer" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+        <div className="slideBar">
+          SlideShow
+        </div>
+      </div>
+      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div className="Tops">
+              Top10 Musics
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div className="Tops">
+              Top10 Musics
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div className="Tops">
+              Top10 Musics
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div className="Tops">
+              Top10 Musics
+            </div>
+        </div>
+      </div>
+    </div>
+    <div className="Foot">
+      <div class="container-fluid !direction !spacing">
+        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+          <div class="col-md-4 col-sm-12">
+            Provided by HexClan Team
           </div>
-        </Row>
-        <Row className="bdy">
-            <Col md={3} sm={6} xs={12}>
-              <div className="Tops">
-                Top10 Musics
-              </div>
-            </Col>
-            <Col md={3} sm={6} xs={12}>
-              <div className="Tops">
-              Top10 Albums
-              </div>
-            </Col>
-            <Col md={3} sm={6} xs={12}>
-              <div className="Tops">
-              Top10 Artists
-              </div>
-            </Col>
-            <Col md={3} sm={6} xs={12}>
-              <div className="Tops">
-              Top10 Genres 
-              </div>
-            </Col>
-          
-        </Row>
-        <Row className="Foot">
-          <Col md={4} sm={4} xs={12}>
-              <div>
-                Provided by HexClan Team
-              </div>
-          </Col>
-          <Col md={4} sm={4} xs={12}>
-            <div>
-               مطابق قوانین جمهوری اسلامی ایران
-            </div>
-          </Col>
-          <Col md={4} sm={4} xs={12}>
-            <div>
-              پیوند ها 
-            </div>
-          </Col>
-        </Row>
-      </Container>
+          <div class="col-md-4 col-sm-12">
+            مطابق قوانین جمهوری اسلامی ایران 
+          </div>
+          <div class="col-md-4 col-sm-12">
+            پیوند ها 
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
   );
 }
 
