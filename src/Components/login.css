@@ -1,29 +1,14 @@
 .input {
-  width: 390px;
+  width: 100%;
   background-color: #67e0d0;
   border-radius: 10px;
 }
-.input .MuiOutlinedInput-root {
-  border-radius: 10px;
-  border-width: 20px;
-  border-color: "grey";
-}
-.input .MuiInput-underline:after {
-  border-radius: 10px;
-  border-width: 20px;
-  border-color: "grey";
-}
-.input .Mui-focused fieldset {
-  border-radius: 10px;
-  border-width: 20px;
-  border-color: "grey";
-}
+
 .text {
   color: #c5c6c7;
 }
 .form {
-  margin: 50px;
-  width: 400px;
+  padding: 30px 50px 40px 50px;
 }
 .custom-control-label {
   font-weight: 400;
@@ -51,4 +36,65 @@
 .signup-text a {
   color: #c5c6c7;
   margin-top: 80px;
+}
+
+body {
+  min-height: 100vh;
+  font-weight: 400;
+  font-family: sans-serif;
+}
+
+body,
+html,
+.App,
+#root,
+.outer {
+  width: 100%;
+  height: 100%;
+}
+
+.outer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+.inner {
+  background: #1f2833;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.outer .form-control:focus {
+  border-color: #167bff;
+  box-shadow: none;
+}
+
+.outer h3 {
+  text-align: center;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+@media only screen and (max-height: 700px) {
+  .input {
+    margin: 0px !important;
+    height: auto !important;
+  }
+}
+
+.padding {
+  padding-top: 100px;
+}
+
+@media only screen and (orientation: landscape) {
+  .padding {
+    padding-top: 100px;
+  }
+}
+@media only screen and (max-height: 900px) {
+  .padding {
+    padding-top: 40px;
+  }
 }
