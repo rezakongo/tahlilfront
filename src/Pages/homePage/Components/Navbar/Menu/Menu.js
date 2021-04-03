@@ -10,7 +10,7 @@ function Menu(){
                 <img src={ham} class="pic"></img>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#">Hex Beat</a>
+                <a class="navbar-brand" href="/">Hex Beat</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="menuItem nav-link " aria-current="page" href="Artists">Artists</a>
@@ -69,7 +69,7 @@ function Menu(){
                 <form class="d-flex">
                     <input className="searchBar"  type="search" placeholder="Search" aria-label="Search"></input>
                     <button class="btn but btn-outline-success" type="submit">Search</button>
-                    <a href="#login"  class="pic d-flex nav-link" ><img src={acount}></img></a>
+                    <a href="/login"  class="pic d-flex nav-link" ><img src={acount}></img></a>
                 </form>
             </div>
         </div>
