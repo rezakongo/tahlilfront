@@ -10,10 +10,10 @@ import { useDynamicAvatarStyles } from "@mui-treasury/styles/avatar/dynamic";
 
 const useStyles = makeStyles(() => ({
   action: {
-    backgroundColor: "#ff783a",
+    backgroundColor: "#45a29e",
     boxShadow: "0 1px 4px 0 rgba(0,0,0,0.12)",
     "&:hover": {
-      backgroundColor: "#c64807",
+      backgroundColor: "#007370",
       color: "#000",
     },
   },
@@ -43,7 +43,7 @@ function Cardplay(props) {
     <Row
       p={1}
       gap={2}
-      bgcolor={"#282c34"}
+      bgcolor={"#2d3b4a"}
       borderRadius={10}
       margin={1.2}
       width={290}
