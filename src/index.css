@@ -13,17 +13,3 @@ code {
 * {
   box-sizing: border-box;
 }
-
-
-
-.bg-image {
-  background-image: url("./Assests/Cover.jpg");
-  filter: brightness(30%) grayscale(50%);
-  height: 100%;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-

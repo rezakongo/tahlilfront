@@ -20,9 +20,9 @@ function HomePage() {
   return (
     <div>
       <Nav></Nav>
-      <div  class="container" >
-        <div class="row slideContainer">
-        <div><h1 class="titr">New Musics</h1></div>
+      <div  className="container" >
+        <div className="row slideContainer">
+        <div><h1 className="titr">New Musics</h1></div>
           <div className="slideBar">
           <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" nav autoplay onScroll loop margin={1}>
             <Item></Item>
@@ -77,8 +77,8 @@ function HomePage() {
           </OwlCarousel>
           </div>
         </div>
-        <div class="row slideContainer">
-        <div><h1 class="titr">Top10 Musics</h1></div>
+        <div className="row slideContainer">
+        <div><h1 className="titr">Top10 Musics</h1></div>
           <div className="slideBar">
           <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" nav autoplay onScroll loop margin={1}>
             <Item></Item>
@@ -115,7 +115,7 @@ function HomePage() {
           </div>
         </div>
         <div class="row slideContainer">
-        <div><h1 class="titr">Top10 Artists</h1></div>
+        <div><h1 className="titr">Top10 Artists</h1></div>
           <div className="slideBar">
           <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" nav autoplay loop margin={1}>
             <Item></Item>
