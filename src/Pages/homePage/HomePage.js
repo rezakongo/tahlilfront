@@ -6,7 +6,10 @@ import './HomePage.css';
 import Nav from './Components/Navbar/Navbar'
 import Item from "./Components/item/Item"
 
+
+
 function HomePage() {
+  
   
   const Album={
     title:'8 Mile',
@@ -17,11 +20,76 @@ function HomePage() {
   return (
     <div>
       <Nav></Nav>
-      <div className="bdy" class="container" >
-        <div className="slideContainer" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-        <div><h1 class="titles">New Musics</h1></div>
+      <div  class="container" >
+        <div class="row slideContainer">
+        <div><h1 class="titr">New Musics</h1></div>
           <div className="slideBar">
-          <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" loop margin={1}>
+          <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" nav autoplay onScroll loop margin={1}>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+          </OwlCarousel>
+          <OwlCarousel className='d-none d-xl-none d-md-block owl-theme'  items="4" loop margin={1}>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+          </OwlCarousel>
+          <OwlCarousel className='d-md-none owl-theme' items="3" loop margin={1}>
+            <Item></Item>
+          </OwlCarousel>
+          </div>
+        </div>
+        <div class="row slideContainer">
+        <div><h1 class="titr">Top10 Musics</h1></div>
+          <div className="slideBar">
+          <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" nav autoplay onScroll loop margin={1}>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
             <Item></Item>
           </OwlCarousel>
           <OwlCarousel className='d-none d-xl-none d-md-block owl-theme' items="4" loop margin={1}>
@@ -32,10 +100,10 @@ function HomePage() {
           </OwlCarousel>
           </div>
         </div>
-        <div className="slideContainer" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-          <div><h1 class="titles">Top 10 Musics</h1></div>
+        <div class="row slideContainer">
+        <div><h1 class="titr">Top10 Albums</h1></div>
           <div className="slideBar">
-          <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" loop margin={1}>
+          <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" nav autoplay loop margin={1}>
             <Item></Item>
           </OwlCarousel>
           <OwlCarousel className='d-none d-xl-none d-md-block owl-theme' items="4" loop margin={1}>
@@ -46,24 +114,10 @@ function HomePage() {
           </OwlCarousel>
           </div>
         </div>
-        <div className="slideContainer" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-          <div><h1 class="titles">Top 10 Albums</h1></div>
+        <div class="row slideContainer">
+        <div><h1 class="titr">Top10 Artists</h1></div>
           <div className="slideBar">
-          <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" loop margin={1}>
-            <Item></Item>
-          </OwlCarousel>
-          <OwlCarousel className='d-none d-xl-none d-md-block owl-theme' items="4" loop margin={1}>
-            <Item></Item>
-          </OwlCarousel>
-          <OwlCarousel className='d-md-none owl-theme' items="3" loop margin={1}>
-            <Item></Item>
-          </OwlCarousel>
-          </div>
-        </div>
-        <div className="slideContainer" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-          <div><h1 class="titles">Top 10 Artists</h1></div>
-          <div className="slideBar">
-          <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" loop margin={1}>
+          <OwlCarousel className='d-none d-xl-block  owl-theme' items="6" nav autoplay loop margin={1}>
             <Item></Item>
           </OwlCarousel>
           <OwlCarousel className='d-none d-xl-none d-md-block owl-theme' items="4" loop margin={1}>

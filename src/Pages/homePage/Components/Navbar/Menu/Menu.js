@@ -1,13 +1,14 @@
 import "./Menu.css"
 import acount from "./acount.png"
 import ham from "./ham.png"
+import sea from "./search.png"
 
 function Menu(){
     return(
-        <nav className="menu"  class="navbar-expand-lg menu fixed-top">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <img src={ham} class="pic"></img>
+        <nav   class="navbar-expand-lg menu fixed-top menu">
+        <div class="container-fluid !direction !spacing">
+            <button class="navbar-toggler menuItem" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <img src={ham} class="hpic"></img>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <a class="navbar-brand" href="/">Hex Beat</a>
@@ -68,7 +69,7 @@ function Menu(){
                 </ul>
                 <form class="d-flex">
                     <input className="searchBar"  type="search" placeholder="Search" aria-label="Search"></input>
-                    <button class="btn but btn-outline-success" type="submit">Search</button>
+                    <div class="sc" ><img src={sea} class="spic d-flex nav-link"></img ></div>
                     <a href="/login"  class="pic d-flex nav-link" ><img src={acount}></img></a>
                 </form>
             </div>
