@@ -114,7 +114,7 @@ html,
   background-image: url("./Cover.jpg");
   filter: brightness(30%) grayscale(50%);
   height: 100vh;
-  width: 100vh;
+  width: 100vmax;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -22,7 +22,7 @@ export default class SignUp extends Component {
           <div className="container">
             <div className="padding"></div>
             <div className="row justify-content-center">
-              <div className="col-xs-7 col-md-6 col-lg-5">
+              <div className="col-xs-7 col-md-6 col-lg-4">
                 <div className="outer">
                   <div className="inner">
                     <form className="form">
