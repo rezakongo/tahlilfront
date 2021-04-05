@@ -1,6 +1,3 @@
-import logo from "./logo.svg";
-import cover from "./Cover.jpg";
-
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
@@ -26,6 +23,7 @@ const useStyles = makeStyles(() => ({
     color: "rgba(255, 255, 255, 0.87)",
     fontSize: "1rem",
     lineHeight: 1,
+    textAlign: "left",
   },
   subtitle: {
     fontFamily:
@@ -33,23 +31,33 @@ const useStyles = makeStyles(() => ({
     color: "#a3b4bb",
     fontSize: "0.75rem",
     lineHeight: 1.6,
+    textAlign: "left",
   },
 }));
 
-function DashPlay() {
+function Cardplay(props) {
   const styles = useStyles();
   const iconBtnStyles = useSizedIconButtonStyles({ padding: 4 });
   const avatarStyles = useDynamicAvatarStyles({ radius: 50, size: 40 });
   return (
-    <Row p={1} gap={2} bgcolor={"#282c34"} borderRadius={10}>
+    <Row
+      p={1}
+      gap={2}
+      bgcolor={"#282c34"}
+      borderRadius={10}
+      margin={1.2}
+      width={290}
+    >
       <Item>
-        <Avatar classes={avatarStyles} src={cover} />
+        <Avatar classes={avatarStyles} src={props.albumCover} />
       </Item>
       <Info position={"middle"}>
-        <InfoTitle className={styles.title}>Nirvana</InfoTitle>
-        <InfoSubtitle className={styles.subtitle}>In Utero</InfoSubtitle>
+        <InfoTitle className={styles.title}>{props.albumName}</InfoTitle>
+        <InfoSubtitle className={styles.subtitle}>
+          {props.singerName}
+        </InfoSubtitle>
       </Info>
-      <Item ml={1} position={"middle"}>
+      <Item ml={3} position={"middle"}>
         <IconButton className={styles.action} classes={iconBtnStyles}>
           <PlayArrow />
         </IconButton>
@@ -58,4 +66,4 @@ function DashPlay() {
   );
 }
 
-export default DashPlay;
+export default Cardplay;
