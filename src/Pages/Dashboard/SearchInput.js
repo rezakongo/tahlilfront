@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     width: 350,
-    backgroundColor: "#282c34",
+    backgroundColor: "#2d3b4a",
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -19,11 +19,12 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   iconButton: {
-    color: "white",
+    color: "black",
+    backgroundColor: "#45a29e",
     padding: 10,
     boxShadow: "0 1px 4px 0 rgba(0,0,0,0.2)",
     "&:hover": {
-      backgroundColor: "#c64807",
+      backgroundColor: "#007370",
       color: "#000",
     },
   },
