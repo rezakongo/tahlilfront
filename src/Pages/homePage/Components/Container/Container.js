@@ -10,51 +10,51 @@ function Container(){
                     
                 </div>
                 <div className="row align-items-center ContainerRows">
-                    <div className="col-md-4 containcells">
+                    <div className="col-md-4 col-sm-12 containcells">
                         <div className="CardContainer">
 
                         </div>
                     </div>
-                    <div className="col-md-4 containcells">
+                    <div className="col-md-4 col-sm-12 containcells">
                         <div className="CardContainer">
                             
                         </div>
                     </div>
-                    <div className="col-md-4 containcells">
+                    <div className="col-md-4 col-sm-12 containcells">
                         <div className="CardContainer">
                             
                         </div>
                     </div>
                 </div>
                 <div className="row align-items-center ContainerRows">
-                    <div  className="col-md-4 containcells">
+                    <div  className="col-md-4 col-sm-12 containcells">
                         <div className="CardContainer">
                             
                         </div>
                     </div>
-                    <div className="col-md-4 containcells">
+                    <div className="col-md-4 col-sm-12 containcells">
                         <div className="CardContainer">
                             
                         </div>
                     </div>
-                    <div className="col-md-4 containcells">
+                    <div className="col-md-4 col-sm-12 containcells">
                         <div className="CardContainer">
                             
                         </div>
                     </div>
                 </div>
                 <div className="row align-items-center top-buffer ContainerRows">
-                    <div  className="col-md-4 containcells">
+                    <div  className="col-md-4 col-sm-12 containcells">
                         <div className="CardContainer">
                             
                         </div>
                     </div>
-                    <div className="col-md-4 containcells">
+                    <div className="col-md-4 col-sm-12 containcells">
                         <div className="CardContainer">
                             
                         </div>
                     </div>
-                    <div className="col-md-4 containcells">
+                    <div className="col-md-4 col-sm-12 containcells">
                         <div className="CardContainer">
                             
                         </div>
