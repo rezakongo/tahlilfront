@@ -5,11 +5,36 @@ import "./ArtistsCarousel.css"
 export default class ArtistsCarousel extends Component {
   render() {
     const settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 1
+        slidesToShow: 3,
+        infinite: true,
+        dots:false,
+      responsive: [
+        
+        {
+            breakpoint: 1280,
+            settings: {
+                slidesToShow: 3,
+                infinite: true,
+                dots:false,
+            }
+        },
+        {
+            breakpoint: 1000,
+            settings: {
+                slidesToShow: 2,
+                infinite: true,
+                dots:false,
+            }
+        },
+        {
+            breakpoint: 500,
+            settings: {
+                slidesToShow: 1,
+                infinite: true,
+                dots:false,
+            }
+        },
+      ]
     };
     return (
         <div className="CarouselContainerTemplate">
