@@ -19,7 +19,7 @@ export default class ArtistsCarousel extends Component {
             }
         },
         {
-            breakpoint: 1000,
+            breakpoint: 1200,
             settings: {
                 slidesToShow: 2,
                 infinite: true,
@@ -27,7 +27,7 @@ export default class ArtistsCarousel extends Component {
             }
         },
         {
-            breakpoint: 500,
+            breakpoint: 700,
             settings: {
                 slidesToShow: 1,
                 infinite: true,
