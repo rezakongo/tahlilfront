@@ -1,0 +1,28 @@
+.LandingBody{
+    display: flex;
+    background-image: url("./Wave.gif");
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position: center;
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont{
+    display: block;
+    width: 50rem;
+    height: 30%;
+    color: white;
+}
+.searchBar{
+    height: 3rem;
+}
+
+.tit{
+    display: flex;
+    font-size: 56px;
+    justify-content: center;
+}
