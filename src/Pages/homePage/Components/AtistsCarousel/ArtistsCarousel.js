@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import "./ArtistsCarousel.css"
+import HomePageArtist from "./Cards/homePageArtist"
 
 export default class ArtistsCarousel extends Component {
   render() {
@@ -11,15 +12,7 @@ export default class ArtistsCarousel extends Component {
       responsive: [
         
         {
-            breakpoint: 1280,
-            settings: {
-                slidesToShow: 3,
-                infinite: true,
-                dots:false,
-            }
-        },
-        {
-            breakpoint: 1200,
+            breakpoint: 1600,
             settings: {
                 slidesToShow: 2,
                 infinite: true,
@@ -27,7 +20,7 @@ export default class ArtistsCarousel extends Component {
             }
         },
         {
-            breakpoint: 700,
+            breakpoint: 1000,
             settings: {
                 slidesToShow: 1,
                 infinite: true,
@@ -42,22 +35,22 @@ export default class ArtistsCarousel extends Component {
                 <h2> Artists</h2>
                 <Slider {...settings} >
                 <div>
-                    <h3 className="ArtistsCardContainer">1</h3>
+                    <HomePageArtist></HomePageArtist>
                 </div>
                 <div>
-                    <h3 className="ArtistsCardContainer">2</h3>
+                    <HomePageArtist></HomePageArtist>
                 </div>
                 <div>
-                    <h3 className="ArtistsCardContainer">3</h3>
+                    <HomePageArtist></HomePageArtist>
                 </div>
                 <div>
-                    <h3 className="ArtistsCardContainer"></h3>
+                    <HomePageArtist></HomePageArtist>
                 </div>
                 <div>
-                    <h3 className="ArtistsCardContainer">5</h3>
+                    <HomePageArtist></HomePageArtist>
                 </div>
                 <div>
-                    <h3 className="ArtistsCardContainer">6</h3>
+                    <HomePageArtist></HomePageArtist>
                 </div>
                 </Slider>
             </div>
