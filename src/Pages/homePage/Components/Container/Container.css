@@ -2,7 +2,7 @@
     display: flex;
     background-color: rgba(0, 0, 0, 0.37);
     border-radius: 6px;
-    width: 80%;
+    width: fit-content;
     justify-items: center;
     align-items: center;
 }
