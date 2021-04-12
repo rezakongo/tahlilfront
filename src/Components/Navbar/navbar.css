@@ -1,0 +1,154 @@
+#navbar {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#dmenu1 {
+  padding-right: 15px;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: auto !important;
+  background-color: rgba(0, 0, 0, 0.219);
+}
+
+#dmenu2 {
+  padding-right: 15px;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: auto !important;
+  background-color: rgba(165, 21, 21, 0.219);
+}
+#mmenu1 {
+  margin: 0 !important;
+  width: auto !important;
+  text-align: center !important;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  background-color: rgba(0, 0, 0, 0.219);
+}
+
+#mmenu2 {
+  margin: 0 !important;
+  width: auto !important;
+  text-align: center !important;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  background-color: rgba(165, 21, 21, 0.219);
+}
+#dmenu1 #search-container {
+  display: none !important;
+}
+
+#search {
+  border-radius: 50px;
+}
+
+.scroll-navber {
+  display: block;
+  background-color: #000;
+}
+
+#test {
+  height: 100px;
+}
+.desktop {
+  display: block;
+}
+.mobile {
+  display: block;
+}
+@media (max-width: 900px) {
+  #dmenu1 {
+    display: none !important;
+  }
+  #dmenu2 {
+    display: none !important;
+  }
+}
+
+@media (min-width: 901px) {
+  #mmenu1 {
+    display: none !important;
+  }
+  #mmenu2 {
+    display: none !important;
+  }
+  #mmenu-container {
+    display: none !important;
+  }
+}
+
+#mmenu-container {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 100%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgba(17, 17, 17, 0.123); /* Black */
+  overflow: hidden;
+  justify-content: center;
+}
+
+#mmenu-container a {
+  padding: 18px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+#mmenu-container a:hover {
+  color: #f1f1f1;
+}
+
+#test {
+  height: 1000px;
+}
+#mtext {
+  width: 100%;
+  text-align: center !important;
+}
+
+#hidden {
+  display: none !important;
+}
+
+#close-icon {
+  background-color: transparent;
+  margin: 0 !important;
+  padding: 10px;
+}
+#search2 {
+  border-radius: 50px;
+  padding-top: 20px;
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#v1 {
+  color: teal !important;
+}
+
