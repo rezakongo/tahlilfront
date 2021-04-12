@@ -35,22 +35,22 @@ export default class ArtistsCarousel extends Component {
                 <h2> Artists</h2>
                 <Slider {...settings} >
                 <div>
-                    <HomePageArtist></HomePageArtist>
+                    <HomePageArtist/>
                 </div>
                 <div>
-                    <HomePageArtist></HomePageArtist>
+                    <HomePageArtist/>
                 </div>
                 <div>
-                    <HomePageArtist></HomePageArtist>
+                    <HomePageArtist/>
                 </div>
                 <div>
-                    <HomePageArtist></HomePageArtist>
+                    <HomePageArtist/>
                 </div>
                 <div>
-                    <HomePageArtist></HomePageArtist>
+                    <HomePageArtist/>
                 </div>
                 <div>
-                    <HomePageArtist></HomePageArtist>
+                    <HomePageArtist/>
                 </div>
                 </Slider>
             </div>
