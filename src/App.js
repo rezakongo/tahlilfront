@@ -1,10 +1,11 @@
-import React from "react";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Login from "./Components/login";
-import SignUp from "./Components/signup";
-import HomePage from "./Pages/homePage/HomePage"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import ArtistsPage from "./Pages/ArtistsPage";
+import AlbumsPage from "./Pages/AlbumsPage";
+import GenresPage from "./Pages/GenresPage";
+import SigninPage from "./Pages/SigninPage";
+import SignupPage from "./Pages/SignupPage";
 
 function App() {
   return (
@@ -12,8 +13,12 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
+          <Route exact path="/home" component={HomePage} />
+          <Route exact path="/artists" component={ArtistsPage} />
+          <Route exact path="/albums" component={AlbumsPage} />
+          <Route exact path="/genres" component={GenresPage} />
+          <Route path="/signin" component={SigninPage} />
+          <Route path="/signup" component={SignupPage} />
         </Switch>
       </div>
     </Router>
