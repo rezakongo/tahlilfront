@@ -1,0 +1,36 @@
+.containerBody{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.37);
+    border-radius: 6px;
+    width: fit-content;
+    justify-items: center;
+    align-items: center;
+}
+
+.ContainerRows{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.containcells{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    color: white;
+    font-size: 26px;
+    align-content: center;
+    justify-content: center;
+    justify-self: center;
+    height:fit-content;
+}
+
+.CardContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:black;
+    width: 100%;
+    height: 20rem;  
+    margin-top: 1rem;
+    margin-bottom: 1rem;  
+}
