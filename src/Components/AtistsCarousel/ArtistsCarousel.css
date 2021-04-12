@@ -1,0 +1,13 @@
+.CarouselContainerTemplate{
+    display: flex;
+    width: 100%;
+    height: fit-content; justify-content: center;
+    align-items: center;
+}
+
+.CarouselTemplate{
+    width: 80%;
+    height: 100%;
+    color: white;
+}
+
