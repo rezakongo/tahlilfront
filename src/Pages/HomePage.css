@@ -7,3 +7,10 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+
+.bd{
+  width: 100%;
+  display: block;
+  background-color: red;
+}

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import LandingTop from "../Components/LandingTop/LandingTop";
 import Navbar from "./../Components/Navbar/navbar";
+import ArtistsCarousel from "../Components/AtistsCarousel/ArtistsCarousel"
+import HomePageTracks from "../Components/Cards/HomePageTracks"
+import Container from "../Components/Container/Container"
+import "./HomePage.css"
 
 class HomePage extends Component {
   state = { menuId: "menu1" };
@@ -13,9 +17,8 @@ class HomePage extends Component {
   };
   render() {
     return (
-      <div id="navbar" onScroll={this.onScrollNavbar}>
-        <Navbar menuId={this.state.menuId} activeItem="Home" />
-        <LandingTop id="landingtop" />
+      <div className="bd">
+        
       </div>
     );
   }
