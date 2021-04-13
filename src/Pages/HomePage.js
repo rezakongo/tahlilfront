@@ -17,8 +17,12 @@ class HomePage extends Component {
   };
   render() {
     return (
-      <div className="bd">
-        
+      <div>
+        <div class="container-fluid !direction !spacing">
+          <div class="col-md-12  ">
+              <Container/>
+          </div>
+        </div>
       </div>
     );
   }
