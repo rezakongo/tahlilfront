@@ -2,10 +2,14 @@
     display: flex;
     background-color: rgba(0, 0, 0, 0.37);
     border-radius: 6px;
-    width: fit-content;
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     justify-items: center;
     align-items: center;
 }
+
+
 
 .ContainerRows{
     margin-top: 1rem;

@@ -18,11 +18,19 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <div class="container-fluid !direction !spacing">
-          <div class="col-md-12  ">
-              <Container/>
+        <div className="container-fluid !direction !spacing ">
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+              <LandingTop/>
+          </div>
+          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+              <ArtistsCarousel />
+          </div>
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting">
+            <Container />
           </div>
         </div>
+        
+        
       </div>
     );
   }
