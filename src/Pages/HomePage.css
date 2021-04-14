@@ -1,5 +1,6 @@
 body{
   justify-content: center;
+  background-color: rgb(0, 0, 24);
 }
 
 #navbar {
@@ -17,4 +18,20 @@ body{
   display: flex;
   width: 100% !important;
   justify-content: center;
+}
+
+
+.tracksContain{
+  display: flex;
+  justify-content: center;
+}
+
+.tracks{
+  width: 90%;
+
+}
+
+.rowSetting{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

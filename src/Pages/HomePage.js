@@ -19,14 +19,21 @@ class HomePage extends Component {
     return (
       <div>
         <div className="container-fluid !direction !spacing ">
-          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
               <LandingTop/>
           </div>
-          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
               <ArtistsCarousel />
           </div>
-          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting">
-            <Container />
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
+            <div className="tracks">
+            <HomePageTracks/>
+            </div>
+          </div>
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">\
+          
+            <Container/>
+            
           </div>
         </div>
         
