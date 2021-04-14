@@ -5,11 +5,9 @@ import logo from "./logo.png";
 import "./navbar.css";
 
 export default class DNavbar extends Component {
-  state = { menuId: "menu1", menuOpen: false };
+  state = { menuOpen: false };
 
   onClickMenu = () => {
-    console.log(this.state.menuOpen);
-    console.log("hi");
     this.setState({ menuOpen: !this.state.menuOpen });
   };
   render() {
@@ -18,7 +16,7 @@ export default class DNavbar extends Component {
     return (
       <div id="navbar">
         {/* desktop */}
-        <Menu secondary id={"d" + this.state.menuId}>
+        <Menu secondary id={"d" + this.props.menuId}>
           <Menu.Item>
             <Header
               className="logo"
@@ -29,18 +27,26 @@ export default class DNavbar extends Component {
               size="small"
             />
           </Menu.Item>
-          <Menu.Item name="Home" href="home" active={activeItem === "Home"} />
           <Menu.Item
+            id="text"
+            name="Home"
+            href="home"
+            active={activeItem === "Home"}
+          />
+          <Menu.Item
+            id="text"
             name="Artists"
             href="artists"
             active={activeItem === "Artists"}
           />
           <Menu.Item
+            id="text"
             name="Albums"
             href="albums"
             active={activeItem === "Albums"}
           />
           <Menu.Item
+            id="text"
             name="Genres"
             href="genres"
             active={activeItem === "Genres"}
@@ -50,6 +56,7 @@ export default class DNavbar extends Component {
               <Input id="search" icon="search" placeholder="Search..." />
             </Menu.Item>
             <Menu.Item
+              id="text"
               name="Sign in"
               href="signin"
               active={activeItem === "Sign in"}
@@ -57,6 +64,7 @@ export default class DNavbar extends Component {
             />
 
             <Menu.Item
+              id="text"
               name="Sign up"
               href="signup"
               active={activeItem === "Sign up"}
@@ -67,7 +75,7 @@ export default class DNavbar extends Component {
 
         {/* mobile */}
         <div id={this.state.menuOpen ? "hidden" : "close"}>
-          <Menu secondary id={"m" + this.state.menuId}>
+          <Menu secondary id={"m" + this.props.menuId}>
             <Menu.Item>
               <Header
                 className="logo"

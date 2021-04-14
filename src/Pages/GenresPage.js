@@ -3,7 +3,7 @@ import Navbar from "../Components/Navbar/navbar";
 function GenresPage() {
   return (
     <div>
-      <Navbar activeItem="Genres" />
+      <Navbar activeItem="Genres" menuId="menu2" />
     </div>
   );
 }

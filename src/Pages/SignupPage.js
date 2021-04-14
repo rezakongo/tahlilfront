@@ -2,7 +2,7 @@ import Navbar from "../Components/Navbar/navbar";
 function SignupPage() {
   return (
     <div>
-      <Navbar activeItem="Sign up" />
+      <Navbar activeItem="Sign up" menuId="menu2" />
     </div>
   );
 }

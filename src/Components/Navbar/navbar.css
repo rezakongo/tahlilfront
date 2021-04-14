@@ -3,7 +3,9 @@
   height: 100%;
   position: absolute;
 }
-
+#text {
+  color: aliceblue;
+}
 #dmenu1 {
   padding-left: 15px;
   padding-right: 15px;
@@ -115,9 +117,6 @@
   color: #f1f1f1;
 }
 
-#test {
-  height: 1000px;
-}
 #mtext {
   width: 100%;
   text-align: center !important;
