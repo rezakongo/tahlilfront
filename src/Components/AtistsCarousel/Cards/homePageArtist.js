@@ -23,13 +23,13 @@ const family = "'Segoe UI', sans-serif";
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   root: {
-    margin: "auto",
+    width: "100%",
+    height: "100%",
+
     borderRadius: spacing(2), // 16px
     transition: "0.3s",
     boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
     position: "relative",
-    maxWidth: 500,
-    marginLeft: "auto",
     overflow: "initial",
     background: "#ffffff",
     display: "flex",

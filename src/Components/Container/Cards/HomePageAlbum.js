@@ -22,7 +22,8 @@ const family = "'Segoe UI', sans-serif";
 
 const useStyles = makeStyles(() => ({
   root: {
-    maxWidth: "12rem",
+    width: "100%",
+    height: "100%",
     borderRadius: 12,
     padding: 6,
   },
