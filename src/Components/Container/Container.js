@@ -5,37 +5,30 @@ import HomePageAlbum from "../Cards/HomePageAlbum"
 function Container(){
     return(
         <div className="containerBody">
-            <div className="container-fluid !direction !spacing contain">
+            <div className="container contain">
                 <div className="row align-items-center ContainerRows">
-                    <div className="col-lg-2 col-md-4 col-sm-12 containcells">
+                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-lg-2 col-md-4 col-sm-12 containcells">
+                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-lg-2 col-md-4 col-sm-12 containcells">
+                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                </div>
-                <div className="row align-items-center ContainerRows">
-                    <div className="col-lg-2 col-md-4 col-sm-12 containcells">
+                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-lg-2 col-md-4 col-sm-12 containcells">
+                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-lg-2 col-md-4 col-sm-12 containcells">
+                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                </div>
-                <div className="row align-items-center ContainerRows">
-                    <div className="col-lg-2 col-md-4 col-sm-12 containcells">
+                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-lg-2 col-md-4 col-sm-12 containcells">
-                        <HomePageAlbum/>
-                    </div>
-                    <div className="col-lg-2 col-md-4 col-sm-12 containcells">
+                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
                 </div>

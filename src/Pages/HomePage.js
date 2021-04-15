@@ -24,6 +24,7 @@ class HomePage extends Component {
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
             <LandingTop />
           </div>
+          <div className="hpFContainer">
           <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
             <ArtistsCarousel />
           </div>
@@ -33,8 +34,8 @@ class HomePage extends Component {
             </div>
           </div>
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
-            \
             <Container />
+          </div>
           </div>
         </div>
       </div>

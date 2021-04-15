@@ -1,6 +1,6 @@
 body {
   justify-content: center;
-  background-color: rgb(0, 0, 24);
+  background-color: black;
 }
 #container-navabr {
   width: 100%;
@@ -18,8 +18,7 @@ body {
   left: 0;
   height: 0;
 }
-#landingtop {
-}
+
 .containerSetting {
   display: flex;
   width: 100% !important;
@@ -38,4 +37,10 @@ body {
 .rowSetting {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.hpFContainer{
+  background-color: rgba(0, 0, 53, 0.425);
+  margin: 1% 10% 1% 10%;
+  border-radius: 6px;
 }
