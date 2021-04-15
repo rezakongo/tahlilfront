@@ -1,5 +1,4 @@
 .CarouselContainerTemplate{
-    background-color: rgba(0, 0, 0, 0.397);
     display: flex;
     width: 100%;
     height: fit-content; justify-content: center;
@@ -10,5 +9,10 @@
     width: 90%;
     height: 100%;
     color: white;
+}
+
+.Cells{
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 

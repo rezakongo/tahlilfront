@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import "./ArtistsCarousel.css"
-import HomePageArtist from "./Cards/homePageArtist"
+import HomePageArtist from "../Cards/homePageArtist"
 
 export default class ArtistsCarousel extends Component {
   render() {
@@ -20,7 +20,7 @@ export default class ArtistsCarousel extends Component {
             }
         },
         {
-            breakpoint: 1000,
+            breakpoint: 1300,
             settings: {
                 slidesToShow: 1,
                 infinite: true,
@@ -32,24 +32,32 @@ export default class ArtistsCarousel extends Component {
     return (
         <div className="CarouselContainerTemplate">
             <div className="CarouselTemplate">
-                <h2> Artists</h2>
                 <Slider {...settings} >
-                <div>
+                <div className="Cells">
                     <HomePageArtist/>
                 </div>
-                <div>
+                <div className="Cells">
                     <HomePageArtist/>
                 </div>
-                <div>
+                <div className="Cells">
                     <HomePageArtist/>
                 </div>
-                <div>
+                <div className="Cells">
                     <HomePageArtist/>
                 </div>
-                <div>
+                <div className="Cells">
                     <HomePageArtist/>
                 </div>
-                <div>
+                <div className="Cells">
+                    <HomePageArtist/>
+                </div>
+                <div className="Cells">
+                    <HomePageArtist/>
+                </div>
+                <div className="Cells">
+                    <HomePageArtist/>
+                </div>
+                <div className="Cells">
                     <HomePageArtist/>
                 </div>
                 </Slider>
