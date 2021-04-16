@@ -1,13 +1,13 @@
 body {
   justify-content: center;
   background-color: black;
-  overflow-x: hidden !important;
 }
 #container-navabr {
   width: 100%;
   height: 100%;
   position: absolute;
   overflow-y: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -45,4 +45,50 @@ body {
   background-color: rgba(0, 0, 53, 0.4);
   margin: 1% 10% 1% 10%;
   border-radius: 6px;
+}
+
+.divider {
+  margin-top: 5% !important;
+  margin-bottom: 3% !important;
+  display: flex;
+  color: aliceblue;
+}
+.divider:before,
+.divider:after {
+  content: "";
+  flex: 1;
+}
+.line {
+  align-items: center;
+  margin: 1em -1em;
+}
+.line:before,
+.line:after {
+  height: 1px;
+  margin: 0 1em;
+}
+.one-line:before,
+.one-line:after {
+  background: black;
+}
+.razor:before,
+.razor:after {
+  box-shadow: 0 0.5px 0 black;
+}
+.double-razor:before,
+.double-razor:after {
+  height: 3px;
+  box-shadow: 0 -0.5px 0 black, 0 0.5px 0 black;
+  border-width: 0;
+}
+.glow:before,
+.glow:after {
+  height: 6px;
+  border-radius: 5px;
+}
+.glow:before {
+  background: linear-gradient(to right, rgb(5, 106, 116), rgb(0, 11, 61));
+}
+.glow:after {
+  background: linear-gradient(to left, rgb(5, 106, 116), rgb(0, 11, 61));
 }

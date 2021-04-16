@@ -8,10 +8,10 @@
 }
 .trackRow {
   width: 100%;
-  border-bottom: 0.15rem solid  rgb(65, 65, 73) !important;
+  border-bottom: 0.15rem solid rgb(65, 65, 73) !important;
   transition: background-color 2s;
   background-color: transparent;
-  padding: 0px  !important;
+  padding: 0px !important;
   margin: 0px;
   height: 100% !important;
   margin-top: 0px !important;
@@ -22,7 +22,7 @@
   background-color: gray !important;
 }
 
-.text{
+.text {
   display: flex !important;
   align-items: center !important;
 }
@@ -32,14 +32,31 @@
   margin-top: 0px !important;
   margin-bottom: 0px !important;
   height: 100% !important;
-
 }
 
 #trackRow :hover {
   background-color: gray !important;
 }
 
-
-.sdfw{
+.sdfw {
   background-color: rgb(65, 65, 73);
+}
+
+@media (max-width: 600px) {
+  #desktop {
+    display: none !important;
+  }
+  #mobile {
+    display: hidden !important;
+  }
+}
+
+@media (min-width: 601px) {
+  #mobile {
+    display: none !important;
+  }
+}
+
+.txt {
+  text-overflow: ellipsis;
 }

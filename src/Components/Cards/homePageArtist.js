@@ -14,7 +14,7 @@ import {
 import { useSquareCardMediaStyles } from "@mui-treasury/styles/cardMedia/square";
 import { useBlogTextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/blog";
 import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over";
-import Flag from 'react-world-flags'
+import Flag from "react-world-flags";
 
 const titleFontSize = "1.2em";
 const subtitleFontSize = "1.1rem";
@@ -41,7 +41,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       flexDirection: "row",
       paddingTop: spacing(2),
     },
-    backgroundColor:"rgb(65, 65, 73)",
+    backgroundColor: "rgb(65, 65, 73)",
   },
   media: {
     paddingBottom: "48%",
@@ -98,7 +98,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
   flag: {
     margin: spacing(1),
-},
+  },
 }));
 
 function HomePageArtist(props) {
@@ -119,7 +119,12 @@ function HomePageArtist(props) {
         <Info className={styles.content}>
           <InfoTitle className={styles.title}>Pink Floyd</InfoTitle>
           <InfoSubtitle className={styles.subtitle}>
-          <Flag className={styles.flag} code="GB" height="20rem"/>
+            <Flag
+              className={styles.flag}
+              code="GB"
+              height="20rem"
+              style={{ marginLeft: "auto", marginRight: "auto" }}
+            />
           </InfoSubtitle>
           <InfoCaption className={styles.captionyear}>1965-2014</InfoCaption>
           <InfoCaption className={styles.captiongenre}>

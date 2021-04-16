@@ -28,27 +28,29 @@ export default class DNavbar extends Component {
             />
           </Menu.Item>
           <Menu.Item
-            id="text"
             name="Home"
             href="home"
+            id={
+              activeItem === "" || activeItem === "Home" ? "active_tap" : "tap"
+            }
             active={activeItem === "Home"}
           />
           <Menu.Item
-            id="text"
             name="Artists"
             href="artists"
+            id={activeItem === "Artists" ? "active_tap" : "tap"}
             active={activeItem === "Artists"}
           />
           <Menu.Item
-            id="text"
             name="Albums"
             href="albums"
+            id={activeItem === "Albums" ? "active_tap" : "tap"}
             active={activeItem === "Albums"}
           />
           <Menu.Item
-            id="text"
             name="Genres"
             href="genres"
+            id={activeItem === "Genres" ? "active_tap" : "tap"}
             active={activeItem === "Genres"}
           />
           <Menu.Menu position="right">
@@ -56,17 +58,17 @@ export default class DNavbar extends Component {
               <Input id="search" icon="search" placeholder="Search..." />
             </Menu.Item>
             <Menu.Item
-              id="text"
               name="Sign in"
               href="signin"
+              id={activeItem === "Sign in" ? "active_tap" : "tap"}
               active={activeItem === "Sign in"}
               onClick={this.handleItemClick}
             />
 
             <Menu.Item
-              id="text"
               name="Sign up"
               href="signup"
+              id={activeItem === "Sign up" ? "active_tap" : "tap"}
               active={activeItem === "Sign up"}
               onClick={this.handleItemClick}
             />
@@ -88,7 +90,12 @@ export default class DNavbar extends Component {
             </Menu.Item>
             <Menu.Menu position="right">
               <Menu.Item>
-                <Icon name="bars" size="large" onClick={this.onClickMenu} />
+                <Icon
+                  name="bars"
+                  size="large"
+                  onClick={this.onClickMenu}
+                  color="blue"
+                />
               </Menu.Item>
             </Menu.Menu>
           </Menu>
@@ -98,7 +105,12 @@ export default class DNavbar extends Component {
           <Menu secondary id="close-icon">
             <Menu.Menu position="right">
               <Menu.Item>
-                <Icon name="close" size="large" onClick={this.onClickMenu} />
+                <Icon
+                  name="close"
+                  size="large"
+                  onClick={this.onClickMenu}
+                  color="blue"
+                />
               </Menu.Item>
             </Menu.Menu>
           </Menu>

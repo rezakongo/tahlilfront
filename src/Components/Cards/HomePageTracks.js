@@ -13,22 +13,36 @@ const TableExampleUnstackable = () => (
       {TracksData.map((track) => {
         return (
           <div>
-            <div className="row trackRow"  href="test">
-              <div class="col-sm">
+            <div className="row trackRow" id="desktop" href="test">
+              <div class="col-sm col-xs">
                 <div className="row" id="trackRow2">
                   <div class="col-sm-1 text">{track.num}</div>
-                  <div class="col-sm-2">
+                  <div class="col-sm-2 ">
                     <Image src={Cover} rounded size="mini" />
                   </div>
-                  <div class="col-sm text">{track.trackName}</div>
+                  <div class="col-sm   text">{track.trackName}</div>
                   <div class="col-sm text">{track.singerName}</div>
-                  <div class="col-sm text">
+                  <div class="col-sm  text">
                     <Rating
                       value={track.rateValue}
                       precision={0.1}
                       size={"small"}
                       readOnly={true}
                     />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row trackRow" id="mobile" href="test">
+              <div class="col-12">
+                <div className="row" id="trackRow2">
+                  <div class="col-2 txt">{track.num}</div>
+                  <div class="col-3 ">
+                    <Image src={Cover} rounded size="mini" />
+                  </div>
+                  <div class="col-7 col-xs">
+                    <div class="col-sm txt">{track.trackName}</div>
+                    <div class="col-sm txt">{track.singerName}</div>
                   </div>
                 </div>
               </div>

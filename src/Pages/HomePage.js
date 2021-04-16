@@ -20,21 +20,30 @@ class HomePage extends Component {
   render() {
     return (
       <div id="container-navabr" onScroll={this.onScrollNavbar}>
-        <Navbar id="navbar" menuId={this.state.menuId} />
+        <Navbar id="navbar" menuId={this.state.menuId} activeItem="Home" />
         <div id="landingtop" className="container-fluid !direction !spacing ">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
             <LandingTop />
           </div>
           <div className="hpFContainer">
-            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
+            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}  tracksContain rowSetting">
+              <h2 class="divider line glow" contenteditable>
+                {"Top Artists"}
+              </h2>
               <ArtistsCarousel />
             </div>
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
+              <h2 class="divider line glow" contenteditable>
+                {"Top Tracks"}
+              </h2>
               <div className="tracks">
                 <HomePageTracks />
               </div>
             </div>
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
+              <h2 class="divider line glow" contenteditable>
+                {"Top Albums"}
+              </h2>
               <Container />
             </div>
           </div>

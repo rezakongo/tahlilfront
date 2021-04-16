@@ -3,8 +3,12 @@
   height: 100%;
   position: absolute;
 }
-#text {
+#tap {
   color: aliceblue;
+}
+#active_tap {
+  color: aliceblue;
+  background-color: rgb(65,65,73,0.5);
 }
 #dmenu1 {
   padding-left: 15px;
@@ -62,9 +66,6 @@
   background-color: #000;
 }
 
-#test {
-  height: 100px;
-}
 .desktop {
   display: block;
 }
@@ -99,7 +100,7 @@
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: rgba(17, 17, 17, 0.123); /* Black */
+  background-color: rgba(40, 36, 54); /* Black */
   overflow: hidden;
   justify-content: center;
 }
@@ -108,7 +109,7 @@
   padding: 18px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: aliceblue;
   display: block;
 }
 
@@ -145,5 +146,5 @@
 }
 
 #v1 {
-  color: teal !important;
+  color: rgb(33, 133, 208) !important;
 }
