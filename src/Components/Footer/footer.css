@@ -1,7 +1,7 @@
 .site-footer
 {
   display: flex;
-  background-color:#26272b;
+  background-color:rgb(65, 65, 73);
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;

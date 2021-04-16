@@ -41,6 +41,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       flexDirection: "row",
       paddingTop: spacing(2),
     },
+    backgroundColor:"rgb(65, 65, 73)",
   },
   media: {
     paddingBottom: "48%",
