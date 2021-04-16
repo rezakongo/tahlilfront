@@ -13,7 +13,7 @@ const TableExampleUnstackable = () => (
       {TracksData.map((track) => {
         return (
           <div>
-            <div className="row trackRow" id="trackRow" href="test">
+            <div className="row trackRow"  href="test">
               <div class="col-sm">
                 <div className="row" id="trackRow2">
                   <div class="col-sm-1 text">{track.num}</div>
@@ -28,7 +28,6 @@ const TableExampleUnstackable = () => (
                       precision={0.1}
                       size={"small"}
                       readOnly={true}
-                      style={{ verticalAlign: "middle" }}
                     />
                   </div>
                 </div>

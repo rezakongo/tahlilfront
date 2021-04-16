@@ -7,28 +7,28 @@ function Container(){
         <div className="containerBody">
             <div className="container contain">
                 <div className="row align-items-center ContainerRows">
-                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
                         <HomePageAlbum/>
                     </div>
                 </div>

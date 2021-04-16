@@ -4,14 +4,18 @@
 .table {
   background-color: transparent !important;
   color: white !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .trackRow {
   width: 100%;
-  border-bottom: 0.15rem solid rgb(233, 233, 233);
+  border-bottom: 0.15rem solid rgb(233, 233, 233) !important;
   transition: background-color 2s;
   background-color: transparent;
-  padding: 0px;
+  padding: 0px  !important;
   margin: 0px;
+  height: 100% !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .trackRow :hover {
@@ -19,8 +23,17 @@
   border-radius: 5px;
 }
 
+.text{
+  display: flex !important;
+  align-items: center !important;
+}
+
 #trackRow2 {
   padding: 20px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  height: 100% !important;
+
 }
 
 #trackRow :hover {

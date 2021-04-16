@@ -12,7 +12,7 @@ export default class ArtistsCarousel extends Component {
       responsive: [
         
         {
-            breakpoint: 1600,
+            breakpoint: 1200,
             settings: {
                 slidesToShow: 2,
                 infinite: true,
@@ -20,7 +20,7 @@ export default class ArtistsCarousel extends Component {
             }
         },
         {
-            breakpoint: 1300,
+            breakpoint: 1000,
             settings: {
                 slidesToShow: 1,
                 infinite: true,
