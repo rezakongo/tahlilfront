@@ -5,6 +5,7 @@ import ArtistsCarousel from "../Components/AtistsCarousel/ArtistsCarousel";
 import HomePageTracks from "../Components/Cards/HomePageTracks";
 import Container from "../Components/Container/Container";
 import "./HomePage.css";
+import Footer from "../Components/Footer/footer";
 
 class HomePage extends Component {
   state = { menuId: "menu1" };
@@ -25,18 +26,19 @@ class HomePage extends Component {
             <LandingTop />
           </div>
           <div className="hpFContainer">
-          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
-            <ArtistsCarousel />
-          </div>
-          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
-            <div className="tracks">
-              <HomePageTracks />
+            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
+              <ArtistsCarousel />
+            </div>
+            <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
+              <div className="tracks">
+                <HomePageTracks />
+              </div>
+            </div>
+            <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
+              <Container />
             </div>
           </div>
-          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
-            <Container />
-          </div>
-          </div>
+          <Footer />
         </div>
       </div>
     );
