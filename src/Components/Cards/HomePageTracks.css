@@ -1,3 +1,28 @@
 .table td {
-    vertical-align: middle !important;
+  vertical-align: middle !important;
+}
+.table {
+  background-color: transparent !important;
+  color: white !important;
+}
+.trackRow {
+  width: 100%;
+  border-bottom: 0.15rem solid rgb(233, 233, 233);
+  transition: background-color 2s;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+}
+
+.trackRow :hover {
+  background-color: gray !important;
+  border-radius: 5px;
+}
+
+#trackRow2 {
+  padding: 20px;
+}
+
+#trackRow :hover {
+  background-color: gray !important;
 }

@@ -17,6 +17,7 @@ body {
   top: 0;
   left: 0;
   height: 0;
+  z-index: 2;
 }
 
 .containerSetting {
@@ -39,7 +40,7 @@ body {
   padding-bottom: 10px;
 }
 
-.hpFContainer{
+.hpFContainer {
   background-color: rgba(0, 0, 53, 0.425);
   margin: 1% 10% 1% 10%;
   border-radius: 6px;
