@@ -22,8 +22,21 @@
   width: 100%;
 }
 
+#searchBarRadius{
+  border-radius: 20px !important;
+}
+
 .tit {
   display: flex;
   font-size: 56px;
   justify-content: center;
+}
+
+#iconColor{
+  background-color: rgb(40,36,50) !important;
+}
+
+#iconColor:hover{
+  background-color: rgb(1, 110, 129) !important;
+  transition: 0.3s all ease-in;
 }

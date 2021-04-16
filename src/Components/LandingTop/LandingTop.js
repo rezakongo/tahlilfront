@@ -8,9 +8,10 @@ function LandingTop() {
       <div className="cont">
         <h1 className="tit">HEX BEAT</h1>
         <Input
-          icon={<Icon name="search" inverted circular link />}
+          icon={<Icon name="search" id="iconColor" inverted circular link />}
           placeholder="Search..."
           className="searchBar"
+          id="searchBarRadius"
         />
       </div>
     </div>

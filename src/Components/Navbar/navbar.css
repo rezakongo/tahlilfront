@@ -24,7 +24,7 @@
   top: 0;
   left: 0;
   width: auto !important;
-  background-color: rgba(165, 21, 21, 0.219);
+  background-color: rgba(48, 43, 61, 0.829);
 }
 #mmenu1 {
   margin: 0 !important;
@@ -35,7 +35,7 @@
   top: 0;
   left: 0;
   width: 100% !important;
-  background-color: rgba(0, 0, 0, 0.219);
+  background-color: rgba(0, 0, 0, 0.63);
 }
 
 #mmenu2 {
@@ -47,7 +47,7 @@
   top: 0;
   left: 0;
   width: 100% !important;
-  background-color: rgba(165, 21, 21, 0.219);
+  background-color: rgba(48, 43, 61, 0.829);
 }
 #dmenu1 #search-container {
   display: none !important;
