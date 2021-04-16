@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Facebook, GitHub, LinkedIn, Twitter } from "@material-ui/icons";
 import "./footer.css";
 
@@ -14,7 +14,7 @@ function Footer() {
             </p>
           </div>
 
-          <div className="col-md-4 col-sm-6 col-xs-12">
+          <div className="col-md-4 col-sm-6 col-xs-12 iconContainer">
             <ul className="social-icons">
               <li>
                 <a className="facebook" href="#">
