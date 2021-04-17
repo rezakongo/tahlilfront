@@ -28,13 +28,13 @@ class HomePage extends Component {
           <div className="hpFContainer">
             <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}  tracksContain rowSetting">
               <h2 class="divider line glow" contenteditable>
-                {"Top Artists"}
+                {"TOP ARTISTS"}
               </h2>
               <ArtistsCarousel />
             </div>
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
               <h2 class="divider line glow" contenteditable>
-                {"Top Tracks"}
+                {"TOP TRACKS"}
               </h2>
               <div className="tracks">
                 <HomePageTracks />
@@ -42,7 +42,7 @@ class HomePage extends Component {
             </div>
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
               <h2 class="divider line glow" contenteditable>
-                {"Top Albums"}
+                {"TOP ALBUMS"}
               </h2>
               <Container />
             </div>

@@ -19,7 +19,6 @@ import Flag from "react-world-flags";
 const titleFontSize = "1.2em";
 const subtitleFontSize = "1.1rem";
 const captionFontSize = "0.9rem";
-const family = "'Segoe UI', sans-serif";
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   root: {
@@ -42,6 +41,9 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       paddingTop: spacing(2),
     },
     backgroundColor: "rgb(65, 65, 73)",
+    "&:hover": {
+      backgroundColor: "rgb(91, 91, 102)"
+    },
   },
   media: {
     paddingBottom: "48%",
@@ -72,26 +74,21 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     textTransform: "initial",
   },
   title: {
-    fontFamily: family,
+    color: "white",
     fontSize: titleFontSize,
     lineHeight: 1.4,
   },
   subtitle: {
-    fontFamily: family,
     fontSize: subtitleFontSize,
     fontStyle: "italic",
     lineHeight: 1.2,
   },
   captiongenre: {
-    fontFamily:
-      "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
     color: "#7ba1d5",
     fontSize: captionFontSize,
     lineHeight: 1.2,
   },
   captionyear: {
-    fontFamily:
-      "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
     color: "#d57b7b",
     fontSize: captionFontSize,
     lineHeight: 1.2,
@@ -118,14 +115,12 @@ function HomePageArtist(props) {
       <CardContent>
         <Info className={styles.content}>
           <InfoTitle className={styles.title}>Pink Floyd</InfoTitle>
-          <InfoSubtitle className={styles.subtitle}>
             <Flag
               className={styles.flag}
               code="GB"
               height="20rem"
               style={{ marginLeft: "auto", marginRight: "auto" }}
             />
-          </InfoSubtitle>
           <InfoCaption className={styles.captionyear}>1965-2014</InfoCaption>
           <InfoCaption className={styles.captiongenre}>
             progressive rock, psychedelic rock, rock, art rock, progressive

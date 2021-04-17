@@ -18,41 +18,40 @@ import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over";
 const titleFontSize = "1em";
 const subtitleFontSize = "1rem";
 const captionFontSize = "0.8rem";
-const family = "'Segoe UI', sans-serif";
 
 const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
     height: "100%",
+    transition: "0.3s",
     borderRadius: 12,
     padding: 6,
-    backgroundColor:"rgb(65, 65, 73)",
+    backgroundColor: "rgb(65, 65, 73)",
+    "&:hover": {
+      backgroundColor: "rgb(91, 91, 102)"
+    },
   },
   media: {
     borderRadius: 6,
   },
   title: {
-    fontFamily: family,
+    color: "white",
     fontSize: titleFontSize,
     fontWeight: 600,
-    lineHeight: 1.4,
+    lineHeight: 1.4,  
   },
   subtitle: {
-    fontFamily: family,
+    color: "white",
     fontSize: subtitleFontSize,
     fontStyle: "italic",
     lineHeight: 1.2,
   },
   captiongenre: {
-    fontFamily:
-      "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
     color: "#7ba1d5",
     fontSize: captionFontSize,
     lineHeight: 1.2,
   },
   captionyear: {
-    fontFamily:
-      "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
     color: "#d57b7b",
     fontSize: captionFontSize,
     lineHeight: 1.2,

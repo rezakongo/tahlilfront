@@ -10,7 +10,7 @@ function Footer() {
           <div className="col-md-8 col-sm-6 col-xs-12">
             <p className="copyright-text">
               Copyright &copy; 2021 All Rights Reserved by
-              <a href="#">Hexbeat</a>.
+              <a href="#">&nbsp;Hexbeat</a>.
             </p>
           </div>
 
