@@ -3,8 +3,10 @@
     border-bottom: 2px gray solid;
     display: flex;
     width: 80%;
-    height: 10rem;
+    height: fit-content;
     color: black;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .CardBody:hover{
@@ -13,11 +15,6 @@
     cursor: pointer;
 }
 
-.Rows{
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
 
 .imageContainer{
     display: flex;

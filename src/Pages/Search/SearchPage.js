@@ -10,7 +10,7 @@ import TracksSearchCard from "./SearchCard/Tracks/TracksSearchCard"
 
 const panes = [
   { menuItem: 'Tracks', render: () => <Tab.Pane ><div className="itemContainer"><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/></div></Tab.Pane> },
-  { menuItem: 'Artists', render: () => <Tab.Pane ><ArtistsSearchCard/></Tab.Pane> },
+  { menuItem: 'Artists', render: () => <Tab.Pane ><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/></Tab.Pane> },
   { menuItem: 'Albums', render: () => <Tab.Pane ><AlbumsSearchCard /></Tab.Pane> },
 ]
 
