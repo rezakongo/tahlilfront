@@ -1,30 +1,23 @@
 import React from 'react'
-import Menu from "../homePage/Components/Navbar/Menu/Menu"
-import Item from "./Item/Item"
 import './SearchPage.css'
+import { Tab } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
+import AlbumsSearchCard from "./SearchCard/Albums/AlbumsSearchCard"
+import ArtistsSearchCard from "./SearchCard/Artists/ArtistsSearchCard"
+import TracksSearchCard from "./SearchCard/Tracks/TracksSearchCard"
+
+
+
+const panes = [
+  { menuItem: 'Tracks', render: () => <Tab.Pane ><div className="itemContainer"><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/></div></Tab.Pane> },
+  { menuItem: 'Artists', render: () => <Tab.Pane ><ArtistsSearchCard/></Tab.Pane> },
+  { menuItem: 'Albums', render: () => <Tab.Pane ><AlbumsSearchCard /></Tab.Pane> },
+]
 
 function SearchPage(){
   return(
-    <div>
-      <Menu></Menu>
-      <div class="searchResults">
-        <Item></Item>
-      </div>
-      <div className="Foot">
-        <div class="container-fluid !direction !spacing">
-          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-            <div class="col-md-4 col-sm-12">
-              Provided by HexClan Team
-            </div>
-            <div class="col-md-4 col-sm-12">
-              مطابق قوانین جمهوری اسلامی ایران 
-            </div>
-            <div class="col-md-4 col-sm-12">
-              پیوند ها 
-            </div>
-          </div>
-        </div>
-      </div>  
+    <div className="tabsStyle">
+      <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes}/>
     </div>
   );
 }

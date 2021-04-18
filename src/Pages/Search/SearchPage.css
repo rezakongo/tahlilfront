@@ -1,31 +1,9 @@
-.bdy {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 20px;
-  color: antiquewhite;
-  width: 96%;
-  justify-self: center;
-}
-
-
-.Foot {
-  min-height: 10rem;
-  background-color: black;
-  font-size: medium;
-  font-family: "Times New Roman", Times, serif;
-  color: aliceblue;
-  text-align: center;
-  margin-top: 30px;
-  bottom: 0%;
-}
-
-.searchResults {
+.itemContainer{
+  background-color: transparent;
   display: block;
-  min-height: 35rem;
-  margin-top: 4rem;
-  margin-bottom: 10rem;
 }
 
-.searchItem {
-  display: block;
+.tabsStyle{
+  margin-left: 8%;
   width: 100%;
 }

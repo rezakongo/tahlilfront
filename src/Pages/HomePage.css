@@ -1,0 +1,48 @@
+body {
+  justify-content: center;
+  background-color: black;
+  overflow-x:hidden !important;
+}
+#container-navabr {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#navbar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 0;
+  z-index: 2;
+}
+
+.containerSetting {
+  display: flex;
+  width: 100% !important;
+  justify-content: center;
+}
+
+.tracksContain {
+  display: flex;
+  justify-content: center;
+}
+
+.tracks {
+  width: 90%;
+}
+
+.rowSetting {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.hpFContainer {
+  background-color: rgba(0, 0, 53, 0.4);
+  margin: 1% 10% 1% 10%;
+  border-radius: 6px;
+}

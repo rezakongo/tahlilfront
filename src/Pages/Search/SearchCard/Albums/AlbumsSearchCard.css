@@ -1,0 +1,23 @@
+.CardBody{
+    border-bottom: 2px gray solid;
+    display: flex;
+    width: 80%;
+    height: 5rem;
+    color: black;
+}
+
+.CardBody:hover{
+    background-color: gray;
+    transition: 0.3s all ease-in;
+    cursor: pointer;
+}
+
+.Rows{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.textContainer{
+    color: white;
+}
