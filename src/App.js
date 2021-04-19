@@ -8,6 +8,8 @@ import SignUp from "./Pages/SignUp-In/signup";
 import Dashboard from "Pages/Dashboard/Dashboard";
 import Search from "./Pages/Search/SearchPage"
 import TrackSearch from "./Pages/TracksSearch/TrackSearch"
+import ArtistsSearch from "./Pages/ArtistsSearch/ArtistsSearch"
+import AlbumsSearch from "./Pages/AlbumsSearch/AlbumsSearch"
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/Search" component={Search} />
           <Route path="/tracksSearch" component={TrackSearch} />
+          <Route path="/albumsSearch" component={AlbumsSearch} />
+          <Route path="/artistsSearch" component={ArtistsSearch} />
         </Switch>
       </div>
     </Router>
