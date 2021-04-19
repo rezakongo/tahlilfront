@@ -7,6 +7,7 @@ import Login from "./Pages/SignUp-In/login";
 import SignUp from "./Pages/SignUp-In/signup";
 import Dashboard from "Pages/Dashboard/Dashboard";
 import Search from "./Pages/Search/SearchPage"
+import TrackSearch from "./Pages/TracksSearch/TrackSearch"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signup" component={SignUp} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/Search" component={Search} />
+          <Route path="/tracksSearch" component={TrackSearch} />
         </Switch>
       </div>
     </Router>

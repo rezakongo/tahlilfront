@@ -1,0 +1,11 @@
+.bdy{
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    border: 0ch solid transparent !important;
+}
+
+.itemContainer{
+    display: block !important;
+    width: 80% !important;
+}

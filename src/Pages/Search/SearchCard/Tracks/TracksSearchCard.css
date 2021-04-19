@@ -2,7 +2,7 @@
 .CardBody{
     border-bottom: 2px gray solid;
     display: flex;
-    width: 80%;
+    width: 100%;
     height: fit-content;
     color: black;
     padding-top: 0.5rem;
