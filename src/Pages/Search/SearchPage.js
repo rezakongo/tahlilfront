@@ -5,19 +5,22 @@ import 'semantic-ui-css/semantic.min.css'
 import AlbumsSearchCard from "./SearchCard/Albums/AlbumsSearchCard"
 import ArtistsSearchCard from "./SearchCard/Artists/ArtistsSearchCard"
 import TracksSearchCard from "./SearchCard/Tracks/TracksSearchCard"
+import ShowMore from "./ShowMore/ShowMore.js"
 
 
 
 const panes = [
-  { menuItem: 'Tracks', render: () => <Tab.Pane ><div className="itemContainer"><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/></div></Tab.Pane> },
-  { menuItem: 'Artists', render: () => <Tab.Pane ><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/></Tab.Pane> },
-  { menuItem: 'Albums', render: () => <Tab.Pane ><AlbumsSearchCard /></Tab.Pane> },
+  { menuItem: 'Tracks', render: () => <Tab.Pane className="bdy"><div className="itemContainer"><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><ShowMore/></div></Tab.Pane> },
+  { menuItem: 'Artists', render: () => <Tab.Pane className="bdy"><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ShowMore/></Tab.Pane> },
+  { menuItem: 'Albums', render: () => <Tab.Pane className="bdy"><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><ShowMore/></Tab.Pane> },
 ]
 
 function SearchPage(){
   return(
+    <div className="tableContainer">
     <div className="tabsStyle">
-      <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes}/>
+      <Tab  className="bdy" menu={{ fluid: true, vertical: true, tabular: true }} panes={panes}/>
+    </div>
     </div>
   );
 }

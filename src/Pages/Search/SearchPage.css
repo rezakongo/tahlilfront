@@ -1,9 +1,27 @@
+body{
+  background-color: transparent !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.bdy{
+  background-color: transparent !important;
+  border: 0cm transparent solid !important;
+  border-bottom: 1px white solid !important;
+}
+
 .itemContainer{
   background-color: transparent;
   display: block;
 }
 
 .tabsStyle{
-  margin-left: 8%;
+  justify-self: center;
+  width: 80%;
+}
+
+.tableContainer{
   width: 100%;
+  display: flex;
+  justify-content: center;
 }

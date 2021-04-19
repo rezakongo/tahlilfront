@@ -1,0 +1,7 @@
+.buttonStyle{
+    width: 80% !important;
+}
+
+.buttonStyle:hover{
+    background-color: gray !important;
+}
