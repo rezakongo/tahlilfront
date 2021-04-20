@@ -10,6 +10,26 @@ function TracksSearch(){
                 <TracksSearchCard/>
                 <TracksSearchCard/>
                 <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
+                <TracksSearchCard/>
             </div>
         </div>
     )

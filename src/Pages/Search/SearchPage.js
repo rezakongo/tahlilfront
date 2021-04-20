@@ -10,9 +10,9 @@ import ShowMore from "./ShowMore/ShowMore.js"
 
 
 const panes = [
-  { menuItem: 'Tracks', render: () => <Tab.Pane className="bdy"><div className="itemContainer"><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><ShowMore/></div></Tab.Pane> },
-  { menuItem: 'Artists', render: () => <Tab.Pane className="bdy"><div className="itemContainer"><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ShowMore/></div></Tab.Pane> },
-  { menuItem: 'Albums', render: () => <Tab.Pane className="bdy"><div className="itemContainer"><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><ShowMore/></div></Tab.Pane> },
+  { menuItem: 'Tracks', render: () => <Tab.Pane className="bdy"><div className="itemContainer"><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/><TracksSearchCard/></div></Tab.Pane> },
+  { menuItem: 'Artists', render: () => <Tab.Pane className="bdy"><div className="itemContainer"><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/><ArtistsSearchCard/></div></Tab.Pane> },
+  { menuItem: 'Albums', render: () => <Tab.Pane className="bdy"><div className="itemContainer"><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /><AlbumsSearchCard /></div></Tab.Pane> },
 ]
 
 function SearchPage(){

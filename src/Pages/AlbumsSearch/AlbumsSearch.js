@@ -10,6 +10,21 @@ function AlbumsSearch(){
                 <AlbumsSearchCard/>
                 <AlbumsSearchCard/>
                 <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
+                <AlbumsSearchCard/>
             </div>
         </div>
     )

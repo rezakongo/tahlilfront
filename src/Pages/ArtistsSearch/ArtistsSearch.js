@@ -11,6 +11,24 @@ function ArtistsSearch(){
                 <ArtistsSearchCard/>
                 <ArtistsSearchCard/>
                 <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
+                <ArtistsSearchCard/>
             </div>
         </div>
     )
