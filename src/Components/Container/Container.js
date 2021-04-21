@@ -32,33 +32,33 @@ export default class Container extends Component {
       };
       return (
         <div className="total">
-        <div className="containerBody d-none d-sm-block">
+        <div className="containerBody d-none d-md-block">
             <div className="container contain">
                 <div className="row align-items-center ContainerRows">
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
                         <HomePageAlbum/>
                     </div>
                     <div className="col-xl-2 col-lg-0 col-md-0 d-none d-xl-block d-xxl-none">
                     </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
                         <HomePageAlbum/>
                     </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 containcells">
+                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
                         <HomePageAlbum/>
                     </div>
                     <div className="col-xl-2 col-lg-0 col-md-0 d-none d-xl-block d-xxl-none">
@@ -66,7 +66,7 @@ export default class Container extends Component {
                 </div>
             </div>
         </div>
-        <div className="containerBodyMobile  d-block d-sm-none">
+        <div className="containerBodyMobile  d-block d-md-none">
         <div className="CarouselContainerTemplate">
               <div className="CarouselTemplate">
                   <Slider {...settings} >
