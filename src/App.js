@@ -1,4 +1,5 @@
 import "./App.css";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import ArtistsPage from "./Pages/ArtistsPage";
@@ -6,6 +7,7 @@ import AlbumsPage from "./Pages/AlbumsPage";
 import GenresPage from "./Pages/GenresPage";
 import SigninPage from "./Pages/SigninPage";
 import SignupPage from "./Pages/SignupPage";
+import SearchPage from "./Pages/Search/SearchPage"
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
@@ -27,6 +29,7 @@ function App() {
             <Route exact path="/genres" component={GenresPage} />
             <Route path="/signin" component={SigninPage} />
             <Route path="/signup" component={SignupPage} />
+            <Route path="/search" component={SearchPage} />
           </Switch>
         </div>
       </Router>
