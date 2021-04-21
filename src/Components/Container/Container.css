@@ -1,0 +1,41 @@
+.containerBody{
+    display: flex;
+    border-radius: 6px;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.containcells{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    color: white;
+    font-size: 26px;
+    align-content: center;
+    justify-content: center;
+    justify-self: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.CardContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20rem;  
+    margin-top: 1rem;
+    margin-bottom: 1rem;  
+}
+
+.ContainerRows{
+    width: 100%;
+}
+

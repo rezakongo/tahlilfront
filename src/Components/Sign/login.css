@@ -1,0 +1,122 @@
+.inputX {
+  width: 100%;
+  background-color: rgba(48, 43, 61, 0.2);
+  border-radius: 20px;
+}
+
+#error {
+  margin: 0px !important;
+  height: auto;
+  width: 100%;
+  align-items: center;
+}
+
+#error p {
+  width: 100%;
+  margin: 0px;
+  padding: 3px;
+  font-size: 13px;
+  width: 100%;
+  color: rgb(244, 67, 54);
+  font-weight: bold;
+  text-align: left;
+}
+
+#hidden {
+  display: none;
+}
+.login-header {
+  color: aliceblue;
+  font-size: 25px;
+  margin-bottom: 0px !important;
+}
+.form {
+  padding: 30px 50px 40px 50px;
+}
+.custom-control-label {
+  font-weight: 400;
+  color: aliceblue;
+  text-align: left;
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  color: aliceblue;
+  margin: 0;
+}
+
+.signup-text,
+.signup-text a {
+  color: aliceblue;
+  padding-top: 10px;
+  text-align: left;
+}
+
+a:hover {
+  color: #7ba1d5;
+}
+
+.body-l {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 450px) {
+  .outer {
+    width: 80%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 451px) {
+  .outer {
+    width: 350px;
+    height: 100%;
+    padding-top: 80px;
+  }
+}
+
+.inner {
+  min-height: 200px;
+  background: rgb(65, 65, 73);
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.outer .form-control:focus {
+  border-color: #7ba1d5 !important;
+  box-shadow: none;
+  text-align: left;
+}
+
+.outer h3 {
+  line-height: 1;
+  padding-bottom: 15px;
+}
+
+@media only screen and (max-height: 700px) {
+  .input {
+    margin: 0px !important;
+    height: auto !important;
+  }
+}
+
+.submit-btn {
+  background-color: rgba(48, 43, 61, 1);
+  color: aliceblue;
+  font-weight: bold;
+  border-radius: 20px;
+  width: 100%;
+}
+
+button :hover {
+  background-color: #7ba1d5 !important;
+}

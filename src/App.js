@@ -1,24 +1,36 @@
-import React from "react";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import HomePage from "./Pages/homePage/HomePage";
-import Login from "./Pages/SignUp-In/login";
-import SignUp from "./Pages/SignUp-In/signup";
-import Dashboard from "Pages/Dashboard/Dashboard";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import ArtistsPage from "./Pages/ArtistsPage";
+import AlbumsPage from "./Pages/AlbumsPage";
+import GenresPage from "./Pages/GenresPage";
+import SigninPage from "./Pages/SigninPage";
+import SignupPage from "./Pages/SignupPage";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: ["'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"].join(","),
+  },
+});
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/dashboard" component={Dashboard} />
-        </Switch>
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/artists" component={ArtistsPage} />
+            <Route exact path="/albums" component={AlbumsPage} />
+            <Route exact path="/genres" component={GenresPage} />
+            <Route path="/signin" component={SigninPage} />
+            <Route path="/signup" component={SignupPage} />
+          </Switch>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -1,0 +1,42 @@
+.LandingBody {
+  display: flex;
+  background-image: url("./Wave.gif");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+  width: 100% !important;
+  height: 70vh !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont {
+  display: block;
+  width: 50rem;
+  height: 30%;
+  color: white;
+}
+.searchBar {
+  height: 2.6rem;
+  width: 100%;
+}
+
+#searchBarRadius{
+  border-radius: 20px !important;
+}
+
+.tit {
+  display: flex;
+  font-size: 56px;
+  justify-content: center;
+}
+
+#iconColor{
+  background-color: rgb(40,36,50) !important;
+}
+
+#iconColor:hover{
+  background-color: rgb(1, 110, 129) !important;
+  transition: 0.3s all ease-in;
+}
