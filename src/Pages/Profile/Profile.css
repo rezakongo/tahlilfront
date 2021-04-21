@@ -1,0 +1,75 @@
+.Contain{
+    margin-top: 4%;
+    width: 80%;
+    background-color: rgba(0, 0, 53, 0.4);
+}
+.rowOne{
+    height: 20rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+}
+.colone{
+    display: flex;
+    background-color: transparent;
+    min-height: 20rem;
+    justify-content: center;
+}
+.coltwo{
+    background-color: transparent;
+    min-height: 50rem;
+    display: flex;
+    justify-content: center;
+}
+
+.topContain{
+    background-color: transparent;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width:96.5%;
+    display: flex;
+}
+
+.leftContain{
+    background-color: rgba(0, 0, 0, 0.575);
+    width: 95%;
+    height: 20rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+.rightContain{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.575);
+    width: 95%;
+    border-radius: 10px;
+}
+.imgContainer{
+    background-color: red;
+    height: 15rem;
+    width:15rem;
+}
+
+.topCol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataContainer{
+    color:white;
+    height: 85%;
+    width: 90%;
+    display: flex;
+    justify-content: left;
+}
+
+.scoreContainer{
+    background-color: yellow;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: left;
+    margin-left: 0px;
+}
