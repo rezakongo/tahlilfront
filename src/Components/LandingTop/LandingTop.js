@@ -3,13 +3,7 @@ import { Icon, Input } from "semantic-ui-react";
 import "./LandingTop.css";
 
 
-class LandingTop extends Component() {
-  state={
-    searchField:'',
-  }
-  
-  render(){
-
+function LandingTop() {
   return (
     <div className="LandingBody">
       <div className="cont">
@@ -19,13 +13,10 @@ class LandingTop extends Component() {
           placeholder="Search..."
           className="searchBar"
           id="searchBarRadius"
-          query={this.state.searchField}
-        
         />
       </div>
     </div>
   );
-  }
 }
 
 export default LandingTop;
