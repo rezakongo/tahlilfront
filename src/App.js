@@ -7,6 +7,7 @@ import GenresPage from "./Pages/GenresPage";
 import SigninPage from "./Pages/SigninPage";
 import SignupPage from "./Pages/SignupPage";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import DashboardPage from "./Pages/DashboardPage";
 
 const theme = createMuiTheme({
   typography: {
@@ -27,6 +28,7 @@ function App() {
             <Route exact path="/genres" component={GenresPage} />
             <Route path="/signin" component={SigninPage} />
             <Route path="/signup" component={SignupPage} />
+            <Route path="/dashboard" component={DashboardPage} />
           </Switch>
         </div>
       </Router>

@@ -2,10 +2,41 @@ import { Divider, Grid } from "@material-ui/core";
 import React, { Component } from "react";
 import { Header, Icon, Input, Menu } from "semantic-ui-react";
 import logo from "./logo.png";
+import Dropdown from "./dropdown";
+
 import "./navbar.css";
+import axios from "axios";
 
 export default class DNavbar extends Component {
-  state = { menuOpen: false };
+  state = { menuOpen: false, isLogin: true, username: " " };
+
+  componentDidMount() {
+    const test = localStorage.getItem("autToken");
+    if (test === null) this.setState({ isLogin: false });
+
+    if (this.state.isLogin) {
+      axios
+        .post("http://127.0.0.1:8000/djoser/users/me/", {
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": { test },
+          },
+        })
+        .then((res) => {
+          console.log(res);
+        });
+    }
+    console.log(test);
+    console.log(this.state.isLogin);
+  }
+
+  Login = () => {
+    this.setState({ isLogin: true });
+  };
+
+  Logout = () => {
+    this.setState({ isLogin: false });
+  };
 
   onClickMenu = () => {
     this.setState({ menuOpen: !this.state.menuOpen });
@@ -57,10 +88,17 @@ export default class DNavbar extends Component {
             <Menu.Item id="search-container">
               <Input id="search" icon="search" placeholder="Search..." />
             </Menu.Item>
+
             <Menu.Item
               name="Sign in"
               href="signin"
-              id={activeItem === "Sign in" ? "active_tap" : "tap"}
+              id={
+                this.state.isLogin
+                  ? "hidden"
+                  : activeItem === "Sign in"
+                  ? "active_tap"
+                  : "tap"
+              }
               active={activeItem === "Sign in"}
               onClick={this.handleItemClick}
             />
@@ -68,10 +106,21 @@ export default class DNavbar extends Component {
             <Menu.Item
               name="Sign up"
               href="signup"
-              id={activeItem === "Sign up" ? "active_tap" : "tap"}
+              id={
+                this.state.isLogin
+                  ? "hidden"
+                  : activeItem === "Sign up"
+                  ? "active_tap"
+                  : "tap"
+              }
               active={activeItem === "Sign up"}
               onClick={this.handleItemClick}
             />
+            <Menu.Item>
+              <div id={!this.state.isLogin ? "hidden" : ""}>
+                <Dropdown Logout={this.Logout} />
+              </div>
+            </Menu.Item>
           </Menu.Menu>
         </Menu>
 
@@ -89,6 +138,11 @@ export default class DNavbar extends Component {
               />
             </Menu.Item>
             <Menu.Menu position="right">
+            <Menu.Item>
+              <div id={!this.state.isLogin ? "hidden" : ""}>
+                <Dropdown Logout={this.Logout} />
+              </div>
+            </Menu.Item>
               <Menu.Item>
                 <Icon
                   name="bars"

@@ -10,7 +10,6 @@ import Footer from "../Components/Footer/footer";
 class HomePage extends Component {
   state = { menuId: "menu1" };
   onScrollNavbar = () => {
-    console.log(this.state.menuId);
     if (document.getElementById("container-navabr").scrollTop > 330) {
       this.setState({ menuId: "menu2" });
     } else {

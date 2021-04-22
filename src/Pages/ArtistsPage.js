@@ -2,7 +2,7 @@ import Navbar from "./../Components/Navbar/navbar";
 function ArtistsPage() {
   return (
     <div>
-      <Navbar activeItem="Artists" menuId="menu2" />
+      <Navbar activeItem="Artists" menuId="menu1" />
     </div>
   );
 }
