@@ -63,6 +63,12 @@ export default class Login extends Component {
     validPassword: true,
   };
 
+  componentDidMount() {
+    const test = localStorage.getItem("autToken");
+    this.setState({ redirect: true });
+    if (test === null) this.setState({ redirect: false });
+  }
+
   render() {
     const handleClickShowPassword = () => {
       let showPassword = !this.state.showPassword;
@@ -134,7 +140,7 @@ export default class Login extends Component {
                   inputXProps={{
                     // <-- This is where the toggle button is added.
                     endAdornment: (
-                      <inputXAdornment position="end">
+                      <inputAdornment position="end">
                         <IconButton
                           aria-label="toggle password visibility"
                           onClick={handleClickShowPassword}
@@ -146,7 +152,7 @@ export default class Login extends Component {
                             <VisibilityOff />
                           )}
                         </IconButton>
-                      </inputXAdornment>
+                      </inputAdornment>
                     ),
                   }}
                 />

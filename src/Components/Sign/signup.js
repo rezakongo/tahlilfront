@@ -54,6 +54,7 @@ export default class SignUp extends Component {
     validPassword: true,
     validCPassword: true,
     redirect: false,
+    isLogin: false,
     username: "",
     email: "",
     password: "",
@@ -61,6 +62,12 @@ export default class SignUp extends Component {
     error: "",
     showError: false,
   };
+
+  componentDidMount() {
+    const test = localStorage.getItem("autToken");
+    this.setState({ isLogin: true });
+    if (test === null) this.setState({ isLogin: false });
+  }
 
   render() {
     const onChange = (e) => {
@@ -112,7 +119,7 @@ export default class SignUp extends Component {
         this.setState({ Password: "" });
         this.setState({ CPassword: "" });
       }
-      
+
       if (!err) {
         const signup = {
           username: this.state.username,
@@ -155,6 +162,7 @@ export default class SignUp extends Component {
 
     return (
       <div className="body-l">
+        {this.state.isLogin ? <Redirect push to="/home" /> : null}
         {this.state.redirect ? <Redirect push to="/signin" /> : null}
         <div className="bg-l">
           <div className="container">

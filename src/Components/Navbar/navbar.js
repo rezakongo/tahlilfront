@@ -15,27 +15,33 @@ export default class DNavbar extends Component {
     username: " ",
     redirect: false,
     query: "",
+    token: "",
   };
 
   componentDidMount() {
     const test = localStorage.getItem("autToken");
     if (test === null) this.setState({ isLogin: false });
-
-    if (this.state.isLogin) {
-      axios
-        .post("http://127.0.0.1:8000/djoser/users/me/", {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": { test },
-          },
-        })
-        .then((res) => {
-          console.log(res);
-        });
+    else {
+      this.setState({ token: "Token " + test }, () => this.APICallFunction());
     }
-    console.log(test);
-    console.log(this.state.isLogin);
   }
+  APICallFunction = () => {
+    axios
+      .get("http://127.0.0.1:8000/djoser/users/me/", {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("autToken")}`,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log(res.data.username);
+        this.setState({ username: res.data.username });
+      })
+      .catch((error) => {
+        console.log(this.state.token);
+        console.log(error.response);
+      });
+  };
 
   Login = () => {
     this.setState({ isLogin: true });
@@ -135,7 +141,7 @@ export default class DNavbar extends Component {
             />
             <Menu.Item>
               <div id={!this.state.isLogin ? "hidden" : ""}>
-                <Dropdown Logout={this.Logout} />
+                <Dropdown username={this.state.username} Logout={this.Logout} />
               </div>
             </Menu.Item>
           </Menu.Menu>
@@ -224,7 +230,13 @@ export default class DNavbar extends Component {
               <Divider orientation="vertical" flexItem />
 
               <a
-                id={activeItem === "Sign in" ? "v1" : "v2"}
+                id={
+                  this.state.isLogin
+                    ? "hidden"
+                    : activeItem === "Sign in"
+                    ? "v1"
+                    : "v2"
+                }
                 onClick={() => {
                   this.onClickMenu();
                 }}
@@ -233,7 +245,13 @@ export default class DNavbar extends Component {
                 Sing in
               </a>
               <a
-                id={activeItem === "Sign up" ? "v1" : "v2"}
+                id={
+                  this.state.isLogin
+                    ? "hidden"
+                    : activeItem === "Sign up"
+                    ? "v1"
+                    : "v2"
+                }
                 onClick={() => {
                   this.onClickMenu();
                 }}

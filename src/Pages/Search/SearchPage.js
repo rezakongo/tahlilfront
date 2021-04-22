@@ -20,7 +20,14 @@ class SearchPage extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({ searchField: this.props.location.state.property_id },);
+    this.setState(
+      { searchField: this.props.location.state.property_id },
+      this.APICallFunction
+    );
+    this.APICallFunction();
+  }
+
+  APICallFunction = () => {
     axios
       .get(
         `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?format=json&search=` +
@@ -48,8 +55,7 @@ class SearchPage extends React.Component {
         const Tracks = res.data.results;
         this.setState({ Tracks });
       });
-  }
-  
+  };
   render() {
     const handleChange = (e) => {
       const inputValueToUrl = encodeURI(e.target.value);
