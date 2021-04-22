@@ -17,6 +17,7 @@
     "@types/react-router-dom": "^5.1.7",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta3",
+    "font-awesome": "^4.7.0",
     "react": "^17.0.2",
     "react-background-animation": "^1.0.1",
     "react-bootstrap": "^1.5.2",

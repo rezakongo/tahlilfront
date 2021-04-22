@@ -1,0 +1,42 @@
+.SearchTop {
+  display: flex;
+  background-image: url("./orbs.gif");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+  width: 100% !important;
+  height: 10vh !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabsContainer{
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs{
+  display: flex;
+  margin-bottom: 2px;
+  color: white;
+  width: 100%;
+}
+
+.tabs:hover{
+  border-bottom: 2px solid blue;
+  margin-bottom: 0px;
+}
+
+.tabsBody{
+  background-color: transparent;
+  color: black;
+  min-height: 100%;
+}
+.tit {
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  color: white;
+}
