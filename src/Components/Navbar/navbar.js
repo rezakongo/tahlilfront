@@ -6,9 +6,16 @@ import Dropdown from "./dropdown";
 
 import "./navbar.css";
 import axios from "axios";
+import { Redirect } from "react-router";
 
 export default class DNavbar extends Component {
-  state = { menuOpen: false, isLogin: true, username: " " };
+  state = {
+    menuOpen: false,
+    isLogin: true,
+    username: " ",
+    redirect: false,
+    query: "",
+  };
 
   componentDidMount() {
     const test = localStorage.getItem("autToken");
@@ -86,7 +93,17 @@ export default class DNavbar extends Component {
           />
           <Menu.Menu position="right">
             <Menu.Item id="search-container">
-              <Input id="search" icon="search" placeholder="Search..." />
+              <Input
+                id="search"
+                icon="search"
+                placeholder="Search..."
+                onChange={(e) => {
+                  if (e.target.value.length > 2)
+                    this.setState({ query: e.target.value }, () => {
+                      this.setState({ redirect: true });
+                    });
+                }}
+              />
             </Menu.Item>
 
             <Menu.Item
@@ -123,7 +140,6 @@ export default class DNavbar extends Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-
         {/* mobile */}
         <div id={this.state.menuOpen ? "hidden" : "close"}>
           <Menu secondary id={"m" + this.props.menuId}>
@@ -138,11 +154,11 @@ export default class DNavbar extends Component {
               />
             </Menu.Item>
             <Menu.Menu position="right">
-            <Menu.Item>
-              <div id={!this.state.isLogin ? "hidden" : ""}>
-                <Dropdown Logout={this.Logout} />
-              </div>
-            </Menu.Item>
+              <Menu.Item>
+                <div id={!this.state.isLogin ? "hidden" : ""}>
+                  <Dropdown Logout={this.Logout} />
+                </div>
+              </Menu.Item>
               <Menu.Item>
                 <Icon
                   name="bars"
@@ -154,7 +170,6 @@ export default class DNavbar extends Component {
             </Menu.Menu>
           </Menu>
         </div>
-
         <div id={this.state.menuOpen ? "mmenu-container" : "hidden"}>
           <Menu secondary id="close-icon">
             <Menu.Menu position="right">
@@ -231,6 +246,15 @@ export default class DNavbar extends Component {
           </div>
           <Input id="search" icon="search" placeholder="Search..." />
         </div>
+        {this.state.redirect ? (
+          <Redirect
+            to={{
+              pathname: "/search",
+              state: { property_id: this.state.query },
+            }}
+          />
+        ) : null}
+        ;
       </div>
     );
   }
