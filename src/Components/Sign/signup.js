@@ -87,6 +87,8 @@ export default class SignUp extends Component {
       else {
         this.setState({ validEmail: false });
         err = true;
+        this.setState({ Password: "" });
+        this.setState({ CPassword: "" });
       }
 
       if (
@@ -98,6 +100,8 @@ export default class SignUp extends Component {
       else {
         this.setState({ validPassword: false });
         err = true;
+        this.setState({ Password: "" });
+        this.setState({ CPassword: "" });
       }
 
       if (this.state.CPassword === this.state.password)
@@ -105,7 +109,10 @@ export default class SignUp extends Component {
       else {
         this.setState({ validCPassword: false });
         err = true;
+        this.setState({ Password: "" });
+        this.setState({ CPassword: "" });
       }
+      
       if (!err) {
         const signup = {
           username: this.state.username,
@@ -123,6 +130,8 @@ export default class SignUp extends Component {
             }
           })
           .catch((error) => {
+            this.setState({ Password: "" });
+            this.setState({ CPassword: "" });
             if (error.response.data.hasOwnProperty("username")) {
               this.setState({ showError: true });
               this.setState({ validUsername: false });

@@ -10,6 +10,7 @@ import SignupPage from "./Pages/SignupPage";
 import SearchPage from "./Pages/Search/SearchPage"
 import Profile from "./Pages/Profile/Profile"
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import DashboardPage from "./Pages/DashboardPage";
 
 const theme = createMuiTheme({
   typography: {

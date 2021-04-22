@@ -7,6 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
 import axios from "axios";
 import { fade, makeStyles } from "@material-ui/core/styles";
+import { Redirect } from "react-router";
 
 const config = {
   headers: {
@@ -54,6 +55,7 @@ const GreyCheckbox = withStyles({
 export default class Login extends Component {
   state = {
     showPassword: false,
+    redirect: false,
     username: "",
     password: "",
     showError: false,
@@ -85,6 +87,7 @@ export default class Login extends Component {
         .then((res) => {
           console.log(res);
           localStorage.setItem("autToken", res.data.auth_token);
+          this.setState({ redirect: true });
         })
         .catch((error) => {
           this.setState({ showError: true });
@@ -94,6 +97,7 @@ export default class Login extends Component {
 
     return (
       <div className="body-l">
+        {this.state.redirect ? <Redirect push to="/home" /> : null}
         <div className="padding"></div>
         <div className="outer">
           <div className="inner">
