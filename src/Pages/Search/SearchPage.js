@@ -67,7 +67,7 @@ class SearchPage extends React.Component{
               <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
               </div>
               <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} SearchTop">
-                <div className="col-md-5 col-sm-0 tit">
+                <div className="col-md-5 col-sm-0 titr">
                   300 Results(100 Albums,100 Artists,100 Tracks)
                 </div>
                 <div className="col-md-3 ">
