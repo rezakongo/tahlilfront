@@ -12,8 +12,8 @@ function TracksSearchCard(props){
                         <img width="130" height="130" src={TrackImage}/>
                     </div>
                     <div className="col-md-10 col-sm-12  textContainer">
-                        <h1>Karma Police</h1>
-                        <h2>Radio Head</h2>
+                        <h1>{props.Track.title}</h1>
+                        <h2>{props.Track.artist[0].name}</h2>
                     </div>
                 </div>
             </div>
