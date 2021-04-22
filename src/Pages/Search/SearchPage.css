@@ -6,9 +6,18 @@
   background-position: center;
   background-size: cover;
   width: 100% !important;
-  height: 10vh !important;
+  height: 15vh !important;
   justify-content: center;
   align-items: center;
+}
+
+.bodyContain{
+  background-color:rgba(0, 0, 53, 0.4) ;
+  width: 80%;
+}
+
+.totalContainer{
+  justify-content: center;
 }
 
 .tabsContainer{
@@ -35,8 +44,13 @@
   min-height: 100%;
 }
 .tit {
+  padding-top: 3rem;
   display: flex;
-  font-size: 30px;
+  font-size: 25px;
   justify-content: center;
   color: white;
+}
+
+.searchBar{
+  margin-top: 3rem;
 }

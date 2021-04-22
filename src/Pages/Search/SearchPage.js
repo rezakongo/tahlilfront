@@ -6,7 +6,8 @@ import 'semantic-ui-css/semantic.min.css'
 import AlbumsSearchCard from "./SearchCard/Albums/AlbumsSearchCard"
 import ArtistsSearchCard from "./SearchCard/Artists/ArtistsSearchCard"
 import TracksSearchCard from "./SearchCard/Tracks/TracksSearchCard"
-import Navbar from "../../Components/LandingTop/LandingTop"
+import Navbar from "../../Components/Navbar/navbar"
+
 import "./SearchPage.css"
 import Orbs from "./orbs.gif"
 
@@ -24,10 +25,13 @@ class SearchPage extends React.Component{
 
 
   componentDidMount() {
+    
     axios.get(`http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?format=json&search=`+this.state.searchField)
       .then(res => {
-        const Artists =res.data.sia;
+        for(var c in res.data){
+        const Artists =res.data.c;
         this.setState({ Artists });
+        }
       })
   
   }
@@ -42,15 +46,20 @@ class SearchPage extends React.Component{
       }
         return(
           <div className="Container">
-            <div className="container-fluid !direction !spacing ">
+            <Navbar activeItem="" menuId="menu1"></Navbar>
+            <div className="container-fluid !direction !spacing totalContainer">
+              <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+              </div>
               <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} SearchTop">
-                <div className="col-md-1 tit">
-                    HEXBEAT
+             
+                <div className="col-md-0">
                 </div>
-                <div className="col-md-6 ">
-                
+                <div className="col-md-5 tit">
+                  300 Results(100 Albums,100 Artists,100 Tracks)
                 </div>
-                <div className="col-md-4 ">
+                <div className="col-md-3 ">
+                </div>
+                <div className="col-md-3">
                 <Input
                   icon={<Icon name="search" id="iconColor" inverted circular link />}
                   placeholder="Search..."
@@ -58,12 +67,14 @@ class SearchPage extends React.Component{
                   id="searchBarRadius"
                 />
                 </div>
-              </div>
-              <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                <div className="col-md-1">
-                    
+                <div className="col-md-1 ">
+
                 </div>
-                <div className="col-md-1 d-flex align-items-start tabsContainer">
+                
+              </div>
+              <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bodyContain">
+            
+                <div className="col-md-2 d-flex align-items-start tabsContainer">
                 <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <button className="nav-link active tabs" id="v-pills-Tracks-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Tracks" type="button" role="tab" aria-controls="v-pills-Tracks" aria-selected="true">Tracks</button>
                   <button className="nav-link tabs" id="v-pills-Albums-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Albums" type="button" role="tab" aria-controls="v-pills-Albums" aria-selected="false">Albums</button>
