@@ -8,6 +8,7 @@ import GenresPage from "./Pages/GenresPage";
 import SigninPage from "./Pages/SigninPage";
 import SignupPage from "./Pages/SignupPage";
 import SearchPage from "./Pages/Search/SearchPage"
+import ProfileEdit from "./Pages/ProfileEdit"
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import DashboardPage from "./Pages/DashboardPage";
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/signin" component={SigninPage} />
             <Route path="/signup" component={SignupPage} />
             <Route path="/search" component={SearchPage} />
+            <Route path="/editprofile" component={ProfileEdit} />
           </Switch>
         </div>
       </Router>
