@@ -1,14 +1,19 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import ArtistsPage from "./Pages/ArtistsPage";
 import AlbumsPage from "./Pages/AlbumsPage";
 import GenresPage from "./Pages/GenresPage";
 import SigninPage from "./Pages/SigninPage";
 import SignupPage from "./Pages/SignupPage";
-import SearchPage from "./Pages/Search/SearchPage"
-import Profile from "./Pages/Profile/Profile"
+import SearchPage from "./Pages/Search/SearchPage";
+import Profile from "./Pages/Profile/Profile";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import DashboardPage from "./Pages/DashboardPage";
 
@@ -21,7 +26,7 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
+      <BrowserRouter>
         <div className="App">
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -33,9 +38,10 @@ function App() {
             <Route path="/signup" component={SignupPage} />
             <Route path="/search" component={SearchPage} />
             <Route path="/profile" component={Profile} />
+            <Route path="/dashboard" component={DashboardPage} />
           </Switch>
         </div>
-      </Router>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

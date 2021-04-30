@@ -6,7 +6,7 @@ function SigninPage() {
   return (
     <div>
       <div className="bg-img" />
-      <Navbar activeItem="" menuId="menu1" />
+      <Navbar activeItem="signin" menuId="menu2" />
       <div id="login">
         <Login />
       </div>

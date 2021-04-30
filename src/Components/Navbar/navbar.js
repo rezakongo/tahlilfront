@@ -56,7 +56,7 @@ export default class DNavbar extends Component {
   };
   render() {
     const { activeItem } = this.props;
-
+    const { history } = this.context;
     return (
       <div id="navbar">
         {/* desktop */}
@@ -106,7 +106,10 @@ export default class DNavbar extends Component {
                 onChange={(e) => {
                   if (e.target.value.length > 2)
                     this.setState({ query: e.target.value }, () => {
-                      this.setState({ redirect: true });
+                      history.push({
+                        pathname: "/search",
+                        state: this.state.query,
+                      });
                     });
                 }}
               />

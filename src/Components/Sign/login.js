@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import "./login.css";
-import { Checkbox, IconButton } from "@material-ui/core";
+import { Checkbox, IconButton, Snackbar } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
 import axios from "axios";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import { Redirect } from "react-router";
+import { Alert } from "@material-ui/lab";
 
 const config = {
   headers: {
@@ -56,6 +57,7 @@ export default class Login extends Component {
   state = {
     showPassword: false,
     redirect: false,
+    isLogin: false,
     username: "",
     password: "",
     showError: false,
@@ -93,7 +95,11 @@ export default class Login extends Component {
         .then((res) => {
           console.log(res);
           localStorage.setItem("autToken", res.data.auth_token);
-          this.setState({ redirect: true });
+          this.setState({ isLogin: true }, () => {
+            setTimeout(() => {
+              this.setState({ redirect: true });
+            }, 2000);
+          });
         })
         .catch((error) => {
           this.setState({ showError: true });
@@ -103,6 +109,9 @@ export default class Login extends Component {
 
     return (
       <div className="body-l">
+        <Snackbar open={this.state.isLogin} autoHideDuration={6000}>
+          <Alert severity="success">Your login was successful !</Alert>
+        </Snackbar>
         {this.state.redirect ? <Redirect push to="/home" /> : null}
         <div className="padding"></div>
         <div className="outer">

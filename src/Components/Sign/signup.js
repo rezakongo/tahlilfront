@@ -11,6 +11,7 @@ import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
 import "./login.css";
 import axios from "axios";
 import { Redirect } from "react-router";
+import ReactTooltip from "react-tooltip";
 
 const config = {
   headers: {
@@ -73,7 +74,27 @@ export default class SignUp extends Component {
     const onChange = (e) => {
       const field = e.target.name;
       const newValue = e.target.value;
+      
       this.setState({ [field]: newValue });
+      if (
+        new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/).test(
+          this.state.password
+        )
+      )
+        this.setState({ validPassword: true });
+      else this.setState({ validPassword: false });
+
+      if (
+        new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(
+          this.state.email
+        )
+      )
+        this.setState({ validEmail: true });
+      else this.setState({ validEmail: false });
+
+      if (this.state.CPassword === this.state.password)
+        this.setState({ validCPassword: true });
+      else this.setState({ validCPassword: false });
     };
 
     const handleClickShowPassword = () => {
@@ -99,7 +120,7 @@ export default class SignUp extends Component {
       }
 
       if (
-        new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/).test(
+        new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}/).test(
           this.state.password
         )
       )
@@ -162,6 +183,7 @@ export default class SignUp extends Component {
 
     return (
       <div className="body-l">
+        <ReactTooltip />
         {this.state.isLogin ? <Redirect push to="/home" /> : null}
         {this.state.redirect ? <Redirect push to="/signin" /> : null}
         <div className="bg-l">
@@ -172,20 +194,6 @@ export default class SignUp extends Component {
                 <form className="form" onSubmit={handleSubmit} href="#">
                   <h3 className="login-header">Register</h3>
                   <div className="form-group" id="error">
-                    <p id={!this.state.validEmail ? "visible" : "hidden"}>
-                      * Your Email address is not correct
-                    </p>
-
-                    <p id={!this.state.validPassword ? "visible" : "hidden"}>
-                      * Password must contain at least one number and one
-                      uppercase and lowercase letter, and at least 8 or more
-                      characters
-                    </p>
-
-                    <p id={!this.state.validCPassword ? "visible" : "hidden"}>
-                      * The entered passwords do not match
-                    </p>
-
                     <p id={this.state.showError ? "visible" : "hidden"}>
                       * {this.state.error}
                     </p>
@@ -217,6 +225,11 @@ export default class SignUp extends Component {
                       autoComplete="email"
                       className="inputX"
                       onChange={onChange}
+                      data-tip="Your Email address is not correct"
+                      data-type="error"
+                      data-place="bottom"
+                      data-effect="solid"
+                      data-tip-disable={this.state.validEmail}
                       error={!this.state.validEmail}
                     />
                   </div>
@@ -231,6 +244,12 @@ export default class SignUp extends Component {
                       variant="filled"
                       className="inputX"
                       onChange={onChange}
+                      data-tip="Your password must contain at least one number and 8 or more
+                      characters"
+                      data-type="error"
+                      data-place="bottom"
+                      data-effect="solid"
+                      data-tip-disable={this.state.validPassword}
                       error={!this.state.validPassword}
                       type={this.state.showPassword ? "text" : "password"} // <-- This is where the magic happens
                       inputXProps={{
@@ -263,6 +282,11 @@ export default class SignUp extends Component {
                       className="inputX"
                       name="CPassword"
                       onChange={onChange}
+                      data-tip="The entered passwords do not match"
+                      data-type="error"
+                      data-place="bottom"
+                      data-effect="solid"
+                      data-tip-disable={this.state.validCPassword}
                       error={!this.state.validCPassword}
                       type={this.state.showPassword ? "text" : "password"} // <-- This is where the magic happens
                       inputXProps={{

@@ -8,7 +8,7 @@ function SignupPage() {
     <div>
       <div className="bg-img" />
       <Navbar activeItem="Sign up" menuId="menu2" />
-      <div id="login">
+      <div id="signup">
         <SignUp />
       </div>
       <Footer />

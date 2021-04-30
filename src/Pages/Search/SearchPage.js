@@ -21,7 +21,7 @@ class SearchPage extends React.Component {
 
   componentDidMount() {
     this.setState(
-      { searchField: this.props.location.state.property_id },
+      { searchField: this.props.location.state.property_id || {} },
       this.APICallFunction
     );
     this.APICallFunction();

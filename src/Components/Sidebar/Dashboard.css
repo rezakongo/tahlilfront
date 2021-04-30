@@ -44,7 +44,6 @@
 }
 
 .bg {
-  background-image: url("../Assests/back.jpg");
   width: 100%;
   height: 100%;
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
