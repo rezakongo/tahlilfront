@@ -170,9 +170,13 @@ class SearchPage extends React.Component {
                 role="tabpanel"
                 aria-labelledby="v-pills-Tracks-tab"
               >
-                {this.state.Tracks.map((Track) => (
-                  <TracksSearchCard Track={Track} />
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                {this.state.Albums.map((Album) => (
+                <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                  <TracksSearchCard />
+                  </div>
                 ))}
+                </div>
               </div>
               <div
                 className="tab-pane fade tabsBody"
@@ -180,9 +184,13 @@ class SearchPage extends React.Component {
                 role="tabpanel"
                 aria-labelledby="v-pills-Albums-tab"
               >
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                 {this.state.Albums.map((Album) => (
-                  <AlbumsSearchCard Album={Album} />
-                ))}
+                <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                  <AlbumsSearchCard/>
+                  </div>
+                  ))}
+                  </div>
               </div>
               <div
                 className="tab-pane fade tabsBody"
@@ -190,9 +198,13 @@ class SearchPage extends React.Component {
                 role="tabpanel"
                 aria-labelledby="v-pills-Artists-tab"
               >
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                 {this.state.Artists.map((Artist) => (
-                  <ArtistsSearchCard Artist={Artist} />
+                <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                  <ArtistsSearchCard  />
+                </div>
                 ))}
+                </div>
               </div>
             </div>
             <div className="col-md-1"></div>

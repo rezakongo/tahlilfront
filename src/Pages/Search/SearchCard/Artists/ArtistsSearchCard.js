@@ -1,6 +1,6 @@
 import React from "react";
 import "./ArtistsSearchCard.css";
-import ArtistImage from "./radiohead.jpg"
+import ArtistImage from "./usa.jpg"
 
 
 function ArtistsSearchCard(props){
@@ -8,11 +8,12 @@ function ArtistsSearchCard(props){
         <div className="CardBody">
             <div className="container-fluid !direction !spacing">
                 <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rows">
-                    <div className="col-md-2 col-sm-12 imageContainer">
-                        <img width="70" height="70" src={ArtistImage} className="img" />
-                    </div>
-                    <div className="col-md-10 col-sm-12  textContainer">
-                        <h1>{props.Artist.name}</h1>
+
+                    <div className="col-md-12 col-sm-12  textContainer">
+                        <h1 className="title">Singer</h1>
+                        <img width="70" height="50" src={ArtistImage} className="img" />
+                        <h2 className="SingerRate">Rate</h2>
+                        <h2 className="SingerDate">Date</h2>
                     </div>
                 </div>
             </div>
