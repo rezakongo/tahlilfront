@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Icon, Input } from "semantic-ui-react";
 import "./LandingTop.css";
 
-class LandingTop extends Component() {
+class LandingTop extends Component {
   state = {
     searchField: "",
   };
