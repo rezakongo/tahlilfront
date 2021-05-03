@@ -1,30 +1,29 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router";
 import { Icon, Input } from "semantic-ui-react";
 import "./LandingTop.css";
 
-function LandingTop() {
-  return (
-    <div className="LandingBody">
-      <div className="cont">
-        <h1 className="tit">HEXBEAT</h1>
-        <Input
-          icon={<Icon name="search" id="iconColor" inverted circular link />}
-          placeholder="Search..."
-          className="searchBar"
-          id="searchBarRadius"
-          onChange={(e) => (
-            <Redirect
-              to={{
-                pathname: "/search",
-                state: { property_id: e.target.value },
-              }}
-            />
-          )}
-        />
+class LandingTop extends Component() {
+  state = {
+    searchField: "",
+  };
+
+  render() {
+    const handleChange = () => {};
+    return (
+      <div className="LandingBody">
+        <div className="cont">
+          <h1 className="tit">HEXBEAT</h1>
+          <Input
+            icon={<Icon name="search" id="iconColor" inverted circular link />}
+            placeholder="Search..."
+            className="searchBar"
+            id="searchBarRadius"
+            onChange={handleChange}
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default LandingTop;
