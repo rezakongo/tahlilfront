@@ -67,10 +67,11 @@ class SearchPage extends React.Component {
     };
     return (
       <div className="Container">
-        <Navbar activeItem="" menuId="menu1"></Navbar>
+        <Navbar activeItem=""  menuId="menu1"></Navbar>
         <div className="container-fluid !direction !spacing totalContainer">
-          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}"></div>
+          <div className="badbakhti">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} SearchTop">
+           
             <div className="col-md-5 col-sm-0 titr">
               300 Results(100 Albums,100 Artists,100 Tracks)
             </div>
@@ -156,14 +157,12 @@ class SearchPage extends React.Component {
                   </li>
                 </ul>
               </div>
+              </div>
             </div>
           </div>
+          <div className="badbakhti">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bodyContain">
-            <div class="col-md-1  "></div>
-            <div
-              className="col-md-10 tab-content resultContainer"
-              id="v-pills-tabContent"
-            >
+            
               <div
                 className="tab-pane fade show active tabsBody"
                 id="v-pills-Tracks"
@@ -176,6 +175,21 @@ class SearchPage extends React.Component {
                   <TracksSearchCard />
                   </div>
                 ))}
+                 <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                  <TracksSearchCard />
+                  </div>
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                  <TracksSearchCard />
+                  </div>
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                  <TracksSearchCard />
+                  </div>
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                  <TracksSearchCard />
+                  </div>
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                  <TracksSearchCard />
+                  </div>
                 </div>
               </div>
               <div
@@ -190,6 +204,8 @@ class SearchPage extends React.Component {
                   <AlbumsSearchCard/>
                   </div>
                   ))}
+                   
+
                   </div>
               </div>
               <div
@@ -204,10 +220,10 @@ class SearchPage extends React.Component {
                   <ArtistsSearchCard  />
                 </div>
                 ))}
+                
                 </div>
               </div>
-            </div>
-            <div className="col-md-1"></div>
+              </div>
           </div>
         </div>
       </div>
