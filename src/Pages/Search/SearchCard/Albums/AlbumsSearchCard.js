@@ -12,9 +12,8 @@ function AlbumsSearchCard(props){
                         <img width="130" height="130"  src={Kida}/>
                     </div>
                     <div className="col-md-10 col-sm-12  textContainer">
-                        <h1>Kid_A</h1>
-                        <h3>Radio Head</h3>
-                        <h4>2000</h4>
+                        <h1>{props.Album.title}</h1>
+                        <h3>{props.Album.artist.name}</h3>
                     </div>
                 </div>
             </div>

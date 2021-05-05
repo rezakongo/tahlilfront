@@ -75,7 +75,7 @@ export default function MenuListComposition(props) {
           onClick={handleToggle}
           id="dropdown"
         >
-          Spoiler2400
+          {props.username}
           <ArrowDropDown fontSize="default" />
         </Button>
         <Popper

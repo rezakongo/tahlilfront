@@ -6,9 +6,23 @@
   background-position: center;
   background-size: cover;
   width: 100% !important;
-  height: 10vh !important;
+  min-height: 15vh !important;
   justify-content: center;
   align-items: center;
+}
+
+.bodyContain{
+ 
+  width: 100%;
+}
+
+.resultContainer{
+  margin-top: 2rem;
+  background-color:rgba(0, 0, 53, 0.4) ;
+}
+
+.totalContainer{
+  justify-content: center;
 }
 
 .tabsContainer{
@@ -22,6 +36,7 @@
   margin-bottom: 2px;
   color: white;
   width: 100%;
+  justify-content: center;
 }
 
 .tabs:hover{
@@ -34,9 +49,52 @@
   color: black;
   min-height: 100%;
 }
-.tit {
+.titr {
+  padding-top: 3rem;
   display: flex;
-  font-size: 30px;
-  justify-content: center;
+  font-size: 17px;
+  justify-content: left;
   color: white;
+}
+
+.searchBar{
+  margin-top: 3rem;
+}
+
+.ddContainer{
+
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.dd{
+  display: flex;
+  justify-content: center;
+  width: 100% !important;
+
+}
+
+
+.ddButton{
+  width: 100% !important;
+  border-radius: 20px;
+  height: 2.6rem;
+}
+
+.ddMenu{
+
+  display: flex;
+  justify-content: center;
+}
+
+.ddList{
+  width: 100%;
+
+}
+
+.ddinlist{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

@@ -6,6 +6,13 @@ body {
   display: flex;
   align-items: center;
 }
+
+#signup {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 .bg-img {
   background-image: url("../Components/Sign/Cover.jpg");
   filter: brightness(15%) grayscale(70%);

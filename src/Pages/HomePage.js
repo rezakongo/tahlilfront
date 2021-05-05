@@ -6,51 +6,68 @@ import HomePageTracks from "../Components/Cards/HomePageTracks";
 import Container from "../Components/Container/Container";
 import "./HomePage.css";
 import Footer from "../Components/Footer/footer";
+import { useLocation } from "react-router";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
-class HomePage extends Component {
-  state = { menuId: "menu1" };
-  onScrollNavbar = () => {
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+function HomePage() {
+  let query = useQuery();
+
+  const [menuId, setMenuId] = React.useState("menu1");
+  const [open, setOpen] = React.useState(
+    query.get("l") === "true" ? true : false
+  );
+
+  const onScrollNavbar = () => {
     if (document.getElementById("container-navabr").scrollTop > 330) {
-      this.setState({ menuId: "menu2" });
+      setMenuId("menu2");
     } else {
-      this.setState({ menuId: "menu1" });
+      setMenuId("menu1");
     }
   };
-  render() {
-    return (
-      <div id="container-navabr" onScroll={this.onScrollNavbar}>
-        <Navbar id="navbar" menuId={this.state.menuId} activeItem="Home" />
-        <div id="landingtop" className="container-fluid !direction !spacing ">
-          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
-            <LandingTop />
-          </div>
-          <div className="hpFContainer">
-            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}  tracksContain rowSetting">
-              <h2 class="divider line glow" contenteditable>
-                {"TOP ARTISTS"}
-              </h2>
-              <ArtistsCarousel />
-            </div>
-            <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
-              <h2 class="divider line glow" contenteditable>
-                {"TOP TRACKS"}
-              </h2>
-              <div className="tracks">
-                <HomePageTracks />
-              </div>
-            </div>
-            <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
-              <h2 class="divider line glow" contenteditable>
-                {"TOP ALBUMS"}
-              </h2>
-              <Container />
-            </div>
-          </div>
-          <Footer />
+  const closeSnackbar = () => {
+    setOpen(false);
+  };
+  return (
+    <div id="container-navabr" onScroll={onScrollNavbar}>
+      <Snackbar open={open} autoHideDuration={3000} onClose={closeSnackbar}>
+        <Alert severity="success">Your login was successful!</Alert>
+      </Snackbar>
+      <Navbar id="navbar" menuId={menuId} activeItem="Home" />
+      <div id="landingtop" className="container-fluid !direction !spacing ">
+        <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
+          <LandingTop />
         </div>
+        <div className="hpFContainer">
+          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}  tracksContain rowSetting">
+            <h2 class="divider line glow" contenteditable>
+              {"TOP ARTISTS"}
+            </h2>
+            <ArtistsCarousel />
+          </div>
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
+            <h2 class="divider line glow" contenteditable>
+              {"TOP TRACKS"}
+            </h2>
+            <div className="tracks">
+              <HomePageTracks />
+            </div>
+          </div>
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
+            <h2 class="divider line glow" contenteditable>
+              {"TOP ALBUMS"}
+            </h2>
+            <Container />
+          </div>
+        </div>
+        <Footer />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default HomePage;
