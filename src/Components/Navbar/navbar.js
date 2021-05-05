@@ -3,10 +3,11 @@ import React, { Component } from "react";
 import { Header, Icon, Input, Menu } from "semantic-ui-react";
 import logo from "./logo.png";
 import Dropdown from "./dropdown";
-
+import Searchdd from "./Searchdd";
 import "./navbar.css";
 import axios from "axios";
 import { Redirect } from "react-router";
+import SearchSug from "./searchSug";
 
 export default class DNavbar extends Component {
   state = {
@@ -99,20 +100,7 @@ export default class DNavbar extends Component {
           />
           <Menu.Menu position="right">
             <Menu.Item id="search-container">
-              <Input
-                id="search"
-                icon="search"
-                placeholder="Search..."
-                onChange={(e) => {
-                  if (e.target.value.length > 2)
-                    this.setState({ query: e.target.value }, () => {
-                      history.push({
-                        pathname: "/search",
-                        state: this.state.query,
-                      });
-                    });
-                }}
-              />
+              <SearchSug />
             </Menu.Item>
 
             <Menu.Item
@@ -265,7 +253,7 @@ export default class DNavbar extends Component {
               </a>
             </div>
           </div>
-          <Input id="search" icon="search" placeholder="Search..." />
+          <SearchSug />
         </div>
         {this.state.redirect ? (
           <Redirect

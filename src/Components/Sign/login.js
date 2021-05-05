@@ -57,7 +57,7 @@ export default class Login extends Component {
   state = {
     showPassword: false,
     redirect: false,
-    isLogin: false,
+    isSignUp: false,
     username: "",
     password: "",
     showError: false,
@@ -69,8 +69,12 @@ export default class Login extends Component {
     const test = localStorage.getItem("autToken");
     this.setState({ redirect: true });
     if (test === null) this.setState({ redirect: false });
-  }
 
+    this.setState({ isSignUp: this.props.open === "true" ? true : false });
+  }
+  closeSnackbar = () => {
+    this.setState({ isSignUp: false });
+  };
   render() {
     const handleClickShowPassword = () => {
       let showPassword = !this.state.showPassword;
@@ -109,10 +113,14 @@ export default class Login extends Component {
 
     return (
       <div className="body-l">
-        <Snackbar open={this.state.isLogin} autoHideDuration={6000}>
-          <Alert severity="success">Your login was successful !</Alert>
+        {this.state.redirect ? <Redirect push to="/home?l=true" /> : null}
+        <Snackbar
+          open={this.state.isSignUp}
+          autoHideDuration={3000}
+          onClose={this.closeSnackbar}
+        >
+          <Alert severity="success">You have successfully signed up!</Alert>
         </Snackbar>
-        {this.state.redirect ? <Redirect push to="/home" /> : null}
         <div className="padding"></div>
         <div className="outer">
           <div className="inner">

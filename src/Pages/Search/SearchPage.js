@@ -10,6 +10,7 @@ import Navbar from "../../Components/Navbar/navbar";
 
 import "./SearchPage.css";
 import Orbs from "./orbs.gif";
+import { useLocation } from "react-router";
 
 class SearchPage extends React.Component {
   state = {
@@ -18,13 +19,8 @@ class SearchPage extends React.Component {
     Tracks: [],
     searchField: "",
   };
-
   componentDidMount() {
-    this.setState(
-      { searchField: this.props.location.state.property_id || {} },
-      this.APICallFunction
-    );
-    this.APICallFunction();
+    this.setState({ searchField: this.props.que });
   }
 
   APICallFunction = () => {

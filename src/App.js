@@ -13,6 +13,8 @@ import GenresPage from "./Pages/GenresPage";
 import SigninPage from "./Pages/SigninPage";
 import SignupPage from "./Pages/SignupPage";
 import SearchPage from "./Pages/Search/SearchPage";
+import SearchPageFunc from "./Pages/Search/SearchPageFunc";
+
 import Profile from "./Pages/Profile/Profile";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import DashboardPage from "./Pages/DashboardPage";
@@ -36,7 +38,7 @@ function App() {
             <Route exact path="/genres" component={GenresPage} />
             <Route path="/signin" component={SigninPage} />
             <Route path="/signup" component={SignupPage} />
-            <Route path="/search" component={SearchPage} />
+            <Route exact path="/search" component={SearchPageFunc} />
             <Route path="/profile" component={Profile} />
             <Route path="/dashboard" component={DashboardPage} />
           </Switch>
