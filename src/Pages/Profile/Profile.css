@@ -1,14 +1,27 @@
 .Contain{
     margin-top: 4%;
     width: 80%;
+    min-height: 70rem;
     background-color: rgba(0, 0, 53, 0.4);
 }
 .rowOne{
-    height: 20rem;
+    height: fit-content;
+    margin-top: 4rem;
     background-color: transparent;
     display: flex;
     justify-content: center;
 }
+
+.proData{
+    background-color: rgba(0, 0, 0, 0.575);
+    border-radius: 10px;
+    width: 95.5%;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    max-height: fit-content;
+}
+
 .colone{
     display: flex;
     background-color: transparent;
@@ -18,9 +31,11 @@
 .coltwo{
     background-color: transparent;
     min-height: 50rem;
-    display: flex;
-    justify-content: center;
+    display:flexbox;
+    justify-content: center !important;
 }
+
+
 
 .topContain{
     background-color: transparent;
@@ -31,24 +46,26 @@
 }
 
 .leftContain{
-    background-color: rgba(0, 0, 0, 0.575);
     width: 95%;
-    height: 20rem;
     margin-top: 1rem;
     border-radius: 10px;
+    display: block;
 }
 
 .rightContain{
+    display: block;
     margin-top: 1rem;
     margin-bottom: 1rem;
     background-color: rgba(0, 0, 0, 0.575);
     width: 95%;
     border-radius: 10px;
+    height: min-content;
+    margin-left: 1rem;
 }
 .imgContainer{
-    background-color: red;
     height: 15rem;
     width:15rem;
+    
 }
 
 .topCol{
@@ -66,10 +83,71 @@
 }
 
 .scoreContainer{
-    background-color: yellow;
     width: 90%;
     height: 90%;
     display: flex;
     justify-content: left;
     margin-left: 0px;
+}
+
+.Picture{
+    border-radius: 90px;
+    object-fit: cover;
+}
+
+.nameAndDesContainer{
+    display:flex;
+    align-items:flex-start;
+    justify-items:left;
+    padding-top: 3rem;
+}
+
+.NameContainer{
+    display: flex;
+    color: white;
+    justify-content: left;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 35px;
+    
+}
+
+.DescriptionContainer{
+    display: flex;
+    justify-content: left;
+    color: white;
+    font-size: 18px;
+    margin-top: 1rem;
+    line-height: 20px;
+}
+
+.rowtwo{
+    margin-top: 1rem;
+
+}
+
+.editP{
+    position:relative;
+    left: 47%;
+    top: 0%;
+    
+}
+
+.signupDate{
+    display:inline-flex;
+    align-items:flex-end;
+    justify-content: flex-end !important;
+    color: white;
+    font-size: 18px;
+}
+
+.FavoriteTitle{
+    color: rgb(145, 145, 145);
+    font-size: 25px;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    padding-left: 3rem;
+    display: flex;
+    justify-content: left;
 }

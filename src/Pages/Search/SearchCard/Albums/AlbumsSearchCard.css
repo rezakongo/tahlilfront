@@ -2,7 +2,7 @@
 .CardBody{
     border-bottom: 2px gray solid;
     display: flex;
-    width: 80%;
+    height: 100% ;
     height: fit-content;
     color: black;
     padding-top: 0.5rem;
@@ -27,4 +27,29 @@
     height: 100%;
     color: white;
     
+}
+
+.AlbumTitle{
+    font-size: 30px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.AlbumSinger{
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.AlbumRate{
+    font-size: 18px;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.AlbumRelease{
+    font-size: 18px;
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
 }

@@ -8,12 +8,14 @@ function TracksSearchCard(props){
         <div className="CardBody">
             <div className="container-fluid !direction !spacing">
                 <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                    <div className="col-md-2 col-sm-12 imageContainer">
-                        <img width="130" height="130" src={TrackImage}/>
-                    </div>
-                    <div className="col-md-10 col-sm-12  textContainer">
-                        <h1>{props.Track.title}</h1>
-                        <h2>{props.Track.artist[0].name}</h2>
+                  
+                        
+                    <div className="col-md-12 col-sm-12  textContainer">
+                    <img width="130" height="130" src={TrackImage}/>
+                        <h1 className="TrackTitle">Title</h1>
+                        <h2 className="TrackSinger">Singer</h2>
+                        <h3 className="TrackScore">Score</h3>
+                        <h3 className="TrackRelease">Release</h3>
                     </div>
                 </div>
             </div>

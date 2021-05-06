@@ -28,3 +28,28 @@
     height: 100%;
     color: white;
 }
+
+.TrackTitle{
+    font-size: 30px;
+    color: white;
+
+    margin-bottom: 0.8rem !important;
+}
+
+.TrackSinger{
+    font-size: 20px;
+    margin-top: 0px !important;
+    margin-bottom: 0.8rem !important;
+}
+
+.TrackScore{
+    font-size: 18px;
+    margin-top: 0px !important;
+    margin-bottom: 0.8rem !important;
+}
+
+.TrackRelease{
+    font-size: 18px;
+    margin-top: 0px !important;
+    margin-bottom: 1rem !important;
+}

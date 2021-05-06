@@ -1,12 +1,14 @@
 
 .CardBody{
-    border-bottom: 2px gray solid;
     display: flex;
-    width: 80%;
+    background-color: rgba(83, 83, 83, 0.61);
+    width: 70%;
     height: fit-content;
     color: black;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px gray solid;
+    border-radius: 5px;
 }
 
 .CardBody:hover{
@@ -35,5 +37,23 @@
 }
 
 .img{
-    border-radius: 50px;
+    margin-bottom: 0%;
+}
+
+.title{
+
+    font-size: 30px;
+}
+
+
+.SingerRate{
+    font-size: 18px;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.SingerDate{
+    font-size: 18px;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
