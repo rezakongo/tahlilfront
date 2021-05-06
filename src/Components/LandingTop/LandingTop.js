@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router";
 import { Icon, Input } from "semantic-ui-react";
 import "./LandingTop.css";
 
@@ -28,8 +29,8 @@ function LandingTop() {
           onKeyPress={enterPressed.bind(this)}
         />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default LandingTop;
