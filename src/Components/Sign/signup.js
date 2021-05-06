@@ -107,11 +107,11 @@ export default class SignUp extends Component {
     };
 
     const onChangeCPassword = (e) => {
-      this.setState({ cPassword: e.target.value });
-
-      if (this.state.CPassword === this.state.password)
-        this.setState({ validCPassword: true });
-      else this.setState({ validCPassword: false });
+      this.setState({ cPassword: e.target.value }, () => {
+        if (this.state.CPassword === this.state.password)
+          this.setState({ validCPassword: true });
+        else this.setState({ validCPassword: false });
+      });
     };
 
     const handleClickShowPassword = () => {

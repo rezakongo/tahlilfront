@@ -12,12 +12,10 @@ import AlbumsPage from "./Pages/AlbumsPage";
 import GenresPage from "./Pages/GenresPage";
 import SigninPage from "./Pages/SigninPage";
 import SignupPage from "./Pages/SignupPage";
-import SearchPage from "./Pages/Search/SearchPage";
 import SearchPageFunc from "./Pages/Search/SearchPageFunc";
-import ProfileEdit from "./Pages/ProfileEdit"
+import ProfileEdit from "./Pages/ProfileEdit";
 import Profile from "./Pages/Profile/Profile";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import DashboardPage from "./Pages/DashboardPage";
 
 const theme = createMuiTheme({
   typography: {
