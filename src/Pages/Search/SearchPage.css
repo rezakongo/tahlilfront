@@ -9,7 +9,6 @@
   justify-content: center;
   margin-top: 5rem;
   align-items: center;
-  background-color: rgba(38, 0, 53, 0.4);
 }
 
 
@@ -104,6 +103,14 @@
 }
 
 .badbakhti{
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(170,170,170,1) 100%);
+}
+
+.badbakhti2{
   height: fit-content;
   display: flex;
   justify-content: center;

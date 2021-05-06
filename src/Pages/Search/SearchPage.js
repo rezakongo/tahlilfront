@@ -160,7 +160,7 @@ class SearchPage extends React.Component {
               </div>
             </div>
           </div>
-          <div className="badbakhti">
+          <div className="badbakhti2">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bodyContain">
             
               <div
