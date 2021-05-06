@@ -72,11 +72,11 @@ class SearchPage extends React.Component {
           <div className="badbakhti">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} SearchTop">
            
-            <div className="col-md-5 col-sm-0 titr">
+            <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 titr">
               300 Results(100 Albums,100 Artists,100 Tracks)
             </div>
-            <div className="col-md-3 "></div>
-            <div className="col-md-3">
+            <div className="col-0 col-sm-0 col-md-1 col-lg-2 col-xl-5"></div>
+            <div className="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3">
               <Input
                 icon={
                   <Icon
@@ -95,7 +95,7 @@ class SearchPage extends React.Component {
                 defaultValue={this.state.searchField}
               />
             </div>
-            <div className="col-md-1  ddContainer">
+            <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-1 ddContainer">
               <div className="dropdown dd">
                 <button
                   className="btn btn-secondary dropdown-toggle ddButton"
