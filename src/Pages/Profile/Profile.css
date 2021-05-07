@@ -129,9 +129,10 @@
 
 .editP{
     position:relative;
-    left: 47%;
+    left: 45%;
     top: 0%;
-    
+    color: white;
+    font-size: 15px;
 }
 
 .signupDate{

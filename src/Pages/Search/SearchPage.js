@@ -66,9 +66,9 @@ class SearchPage extends React.Component {
       this.componentDidMount();
     };
     return (
-      <div className="Container">
+      <div>
         <Navbar activeItem=""  menuId="menu1"></Navbar>
-        <div className="container-fluid !direction !spacing totalContainer">
+        <div className="container-fluid !direction !spacing">
           <div className="badbakhti">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} SearchTop">
            
@@ -76,7 +76,7 @@ class SearchPage extends React.Component {
               300 Results(100 Albums,100 Artists,100 Tracks)
             </div>
             <div className="col-0 col-sm-0 col-md-1 col-lg-2 col-xl-5"></div>
-            <div className="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3">
+            <div className="col-9 col-sm-9 col-md-5 col-lg-4 col-xl-3">
               <Input
                 icon={
                   <Icon
@@ -95,7 +95,7 @@ class SearchPage extends React.Component {
                 defaultValue={this.state.searchField}
               />
             </div>
-            <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-1 ddContainer">
+            <div className="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-1 ddContainer">
               <div className="dropdown dd">
                 <button
                   className="btn btn-secondary dropdown-toggle ddButton"
@@ -160,9 +160,10 @@ class SearchPage extends React.Component {
               </div>
             </div>
           </div>
-          <div className="badbakhti2">
+        </div>
+        <div className="badbakhti2">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bodyContain">
-            
+          <div class="tab-content" id="pills-tabContent">
               <div
                 className="tab-pane fade show active tabsBody"
                 id="v-pills-Tracks"
@@ -170,25 +171,32 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Tracks-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                {this.state.Albums.map((Album) => (
-                <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                  <TracksSearchCard />
-                  </div>
-                ))}
-                 <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                  <TracksSearchCard />
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                    <TracksSearchCard />
                   </div>
                   <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                  <TracksSearchCard />
+                    <TracksSearchCard />
                   </div>
                   <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                  <TracksSearchCard />
+                    <TracksSearchCard />
                   </div>
                   <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                  <TracksSearchCard />
+                    <TracksSearchCard />
                   </div>
                   <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                  <TracksSearchCard />
+                    <TracksSearchCard />
+                  </div>
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                    <TracksSearchCard />
+                  </div>
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                    <TracksSearchCard />
+                  </div>
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                    <TracksSearchCard />
+                  </div>
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                    <TracksSearchCard />
                   </div>
                 </div>
               </div>
@@ -199,14 +207,10 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Albums-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                {this.state.Albums.map((Album) => (
-                <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                  <AlbumsSearchCard/>
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                    <AlbumsSearchCard />
                   </div>
-                  ))}
-                   
-
-                  </div>
+                </div>
               </div>
               <div
                 className="tab-pane fade tabsBody"
@@ -215,17 +219,14 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Artists-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                {this.state.Artists.map((Artist) => (
-                <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                  <ArtistsSearchCard  />
-                </div>
-                ))}
-                
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                    <ArtistsSearchCard/>
+                  </div>
                 </div>
               </div>
               </div>
+            </div>
           </div>
-        </div>
       </div>
     );
   }
