@@ -10,11 +10,14 @@ function CommentCard(){
                     <img width="150" height="150" src={pic}/>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9">
+                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} targetTitle">
+                        Title
+                    </div> 
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} comment">
-                            <p id="test">dlsoprwjgoprewopgoerpgopreogporenopvreopgmopermgopermgopmeropgmmoerpmgopremgopregopgeneopgngt</p>
+                            <p id="test">Be har hal Morghi ke Anjir Mikhore Nokesh Kaje. Yani Kashke Chi Pashme Chi. Hamash Raftad dard masheniane.!!!!</p>
                     </div> 
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} date">
-                        esfperfref
+                        12 April
                     </div> 
                 </div>
             </div>         

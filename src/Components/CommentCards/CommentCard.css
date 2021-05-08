@@ -29,15 +29,23 @@
     padding-top: 1rem;
 }
 
-
+.targetTitle{
+    height: 15%;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+}
 
 .comment{
-    height: 85%;
+    height: 70%;
     color: white;
     font-size: 18px;
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
 }
 
 .date{
@@ -46,7 +54,7 @@
     font-size: 11px;
     display: flex;
     align-items: center;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
 }
 
 #test{

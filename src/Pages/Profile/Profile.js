@@ -22,7 +22,7 @@ class Profile extends React.Component{
                     
                             <div className="col-xl-2 col-lg-3 col-md-5 col-sm-6 col-xs-12 topCol">
                                 <div className="imgContainer">
-                                    <img width="180" height="180" className="Picture" src={this.state.Avatar}/>
+                                    <img width="160" height="160" className="Picture" src={this.state.Avatar}/>
                                 </div>
                             </div>
                             <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 col-xs-12 nameAndDesContainer">
