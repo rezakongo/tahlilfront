@@ -64,9 +64,11 @@ class Genres extends Component{
                     <div className="container-fluid !direction !spacing cardsPosition">
                         <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                             {GenreTitles.map((genres)=>{
+                                return(
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
                                     <GenreCards genre={genres}/>
                                 </div>
+                                )
                             })}
                         </div>
                     </div>
