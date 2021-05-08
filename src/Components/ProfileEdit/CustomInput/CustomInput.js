@@ -11,6 +11,7 @@ import Clear from "@material-ui/icons/Clear";
 import Check from "@material-ui/icons/Check";
 // core components
 import styles from "../../../assets/jss/material-dashboard-react/components/customInputStyle.js";
+import ReactTooltip from "react-tooltip";
 
 const useStyles = makeStyles(styles);
 
@@ -43,6 +44,7 @@ export default function CustomInput(props) {
       {...formControlProps}
       className={formControlProps.className + " " + classes.formControl}
     >
+      <ReactTooltip />
       {labelText !== undefined ? (
         <InputLabel
           className={classes.labelRoot + labelClasses}
@@ -60,7 +62,14 @@ export default function CustomInput(props) {
         }}
         id={id}
         {...inputProps}
-        value={props.defaultValue}
+        defaultValue={props.defaultValue}
+        onChange={props.onChange}
+        data-tip={props.tip}
+        data-type="error"
+        data-place="bottom"
+        data-effect="solid"
+        data-tip-disable={props.disabled}
+        type={props.type}
       />
       {error ? (
         <Clear className={classes.feedback + " " + classes.labelRootError} />

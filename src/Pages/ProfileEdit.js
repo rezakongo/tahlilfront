@@ -1,13 +1,7 @@
 import React, { Component } from "react";
-import LandingTop from "../Components/LandingTop/LandingTop";
 import Navbar from "./../Components/Navbar/navbar";
-import ArtistsCarousel from "../Components/AtistsCarousel/ArtistsCarousel";
-import HomePageTracks from "../Components/Cards/HomePageTracks";
-import Container from "../Components/Container/Container";
 import "./ProfileEdit.css";
 import Footer from "../Components/Footer/footer";
-import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "../Components/ProfileEdit/Grid/GridItem.js";
 import GridContainer from "../Components/ProfileEdit/Grid/GridContainer.js";
@@ -22,9 +16,7 @@ import CardBody from "../Components/ProfileEdit/Card/CardBody.js";
 import CardFooter from "../Components/ProfileEdit/Card/CardFooter.js";
 import axios from "axios";
 import avatar from "../Components/Cards/cover-dsotm.jpg";
-import FormControl from "@material-ui/core/FormControl";
-import { FormGroup } from "@material-ui/core";
-import { FileSaver, saveAs } from "file-saver";
+
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -50,12 +42,13 @@ class ProfileEdit extends Component {
     validEmail: true,
     validPassword: true,
     validCPassword: true,
-    validFName: true,
-    validLName: true,
+    validCurrentPassword: true,
+    loading: true,
     username: "",
     email: "",
     password: "",
-    CPassword: "",
+    cPassword: "",
+    currentPassword: "",
     FName: "",
     LName: "",
     imageFile: null,
@@ -63,12 +56,14 @@ class ProfileEdit extends Component {
     description: "",
     showError: false,
     image: null,
+    usernameError: "",
+    emailError: "",
   };
 
-  componentDidMount() {
+  componentWillMount() {
     console.log(avatar);
     const test = localStorage.getItem("autToken");
-    this.setState({ token: "Token " + test }, () => this.APICallFunction());
+    this.APICallFunction();
   }
   APICallFunction = () => {
     axios
@@ -79,14 +74,15 @@ class ProfileEdit extends Component {
         },
       })
       .then((res) => {
-        console.log(res.data.username);
+        console.log(res.data);
         this.setState({ username: res.data.username });
         this.setState({ email: res.data.email });
-        this.setState({ FName: res.data.firstname });
-        this.setState({ LName: res.data.lastname });
-
+        this.setState({ FName: res.data.first_name });
+        this.setState({ LName: res.data.last_name });
+        this.setState({ loading: false });
         console.log(this.state.username);
         console.log(this.state.email);
+        console.log(this.state.FName);
       })
       .catch((error) => {
         console.log(this.state.token);
@@ -108,7 +104,10 @@ class ProfileEdit extends Component {
         )
       )
         this.setState({ validEmail: true });
-      else this.setState({ validEmail: false });
+      else {
+        this.setState({ validEmail: false });
+        this.setState({ emailError: "Your Email address is not correct" });
+      }
     };
 
     const onChangePassword = (e) => {
@@ -120,24 +119,34 @@ class ProfileEdit extends Component {
         )
       )
         this.setState({ validPassword: true });
-      else this.setState({ validPassword: false });
+      else
+        this.setState({ validPassword: false }, () => {
+          if (this.state.cPassword === this.state.password)
+            this.setState({ validCPassword: true });
+          else this.setState({ validCPassword: false });
+        });
     };
 
     const onChangeCPassword = (e) => {
-      this.setState({ cPassword: e.target.value });
+      this.setState({ cPassword: e.target.value }, () => {
+        if (this.state.cPassword === this.state.password)
+          this.setState({ validCPassword: true });
+        else this.setState({ validCPassword: false });
+      });
+    };
 
-      if (this.state.CPassword === this.state.password)
-        this.setState({ validCPassword: true });
-      else this.setState({ validCPassword: false });
+    const onChangeCurrentPassword = (e) => {
+      this.setState({ currentPassword: e.target.value });
     };
 
     const onChangeFName = (e) => {
-      this.setState({ username: e.target.value });
+      this.setState({ FName: e.target.value });
     };
 
     const onChangeLName = (e) => {
-      this.setState({ username: e.target.value });
+      this.setState({ LName: e.target.value });
     };
+
     const FileUploadHandler = (e) => {
       console.log(e.target.files[0]);
       const newImage = e.target?.files?.[0];
@@ -155,12 +164,20 @@ class ProfileEdit extends Component {
       formData.append("first_name", this.state.FName);
       formData.append("last_name", this.state.LName);
       formData.append("email", this.state.email);
+      formData.append(
+        "avatar",
+        this.state.imageFile === null ? "" : this.state.imageFile
+      );
+      formData.append("description", this.state.description);
+
+      console.log("hiii");
+      console.log(formData);
 
       axios
         .put("http://127.0.0.1:8000/update_profile/", formData, {
           headers: {
             Authorization: `Token ${localStorage.getItem("autToken")}`,
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
         })
         .then((response) => {
@@ -168,149 +185,199 @@ class ProfileEdit extends Component {
         })
         .catch((error) => {
           console.log(error.response);
+
+          if (error.response.data.hasOwnProperty("email")) {
+            this.setState({ validEmail: false });
+            this.setState({ emailError: error.response.data.email });
+          }
         });
+
+      const username = {
+        username: this.state.username,
+      };
+      const usernameJSON = JSON.stringify(username);
     };
 
-    return (
-      <div>
-        <Navbar menuId="menu2" />
-        <div className="hpFContainer">
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={8}>
-              <Card>
-                <form onSubmit={handleSubmit}>
-                  <CardHeader color="primary">
-                    <h4>Edit Profile</h4>
-                    <p>Complete your profile</p>
-                  </CardHeader>
-                  <CardBody>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <CustomInput
-                          labelText="Username"
-                          id="username"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          onChange={onChangeUsername}
-                          defaultValue={this.state.username}
-                          error
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <CustomInput
-                          labelText="Email address"
-                          id="email-address"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          onChange={onChangeEmail}
-                          defaultValue={this.state.email}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <CustomInput
-                          labelText="New Password"
-                          id="password"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          onChange={onChangePassword}
-                          defaultValue={this.state.password}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <CustomInput
-                          labelText="Current Password"
-                          id="password-repeat"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          onChange={onChangeCPassword}
-                          defaultValue={this.state.CPassword}
-                        />
-                      </GridItem>
-                    </GridContainer>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={6}>
-                        <CustomInput
-                          labelText="First Name"
-                          id="first-name"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          required
-                          onChange={onChangeFName}
-                          defaultValue={this.state.FName}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={6}>
-                        <CustomInput
-                          labelText="Last Name"
-                          id="last-name"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          onChange={onChangeLName}
-                          defaultValue={this.state.LName}
-                        />
-                      </GridItem>
-                    </GridContainer>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={12}>
-                        <CustomInput
-                          labelText="Description"
-                          id="about-me"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          inputProps={{
-                            multiline: true,
-                            rows: 5,
-                          }}
-                          onChange={onChangeDescription}
-                        />
-                      </GridItem>
-                    </GridContainer>
+    if (this.state.loading) {
+      return <div></div>;
+    } else {
+      return (
+        <div>
+          <Navbar menuId="menu2" />
+          <div className="hpFContainer">
+            <GridContainer>
+              <GridItem xs={12} sm={12} md={8}>
+                <Card>
+                  <form onSubmit={handleSubmit}>
+                    <CardHeader color="primary">
+                      <h4>Edit Profile</h4>
+                      <p>Complete your profile</p>
+                    </CardHeader>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={6}>
+                          <CustomInput
+                            labelText="Username"
+                            id="username"
+                            formControlProps={{
+                              fullWidth: true,
+                            }}
+                            onChange={onChangeUsername}
+                            required
+                            defaultValue={this.state.username}
+                            error={!this.state.validUsername}
+                            tip={this.state.usernameError}
+                            disable={this.state.validUsername}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={6}>
+                          <CustomInput
+                            labelText="Email"
+                            id="email-address"
+                            formControlProps={{
+                              fullWidth: true,
+                            }}
+                            required
+                            onChange={onChangeEmail}
+                            defaultValue={this.state.email}
+                            error={!this.state.validEmail}
+                            tip={this.state.emailError}
+                            disable={this.state.validEmail}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={6}>
+                          <CustomInput
+                            labelText="First Name"
+                            id="first-name"
+                            formControlProps={{
+                              fullWidth: true,
+                            }}
+                            onChange={onChangeFName}
+                            defaultValue={this.state.FName}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={6}>
+                          <CustomInput
+                            labelText="Last Name"
+                            id="last-name"
+                            formControlProps={{
+                              fullWidth: true,
+                            }}
+                            onChange={onChangeLName}
+                            defaultValue={this.state.LName}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={12}>
+                          <CustomInput
+                            labelText="Description"
+                            id="about-me"
+                            formControlProps={{
+                              fullWidth: true,
+                            }}
+                            inputProps={{
+                              multiline: true,
+                              rows: 5,
+                            }}
+                            onChange={onChangeDescription}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                    <CardFooter>
+                      <Button color="primary" type="submit">
+                        Update Profile
+                      </Button>
+                    </CardFooter>
+                  </form>
+                  <form>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={4}>
+                          <CustomInput
+                            labelText="Current Password"
+                            id="password-repeat"
+                            formControlProps={{
+                              fullWidth: true,
+                            }}
+                            onChange={onChangeCurrentPassword}
+                            error={!this.state.validCurrentPassword}
+                            tip="The entered password is not correct"
+                            disabled={this.state.validCurrentPassword}
+                            type="password"
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={4}>
+                          <CustomInput
+                            labelText="New Password"
+                            id="password"
+                            formControlProps={{
+                              fullWidth: true,
+                            }}
+                            onChange={onChangePassword}
+                            error={!this.state.validPassword}
+                            tip="Your password must contain at least one number and 8 or more
+                          characters"
+                            disabled={this.state.validPassword}
+                            type="password"
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={4}>
+                          <CustomInput
+                            labelText="Confirm New Password"
+                            id="password"
+                            formControlProps={{
+                              fullWidth: true,
+                            }}
+                            onChange={onChangeCPassword}
+                            error={!this.state.validCPassword}
+                            tip="The entered passwords do not match"
+                            disabled={this.state.validCPassword}
+                            type="password"
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                    <CardFooter>
+                      <Button color="primary">Change Password</Button>
+                    </CardFooter>
+                  </form>
+                </Card>
+              </GridItem>
+              <GridItem xs={12} sm={12} md={4}>
+                <Card profile>
+                  <CardAvatar profile>
+                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                      <img
+                        src={
+                          this.state.image === null ? avatar : this.state.image
+                        }
+                        alt="..."
+                        id="avatar2"
+                      />
+                    </a>
+                  </CardAvatar>
+                  <CardBody profile>
+                    <h4 color="white">Test User</h4>
+                    <p color="white">
+                      Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio
+                      Bio Bio Bio Bio Bio Bio Bio Bio
+                    </p>
+                    <Upload onChange={FileUploadHandler} />
                   </CardBody>
-                  <CardFooter>
-                    <Button color="primary" type="submit">
-                      Update Profile
-                    </Button>
-                  </CardFooter>
-                </form>
-              </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={4}>
-              <Card profile>
-                <CardAvatar profile>
-                  <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                    <img
-                      src={
-                        this.state.image === null ? avatar : this.state.image
-                      }
-                      alt="..."
-                      id="avatar2"
-                    />
-                  </a>
-                </CardAvatar>
-                <CardBody profile>
-                  <h4 color="white">Test User</h4>
-                  <p color="white">
-                    Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio
-                    Bio Bio Bio Bio Bio Bio Bio
-                  </p>
-                  <Upload onChange={FileUploadHandler} />
-                </CardBody>
-              </Card>
-            </GridItem>
-          </GridContainer>
+                </Card>
+              </GridItem>
+            </GridContainer>
+          </div>
+          <footer>
+            <Footer />
+          </footer>
         </div>
-        <footer>
-          <Footer />
-        </footer>
-      </div>
-    );
+      );
+    }
   }
 }
 

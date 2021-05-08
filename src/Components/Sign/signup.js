@@ -49,6 +49,7 @@ function CustomInput(props) {
       size="small"
       required
       variant="filled"
+      inputProps={props.inputXProps}
     />
   );
 }
@@ -103,11 +104,16 @@ export default class SignUp extends Component {
         )
       )
         this.setState({ validPassword: true });
-      else this.setState({ validPassword: false });
+      else
+        this.setState({ validPassword: false }, () => {
+          if (this.state.CPassword === this.state.password)
+            this.setState({ validCPassword: true });
+          else this.setState({ validCPassword: false });
+        });
     };
 
     const onChangeCPassword = (e) => {
-      this.setState({ cPassword: e.target.value }, () => {
+      this.setState({ CPassword: e.target.value }, () => {
         if (this.state.CPassword === this.state.password)
           this.setState({ validCPassword: true });
         else this.setState({ validCPassword: false });
@@ -236,11 +242,11 @@ export default class SignUp extends Component {
                       autoComplete="email"
                       className="inputX"
                       onChange={onChangeEmail}
-                      data-tip="Your Email address is not correct"
+                      tip="Your Email address is not correct"
                       data-type="error"
                       data-place="bottom"
                       data-effect="solid"
-                      data-tip-disable={this.state.validEmail}
+                      disable={this.state.validEmail}
                       error={!this.state.validEmail}
                     />
                   </div>
