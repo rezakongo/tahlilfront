@@ -18,7 +18,7 @@ class Profile extends React.Component{
                 <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowOne">
                     
                     <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} proData">
-                    <a href="#" className="editP"><img width="30" height="30" src={Gear}/> </a>
+                    <a href="#" className="editP"> <img width="30" height="30" src={Gear}/> EditProfile</a>
                     
                             <div className="col-xl-2 col-lg-3 col-md-5 col-sm-6 col-xs-12 topCol">
                                 <div className="imgContainer">

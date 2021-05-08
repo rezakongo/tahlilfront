@@ -15,7 +15,7 @@
 .bodyContain{
  
   margin-top: 2rem;
-  background-color: rgba(0, 0, 53, 0.4);
+  display: flex;
   width: 85%;
 }
 
@@ -48,9 +48,8 @@
 }
 
 .tabsBody{
-  background-color: transparent;
   color: black;
-  min-height: 100%;
+  background-color: rgba(0, 0, 53, 0.4);
 }
 .titr {
   padding-top: 3rem;
@@ -111,7 +110,6 @@ background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(170,170,170,1) 100%);
 }
 
 .badbakhti2{
-  height: fit-content;
-  display: flex;
+  display: flex ;
   justify-content: center;
 }
