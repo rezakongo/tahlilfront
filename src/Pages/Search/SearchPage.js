@@ -7,10 +7,12 @@ import AlbumsSearchCard from "./SearchCard/Albums/AlbumsSearchCard";
 import ArtistsSearchCard from "./SearchCard/Artists/ArtistsSearchCard";
 import TracksSearchCard from "./SearchCard/Tracks/TracksSearchCard";
 import Navbar from "../../Components/Navbar/navbar";
+import { Pagination } from "semantic-ui-react";
 
 import "./SearchPage.css";
 import Orbs from "./orbs.gif";
-import { useLocation } from "react-router";
+import { Redirect, useLocation } from "react-router";
+import Footer from "../../Components/Footer/footer";
 
 class SearchPage extends React.Component {
   state = {
@@ -18,9 +20,14 @@ class SearchPage extends React.Component {
     Albums: [],
     Tracks: [],
     searchField: "",
+    activePage: 1,
+    changePage: false,
   };
   componentDidMount() {
     this.setState({ searchField: this.props.que });
+    this.setState({ activePage: this.props.page });
+
+    console.log(this.state.activePage);
   }
 
   APICallFunction = () => {
@@ -61,9 +68,20 @@ class SearchPage extends React.Component {
     const handleClick = (e) => {
       this.componentDidMount();
     };
+    const handlePaginationChange = (e, { activePage }) => {
+      this.setState({ activePage });
+      this.setState({ changePage: true });
+    };
     return (
       <div>
         <Navbar activeItem="search" menuId="menu1" />
+        {this.state.changePage ? (
+          <Redirect
+            push
+            to={`/search?q=${this.state.searchField}&p=${this.state.activePage}`}
+          />
+        ) : null}
+
         <div className="container-fluid !direction !spacing">
           <div className="badbakhti">
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} SearchTop">
@@ -220,8 +238,20 @@ class SearchPage extends React.Component {
                 </div>
               </div>
             </div>
+            <Pagination
+              activePage={this.state.activePage}
+              firstItem={null}
+              lastItem={null}
+              pointing
+              secondary
+              totalPages={10}
+              id="pagination"
+              onPageChange={handlePaginationChange}
+            />
           </div>
         </div>
+
+        <Footer />
       </div>
     );
   }

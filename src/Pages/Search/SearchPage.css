@@ -11,30 +11,28 @@
   align-items: center;
 }
 
-
-.bodyContain{
- 
+.bodyContain {
   margin-top: 2rem;
   display: flex;
   width: 85%;
 }
 
-.resultContainer{
+.resultContainer {
   margin-top: 2rem;
-  background-color:rgba(0, 0, 53, 0.4) ;
+  background-color: rgba(0, 0, 53, 0.4);
 }
 
-.totalContainer{
+.totalContainer {
   justify-content: center;
 }
 
-.tabsContainer{
+.tabsContainer {
   background-color: transparent;
   display: flex;
   justify-content: center;
 }
 
-.tabs{
+.tabs {
   display: flex;
   margin-bottom: 2px;
   color: white;
@@ -42,12 +40,12 @@
   justify-content: center;
 }
 
-.tabs:hover{
+.tabs:hover {
   border-bottom: 2px solid blue;
   margin-bottom: 0px;
 }
 
-.tabsBody{
+.tabsBody {
   color: black;
   background-color: rgba(0, 0, 53, 0.4);
 }
@@ -59,57 +57,63 @@
   color: white;
 }
 
-.searchBar{
+.searchBar {
   margin-top: 3rem;
 }
 
-.ddContainer{
-
+.ddContainer {
   display: flex;
   justify-content: center;
   margin-top: 3rem;
 }
 
-.dd{
+.dd {
   display: flex;
   justify-content: center;
   width: 100% !important;
-
 }
 
-
-.ddButton{
+.ddButton {
   width: 100% !important;
   border-radius: 20px;
   height: 2.6rem;
 }
 
-.ddMenu{
-
+.ddMenu {
   display: flex;
   justify-content: center;
 }
 
-.ddList{
+.ddList {
   width: 100%;
-
 }
 
-.ddinlist{
+.ddinlist {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.badbakhti{
+.badbakhti {
   height: fit-content;
   display: flex;
   justify-content: center;
-  background: rgb(0,0,0);
-background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(170,170,170,1) 100%);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(170, 170, 170, 1) 100%
+  );
 }
 
-.badbakhti2{
-  display: flex ;
+.badbakhti2 {
+  display: flex;
   justify-content: center;
+}
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  background-color: blueviolet;
+  padding: 20px;
 }

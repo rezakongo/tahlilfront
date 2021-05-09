@@ -15,7 +15,6 @@ import CardAvatar from "../Components/ProfileEdit/Card/CardAvatar.js";
 import CardBody from "../Components/ProfileEdit/Card/CardBody.js";
 import CardFooter from "../Components/ProfileEdit/Card/CardFooter.js";
 import axios from "axios";
-import avatar from "../Components/Cards/cover-dsotm.jpg";
 
 const styles = {
   cardCategoryWhite: {
@@ -43,7 +42,8 @@ class ProfileEdit extends Component {
     validPassword: true,
     validCPassword: true,
     validCurrentPassword: true,
-    loading: true,
+    loading1: true,
+    loading2: true,
     username: "",
     email: "",
     password: "",
@@ -52,16 +52,15 @@ class ProfileEdit extends Component {
     FName: "",
     LName: "",
     imageFile: null,
-    error: "",
     description: "",
-    showError: false,
+    error: false,
     image: null,
     usernameError: "",
     emailError: "",
+    avatar: "",
   };
 
   componentWillMount() {
-    console.log(avatar);
     const test = localStorage.getItem("autToken");
     this.APICallFunction();
   }
@@ -79,10 +78,31 @@ class ProfileEdit extends Component {
         this.setState({ email: res.data.email });
         this.setState({ FName: res.data.first_name });
         this.setState({ LName: res.data.last_name });
-        this.setState({ loading: false });
+        this.setState({ loading1: false });
         console.log(this.state.username);
         console.log(this.state.email);
         console.log(this.state.FName);
+      })
+      .catch((error) => {
+        console.log(this.state.token);
+        console.log(error.response);
+      });
+
+    axios
+      .get("http://127.0.0.1:8000/update_profile/me/", {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("autToken")}`,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+
+        this.setState({ description: res.data.description });
+        this.setState({ avatar: `http://127.0.0.1:8000${res.data.avatar}` });
+        this.setState({ loading2: false });
+        console.log(this.state.description);
+        console.log(this.state.avatar);
       })
       .catch((error) => {
         console.log(this.state.token);
@@ -112,15 +132,24 @@ class ProfileEdit extends Component {
 
     const onChangePassword = (e) => {
       this.setState({ password: e.target.value });
+      this.setState({ error: false });
 
       if (
         new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/).test(
           this.state.password
         )
       )
-        this.setState({ validPassword: true });
+        this.setState({ validPassword: true }, () => {
+          if (this.state.cPassword === this.state.password)
+            this.setState({ validCPassword: true });
+          else {
+            this.setState({ validCPassword: false });
+            this.setState({ error: true });
+          }
+        });
       else
         this.setState({ validPassword: false }, () => {
+          this.setState({ error: true });
           if (this.state.cPassword === this.state.password)
             this.setState({ validCPassword: true });
           else this.setState({ validCPassword: false });
@@ -128,10 +157,14 @@ class ProfileEdit extends Component {
     };
 
     const onChangeCPassword = (e) => {
+      this.setState({ error: false });
       this.setState({ cPassword: e.target.value }, () => {
         if (this.state.cPassword === this.state.password)
           this.setState({ validCPassword: true });
-        else this.setState({ validCPassword: false });
+        else {
+          this.setState({ validCPassword: false });
+          this.setState({ error: true });
+        }
       });
     };
 
@@ -170,9 +203,6 @@ class ProfileEdit extends Component {
       );
       formData.append("description", this.state.description);
 
-      console.log("hiii");
-      console.log(formData);
-
       axios
         .put("http://127.0.0.1:8000/update_profile/", formData, {
           headers: {
@@ -197,8 +227,43 @@ class ProfileEdit extends Component {
       };
       const usernameJSON = JSON.stringify(username);
     };
+    const handleChangePassword = (e) => {
+      e.preventDefault();
 
-    if (this.state.loading) {
+      if (!this.state.error) {
+        const chngepass = {
+          new_password: this.state.password,
+          current_password: this.state.currentPassword,
+        };
+        const chngepassJSON = JSON.stringify(chngepass);
+        axios
+          .post(
+            "http://127.0.0.1:8000/djoser/users/set_password/",
+            chngepassJSON,
+            {
+              headers: {
+                Authorization: `Token ${localStorage.getItem("autToken")}`,
+                "Content-Type": "application/json",
+              },
+            }
+          )
+          .then((res) => {
+            console.log(res);
+            if (res.status === 201) {
+              console.log("finish");
+            }
+          })
+          .catch((error) => {
+            console.log(error.response);
+
+            if (error.response.data.hasOwnProperty("current_password")) {
+              this.setState({ validCurrentPassword: false });
+            }
+          });
+      }
+    };
+
+    if (this.state.loading1 || this.state.loading2) {
       return <div></div>;
     } else {
       return (
@@ -283,6 +348,7 @@ class ProfileEdit extends Component {
                               rows: 5,
                             }}
                             onChange={onChangeDescription}
+                            defaultValue={this.state.description}
                           />
                         </GridItem>
                       </GridContainer>
@@ -293,7 +359,7 @@ class ProfileEdit extends Component {
                       </Button>
                     </CardFooter>
                   </form>
-                  <form>
+                  <form onSubmit={handleChangePassword}>
                     <CardBody>
                       <GridContainer>
                         <GridItem xs={12} sm={12} md={4}>
@@ -319,8 +385,7 @@ class ProfileEdit extends Component {
                             }}
                             onChange={onChangePassword}
                             error={!this.state.validPassword}
-                            tip="Your password must contain at least one number and 8 or more
-                          characters"
+                            tip=""
                             disabled={this.state.validPassword}
                             type="password"
                           />
@@ -342,7 +407,9 @@ class ProfileEdit extends Component {
                       </GridContainer>
                     </CardBody>
                     <CardFooter>
-                      <Button color="primary">Change Password</Button>
+                      <Button color="primary" type="submit">
+                        Change Password
+                      </Button>
                     </CardFooter>
                   </form>
                 </Card>
@@ -353,7 +420,9 @@ class ProfileEdit extends Component {
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
                         src={
-                          this.state.image === null ? avatar : this.state.image
+                          this.state.image === null
+                            ? this.state.avatar
+                            : this.state.image
                         }
                         alt="..."
                         id="avatar2"
@@ -361,11 +430,8 @@ class ProfileEdit extends Component {
                     </a>
                   </CardAvatar>
                   <CardBody profile>
-                    <h4 color="white">Test User</h4>
-                    <p color="white">
-                      Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio
-                      Bio Bio Bio Bio Bio Bio Bio Bio
-                    </p>
+                    <h4 color="white">{this.state.username}</h4>
+                    <p color="white">{this.state.description}</p>
                     <Upload onChange={FileUploadHandler} />
                   </CardBody>
                 </Card>

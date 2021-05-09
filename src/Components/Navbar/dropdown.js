@@ -13,6 +13,7 @@ import {
   Edit,
   ExitToApp,
 } from "@material-ui/icons";
+import { Redirect } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
 export default function MenuListComposition(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [redirect, setRedirect] = React.useState(false);
+
   const anchorRef = React.useRef(null);
 
   const handleToggle = () => {
@@ -40,7 +43,13 @@ export default function MenuListComposition(props) {
 
     setOpen(false);
   };
-
+  const handleProfileClick = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+    setRedirect(true);
+    setOpen(false);
+  };
   const handleLogout = () => {
     localStorage.removeItem("autToken");
     console.log(localStorage.getItem("autToken"));
@@ -67,6 +76,8 @@ export default function MenuListComposition(props) {
 
   return (
     <div className={classes.root}>
+      {redirect ? <Redirect push to="/profile" /> : null}
+
       <div>
         <Button
           ref={anchorRef}
@@ -100,13 +111,9 @@ export default function MenuListComposition(props) {
                     id="menu-list-grow"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>
+                    <MenuItem onClick={handleProfileClick}>
                       <AccountCircle fontSize="default" />
                       &nbsp; Profile
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Edit fontSize="default" />
-                      &nbsp; Edit Profile
                     </MenuItem>
                     <MenuItem onClick={handleLogout}>
                       <ExitToApp fontSize="default" />
