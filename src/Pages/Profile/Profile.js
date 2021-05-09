@@ -17,7 +17,7 @@ class Profile extends React.Component {
         <div className="container-fluid !direction !spacing Contain">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowOne">
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} proData">
-              <a href="editprofile" className="editP">
+              <a href="#" className="editP">
                 {" "}
                 <img width="30" height="30" src={Gear} /> EditProfile
               </a>
@@ -25,8 +25,8 @@ class Profile extends React.Component {
               <div className="col-xl-2 col-lg-3 col-md-5 col-sm-6 col-xs-12 topCol">
                 <div className="imgContainer">
                   <img
-                    width="180"
-                    height="180"
+                    width="160"
+                    height="160"
                     className="Picture"
                     src={this.state.Avatar}
                   />
