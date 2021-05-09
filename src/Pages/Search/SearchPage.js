@@ -44,34 +44,35 @@ class SearchPage extends React.Component {
   APICallFunction = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?format=json&search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
+        `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
       )
       .then((res) => {
         console.log(res.data);
         const Artists = res.data.results;
+
         this.setState({ Artists });
         this.setState({ loading: false });
       })
       .catch((error) => {
         console.log(error.response);
-        console.log(
-          `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?format=json&search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
-        );
       });
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/AlbumSearchAPIView/?format=json&search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
+        `http://127.0.0.1:8000/api/page/AlbumSearchAPIView/?search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
       )
       .then((res) => {
         const Albums = res.data.results;
+        console.log(res.data);
+
         this.setState({ Albums });
       });
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/MusicSearchAPIView/?format=json&search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
+        `http://127.0.0.1:8000/api/page/MusicSearchAPIView/?search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
       )
       .then((res) => {
         const Tracks = res.data.results;
+        console.log(res.data);
         this.setState({ Tracks });
       });
   };
@@ -257,7 +258,7 @@ class SearchPage extends React.Component {
           </div>
         </div>
 
-        <Footer id="footer"/>
+        <Footer id="footer" />
       </div>
     );
   }

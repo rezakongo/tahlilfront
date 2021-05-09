@@ -14,6 +14,7 @@ import CardHeader from "../Components/ProfileEdit/Card/CardHeader.js";
 import CardAvatar from "../Components/ProfileEdit/Card/CardAvatar.js";
 import CardBody from "../Components/ProfileEdit/Card/CardBody.js";
 import CardFooter from "../Components/ProfileEdit/Card/CardFooter.js";
+import avatarIcon from "../Components/ProfileEdit/avatar.png";
 import axios from "axios";
 
 const styles = {
@@ -421,7 +422,9 @@ class ProfileEdit extends Component {
                       <img
                         src={
                           this.state.image === null
-                            ? this.state.avatar
+                            ? this.state.avatar === "http://127.0.0.1:8000null"
+                              ? avatarIcon
+                              : this.state.avatar
                             : this.state.image
                         }
                         alt="..."
