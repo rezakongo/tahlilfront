@@ -153,7 +153,10 @@ export default class DNavbar extends Component {
             <Menu.Menu position="right">
               <Menu.Item>
                 <div id={!this.state.isLogin ? "hidden" : ""}>
-                  <Dropdown Logout={this.Logout} />
+                  <Dropdown
+                    username={this.state.username}
+                    Logout={this.Logout}
+                  />
                 </div>
               </Menu.Item>
               <Menu.Item>

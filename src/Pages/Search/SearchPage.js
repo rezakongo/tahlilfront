@@ -257,7 +257,7 @@ class SearchPage extends React.Component {
           </div>
         </div>
 
-        <Footer />
+        <Footer id="footer"/>
       </div>
     );
   }
