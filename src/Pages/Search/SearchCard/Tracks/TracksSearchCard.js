@@ -11,13 +11,11 @@ function TracksSearchCard(props) {
           <div className="col-md-12 col-sm-12  textContainer">
             <img width="100%" height="100%" id="trackImg" src={TrackImage} />
             <Header as="h2" id="TrackTitle">
-              Title
-              <Header.Subheader id="TrackTitle">Singer</Header.Subheader>
+            {props.track.title}
+              <Header.Subheader id="TrackTitle">{props.track.artist.name}</Header.Subheader>
             </Header>
-            <h1></h1>
-            <h2 className="TrackSinger"></h2>
-            <h3 className="TrackScore">Score</h3>
-            <h3 className="TrackRelease">Release</h3>
+            <h3 className="TrackScore">{props.album.score}</h3>
+            <h3 className="TrackRelease">{props.album.releasedate}</h3>
           </div>
         </div>
       </div>

@@ -10,10 +10,10 @@ function ArtistsSearchCard(props){
                 <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rows">
 
                     <div className="col-md-12 col-sm-12  textContainer">
-                        <h1 className="title">Singer</h1>
+                        <h1 className="title">{props.artist.name}</h1>
                         <img width="70" height="50" src={ArtistImage} className="img" />
-                        <h2 className="SingerRate">Rate</h2>
-                        <h2 className="SingerDate">Date</h2>
+                        <h2 className="SingerRate">{props.artist.score}</h2>
+                        <h2 className="SingerDate">{props.artist.date}</h2>
                     </div>
                 </div>
             </div>

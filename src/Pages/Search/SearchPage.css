@@ -113,6 +113,7 @@
 
 #pagination {
   display: flex;
+  color: white !important;
   justify-content: center;
   background-color: blueviolet;
   padding: 20px;

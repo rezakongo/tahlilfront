@@ -184,33 +184,14 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Tracks-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <TracksSearchCard />
+                {this.state.Tracks.map((track)=>{
+                  return(
+                    <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                    <TracksSearchCard track={track}/>
                   </div>
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <TracksSearchCard />
-                  </div>
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <TracksSearchCard />
-                  </div>
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <TracksSearchCard />
-                  </div>
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <TracksSearchCard />
-                  </div>
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <TracksSearchCard />
-                  </div>
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <TracksSearchCard />
-                  </div>
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <TracksSearchCard />
-                  </div>
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <TracksSearchCard />
-                  </div>
+                  )
+                  console.log(track.title);
+                  })}
                 </div>
               </div>
               <div
@@ -220,9 +201,12 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Albums-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <AlbumsSearchCard />
-                  </div>
+                {this.state.Albums.map((album)=>{
+                  return(
+                    <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                      <AlbumsSearchCard album={album}/>
+                    </div>
+                  )})}
                 </div>
               </div>
               <div
@@ -232,9 +216,12 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Artists-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
-                    <ArtistsSearchCard />
+                {this.state.Artists.map((artist)=>{
+                  return(
+                    <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                    <ArtistsSearchCard artist={artist}/>
                   </div>
+                  )})}
                 </div>
               </div>
             </div>

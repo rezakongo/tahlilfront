@@ -1,3 +1,4 @@
+import { date } from "faker";
 import React from "react";
 import "./AlbumsSearchCard.css";
 import Kida from "./Kida.jpg"
@@ -11,11 +12,11 @@ function AlbumsSearchCard(props){
                    
                         
                     <div className="col-md-12 col-sm-12  textContainer">
-                        <img width="130" height="130"  src={Kida}/>\
-                        <h1 className="AlbumTitle">Album</h1>
-                        <h3 className="AlbumSinger">Artist</h3>
-                        <h3 className="AlbumRate">Release</h3>
-                        <h4 className="AlbumRelease">Score</h4>
+                        <img width="130" height="130"  src={props.album.cover_image}/>\
+                        <h1 className="AlbumTitle">{props.album.title}</h1>
+                        <h3 className="AlbumSinger">{props.album.artist.name}</h3>
+                        <h3 className="AlbumRate">{props.album.score}</h3>
+                        <h4 className="AlbumRelease">{props.album.firstreleasedate}</h4>
                     </div>
                 </div>
             </div>
