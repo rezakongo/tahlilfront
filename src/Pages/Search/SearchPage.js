@@ -46,8 +46,9 @@ class SearchPage extends React.Component {
   APICallFunction = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
-
+        `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?search=${
+          this.state.searchField
+        }&limit=10&page=${this.state.activePage - 1}&photo=True`
       )
       .then((res) => {
         console.log(res.data);
@@ -61,7 +62,9 @@ class SearchPage extends React.Component {
       });
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/AlbumSearchAPIView/?search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
+        `http://127.0.0.1:8000/api/page/AlbumSearchAPIView/?search=${
+          this.state.searchField
+        }&limit=10&page=${this.state.activePage - 1}&photo=True`
       )
       .then((res) => {
         const Albums = res.data.results;
@@ -72,7 +75,9 @@ class SearchPage extends React.Component {
       });
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/MusicSearchAPIView/?search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
+        `http://127.0.0.1:8000/api/page/MusicSearchAPIView/?search=${
+          this.state.searchField
+        }&limit=10&page=${this.state.activePage - 1}&photo=True`
       )
       .then((res) => {
         const Tracks = res.data.results;
@@ -213,7 +218,15 @@ class SearchPage extends React.Component {
                   })}
                 </div>
               </div>
-              <div id={(this.state.loading1 || this.state.loading2 || this.state.loading3) ? "loading" : "hidden"}>
+              <div
+                id={
+                  this.state.loading1 ||
+                  this.state.loading2 ||
+                  this.state.loading3
+                    ? "loading"
+                    : "hidden"
+                }
+              >
                 <Loader content="Loading" size="large" inverted />
               </div>
               <div
@@ -257,7 +270,13 @@ class SearchPage extends React.Component {
               secondary
               inverted
               totalPages={10}
-              id={(this.state.loading1 || this.state.loading2 || this.state.loading3) ? "hidden" : "pagination"}
+              id={
+                this.state.loading1 ||
+                this.state.loading2 ||
+                this.state.loading3
+                  ? "hidden"
+                  : "pagination"
+              }
               onPageChange={handlePaginationChange}
             />
           </div>
