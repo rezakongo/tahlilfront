@@ -13,9 +13,6 @@ class ArtistPage extends Component {
           <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistDataPosition"></div>
           <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
             <div class="container-fluid !direction !spacing bdyPosition">
-              <h2 class="divider line glow" contenteditable>
-                {"Albums"}
-              </h2>
               <AlbumTable />
             </div>
           </div>

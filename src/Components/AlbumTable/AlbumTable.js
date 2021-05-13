@@ -8,6 +8,22 @@ import "./AlbumTable.css";
 const AlbumTable = () => (
   <Table className="table" unstackable inverted>
     <Table.Body>
+      <div>
+        <div className="row " id="AlbumH">
+          <div className="col-sm-7 col-xs">
+            <div className="row">
+              <div className="col-sm-6 text">
+                <h1 text>Latest Albums</h1>
+              </div>
+              <div className="col-sm-6 text">
+                <a className="showAll" href="test">
+                  <p>Show All</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {AlbumsData.map((Album) => {
         return (
           <div>
