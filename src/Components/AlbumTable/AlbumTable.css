@@ -1,3 +1,16 @@
+#AlbumH {
+  justify-content: center;
+}
+
+.showAll {
+  text-align: end;
+  width: 100%;
+  justify-content: right;
+  color: aliceblue !important;
+}
+.showAll :hover {
+  color: black;
+}
 .table td {
   vertical-align: middle !important;
 }
