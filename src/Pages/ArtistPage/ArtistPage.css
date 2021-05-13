@@ -3,8 +3,13 @@
 }
 
 .artistDataPosition{
-    background-color: red;
-    min-height: 25rem;
+    height: 100%;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 4rem;
+    font-size: 40px;
+    color: red;
 }
 
 .bdyContainer{
@@ -17,4 +22,63 @@
     width: 80%;
     background-color: green;
     min-height: 100rem;
+    
+}
+
+.imgContainer{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: red;
+}
+
+.imgkhodesh{
+    border: 5px solid white;
+}
+
+.dataContainer{
+    padding-left: 4rem;
+    display: block;
+    line-height: 3rem;
+}
+
+.titleContainer{
+    color: white;
+    width: 100%;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.dateContainer{
+    color: white;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    
+}
+
+.imgflag{
+    width: 6rem;
+}
+
+.followButton{
+    margin-top: 1rem;
+    color: white;
+    background-color: rgb(116, 106, 143);
+    font-size: 17px;
+    width: 40%;
+    height: 3rem;
+    border: 0px none transparent;
+    border-radius: 10px;
+}
+
+.followButton:hover{
+    background-color: rgb(67, 67, 141);
+    transition: all 0.3s ease-in-out;
+}
+
+.followButton:active{
+    background-color: rgb(0, 0, 92);
+    transition: all 0.3s ease-in-out;
 }
