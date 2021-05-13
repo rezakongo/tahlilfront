@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import "./login.css";
-import { Checkbox, IconButton } from "@material-ui/core";
+import { Checkbox, IconButton, Snackbar } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
 import axios from "axios";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import { Redirect } from "react-router";
+import { Alert } from "@material-ui/lab";
 
 const config = {
   headers: {
@@ -56,6 +57,7 @@ export default class Login extends Component {
   state = {
     showPassword: false,
     redirect: false,
+    isSignUp: false,
     username: "",
     password: "",
     showError: false,
@@ -63,6 +65,16 @@ export default class Login extends Component {
     validPassword: true,
   };
 
+  componentDidMount() {
+    const test = localStorage.getItem("autToken");
+    this.setState({ redirect: true });
+    if (test === null) this.setState({ redirect: false });
+
+    this.setState({ isSignUp: this.props.open === "true" ? true : false });
+  }
+  closeSnackbar = () => {
+    this.setState({ isSignUp: false });
+  };
   render() {
     const handleClickShowPassword = () => {
       let showPassword = !this.state.showPassword;
@@ -87,7 +99,11 @@ export default class Login extends Component {
         .then((res) => {
           console.log(res);
           localStorage.setItem("autToken", res.data.auth_token);
-          this.setState({ redirect: true });
+          this.setState({ isLogin: true }, () => {
+            setTimeout(() => {
+              this.setState({ redirect: true });
+            }, 2000);
+          });
         })
         .catch((error) => {
           this.setState({ showError: true });
@@ -97,7 +113,14 @@ export default class Login extends Component {
 
     return (
       <div className="body-l">
-        {this.state.redirect ? <Redirect push to="/home" /> : null}
+        {this.state.redirect ? <Redirect push to="/home?l=true" /> : null}
+        <Snackbar
+          open={this.state.isSignUp}
+          autoHideDuration={3000}
+          onClose={this.closeSnackbar}
+        >
+          <Alert severity="success">You have successfully signed up!</Alert>
+        </Snackbar>
         <div className="padding"></div>
         <div className="outer">
           <div className="inner">
@@ -134,7 +157,7 @@ export default class Login extends Component {
                   inputXProps={{
                     // <-- This is where the toggle button is added.
                     endAdornment: (
-                      <inputXAdornment position="end">
+                      <inputAdornment position="end">
                         <IconButton
                           aria-label="toggle password visibility"
                           onClick={handleClickShowPassword}
@@ -146,7 +169,7 @@ export default class Login extends Component {
                             <VisibilityOff />
                           )}
                         </IconButton>
-                      </inputXAdornment>
+                      </inputAdornment>
                     ),
                   }}
                 />

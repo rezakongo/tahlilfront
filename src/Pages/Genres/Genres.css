@@ -1,0 +1,12 @@
+.pgBdy{
+    display: flex;
+    margin-top: 7rem
+
+}
+
+.cardsPosition{
+    width: 90%;
+    background-color: rgba(0, 0, 53, 0.4);
+    border-radius: 10px;
+    min-height: 30rem;
+}

@@ -1,0 +1,154 @@
+.Contain{
+    margin-top: 4%;
+    width: 80%;
+    min-height: 70rem;
+    background-color: rgba(0, 0, 53, 0.4);
+}
+.rowOne{
+    height: fit-content;
+    margin-top: 4rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+}
+
+.proData{
+    background-color: rgba(0, 0, 0, 0.575);
+    border-radius: 10px;
+    width: 95.5%;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    max-height: fit-content;
+}
+
+.colone{
+    display: flex;
+    background-color: transparent;
+    min-height: 20rem;
+    justify-content: center;
+}
+.coltwo{
+    background-color: transparent;
+    min-height: 50rem;
+    display:flexbox;
+    justify-content: center !important;
+}
+
+
+
+.topContain{
+    background-color: transparent;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width:96.5%;
+    display: flex;
+}
+
+.leftContain{
+    width: 95%;
+    margin-top: 1rem;
+    border-radius: 10px;
+    display: block;
+}
+
+.rightContain{
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.575);
+    width: 95%;
+    border-radius: 10px;
+    height: min-content;
+    margin-left: 1rem;
+}
+.imgContainer{
+    height: 15rem;
+    width:15rem;
+    
+}
+
+.topCol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataContainer{
+    color:white;
+    height: 85%;
+    width: 90%;
+    display: flex;
+    justify-content: left;
+}
+
+.scoreContainer{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: left;
+    margin-left: 0px;
+}
+
+.Picture{
+    border-radius: 90px;
+    object-fit: cover;
+}
+
+.nameAndDesContainer{
+    display:flex;
+    align-items:flex-start;
+    justify-items:left;
+    padding-top: 3rem;
+}
+
+.NameContainer{
+    display: flex;
+    color: white;
+    justify-content: left;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 35px;
+    
+}
+
+.DescriptionContainer{
+    display: flex;
+    justify-content: left;
+    color: white;
+    font-size: 18px;
+    margin-top: 1rem;
+    line-height: 20px;
+}
+
+.rowtwo{
+    margin-top: 1rem;
+
+}
+
+.editP{
+    position:relative;
+    left: 45%;
+    top: 0%;
+    color: white;
+    font-size: 15px;
+}
+
+.signupDate{
+    display:inline-flex;
+    align-items:flex-end;
+    justify-content: flex-end !important;
+    color: white;
+    font-size: 18px;
+}
+
+.FavoriteTitle{
+    color: rgb(145, 145, 145);
+    font-size: 25px;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    padding-left: 3rem;
+    display: flex;
+    justify-content: left;
+}

@@ -3,32 +3,46 @@ import React, { Component } from "react";
 import { Header, Icon, Input, Menu } from "semantic-ui-react";
 import logo from "./logo.png";
 import Dropdown from "./dropdown";
-
+import Searchdd from "./Searchdd";
 import "./navbar.css";
 import axios from "axios";
+import { Redirect } from "react-router";
+import SearchSug from "./searchSug";
 
 export default class DNavbar extends Component {
-  state = { menuOpen: false, isLogin: true, username: " " };
+  state = {
+    menuOpen: false,
+    isLogin: true,
+    username: " ",
+    redirect: false,
+    query: "",
+    token: "",
+  };
 
   componentDidMount() {
     const test = localStorage.getItem("autToken");
     if (test === null) this.setState({ isLogin: false });
-
-    if (this.state.isLogin) {
-      axios
-        .post("http://127.0.0.1:8000/djoser/users/me/", {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": { test },
-          },
-        })
-        .then((res) => {
-          console.log(res);
-        });
+    else {
+      this.setState({ token: "Token " + test }, () => this.APICallFunction());
     }
-    console.log(test);
-    console.log(this.state.isLogin);
   }
+  APICallFunction = () => {
+    axios
+      .get("http://127.0.0.1:8000/djoser/users/me/", {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("autToken")}`,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log(res.data.username);
+        this.setState({ username: res.data.username });
+      })
+      .catch((error) => {
+        console.log(this.state.token);
+        console.log(error.response);
+      });
+  };
 
   Login = () => {
     this.setState({ isLogin: true });
@@ -43,7 +57,7 @@ export default class DNavbar extends Component {
   };
   render() {
     const { activeItem } = this.props;
-
+    const { history } = this.context;
     return (
       <div id="navbar">
         {/* desktop */}
@@ -86,7 +100,7 @@ export default class DNavbar extends Component {
           />
           <Menu.Menu position="right">
             <Menu.Item id="search-container">
-              <Input id="search" icon="search" placeholder="Search..." />
+              <SearchSug />
             </Menu.Item>
 
             <Menu.Item
@@ -118,12 +132,11 @@ export default class DNavbar extends Component {
             />
             <Menu.Item>
               <div id={!this.state.isLogin ? "hidden" : ""}>
-                <Dropdown Logout={this.Logout} />
+                <Dropdown username={this.state.username} Logout={this.Logout} />
               </div>
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-
         {/* mobile */}
         <div id={this.state.menuOpen ? "hidden" : "close"}>
           <Menu secondary id={"m" + this.props.menuId}>
@@ -138,11 +151,14 @@ export default class DNavbar extends Component {
               />
             </Menu.Item>
             <Menu.Menu position="right">
-            <Menu.Item>
-              <div id={!this.state.isLogin ? "hidden" : ""}>
-                <Dropdown Logout={this.Logout} />
-              </div>
-            </Menu.Item>
+              <Menu.Item>
+                <div id={!this.state.isLogin ? "hidden" : ""}>
+                  <Dropdown
+                    username={this.state.username}
+                    Logout={this.Logout}
+                  />
+                </div>
+              </Menu.Item>
               <Menu.Item>
                 <Icon
                   name="bars"
@@ -154,7 +170,6 @@ export default class DNavbar extends Component {
             </Menu.Menu>
           </Menu>
         </div>
-
         <div id={this.state.menuOpen ? "mmenu-container" : "hidden"}>
           <Menu secondary id="close-icon">
             <Menu.Menu position="right">
@@ -209,7 +224,13 @@ export default class DNavbar extends Component {
               <Divider orientation="vertical" flexItem />
 
               <a
-                id={activeItem === "Sign in" ? "v1" : "v2"}
+                id={
+                  this.state.isLogin
+                    ? "hidden"
+                    : activeItem === "Sign in"
+                    ? "v1"
+                    : "v2"
+                }
                 onClick={() => {
                   this.onClickMenu();
                 }}
@@ -218,7 +239,13 @@ export default class DNavbar extends Component {
                 Sing in
               </a>
               <a
-                id={activeItem === "Sign up" ? "v1" : "v2"}
+                id={
+                  this.state.isLogin
+                    ? "hidden"
+                    : activeItem === "Sign up"
+                    ? "v1"
+                    : "v2"
+                }
                 onClick={() => {
                   this.onClickMenu();
                 }}
@@ -229,8 +256,17 @@ export default class DNavbar extends Component {
               </a>
             </div>
           </div>
-          <Input id="search" icon="search" placeholder="Search..." />
+          <SearchSug />
         </div>
+        {this.state.redirect ? (
+          <Redirect
+            to={{
+              pathname: "/search",
+              state: { property_id: this.state.query },
+            }}
+          />
+        ) : null}
+        ;
       </div>
     );
   }

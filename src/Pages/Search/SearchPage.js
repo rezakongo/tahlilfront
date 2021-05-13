@@ -1,124 +1,272 @@
-import React,{Component} from 'react'
-import { Icon, Input } from "semantic-ui-react";
-import axios from 'axios'
-import { Tab } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css'
-import AlbumsSearchCard from "./SearchCard/Albums/AlbumsSearchCard"
-import ArtistsSearchCard from "./SearchCard/Artists/ArtistsSearchCard"
-import TracksSearchCard from "./SearchCard/Tracks/TracksSearchCard"
-import Navbar from "../../Components/LandingTop/LandingTop"
-import "./SearchPage.css"
-import Orbs from "./orbs.gif"
+import React, { Component } from "react";
+import { Dimmer, Icon, Input, Loader } from "semantic-ui-react";
+import axios from "axios";
+import { Tab } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
+import AlbumsSearchCard from "./SearchCard/Albums/AlbumsSearchCard";
+import ArtistsSearchCard from "./SearchCard/Artists/ArtistsSearchCard";
+import TracksSearchCard from "./SearchCard/Tracks/TracksSearchCard";
+import Navbar from "../../Components/Navbar/navbar";
+import { Pagination } from "semantic-ui-react";
 
+import "./SearchPage.css";
+import Orbs from "./orbs.gif";
+import { Redirect, useLocation } from "react-router";
+import Footer from "../../Components/Footer/footer";
 
-
-
-
-class SearchPage extends React.Component{
+class SearchPage extends React.Component {
   state = {
     Artists: [],
-    Albums:[],
-    Tracks:[],
-    searchField:'sia'
-  }
-
-
+    Albums: [],
+    Tracks: [],
+    searchField: "",
+    activePage: 1,
+    changePage: false,
+    loading1: true,
+    loading2: true,
+    loading3: true,
+  };
   componentDidMount() {
-    axios.get(`http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?format=json&search=`+this.state.searchField)
-      .then(res => {
-        const Artists =res.data.sia;
-        this.setState({ Artists });
-      })
-  
+    this.setState(
+      { searchField: this.props.que === null ? "" : this.props.que },
+      () => {
+        this.setState(
+          { activePage: this.props.page === null ? 1 : this.props.page },
+
+          () => {
+            this.APICallFunction();
+          }
+        );
+      }
+    );
+
+    console.log(this.state.activePage);
   }
 
+  APICallFunction = () => {
+    axios
+      .get(
+        `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
 
-  
-  render(){
-      const handleChange = e => {
-        const inputValueToUrl = encodeURI(e.target.value); 
-        this.state.searchField=inputValueToUrl;
-        this.componentDidMount();
-      }
-        return(
-          <div className="Container">
-            <div className="container-fluid !direction !spacing ">
-              <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} SearchTop">
-                <div className="col-md-1 tit">
-                    HEXBEAT
-                </div>
-                <div className="col-md-6 ">
-                
-                </div>
-                <div className="col-md-4 ">
+      )
+      .then((res) => {
+        console.log(res.data);
+        const Artists = res.data.results;
+
+        this.setState({ Artists });
+        this.setState({ loading1: false });
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    axios
+      .get(
+        `http://127.0.0.1:8000/api/page/AlbumSearchAPIView/?search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
+      )
+      .then((res) => {
+        const Albums = res.data.results;
+        console.log(res.data);
+
+        this.setState({ Albums });
+        this.setState({ loading2: false });
+      });
+    axios
+      .get(
+        `http://127.0.0.1:8000/api/page/MusicSearchAPIView/?search=${this.state.searchField}&limit=10&page=${this.state.activePage}`
+      )
+      .then((res) => {
+        const Tracks = res.data.results;
+        console.log(res.data);
+        this.setState({ Tracks });
+        this.setState({ loading3: false });
+      });
+  };
+  render() {
+    const handleChange = (e) => {
+      const inputValueToUrl = encodeURI(e.target.value);
+      this.state.searchField = inputValueToUrl;
+    };
+
+    const handleClick = (e) => {
+      this.componentDidMount();
+    };
+    const handlePaginationChange = (e, { activePage }) => {
+      this.setState({ activePage });
+      this.setState({ changePage: true });
+    };
+    return (
+      <div>
+        <Navbar activeItem="search" menuId="menu1" />
+        {this.state.changePage ? (
+          <Redirect
+            push
+            to={`/search?q=${this.state.searchField}&p=${this.state.activePage}`}
+          />
+        ) : null}
+
+        <div className="container-fluid !direction !spacing">
+          <div className="badbakhti">
+            <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} SearchTop">
+              <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 titr"></div>
+              <div className="col-0 col-sm-0 col-md-1 col-lg-2 col-xl-5"></div>
+              <div className="col-12 col-sm-9 col-md-5 col-lg-4 col-xl-3 jojocontainer">
                 <Input
-                  icon={<Icon name="search" id="iconColor" inverted circular link />}
+                  icon={
+                    <Icon
+                      name="search"
+                      id="iconColor"
+                      onClick={handleClick}
+                      inverted
+                      circular
+                      link
+                    />
+                  }
                   placeholder="Search..."
                   className="searchBar"
                   id="searchBarRadius"
+                  onChange={handleChange}
+                  defaultValue={this.state.searchField}
                 />
-                </div>
               </div>
-              <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                <div className="col-md-1">
-                    
-                </div>
-                <div className="col-md-1 d-flex align-items-start tabsContainer">
-                <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  <button className="nav-link active tabs" id="v-pills-Tracks-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Tracks" type="button" role="tab" aria-controls="v-pills-Tracks" aria-selected="true">Tracks</button>
-                  <button className="nav-link tabs" id="v-pills-Albums-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Albums" type="button" role="tab" aria-controls="v-pills-Albums" aria-selected="false">Albums</button>
-                  <button className="nav-link tabs" id="v-pills-Artists-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Artists" type="button" role="tab" aria-controls="v-pills-Artists" aria-selected="false">Artists</button>
-                </div>
-                </div>
-                <div className="col-md-9 tab-content" id="v-pills-tabContent">
-                  <div className="tab-pane fade show active tabsBody" id="v-pills-Tracks" role="tabpanel" aria-labelledby="v-pills-Tracks-tab">
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                    <TracksSearchCard/>
-                  </div>
-                  <div className="tab-pane fade tabsBody" id="v-pills-Albums" role="tabpanel" aria-labelledby="v-pills-Albums-tab">
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                    <AlbumsSearchCard/>
-                  </div>
-                  <div className="tab-pane fade tabsBody" id="v-pills-Artists" role="tabpanel" aria-labelledby="v-pills-Artists-tab">
-                    {this.state.Artists.map(Artist=><ArtistsSearchCard Artist={Artist}/>)}
-                  </div>
-                </div>
-                <div className="col-md-1">
-                    
+              <div className="col-12 col-sm-3 col-md-2 col-lg-2 col-xl-1 ddContainer">
+                <div className="dropdown dd">
+                  <button
+                    className="btn btn-secondary dropdown-toggle ddButton"
+                    type="button"
+                    id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Filter
+                  </button>
+                  <ul
+                    className="dropdown-menu dropdown-menu-dark"
+                    aria-labelledby="dropdownMenuButton2"
+                  >
+                    <li className="ddList">
+                      <div
+                        className="nav flex-column nav-pills me-3 ddinlist"
+                        id="v-pills-tab"
+                        role="tablist"
+                        aria-orientation="vertical"
+                      >
+                        <button
+                          className="nav-link active tabs"
+                          id="v-pills-Tracks-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Tracks"
+                          type="button"
+                          role="tab"
+                          aria-controls="v-pills-Tracks"
+                          aria-selected="true"
+                        >
+                          Tracks
+                        </button>
+                        <button
+                          className="nav-link tabs"
+                          id="v-pills-Albums-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Albums"
+                          type="button"
+                          role="tab"
+                          aria-controls="v-pills-Albums"
+                          aria-selected="false"
+                        >
+                          Albums
+                        </button>
+                        <button
+                          className="nav-link tabs"
+                          id="v-pills-Artists-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#v-pills-Artists"
+                          type="button"
+                          role="tab"
+                          aria-controls="v-pills-Artists"
+                          aria-selected="false"
+                        >
+                          Artists
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-  );
+        </div>
+        <div className="badbakhti2">
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bodyContain">
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                className="tab-pane fade show active tabsBody"
+                id="v-pills-Tracks"
+                role="tabpanel"
+                aria-labelledby="v-pills-Tracks-tab"
+              >
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                  {this.state.Tracks.map((track) => {
+                    return (
+                      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                        <TracksSearchCard track={track} />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div id={(this.state.loading1 || this.state.loading2 || this.state.loading3) ? "loading" : "hidden"}>
+                <Loader content="Loading" size="large" inverted />
+              </div>
+              <div
+                className="tab-pane fade tabsBody"
+                id="v-pills-Albums"
+                role="tabpanel"
+                aria-labelledby="v-pills-Albums-tab"
+              >
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                  {this.state.Albums.map((album) => {
+                    return (
+                      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                        <AlbumsSearchCard album={album} />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div
+                className="tab-pane fade tabsBody"
+                id="v-pills-Artists"
+                role="tabpanel"
+                aria-labelledby="v-pills-Artists-tab"
+              >
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                  {this.state.Artists.map((artist) => {
+                    return (
+                      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                        <ArtistsSearchCard artist={artist} />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            <Pagination
+              activePage={this.state.activePage}
+              firstItem={null}
+              lastItem={null}
+              pointing
+              secondary
+              inverted
+              totalPages={10}
+              id={(this.state.loading1 || this.state.loading2 || this.state.loading3) ? "hidden" : "pagination"}
+              onPageChange={handlePaginationChange}
+            />
+          </div>
+        </div>
+
+        <Footer id="footer" />
+      </div>
+    );
   }
 }
 
 export default SearchPage;
-

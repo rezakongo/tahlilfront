@@ -1,24 +1,26 @@
 import React from "react";
 import "./TracksSearchCard.css";
-import TrackImage from "./karmapolice.jpg"
+import TrackImage from "./karmapolice.jpg";
+import { Header } from "semantic-ui-react";
 
-
-function TracksSearchCard(props){
-    return(
-        <div className="CardBody">
-            <div className="container-fluid !direction !spacing">
-                <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                    <div className="col-md-2 col-sm-12 imageContainer">
-                        <img width="130" height="130" src={TrackImage}/>
-                    </div>
-                    <div className="col-md-10 col-sm-12  textContainer">
-                        <h1>Karma Police</h1>
-                        <h2>Radio Head</h2>
-                    </div>
-                </div>
-            </div>
+function TracksSearchCard(props) {
+  return (
+    <div className="CardBody">
+      <div className="container-fluid !direction !spacing test">
+        <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+          <div className="col-md-12 col-sm-12  textContainer">
+            <img width="100%" height="100%" id="trackImg" src={TrackImage} />
+            <Header as="h2" id="TrackTitle">
+            {props.track.title}
+              <Header.Subheader id="TrackTitle">{props.track.artist.name}</Header.Subheader>
+            </Header>
+            <h3 className="TrackScore">{props.track.score}</h3>
+            <h3 className="TrackRelease">relese</h3>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
 export default TracksSearchCard;

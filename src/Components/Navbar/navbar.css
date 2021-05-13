@@ -9,6 +9,7 @@
 
 #dropdown {
   color: aliceblue;
+  text-transform: none;
 }
 
 #dropdown :hover {

@@ -1,0 +1,92 @@
+.FavoriteCartContainer{
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5 rem;
+    min-height: 4rem;
+    max-height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.FavoritCard{
+    width: 90%;
+    min-height: 4rem;
+    max-height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+    align-content: center !important;
+}
+
+.FavoritCard:hover{
+    background-color: rgba(97, 97, 97, 0.747);
+    transition:0.3s all ease-in-out;
+    cursor: pointer;
+}
+
+.FavoritCard:hover .ax{
+   display: flex;
+   transition:0.5s all ease-in-out;
+}
+
+
+
+.imagePosition{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.captionPosition{
+    height: 100%;
+    display: block;
+    justify-content: left;
+    padding-left: 3rem;
+    align-items: center;
+    padding-top: 0.2rem;
+}
+
+.scorePosition{
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.namePosition{
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.typePosition{
+    color: white;
+    font-size: 11px;
+}
+
+.imag{
+    border-radius: 50px;
+}
+
+.removeB{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0px none transparent;
+    background-image: "./x.png";
+}
+
+.ax{
+    display: none;
+}
