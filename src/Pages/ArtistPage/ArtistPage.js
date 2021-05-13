@@ -9,7 +9,7 @@ class ArtistPage extends Component {
     return (
       <div>
         <Navbar activeItem="Genres" menuId="menu2" />
-        <div class="container-fluid !direction !spacing">
+        <div class="container-fluid !direction !spacing artistPageContainer">
             <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistDataPosition">
                 
             </div>
