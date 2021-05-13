@@ -14,6 +14,7 @@ class ArtistPage extends Component {
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundImage: "url(https://content.api.news/v3/images/bin/ba49fee5bc802f0a32a9415fef635f71)",
+      boxShadow:"inset 0 0 0 2000px rgba(2, 2, 2, 0.534)"
     };
     return (
       <div>
@@ -33,7 +34,13 @@ class ArtistPage extends Component {
                     1988–present
                     </div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                      <img height="40" className="imgflag" src={"https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"}/>
+                      <img height="35" className="imgflag" src={"https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"}/>
+                    </div>
+                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
+                      Genres : Rap
+                    </div>
+                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} followersContainer">
+                      +2K Follows
                     </div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                       <button className="followButton">Follow</button>
