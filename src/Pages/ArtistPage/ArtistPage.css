@@ -1,0 +1,16 @@
+.artistDataPosition{
+    background-color: red;
+    min-height: 25rem;
+}
+
+.bdyContainer{
+    display: flex;
+    justify-items: center;
+    justify-items: center;
+}
+
+.bdyPosition{
+    width: 80%;
+    background-color: green;
+    min-height: 100rem;
+}
