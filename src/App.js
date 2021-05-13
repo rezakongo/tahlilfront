@@ -17,6 +17,7 @@ import ProfileEdit from "./Pages/ProfileEdit";
 import Profile from "./Pages/Profile/Profile";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Genres from "./Pages/Genres/Genres.js";
+import ArtistPage from "./Pages/ArtistPage/ArtistPage"
 
 const theme = createMuiTheme({
   typography: {
@@ -40,6 +41,7 @@ function App() {
             <Route path="/profile" component={Profile} />
             <Route path="/editprofile" component={ProfileEdit} />
             <Route path="/genres" component={Genres} />
+            <Route path="/artist" component={ArtistPage} />
           </Switch>
         </div>
       </BrowserRouter>
