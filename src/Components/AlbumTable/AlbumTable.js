@@ -2,27 +2,31 @@ import React from "react";
 import Rating from "@material-ui/lab/Rating";
 import { Table, Image } from "semantic-ui-react";
 import Cover from "./cover-dsotm.jpg";
-import "./HomePageTracks.css";
-import { TracksData } from "./TracksData";
+import { AlbumsData } from "./AlbumsData.js";
+import "./AlbumTable.css";
 
-const TableExampleUnstackable = () => (
+const AlbumTable = () => (
   <Table className="table" unstackable inverted>
     <Table.Body>
-      {TracksData.map((track) => {
+      {AlbumsData.map((Album) => {
         return (
           <div>
-            <div className="row trackRow" id="desktop" href="test">
-              <div class="col-sm col-xs">
-                <div className="row" id="trackRow2">
-                  <div class="col-sm-1 text">{track.num}</div>
+            <div
+              className="row AlbumRow"
+              id="desktop"
+              href="test"
+              onClick="test"
+            >
+              <div className="col-sm-7 col-xs">
+                <div className="row" id="AlbumRow2">
+                  <div class="col-sm-3 text">{Album.ReleaseDate}</div>
                   <div class="col-sm-2 ">
                     <Image src={Cover} rounded size="mini" />
                   </div>
-                  <div class="col-sm   text">{track.trackName}</div>
-                  <div class="col-sm text">{track.singerName}</div>
-                  <div class="col-sm  text">
+                  <div class="col-sm-3   text">{Album.AlbumName}</div>
+                  <div class="col-sm-3  text">
                     <Rating
-                      value={track.rateValue}
+                      value={Album.rateValue}
                       precision={0.1}
                       size={"small"}
                       readOnly={true}
@@ -31,16 +35,15 @@ const TableExampleUnstackable = () => (
                 </div>
               </div>
             </div>
-            <div className="row trackRow" id="mobile" href="test">
+            <div className="row AlbumRow" id="mobile" href="test">
               <div class="col-12">
-                <div className="row" id="trackRow2">
-                  <div class="col-2 txt">{track.num}</div>
+                <div className="row" id="AlbumRow2">
+                  <div class="col-2 txt">{Album.ReleaseDate}</div>
                   <div class="col-3 ">
                     <Image src={Cover} rounded size="mini" />
                   </div>
                   <div class="col-7 col-xs">
-                    <div class="col-sm txt">{track.trackName}</div>
-                    <div class="col-sm txt">{track.singerName}</div>
+                    <div class="col-sm txt">{Album.AlbumName}</div>
                   </div>
                 </div>
               </div>
@@ -52,4 +55,4 @@ const TableExampleUnstackable = () => (
   </Table>
 );
 
-export default TableExampleUnstackable;
+export default AlbumTable;

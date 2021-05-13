@@ -266,7 +266,7 @@ export default class DNavbar extends Component {
             }}
           />
         ) : null}
-        ;
+        
       </div>
     );
   }
