@@ -39,13 +39,20 @@ class ArtistPage extends Component {
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
                       Genres : Rap
                     </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} followersContainer">
+                  </div>
+              </div>
+              <div class="col-xl-3"></div>
+              <div class="col-xl-2 ">
+                <div class="container-fluid !direction !spacing ">
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} followcontain">
+                  <div className="followersContainer">
                       +2K Follows
+                      </div>
                     </div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                       <button className="followButton">Follow</button>
                     </div>
-                  </div>
+                </div>
               </div>
             </div>
           </div>
