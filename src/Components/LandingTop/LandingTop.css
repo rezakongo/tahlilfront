@@ -18,11 +18,13 @@
   color: white;
 }
 .searchBar {
-  height: 2.6rem;
+  font-size:17px !important;
   width: 100%;
 }
 
 #searchBarRadius{
+  height: 3.2rem;
+  align-items: center;
   border-radius: 20px !important;
 }
 
@@ -34,6 +36,7 @@
 
 #iconColor{
   background-color: rgb(40,36,50) !important;
+  align-self: center !important;
 }
 
 #iconColor:hover{
