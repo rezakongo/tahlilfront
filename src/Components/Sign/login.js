@@ -173,7 +173,7 @@ export default class Login extends Component {
                     ),
                   }}
                 />
-                <p className="forgot-password text-right">
+                <p className="forgot-password text-left">
                   <a href="#">Forgot password?</a>
                 </p>
                 <div className="form-group" style={{ textAlign: "left" }}>

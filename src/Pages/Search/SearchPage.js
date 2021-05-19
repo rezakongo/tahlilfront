@@ -13,6 +13,7 @@ import "./SearchPage.css";
 import Orbs from "./orbs.gif";
 import { Redirect, useLocation } from "react-router";
 import Footer from "../../Components/Footer/footer";
+import sag from "./sag.png";
 
 class SearchPage extends React.Component {
   state = {
@@ -25,6 +26,9 @@ class SearchPage extends React.Component {
     loading1: true,
     loading2: true,
     loading3: true,
+    ArtistNf:false,
+    AlbumNf:false,
+    TrackNf:false
   };
   componentDidMount() {
     this.setState(
@@ -56,6 +60,9 @@ class SearchPage extends React.Component {
 
         this.setState({ Artists });
         this.setState({ loading1: false });
+        if(Artists.length<=0){
+          this.setState({ArtistNf:true})
+        }
       })
       .catch((error) => {
         console.log(error.response);
@@ -69,9 +76,11 @@ class SearchPage extends React.Component {
       .then((res) => {
         const Albums = res.data.results;
         console.log(res.data);
-
         this.setState({ Albums });
         this.setState({ loading2: false });
+        if(Albums.length<=0){
+          this.setState({AlbumNf:true})
+        }
       });
     axios
       .get(
@@ -84,6 +93,9 @@ class SearchPage extends React.Component {
         console.log(res.data);
         this.setState({ Tracks });
         this.setState({ loading3: false });
+        if(Tracks.length<=0){
+          this.setState({TrackNf:true})
+        }
       });
   };
   render() {
@@ -208,6 +220,15 @@ class SearchPage extends React.Component {
                 role="tabpanel"
                 aria-labelledby="v-pills-Tracks-tab"
               >
+                <div className="sagContainer">
+                <img src={sag}
+                id={
+                  this.state.TrackNf
+                    ? "sag"
+                    : "hidden"
+                }/>
+                </div>
+                onPageChange={handlePaginationChange}
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                   {this.state.Tracks.map((track) => {
                     return (
@@ -236,6 +257,14 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Albums-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                <div className="sagContainer">
+                <img src={sag}
+                id={
+                  this.state.AlbumNf
+                    ? "sag"
+                    : "hidden"
+                }/>
+                </div>
                   {this.state.Albums.map((album) => {
                     return (
                       <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
@@ -252,6 +281,14 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Artists-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                <div className="sagContainer">
+                <img src={sag}
+                id={
+                  this.state.ArtistNf
+                    ? "sag"
+                    : "hidden"
+                }/>
+                </div>
                   {this.state.Artists.map((artist) => {
                     return (
                       <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">

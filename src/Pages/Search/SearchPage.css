@@ -59,7 +59,10 @@
   color: white;
 }
 
+#sag{
+  width: 40rem;
 
+}
 
 .ddContainer {
   display: flex;
@@ -128,4 +131,14 @@
 }
 #hidden {
   display: none;
+}
+
+.sagContainer{
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }
