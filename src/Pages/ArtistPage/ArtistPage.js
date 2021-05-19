@@ -77,8 +77,8 @@ class ArtistPage extends Component {
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
                     1988–present
                     </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                      <img height="35" className="imgflag" src={"https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"}/>
+                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
+                      Country : USA
                     </div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
                       Genres : Rap
@@ -118,7 +118,9 @@ class ArtistPage extends Component {
                    <div class="col-12 col-md-4 dateContainer">
                     1988–present
                     </div>
-                    
+                    <div class="col-12 col-md-4 dateContainer">
+                    Countr
+                    </div>
                     <div class="col-12 col-md-4 genresContainer  ">
                       Genres : Rap
                     </div>

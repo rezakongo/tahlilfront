@@ -329,7 +329,7 @@ export default class SignUp extends Component {
                     Register
                   </button>
 
-                  <p className="forgot-password text-right">
+                  <p className="forgot-password text-right" style={{ textAlign: "left" , paddingLeft:"1rem"}}>
                     <a href="signin">Already registered? log in</a>
                   </p>
                 </form>

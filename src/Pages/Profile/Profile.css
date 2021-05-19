@@ -1,22 +1,21 @@
 .Contain{
-    margin-top: 4%;
     width: 80%;
     min-height: 70rem;
     background-color: rgba(0, 0, 53, 0.4);
 }
 .rowOne{
-    height: fit-content;
-    margin-top: 4rem;
+    height: max-content;
+    margin-top: 4.5rem;
     background-color: transparent;
     display: flex;
     justify-content: center;
+    background-color: aqua;
+    padding-bottom: 1rem;
 }
 
 .proData{
-    background-color: rgba(0, 0, 0, 0.575);
     border-radius: 10px;
-    width: 95.5%;
-    margin-top: 2rem;
+    width: 78%;
     padding-bottom: 2rem;
     padding-top: 2rem;
     max-height: fit-content;
@@ -38,7 +37,6 @@
 
 
 .topContain{
-    background-color: transparent;
     margin-top: 1rem;
     margin-bottom: 1rem;
     width:96.5%;
@@ -65,7 +63,8 @@
 .imgContainer{
     height: 15rem;
     width:15rem;
-    
+   
+    background-color: transparent !important;
 }
 
 .topCol{
@@ -93,6 +92,7 @@
 .Picture{
     border-radius: 90px;
     object-fit: cover;
+    border-radius: 500px !important;
 }
 
 .nameAndDesContainer{
@@ -129,10 +129,19 @@
 
 .editP{
     position:relative;
-    left: 45%;
+    left: 90%;
     top: 0%;
     color: white;
     font-size: 15px;
+    display:inline-flex;
+}
+
+.editPt{
+    padding-left: 1rem;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .signupDate{
