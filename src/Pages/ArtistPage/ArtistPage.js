@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AlbumTable from "../../Components/AlbumTable/AlbumTable";
+import Comment from "../../Components/Comment/Comment";
 import Footer from "../../Components/Footer/footer";
 import Navbar from "../../Components/Navbar/navbar";
 import Slider from "react-slick";
@@ -181,6 +182,7 @@ class ArtistPage extends Component {
             </div>
         </div>
               <AlbumTable />
+              <Comment />
             </div>
           </div>
           <Footer />
