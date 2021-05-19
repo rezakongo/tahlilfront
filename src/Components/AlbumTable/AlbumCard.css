@@ -1,0 +1,31 @@
+.containerAC {
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.centered {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  padding: 15px;
+}
+
+.image {
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+}
+.containerAc :hover {
+  filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+}
+@keyframes example {
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}

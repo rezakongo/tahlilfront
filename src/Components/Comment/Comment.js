@@ -10,21 +10,17 @@ const CommentGroup = () => (
     {CommentData.map((Comment) => {
       return (
         <Comment>
-          <Comment.Avatar src={CommentData.avatar} />
+          <Comment.Avatar src={Comment.avatar} />
           <Comment.Content>
-            <Comment.Author as="a">{CommentData.author}</Comment.Author>
+            <Comment.Author as="a">{Comment.author}</Comment.Author>
             <Comment.Metadata>
-              <div>{CommentData.date}</div>
+              <div>{Comment.date}</div>
             </Comment.Metadata>
-            <Comment.Text>{CommentData.text}</Comment.Text>
+            <Comment.Text>{Comment.text}</Comment.Text>
           </Comment.Content>
         </Comment>
       );
     })}
-    <Form reply>
-      <Form.TextArea />
-      <Button content="Add Reply" labelPosition="left" icon="edit" primary />
-    </Form>
   </Comment.Group>
 );
 
