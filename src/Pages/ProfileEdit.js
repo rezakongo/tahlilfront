@@ -8,6 +8,7 @@ import GridContainer from "../Components/ProfileEdit/Grid/GridContainer.js";
 import CustomInput from "../Components/ProfileEdit/CustomInput/CustomInput.js";
 import Button from "../Components/ProfileEdit/CustomButtons/Button.js";
 import Upload from "../Components/ProfileEdit/CustomButtons/Upload";
+import UploadModal from "../Components/ProfileEdit/UploadModal";
 
 import Card from "../Components/ProfileEdit/Card/Card.js";
 import CardHeader from "../Components/ProfileEdit/Card/CardHeader.js";
@@ -16,7 +17,7 @@ import CardBody from "../Components/ProfileEdit/Card/CardBody.js";
 import CardFooter from "../Components/ProfileEdit/Card/CardFooter.js";
 import avatarIcon from "../Components/ProfileEdit/avatar.png";
 import axios from "axios";
-
+import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -59,7 +60,13 @@ class ProfileEdit extends Component {
     usernameError: "",
     emailError: "",
     avatar: "",
+    open: false,
+    aemail: "",
   };
+  constructor(props) {
+    super(props);
+    this.inputFile = React.createRef();
+  }
 
   componentWillMount() {
     const test = localStorage.getItem("autToken");
@@ -75,14 +82,14 @@ class ProfileEdit extends Component {
       })
       .then((res) => {
         console.log(res.data);
-        this.setState({ username: res.data.username });
-        this.setState({ email: res.data.email });
-        this.setState({ FName: res.data.first_name });
-        this.setState({ LName: res.data.last_name });
-        this.setState({ loading1: false });
-        console.log(this.state.username);
-        console.log(this.state.email);
-        console.log(this.state.FName);
+        this.setState({
+          username: res.data.username,
+          email: res.data.email,
+          aemail: res.data.email,
+          FName: res.data.first_name,
+          LName: res.data.last_name,
+          loading1: false,
+        });
       })
       .catch((error) => {
         console.log(this.state.token);
@@ -102,8 +109,6 @@ class ProfileEdit extends Component {
         this.setState({ description: res.data.description });
         this.setState({ avatar: `http://127.0.0.1:8000${res.data.avatar}` });
         this.setState({ loading2: false });
-        console.log(this.state.description);
-        console.log(this.state.avatar);
       })
       .catch((error) => {
         console.log(this.state.token);
@@ -112,6 +117,15 @@ class ProfileEdit extends Component {
   };
 
   render() {
+    const handleOpen = () => {
+      this.setState({ open: true });
+    };
+    const handleClose = () => {
+      this.setState({ open: false });
+    };
+    const refreshPage = () => {
+      window.location.reload();
+    };
     const onChangeUsername = (e) => {
       this.setState({ username: e.target.value });
     };
@@ -272,15 +286,58 @@ class ProfileEdit extends Component {
           <Navbar menuId="menu2" />
           <div className="hpFContainer">
             <GridContainer>
-              <GridItem xs={12} sm={12} md={8}>
+              <GridItem xs={12} sm={12} md={12}>
                 <Card>
                   <form onSubmit={handleSubmit}>
-                    <CardHeader color="primary">
-                      <h4>Edit Profile</h4>
-                      <p>Complete your profile</p>
-                    </CardHeader>
                     <CardBody>
                       <GridContainer>
+                        <GridItem xs={12} sm={12} md={12}>
+                          <CardAvatar profile>
+                            <a
+                              href={this.state.avatar}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleOpen();
+                                this.inputFile.current.click();
+                              }}
+                            >
+                              <div className="avatarContainerB">
+                                <img
+                                  src={
+                                    this.state.avatar ===
+                                    "http://127.0.0.1:8000null"
+                                      ? avatarIcon
+                                      : this.state.avatar
+                                  }
+                                  alt="..."
+                                  id="avatar2"
+                                />
+
+                                <div id="textBlock">
+                                  <PhotoCameraIcon />
+                                </div>
+                              </div>
+                            </a>
+                          </CardAvatar>
+                          <input
+                            type="file"
+                            id="file"
+                            ref={this.inputFile}
+                            style={{ display: "none" }}
+                            onChange={FileUploadHandler}
+                          />
+                          <CardBody profile>
+                            <h4 color="white">{this.state.username}</h4>
+                            <p color="white">{this.state.description}</p>
+                            <UploadModal
+                              open={this.state.open}
+                              OnClose={handleClose}
+                              email={this.state.aemail}
+                              image={this.state.image}
+                              refresh={refreshPage}
+                            />
+                          </CardBody>
+                        </GridItem>
                         <GridItem xs={12} sm={12} md={6}>
                           <CustomInput
                             labelText="Username"
@@ -413,30 +470,6 @@ class ProfileEdit extends Component {
                       </Button>
                     </CardFooter>
                   </form>
-                </Card>
-              </GridItem>
-              <GridItem xs={12} sm={12} md={4}>
-                <Card profile>
-                  <CardAvatar profile>
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                      <img
-                        src={
-                          this.state.image === null
-                            ? this.state.avatar === "http://127.0.0.1:8000null"
-                              ? avatarIcon
-                              : this.state.avatar
-                            : this.state.image
-                        }
-                        alt="..."
-                        id="avatar2"
-                      />
-                    </a>
-                  </CardAvatar>
-                  <CardBody profile>
-                    <h4 color="white">{this.state.username}</h4>
-                    <p color="white">{this.state.description}</p>
-                    <Upload onChange={FileUploadHandler} />
-                  </CardBody>
                 </Card>
               </GridItem>
             </GridContainer>

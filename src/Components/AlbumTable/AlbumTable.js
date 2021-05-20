@@ -10,7 +10,7 @@ const AlbumTable = () => (
     <Table.Body>
       <div>
         <div className="row " id="AlbumH">
-          <div className="col-sm-7 col-xs">
+          <div className="col-sm-11 col-xs">
             <div className="row">
               <div className="col-sm-6 text">
                 <h1 text>Latest Albums</h1>
@@ -33,14 +33,14 @@ const AlbumTable = () => (
               href="test"
               onClick="test"
             >
-              <div className="col-sm-7 col-xs">
+              <div className="col-sm-11 col-xs">
                 <div className="row" id="AlbumRow2">
-                  <div class="col-sm-3 text">{Album.ReleaseDate}</div>
+                  <div class="col-sm-2 text">{Album.ReleaseDate}</div>
                   <div class="col-sm-2 ">
                     <Image src={Cover} rounded size="mini" />
                   </div>
-                  <div class="col-sm-3   text">{Album.AlbumName}</div>
-                  <div class="col-sm-3  text">
+                  <div class="col-sm-2   text">{Album.AlbumName}</div>
+                  <div class="col-sm-2  text">
                     <Rating
                       value={Album.rateValue}
                       precision={0.1}
@@ -48,6 +48,7 @@ const AlbumTable = () => (
                       readOnly={true}
                     />
                   </div>
+                  <div class="col-sm-4   text">{Album.Genres}</div>
                 </div>
               </div>
             </div>

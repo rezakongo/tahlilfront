@@ -1,5 +1,5 @@
-.artistPageContainer{
-    margin-top: 4.5rem;
+.artistPageContainer {
+  margin-top: 4.5rem;
 }
 
 .artistDataPosition{
@@ -18,10 +18,10 @@
     font-size: 40px;
 }
 
-.bdyContainer{
-    display: flex;
-    justify-items: center;
-    justify-items: center;
+.bdyContainer {
+  display: flex;
+  justify-items: center;
+  justify-items: center;
 }
 
 .bdyPosition{
@@ -112,9 +112,9 @@
     border-radius: 10px;
 }
 
-.followButton:hover{
-    background-color: rgb(67, 67, 141);
-    transition: all 0.3s ease-in-out;
+.followButton:hover {
+  background-color: rgb(67, 67, 141);
+  transition: all 0.3s ease-in-out;
 }
 
 .followButton:active{

@@ -10,6 +10,7 @@
 }
 .showAll :hover {
   color: black;
+  text-decoration: underline;
 }
 .table td {
   vertical-align: middle !important;
@@ -38,6 +39,8 @@
 .text {
   display: flex !important;
   align-items: center !important;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
 #AlbumRow2 {

@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { Search, Grid, Header, Segment, Label } from "semantic-ui-react";
 import "./searchSug.css";
 import { Redirect } from "react-router";
+import axios from "axios";
 
 const categoryLayoutRenderer = ({ categoryContent, resultsContent }) => (
   <div>
@@ -52,59 +53,31 @@ export default class SearchExampleCategory extends Component {
     this.setState({ value: result.title });
 
   handleSearchChange = (e, { value }) => {
-    this.setState({ isLoading: true, value });
+    this.setState({ isLoading: true, value, result: [] }, () => {
+      setTimeout(() => {
+        if (this.state.value.length < 1) return this.setState(initialState);
 
-    setTimeout(() => {
-      if (this.state.value.length < 1) return this.setState(initialState);
-
-      this.setState({
-        isLoading: false,
-        results: [
-          {
-            name: "Artists",
-            results: [
-              {
-                title: "test1",
+        axios
+          .get(
+            `http://127.0.0.1:8000/api/page/SuggestionSearchAPIView/?search=${value}`,
+            {
+              headers: {
+                "Content-Type": "application/json",
               },
-              {
-                title: "test2",
-              },
-              {
-                title: "test3",
-              },
-            ],
-          },
-          {
-            name: "Albums",
-            results: [
-              {
-                title: "test1",
-              },
-              {
-                title: "test2",
-              },
-              {
-                title: "test3",
-              },
-            ],
-          },
-          {
-            name: "Tracks",
-            results: [
-              {
-                title: "test1",
-              },
-              {
-                title: "test2",
-              },
-              {
-                title: "test3",
-              },
-            ],
-          },
-        ],
-      });
-    }, 300);
+            }
+          )
+          .then((res) => {
+            console.log(res.data);
+            this.setState({
+              isLoading: false,
+              results: res.data.results,
+            });
+          })
+          .catch((error) => {
+            console.log(error.response);
+          });
+      }, 1000);
+    });
   };
   enterPressed = (event) => {
     var code = event.keyCode || event.which;

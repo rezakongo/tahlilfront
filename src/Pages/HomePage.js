@@ -58,7 +58,7 @@ function HomePage() {
             </div>
           </div>
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
-            <h2 class="divider line glow" contenteditable>
+            <h2 className="divider line glow" contenteditable>
               {"TOP ALBUMS"}
             </h2>
             <Container />

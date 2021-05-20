@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AlbumsCarousel from "../../Components/AlbumTable/AlbumsCarousel";
 import AlbumTable from "../../Components/AlbumTable/AlbumTable";
 import Comment from "../../Components/Comment/Comment.js";
 import Footer from "../../Components/Footer/footer";
@@ -20,45 +21,6 @@ class ArtistPage extends Component {
       backgroundImage:
         "url(https://content.api.news/v3/images/bin/ba49fee5bc802f0a32a9415fef635f71)",
       boxShadow: "inset 0 0 0 2000px rgba(2, 2, 2, 0.534)",
-    };
-    const settings = {
-      slidesToShow: 5,
-      infinite: true,
-      dots: false,
-      responsive: [
-        {
-          breakpoint: 1450,
-          settings: {
-            slidesToShow: 4,
-            infinite: true,
-            dots: false,
-          },
-        },
-        {
-          breakpoint: 1300,
-          settings: {
-            slidesToShow: 3,
-            infinite: true,
-            dots: false,
-          },
-        },
-        {
-          breakpoint: 1000,
-          settings: {
-            slidesToShow: 2,
-            infinite: true,
-            dots: false,
-          },
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            infinite: true,
-            dots: false,
-          },
-        },
-      ],
     };
     return (
       <div>
@@ -86,19 +48,8 @@ class ArtistPage extends Component {
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
                       1988–present
                     </div>
-<<<<<<< HEAD
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                      <img
-                        height="35"
-                        className="imgflag"
-                        src={
-                          "https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"
-                        }
-                      />
-=======
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
                       Country : USA
->>>>>>> 01d1d470a18db35ed27cc85a7e76042de990c78c
                     </div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
                       Genres : Rap
@@ -119,7 +70,6 @@ class ArtistPage extends Component {
               </div>
             </div>
           </div>
-
           <div class="d-block d-lg-none">
             <div style={sectionStyle} class="row ">
               <div class="row PartistDataPosition">
@@ -139,19 +89,10 @@ class ArtistPage extends Component {
                       <div class="col-12 col-md-4 dateContainer">
                         1988–present
                       </div>
-
+                      <div class="col-12 col-md-4 dateContainer">Countr</div>
                       <div class="col-12 col-md-4 genresContainer  ">
                         Genres : Rap
                       </div>
-                    
-                   <div class="col-12 col-md-4 dateContainer">
-                    1988–present
-                    </div>
-                    <div class="col-12 col-md-4 dateContainer">
-                    Countr
-                    </div>
-                    <div class="col-12 col-md-4 genresContainer  ">
-                      Genres : Rap
                     </div>
                   </div>
                 </div>
@@ -168,50 +109,15 @@ class ArtistPage extends Component {
               </div>
             </div>
           </div>
-
-          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
-            <div class="container-fluid !direction !spacing bdyPosition">
-              <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} topf">
-                <div className="CarouselContainerTemplate">
-                  <div className="CarouselTemplate">
-                    <Slider {...settings}>
-                      <div className="Cells">
-                        <HomePageAlbum />
-                      </div>
-                      <div className="Cells">
-                        <HomePageAlbum />
-                      </div>
-                      <div className="Cells">
-                        <HomePageAlbum />
-                      </div>
-                      <div className="Cells">
-                        <HomePageAlbum />
-                      </div>
-                      <div className="Cells">
-                        <HomePageAlbum />
-                      </div>
-                      <div className="Cells">
-                        <HomePageAlbum />
-                      </div>
-                      <div className="Cells">
-                        <HomePageAlbum />
-                      </div>
-                      <div className="Cells">
-                        <HomePageAlbum />
-                      </div>
-                      <div className="Cells">
-                        <HomePageAlbum />
-                      </div>
-                    </Slider>
-                  </div>
-                </div>
-              </div>
-              <AlbumTable />
-              <Comment />
-            </div>
-          </div>
-          <Footer />
         </div>
+
+        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
+          <div class="container-fluid !direction !spacing bdyPosition">
+            <AlbumsCarousel />
+            <AlbumTable />
+          </div>
+        </div>
+        <Footer />
       </div>
     );
   }

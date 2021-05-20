@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 import styles from "../../../assets/jss/material-dashboard-react/components/buttonStyle.js";
-
+import "./Button.css";
 const useStyles = makeStyles(styles);
 
 export default function RegularButton(props) {
@@ -46,6 +46,7 @@ export default function RegularButton(props) {
       classes={muiClasses}
       className={btnClasses}
       type={props.type}
+      all
     >
       {children}
     </Button>

@@ -18,7 +18,7 @@
   width: 200px;
   border-radius: 10px;
 }
-.containerAc :hover {
+.containerAc:hover {
   filter: sepia(100%) hue-rotate(190deg) saturate(500%);
 }
 @keyframes example {
