@@ -9,6 +9,7 @@ import "./ArtistPage.css";
 import eminem from "./eminem.jpg";
 import HomePageAlbum from "../../Components/Cards/HomePageAlbum";
 
+
 class ArtistPage extends Component {
   render() {
     var sectionStyle = {
