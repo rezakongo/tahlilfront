@@ -10,9 +10,13 @@
 }
 
 .FavoritCard{
+    border-radius: 8px;
     width: 90%;
     min-height: 4rem;
     max-height: 4rem;
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
+    padding-left: 0.7rem;
     display: flex;
     justify-content: center;
     align-items: center !important;
@@ -85,6 +89,11 @@
     background-color: transparent;
     border: 0px none transparent;
     background-image: "./x.png";
+}
+
+.removeB:hover{
+    background-color: rgba(5, 5, 141, 0.349);
+    transition: all 0.3s ease-in-out;
 }
 
 .ax{

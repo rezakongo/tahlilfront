@@ -26,6 +26,18 @@
     background-color: transparent;
     min-height: 20rem;
     justify-content: center;
+
+}
+
+.titlecomment{
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
 }
 .coltwo{
     background-color: transparent;
@@ -90,6 +102,8 @@
 }
 
 .Picture{
+    width: 100%;
+    height: 100%;
     border-radius: 90px;
     object-fit: cover;
     border-radius: 500px !important;
@@ -106,7 +120,7 @@
     display: flex;
     color: white;
     justify-content: left;
-    font-size: 35px;
+    font-size: 27px;
     font-weight: bold;
     margin-bottom: 1rem;
     line-height: 35px;
@@ -117,7 +131,7 @@
     display: flex;
     justify-content: left;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 1rem;
     line-height: 20px;
 }
