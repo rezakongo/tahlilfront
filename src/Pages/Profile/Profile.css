@@ -175,3 +175,12 @@
     display: flex;
     justify-content: left;
 }
+
+.ratingPosition{
+    width: 100%;
+    height: fit-content;
+}
+
+.profileRatingContainer{
+    padding: 0.5rem;
+}
