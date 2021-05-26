@@ -24,7 +24,8 @@
 
 .imageContainer{
     display: flex;
-    height: 100%;
+    background-color:transparent !important;
+    height: 10rem;
     justify-content: center;
     align-items: center;
 }
@@ -38,6 +39,8 @@
 
 .img{
     margin-bottom: 0%;
+    height: 10rem;
+    background-color:transparent;
 }
 
 .title{

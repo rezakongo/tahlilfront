@@ -28,12 +28,13 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: aquamarine !important;
+  background-color: transparent !important;
 }
 #trackImg {
   width: 100%;
   border-radius: 10px 10px 0px 0px;
-  background-color: aquamarine !important;
+  background-color: transparent !important;
+  border: 0ch none transparent !important;
 }
 
 .textContainer {
@@ -44,6 +45,7 @@
 
 #TrackTitle {
   color: white;
+  font-size: 0.9vw;
 }
 
 .TrackSinger {
@@ -54,6 +56,9 @@
 
 .TrackScore {
   font-size: 18px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
   margin-top: 0px !important;
   margin-bottom: 0.8rem !important;
 }

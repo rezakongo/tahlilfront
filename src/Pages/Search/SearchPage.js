@@ -226,9 +226,11 @@ class SearchPage extends React.Component {
                   this.state.TrackNf
                     ? "sag"
                     : "hidden"
-                }/>
-                </div>
+                }
                 onPageChange={handlePaginationChange}
+                />
+                </div>
+                
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                   {this.state.Tracks.map((track) => {
                     return (
