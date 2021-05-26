@@ -40,22 +40,25 @@
 .textContainer {
   display: block;
   height: 100%;
+  width: 100%;
   color: white;
 }
 
 #TrackTitle {
+  width: 100%;
+  height: fit-content;
+  font-size: 1vw;
   color: white;
-  font-size: 0.9vw;
 }
 
 .TrackSinger {
-  font-size: 20px;
+  font-size: 1vw;
   margin-top: 0px !important;
   margin-bottom: 0.8rem !important;
 }
 
 .TrackScore {
-  font-size: 18px;
+  font-size: 1vw;
   display: flex;
   justify-content: center;
   justify-items: center;
@@ -64,7 +67,7 @@
 }
 
 .TrackRelease {
-  font-size: 18px;
+  font-size: 1vw;
   margin-top: 0px !important;
   margin-bottom: 1rem !important;
 }
