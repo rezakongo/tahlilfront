@@ -12,6 +12,8 @@ import ProfileModals from "../../Components/ProfileModals/ProfileModals"
 import CommentModals from "../../Components/CommentModal/CommentModal"
 import ProfileRatingCard from "../../Components/ProfileRatingCard/ProfileRatingCard"
 import RatingModal from "../../Components/RatingModal/RatingModal"
+import BavanRatingCard from "../../Components/BavanRatingCard/BavanRatingCard"
+import BavanRatingModal from "../../Components/BavanRatingModal/BavanRatingModal"
 import Gear from "./gear.png";
 
 
@@ -46,7 +48,7 @@ class Profile extends React.Component {
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} proData">
               <a href="/editprofile" className="editP">
                 {" "}
-                <img width="30" height="30" src={Gear} /> <p className="editPt">EditProfile</p>
+                <img width="30" height="30" src={Gear} className="editImg"/>
               </a>
               
               <div className="col-xl-3 col-lg-3 col-md-5 col-sm-6 col-xs-12 topCol">
@@ -78,41 +80,25 @@ class Profile extends React.Component {
               <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} leftContain">
               <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
                 <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2">
-                    Comments
+                    Ratings
                 </div>
-                <div class="col-0 col-sm-0-col-md-4 col-lg-6 col-xl-8">
+                <div class="col-0 col-sm-0 col-md-3 col-lg-5 col-xl-7">
                     
                 </div>
-                <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2">
-                    <RatingModal/>
+                <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                    <BavanRatingModal />
                 </div>
                 
               </div>
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ratingPosition">
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 profileRatingContainer">
-                      <ProfileRatingCard/>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 profileRatingContainer">
-                      <ProfileRatingCard/>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 profileRatingContainer">
-                      <ProfileRatingCard/>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 profileRatingContainer">
-                      <ProfileRatingCard/>
-                  </div>
-                  <div class="col-0 col-sm-0 col-md-0 col-lg-0 col-xl-3 d-none d-xl-block profileRatingContainer">
-                      
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 profileRatingContainer">
-                      <ProfileRatingCard/>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 profileRatingContainer">
-                      <ProfileRatingCard/>
-                  </div>
-                  <div class="col-0 col-sm-0 col-md-0 col-lg-0 col-xl-3 d-none d-xl-block profileRatingContainer">
-                      
-                  </div>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
                 </div>
               <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
                 <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2">
