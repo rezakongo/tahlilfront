@@ -1,66 +1,66 @@
 .CardBody {
-  border-bottom: 4px gray solid;
-  border-radius: 10px;
-  display: flex;
-  width: 100%;
-  height: fit-content;
-  color: black;
-  padding: 0 !important;
-}
-
-.CardBody:hover {
-  background-color: gray;
-  transition: 0.3s all ease-in;
-  cursor: pointer;
-}
-.CardBody:hover #trackImg {
-  transition: 0.3s all ease-in;
-  filter: brightness(50%) grayscale(50%);
-}
-.test {
-  padding: 0 !important;
-  border-radius: 10px;
-}
-
-.imageContainer {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  background-color: aquamarine !important;
-}
-#trackImg {
-  width: 100%;
-  border-radius: 10px 10px 0px 0px;
-  background-color: aquamarine !important;
-}
-
-.textContainer {
-  display: block;
-  height: 100%;
-  color: white;
-}
-
-#TrackTitle {
-  color: white;
-  text-overflow: ellipsis !important;
-}
-
-.TrackSinger {
-  font-size: 20px;
-  margin-top: 0px !important;
-  margin-bottom: 0.8rem !important;
-}
-
-.TrackScore {
-  font-size: 18px;
-  margin-top: 0px !important;
-  margin-bottom: 0.8rem !important;
-}
-
-.TrackRelease {
-  font-size: 18px;
-  margin-top: 0px !important;
-  margin-bottom: 1rem !important;
-}
+    border-bottom: 4px gray solid;
+    border-radius: 10px;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    color: black;
+    padding: 0 !important;
+  }
+  
+  .CardBody:hover {
+    background-color: gray;
+    transition: 0.3s all ease-in;
+    cursor: pointer;
+  }
+  .CardBody:hover #trackImg {
+    transition: 0.3s all ease-in;
+    filter: brightness(50%) grayscale(50%);
+  }
+  .test {
+    padding: 0 !important;
+    border-radius: 10px;
+  }
+  
+  .imageContainer {
+    display: flex;
+    height: 80%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent !important;
+  }
+  #trackImg {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    background-color: transparent !important;
+  }
+  
+  .textContainer {
+    display: block;
+    height: 100%;
+    color: white;
+  }
+  
+  #TrackTitle {
+    color: white;
+  }
+  
+  .TrackSinger {
+    font-size: 20px;
+    margin-top: 0px !important;
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .TrackScore {
+    font-size: 18px;
+    margin-top: 0px !important;
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .TrackRelease {
+    font-size: 18px;
+    margin-top: 0px !important;
+    margin-bottom: 1rem !important;
+  }
+  

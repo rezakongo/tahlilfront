@@ -1,33 +1,74 @@
-.genreC{
-    background: rgb(150,133,162);
-    background: linear-gradient(0deg, rgba(150,133,162,1) 0%, rgba(63,57,105,1) 77%, rgba(0,1,64,1) 100%);
-    height: 25rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    
-}
-
-.titlePos{
-    padding-left: 1rem;
-    margin-left: 0px;
-    display: flex;
-    align-items: center;
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
+.GenreButton{
     width: 100%;
-    height: 3rem;
-}
-
-.desPosition{
-    color: white;
-    font-size: 15px;
-    padding-top: 1rem;
+    height: 15rem;
+    border-radius: 7px;
+    background-color: rgb(39, 39, 39);
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border: 0px none transparent;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-image: url("https://s3-storage.textopus.nl/wp-content/uploads/2018/03/05134926/apple-music-muzieknoot-neon-512x324.jpg");
+    background-size: 100% 100%;
     
 }
 
-#test{
-    word-wrap:break-word;
-    text-align:left;
-    line-height: 22px;
+.GenreButton:hover{
+    transition: 0.3s all ease-in-out;
+    background-color: rgb(0, 0, 185);
+    box-shadow: inset 0 0 0 2000px rgba(51, 51, 51, 0.719);
+}
+
+.GenreButton:hover .GenreTitleContainer{
+    transform: translateY(0rem);
+    transition: 0.3s all ease-in;
+}
+
+.GenreTitleContainer{
+    transform: translateY(5.4rem);
+    transition: 0.3s all ease-in;
+}
+
+.GenreTitle{
+    padding-top: 1rem;
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+#ModalGenreTitle{
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.GenreImage{
+    width: 100%;
+    margin-left: 0px;
+    height: 15rem;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.GenresModalBody{
+    background-color: rgb(0, 88, 110);
+    width: 30rem;
+    height: fit-content !important;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border-radius: 15px;
+    padding-bottom: 2rem;
+}
+
+#ModalGenreDescription{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
 }

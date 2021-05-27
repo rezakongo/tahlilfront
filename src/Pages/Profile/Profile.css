@@ -183,3 +183,14 @@
 .profileRatingContainer{
     padding: 0.5rem;
 }
+
+.editImg{
+    background-color: transparent;
+    transform: rotateZ(0deg);
+    transition: 1s all ease-in;
+}
+
+.editImg:hover{
+    transform: rotateZ(360deg);
+    transition: 0.8s all ease-in;
+}

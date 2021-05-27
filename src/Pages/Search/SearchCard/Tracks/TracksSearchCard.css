@@ -28,39 +28,47 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: aquamarine !important;
+  background-color: transparent !important;
 }
 #trackImg {
   width: 100%;
   border-radius: 10px 10px 0px 0px;
-  background-color: aquamarine !important;
+  background-color: transparent !important;
+  border: 0ch none transparent !important;
 }
 
 .textContainer {
   display: block;
   height: 100%;
+  width: 100%;
   color: white;
 }
 
 #TrackTitle {
+  width: 100%;
+  height: fit-content;
+  font-size: 1vw;
   color: white;
   text-overflow: ellipsis !important;
 }
 
 .TrackSinger {
-  font-size: 20px;
+  font-size: 1vw;
   margin-top: 0px !important;
   margin-bottom: 0.8rem !important;
 }
 
 .TrackScore {
-  font-size: 18px;
+  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
   margin-top: 0px !important;
   margin-bottom: 0.8rem !important;
 }
 
 .TrackRelease {
-  font-size: 18px;
+  font-size: 1vw;
   margin-top: 0px !important;
   margin-bottom: 1rem !important;
 }

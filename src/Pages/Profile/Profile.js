@@ -8,10 +8,19 @@ import "./Profile.css";
 import Navbar from "../../Components/Navbar/navbar";
 import Favorite from "../../Components/FavoritCards/Favorite";
 import CommentCard from "../../Components/CommentCards/CommentCard";
+<<<<<<< HEAD
 import ProfileModals from "../../Components/ProfileModals/ProfileModals";
 import CommentModals from "../../Components/CommentModal/CommentModal";
 import ProfileRatingCard from "../../Components/ProfileRatingCard/ProfileRatingCard";
 import RatingModal from "../../Components/RatingModal/RatingModal";
+=======
+import ProfileModals from "../../Components/ProfileModals/ProfileModals"
+import CommentModals from "../../Components/CommentModal/CommentModal"
+import ProfileRatingCard from "../../Components/ProfileRatingCard/ProfileRatingCard"
+import RatingModal from "../../Components/RatingModal/RatingModal"
+import BavanRatingCard from "../../Components/BavanRatingCard/BavanRatingCard"
+import BavanRatingModal from "../../Components/BavanRatingModal/BavanRatingModal"
+>>>>>>> c6916d54347730bb8429c616aad3ec951e007d23
 import Gear from "./gear.png";
 import axios from "axios";
 
@@ -98,6 +107,7 @@ class Profile extends React.Component {
 
     return (
       <div>
+<<<<<<< HEAD
         <Navbar activeItem="profile" menuId="menu2" />
         <div
           style={sectionStyle}
@@ -113,6 +123,23 @@ class Profile extends React.Component {
             <div className="col-xl-3 col-lg-3 col-md-5 col-sm-6 col-xs-12 topCol">
               <div className="imgContainer">
                 <img className="Picture" src={this.state.avatar} />
+=======
+        <Navbar activeItem="" menuId="menu1"></Navbar>
+        <div style={sectionStyle} className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowOne">
+            <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} proData">
+              <a href="/editprofile" className="editP">
+                {" "}
+                <img width="30" height="30" src={Gear} className="editImg"/>
+              </a>
+              
+              <div className="col-xl-3 col-lg-3 col-md-5 col-sm-6 col-xs-12 topCol">
+                <div className="imgContainer">
+                  <img
+                    className="Picture"
+                    src={this.state.Avatar}
+                  />
+                </div>
+>>>>>>> c6916d54347730bb8429c616aad3ec951e007d23
               </div>
             </div>
             <div className="col-xl-9 col-lg-9 col-md-7 col-sm-6 col-xs-12 nameAndDesContainer">
@@ -134,6 +161,7 @@ class Profile extends React.Component {
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowtwo">
             <div className="col-md-8 col-sm-12  colone">
               <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} leftContain">
+<<<<<<< HEAD
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
                   <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2">
                     Comments
@@ -164,6 +192,29 @@ class Profile extends React.Component {
                     <ProfileRatingCard />
                   </div>
                   <div class="col-0 col-sm-0 col-md-0 col-lg-0 col-xl-3 d-none d-xl-block profileRatingContainer"></div>
+=======
+              <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
+                <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2">
+                    Ratings
+                </div>
+                <div class="col-0 col-sm-0 col-md-3 col-lg-5 col-xl-7">
+                    
+                </div>
+                <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                    <BavanRatingModal />
+                </div>
+                
+              </div>
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ratingPosition">
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+                  <BavanRatingCard/>
+>>>>>>> c6916d54347730bb8429c616aad3ec951e007d23
                 </div>
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
                   <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2">

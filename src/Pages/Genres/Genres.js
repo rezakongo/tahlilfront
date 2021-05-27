@@ -33,10 +33,10 @@ class Genres extends Component {
         <Navbar activeItem="Genres" menuId="menu2" />
         <div className="pgBdy">
           <div className="container-fluid !direction !spacing cardsPosition">
-            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genrepr">
               {this.state.GenreTitles.map((genres) => {
                 return (
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                  <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
                     <GenreCards genre={genres} />
                   </div>
                 );
