@@ -7,14 +7,14 @@ export default class ArtistsCarousel extends Component {
   render() {
     const settings = {
       slidesToShow: 3,
-      infinite: true,
+      infinite: false,
       dots: false,
       responsive: [
         {
           breakpoint: 1450,
           settings: {
             slidesToShow: 2,
-            infinite: true,
+            infinite: false,
             dots: false,
           },
         },
@@ -22,7 +22,7 @@ export default class ArtistsCarousel extends Component {
           breakpoint: 1000,
           settings: {
             slidesToShow: 1,
-            infinite: true,
+            infinite: false,
             dots: false,
           },
         },

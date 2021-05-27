@@ -28,15 +28,24 @@ export default class AlbumsCarousel extends Component {
       ],
     };
     return (
-      <div className="CarouselContainerTemplate">
-        <div className="CarouselTemplate">
-          <Slider {...settings}>
-            <AlbumCard />
-            <AlbumCard />
-            <AlbumCard />
-            <AlbumCard />
-            <AlbumCard />
-          </Slider>
+      <div>
+        <h2
+          className="divider line glow"
+          contenteditable
+          style={{ margin: "20px" }}
+        >
+          TOP &nbsp; RELEASE
+        </h2>
+        <div className="CarouselContainerTemplate">
+          <div className="CarouselTemplate">
+            <Slider {...settings}>
+              <AlbumCard />
+              <AlbumCard />
+              <AlbumCard />
+              <AlbumCard />
+              <AlbumCard />
+            </Slider>
+          </div>
         </div>
       </div>
     );

@@ -45,13 +45,13 @@ function HomePage() {
         <div className="hpFContainer">
           <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}  tracksContain rowSetting">
             <h2 class="divider line glow" contenteditable>
-              {"TOP ARTISTS"}
+              TOP &nbsp; ARTISTS
             </h2>
             <ArtistsCarousel />
           </div>
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
             <h2 class="divider line glow" contenteditable>
-              {"TOP TRACKS"}
+              TOP &nbsp; TRACKS
             </h2>
             <div className="tracks">
               <HomePageTracks />
@@ -59,7 +59,7 @@ function HomePage() {
           </div>
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
             <h2 className="divider line glow" contenteditable>
-              {"TOP ALBUMS"}
+              TOP &nbsp; ALBUMS
             </h2>
             <Container />
           </div>

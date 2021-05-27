@@ -6,9 +6,10 @@
 
 .centered {
   position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  padding: 10px;
   width: 200px;
   padding: 15px;
 }
@@ -18,7 +19,7 @@
   width: 200px;
   border-radius: 10px;
 }
-.containerAc:hover {
+.containerAc :hover {
   filter: sepia(100%) hue-rotate(190deg) saturate(500%);
 }
 @keyframes example {

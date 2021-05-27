@@ -76,7 +76,7 @@ export default function MenuListComposition(props) {
 
   return (
     <div className={classes.root}>
-      {redirect ? <Redirect push to="/profile" /> : null}
+      {redirect ? <Redirect push to={`/profile/${props.username}`} /> : null}
 
       <div>
         <Button

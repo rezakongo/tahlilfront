@@ -18,6 +18,9 @@ import CardFooter from "../Components/ProfileEdit/Card/CardFooter.js";
 import avatarIcon from "../Components/ProfileEdit/avatar.png";
 import axios from "axios";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
+import { Loader } from "semantic-ui-react";
+import { Redirect } from "react-router";
+
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -62,6 +65,7 @@ class ProfileEdit extends Component {
     avatar: "",
     open: false,
     aemail: "",
+    redirect: false,
   };
   constructor(props) {
     super(props);
@@ -70,6 +74,7 @@ class ProfileEdit extends Component {
 
   componentWillMount() {
     const test = localStorage.getItem("autToken");
+    if (test === null) this.setState({ redirect: true });
     this.APICallFunction();
   }
   APICallFunction = () => {
@@ -105,10 +110,11 @@ class ProfileEdit extends Component {
       })
       .then((res) => {
         console.log(res.data);
-
-        this.setState({ description: res.data.description });
-        this.setState({ avatar: `http://127.0.0.1:8000${res.data.avatar}` });
-        this.setState({ loading2: false });
+        this.setState({
+          description: res.data.description,
+          avatar: `http://127.0.0.1:8000${res.data.avatar}`,
+          loading2: false,
+        });
       })
       .catch((error) => {
         console.log(this.state.token);
@@ -279,12 +285,17 @@ class ProfileEdit extends Component {
     };
 
     if (this.state.loading1 || this.state.loading2) {
-      return <div></div>;
+      return (
+        <div>
+          {this.state.redirect ? <Redirect push to="/signin" /> : null}
+          <Loader content="Loading" size="large" inverted />{" "}
+        </div>
+      );
     } else {
       return (
         <div>
           <Navbar menuId="menu2" />
-          <div className="hpFContainer">
+          <div className="hpFContainer2">
             <GridContainer>
               <GridItem xs={12} sm={12} md={12}>
                 <Card>

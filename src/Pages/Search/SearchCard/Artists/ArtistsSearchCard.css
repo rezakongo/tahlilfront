@@ -1,59 +1,57 @@
-
-.CardBody{
-    display: flex;
-    background-color: rgba(83, 83, 83, 0.61);
-    width: 70%;
-    height: fit-content;
-    color: black;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: 1px gray solid;
-    border-radius: 5px;
+.CardBody {
+  display: flex;
+  background-color: rgba(83, 83, 83, 0.61);
+  width: 70%;
+  height: fit-content;
+  color: black;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px gray solid;
+  border-radius: 5px;
 }
 
-.CardBody:hover{
-    background-color: gray;
-    transition: 0.3s all ease-in;
-    cursor: pointer;
+.CardBody:hover {
+  background-color: gray;
+  transition: 0.3s all ease-in;
+  cursor: pointer;
 }
 
-.rows{
-    display: flex;
-    align-items: center;
+.rows {
+  display: flex;
+  align-items: center;
 }
 
-.imageContainer{
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+.imageContainer {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
-.textContainer{
-    display: flex;
-    height: 100%;
-    color: white;
-    align-items: center;
+.textContainer {
+  display: flex;
+  height: 100%;
+  color: white;
+  align-items: center;
 }
 
-.img{
-    margin-bottom: 0%;
+.img {
+  margin-bottom: 0%;
 }
 
-.title{
-
-    font-size: 25px;
+.title {
+  font-size: 25px;
+  text-overflow: ellipsis !important;
 }
 
-
-.SingerRate{
-    font-size: 18px;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+.SingerRate {
+  font-size: 18px;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.SingerDate{
-    font-size: 18px;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+.SingerDate {
+  font-size: 18px;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }

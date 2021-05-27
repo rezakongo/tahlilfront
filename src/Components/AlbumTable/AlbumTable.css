@@ -1,15 +1,23 @@
 #AlbumH {
   justify-content: center;
 }
-
-.showAll {
-  text-align: end;
-  width: 100%;
-  justify-content: right;
-  color: aliceblue !important;
+.atTitle {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-.showAll :hover {
-  color: black;
+.showAllCont {
+  position: relative;
+  color: aliceblue !important;
+  background-color: burlywood;
+}
+.showAll {
+  width: fit-content;
+  color: blueviolet;
+  background-color: brown;
+}
+.showAll:hover {
+  color: blueviolet;
+  background-color: brown;
   text-decoration: underline;
 }
 .table td {

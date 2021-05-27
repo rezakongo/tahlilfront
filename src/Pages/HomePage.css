@@ -71,16 +71,7 @@ body {
 .one-line:after {
   background: black;
 }
-.razor:before,
-.razor:after {
-  box-shadow: 0 0.5px 0 black;
-}
-.double-razor:before,
-.double-razor:after {
-  height: 3px;
-  box-shadow: 0 -0.5px 0 black, 0 0.5px 0 black;
-  border-width: 0;
-}
+
 .glow:before,
 .glow:after {
   height: 6px;

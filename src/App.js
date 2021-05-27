@@ -17,7 +17,8 @@ import ProfileEdit from "./Pages/ProfileEdit";
 import Profile from "./Pages/Profile/Profile";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Genres from "./Pages/Genres/Genres.js";
-import ArtistPage from "./Pages/ArtistPage/ArtistPage"
+import ArtistPage from "./Pages/ArtistPage/ArtistPage";
+import NotFoundPage from "./Pages/NotFoundPage";
 
 const theme = createMuiTheme({
   typography: {
@@ -38,10 +39,12 @@ function App() {
             <Route path="/signin" component={SigninPage} />
             <Route path="/signup" component={SignupPage} />
             <Route exact path="/search" component={SearchPageFunc} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/profile/:id" component={Profile} />
             <Route path="/editprofile" component={ProfileEdit} />
             <Route path="/genres" component={Genres} />
-            <Route path="/artist" component={ArtistPage} />
+            <Route path="/artist/:id" component={ArtistPage} />
+            <Route path="/artist/:id" component={ArtistPage} />
+            <Route component={NotFoundPage} />
           </Switch>
         </div>
       </BrowserRouter>

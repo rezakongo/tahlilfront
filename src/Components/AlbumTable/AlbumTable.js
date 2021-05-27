@@ -12,12 +12,12 @@ const AlbumTable = () => (
         <div className="row " id="AlbumH">
           <div className="col-sm-11 col-xs">
             <div className="row">
-              <div className="col-sm-6 text">
-                <h1 text>Latest Albums</h1>
+              <div className="col-sm-6 text atTitle">
+                <h1 text>Latest Release</h1>
               </div>
-              <div className="col-sm-6 text">
-                <a className="showAll" href="test">
-                  <p>Show All</p>
+              <div className="col-sm-6 text showAllCont ">
+                <a href="test">
+                  <p className="showAll text">Show All</p>
                 </a>
               </div>
             </div>

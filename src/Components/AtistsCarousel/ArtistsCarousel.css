@@ -1,18 +1,21 @@
-.CarouselContainerTemplate{
-    display: flex;
-    width: 100%;
-    height: fit-content; justify-content: center;
-    align-items: center;
+.CarouselContainerTemplate {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  padding-right: 60px;
+  padding-left: 60px;
 }
 
-.CarouselTemplate{
-    width: 90%;
-    height: 100%;
-    color: white;
+.CarouselTemplate {
+  width: 90%;
+  height: 100%;
+  color: white;
 }
 
-.Cells{
-    padding-left: 1rem;
-    padding-right: 1rem;
+.Cells {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
