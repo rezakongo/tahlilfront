@@ -34,7 +34,7 @@ function GenreCards(props) {
     <div>
       <button className="GenreButton" type="button" onClick={handleOpen}>
         <div className="GenreTitleContainer">
-          <h1 className="GenreTitle">{props.genre.title}</h1>
+          <h1 className="GenreTitle">{props.genre.name}</h1>
         </div>
       </button>
       <Modal
