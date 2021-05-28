@@ -5,7 +5,7 @@ import Cover from "./cover-dsotm.jpg";
 import { AlbumsData } from "./AlbumsData.js";
 import "./AlbumTable.css";
 
-const AlbumTable = () => (
+const AlbumTableAll = () => (
   <Table className="table" unstackable inverted>
     <Table.Body>
       <div>
@@ -13,12 +13,8 @@ const AlbumTable = () => (
           <div className="col-sm-11 col-xs">
             <div className="row">
               <div className="col-sm-6 text atTitle">
-                <h1 text>Latest Release</h1>
               </div>
               <div className="col-sm-6 text showAllCont ">
-                <a href="test">
-                  <p className="showAllText">Show All</p>
-                </a>
               </div>
             </div>
           </div>
@@ -72,4 +68,4 @@ const AlbumTable = () => (
   </Table>
 );
 
-export default AlbumTable;
+export default AlbumTableAll;

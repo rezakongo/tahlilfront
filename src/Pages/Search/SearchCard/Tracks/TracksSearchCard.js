@@ -2,7 +2,7 @@ import React from "react";
 import "./TracksSearchCard.css";
 import TrackImage from "./karmapolice.jpg";
 import { Header } from "semantic-ui-react";
-import ReactStars from "react-rating-stars-component";
+import ReactStarRating from "react-rating-stars-component";
 
 function TracksSearchCard(props) {
   return (
@@ -18,18 +18,16 @@ function TracksSearchCard(props) {
                 {props.track.artist.name}
               </Header.Subheader>
             </Header>
-            <h3 className="TrackScore">
-              <ReactStars
-                count={5}
-                size={20}
-                value={props.track.score}
-                isHalf={true}
-                emptyIcon={<i className="far fa-star"></i>}
-                halfIcon={<i className="fa fa-star-half-alt"></i>}
-                fullIcon={<i className="fa fa-star"></i>}
-                activeColor="#fbff00"
-              />
-            </h3>
+            <div className="TrackScore">
+            <ReactStarRating
+      numberOfStar={5}
+      numberOfSelectedStar={2}
+      colorFilledStar="red"
+      colorEmptyStar="black"
+      starSize="20px"
+      spaceBetweenStar="10px"
+    />
+            </div>
             <h3 className="TrackRelease">relese</h3>
           </div>
         </div>

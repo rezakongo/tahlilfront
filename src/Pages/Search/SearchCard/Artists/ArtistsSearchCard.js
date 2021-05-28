@@ -1,11 +1,11 @@
 import React from "react";
 import "./ArtistsSearchCard.css";
-import ReactStars from "react-rating-stars-component";
+import ReactStarRating from "react-rating-stars-component";
 import { Header } from "semantic-ui-react";
 
 function ArtistsSearchCard(props) {
   return (
-    <div className="CardBody">
+    <a href="homepage" className="CardBody">
       <div className="container-fluid !direction !spacing test">
         <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
           <div className="col-md-12 col-sm-12  textContainer">
@@ -25,23 +25,21 @@ function ArtistsSearchCard(props) {
                 {props.artist.type}
               </Header.Subheader>
             </Header>
-            <h3 className="TrackScore">
-              <ReactStars
-                count={5}
-                size={20}
-                value={props.artist.score}
-                isHalf={true}
-                emptyIcon={<i className="far fa-star"></i>}
-                halfIcon={<i className="fa fa-star-half-alt"></i>}
-                fullIcon={<i className="fa fa-star"></i>}
-                activeColor="#fbff00"
-              />
-            </h3>
+            <div className="TrackScore">
+            <ReactStarRating
+      numberOfStar={5}
+      numberOfSelectedStar={2}
+      colorFilledStar="red"
+      colorEmptyStar="black"
+      starSize="20px"
+      spaceBetweenStar="10px"
+    />
+            </div>
             <h3 className="TrackRelease">1973-09-03</h3>
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 

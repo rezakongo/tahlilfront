@@ -8,16 +8,13 @@
 .showAllCont {
   position: relative;
   color: aliceblue !important;
-  background-color: burlywood;
 }
 .showAll {
   width: fit-content;
   color: blueviolet;
-  background-color: brown;
 }
 .showAll:hover {
   color: blueviolet;
-  background-color: brown;
   text-decoration: underline;
 }
 .table td {
@@ -84,4 +81,18 @@
 
 .txt {
   text-overflow: ellipsis;
+}
+
+
+.showAllText{
+  position: absolute;
+  right: 1rem;
+  top: 1.8rem;
+  font-size: 17px;
+  color: white;
+}
+
+.showAllText:hover{
+  color: rgb(137, 137, 255);
+  transition: all 0.3s ease-in;
 }
