@@ -19,14 +19,16 @@ function TracksSearchCard(props) {
               </Header.Subheader>
             </Header>
             <div className="TrackScore">
-            <ReactStarRating
-      numberOfStar={5}
-      numberOfSelectedStar={2}
-      colorFilledStar="red"
-      colorEmptyStar="black"
-      starSize="20px"
-      spaceBetweenStar="10px"
-    />
+              <ReactStarRating
+                value={2}
+                numberOfStar={5}
+                numberOfSelectedStar={2}
+                colorFilledStar="red"
+                colorEmptyStar="black"
+                starSize="20px"
+                spaceBetweenStar="10px"
+                edit={false}
+              />
             </div>
             <h3 className="TrackRelease">relese</h3>
           </div>

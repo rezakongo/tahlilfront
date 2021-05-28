@@ -47,6 +47,7 @@ export default function RegularButton(props) {
       className={btnClasses}
       type={props.type}
       all
+      style={{ fontSize: 15 }}
     >
       {children}
     </Button>

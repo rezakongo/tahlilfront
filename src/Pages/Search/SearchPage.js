@@ -14,6 +14,7 @@ import Orbs from "./orbs.gif";
 import { Redirect, useLocation } from "react-router";
 import Footer from "../../Components/Footer/footer";
 import sag from "./sag.png";
+import { TrainOutlined } from "@material-ui/icons";
 
 class SearchPage extends React.Component {
   state = {
@@ -26,9 +27,9 @@ class SearchPage extends React.Component {
     loading1: true,
     loading2: true,
     loading3: true,
-    ArtistNf:false,
-    AlbumNf:false,
-    TrackNf:false
+    ArtistNf: false,
+    AlbumNf: false,
+    TrackNf: false,
   };
   componentDidMount() {
     this.setState(
@@ -43,11 +44,11 @@ class SearchPage extends React.Component {
         );
       }
     );
-
     console.log(this.state.activePage);
   }
 
   APICallFunction = () => {
+    this.setState({ loading1: true, loading2: true, loading3: true });
     axios
       .get(
         `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?search=${
@@ -58,10 +59,9 @@ class SearchPage extends React.Component {
         console.log(res.data);
         const Artists = res.data.results;
 
-        this.setState({ Artists });
-        this.setState({ loading1: false });
-        if(Artists.length<=0){
-          this.setState({ArtistNf:true})
+        this.setState({ Artists, loading1: false });
+        if (Artists.length <= 0) {
+          this.setState({ ArtistNf: true });
         }
       })
       .catch((error) => {
@@ -76,10 +76,9 @@ class SearchPage extends React.Component {
       .then((res) => {
         const Albums = res.data.results;
         console.log(res.data);
-        this.setState({ Albums });
-        this.setState({ loading2: false });
-        if(Albums.length<=0){
-          this.setState({AlbumNf:true})
+        this.setState({ Albums, loading2: false });
+        if (Albums.length <= 0) {
+          this.setState({ AlbumNf: true });
         }
       });
     axios
@@ -91,10 +90,9 @@ class SearchPage extends React.Component {
       .then((res) => {
         const Tracks = res.data.results;
         console.log(res.data);
-        this.setState({ Tracks });
-        this.setState({ loading3: false });
-        if(Tracks.length<=0){
-          this.setState({TrackNf:true})
+        this.setState({ Tracks, loading3: false });
+        if (Tracks.length <= 0) {
+          this.setState({ TrackNf: true });
         }
       });
   };
@@ -102,11 +100,18 @@ class SearchPage extends React.Component {
     const handleChange = (e) => {
       const inputValueToUrl = encodeURI(e.target.value);
       this.state.searchField = inputValueToUrl;
+      this.setState({ Artists: [], Albums: [], Tracks: [] });
+      this.APICallFunction();
     };
 
     const handleClick = (e) => {
       this.componentDidMount();
     };
+
+    const refreshPage = () => {
+      window.location.reload();
+    };
+
     const handlePaginationChange = (e, { activePage }) => {
       this.setState({ activePage });
       this.setState({ changePage: true });
@@ -221,20 +226,26 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Tracks-tab"
               >
                 <div className="sagContainer">
-                <img src={sag}
-                id={
-                  this.state.TrackNf
-                    ? "sag"
-                    : "hidden"
-                }
-                onPageChange={handlePaginationChange}
-                />
+                  <img
+                    src={sag}
+                    id={this.state.TrackNf ? "sag" : "hidden"}
+                    onPageChange={handlePaginationChange}
+                  />
                 </div>
-                
+
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                   {this.state.Tracks.map((track) => {
                     return (
-                      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                      <div
+                        id={
+                          this.state.loading1 ||
+                          this.state.loading2 ||
+                          this.state.loading3
+                            ? "hidden"
+                            : ""
+                        }
+                        class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12"
+                      >
                         <TracksSearchCard track={track} />
                       </div>
                     );
@@ -259,17 +270,21 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Albums-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                <div className="sagContainer">
-                <img src={sag}
-                id={
-                  this.state.AlbumNf
-                    ? "sag"
-                    : "hidden"
-                }/>
-                </div>
+                  <div className="sagContainer">
+                    <img src={sag} id={this.state.AlbumNf ? "sag" : "hidden"} />
+                  </div>
                   {this.state.Albums.map((album) => {
                     return (
-                      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                      <div
+                        id={
+                          this.state.loading1 ||
+                          this.state.loading2 ||
+                          this.state.loading3
+                            ? "hidden"
+                            : ""
+                        }
+                        class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12"
+                      >
                         <AlbumsSearchCard album={album} />
                       </div>
                     );
@@ -283,17 +298,24 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Artists-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                <div className="sagContainer">
-                <img src={sag}
-                id={
-                  this.state.ArtistNf
-                    ? "sag"
-                    : "hidden"
-                }/>
-                </div>
+                  <div className="sagContainer">
+                    <img
+                      src={sag}
+                      id={this.state.ArtistNf ? "sag" : "hidden"}
+                    />
+                  </div>
                   {this.state.Artists.map((artist) => {
                     return (
-                      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12">
+                      <div
+                        id={
+                          this.state.loading1 ||
+                          this.state.loading2 ||
+                          this.state.loading3
+                            ? "hidden"
+                            : ""
+                        }
+                        class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12"
+                      >
                         <ArtistsSearchCard artist={artist} />
                       </div>
                     );
@@ -301,6 +323,7 @@ class SearchPage extends React.Component {
                 </div>
               </div>
             </div>
+            {console.log("page number is " + this.state.activePage)}
             <Pagination
               activePage={this.state.activePage}
               firstItem={null}

@@ -214,14 +214,10 @@ class ProfileEdit extends Component {
       e.preventDefault();
 
       let formData = new FormData();
-
+      formData.append("username", this.state.username);
       formData.append("first_name", this.state.FName);
       formData.append("last_name", this.state.LName);
       formData.append("email", this.state.email);
-      formData.append(
-        "avatar",
-        this.state.imageFile === null ? "" : this.state.imageFile
-      );
       formData.append("description", this.state.description);
 
       axios
@@ -241,12 +237,11 @@ class ProfileEdit extends Component {
             this.setState({ validEmail: false });
             this.setState({ emailError: error.response.data.email });
           }
+          if (error.response.data.hasOwnProperty("username")) {
+            this.setState({ validUsername: false });
+            this.setState({ usernameError: error.response.data.username });
+          }
         });
-
-      const username = {
-        username: this.state.username,
-      };
-      const usernameJSON = JSON.stringify(username);
     };
     const handleChangePassword = (e) => {
       e.preventDefault();
@@ -296,7 +291,7 @@ class ProfileEdit extends Component {
         <div>
           <Navbar menuId="menu2" />
           <div className="hpFContainer2">
-            <GridContainer>
+            <GridContainer id="testCife">
               <GridItem xs={12} sm={12} md={12}>
                 <Card>
                   <form onSubmit={handleSubmit}>
@@ -338,8 +333,8 @@ class ProfileEdit extends Component {
                             onChange={FileUploadHandler}
                           />
                           <CardBody profile>
-                            <h4 color="white">{this.state.username}</h4>
-                            <p color="white">{this.state.description}</p>
+                            <h2 color="white">{this.state.username}</h2>
+                            <h4 color="white">{this.state.description}</h4>
                             <UploadModal
                               open={this.state.open}
                               OnClose={handleClose}
@@ -423,15 +418,19 @@ class ProfileEdit extends Component {
                       </GridContainer>
                     </CardBody>
                     <CardFooter>
-                      <Button color="primary" type="submit">
-                        Update Profile
-                      </Button>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={6}>
+                          <Button color="primary" type="submit">
+                            Update Profile
+                          </Button>
+                        </GridItem>
+                      </GridContainer>
                     </CardFooter>
                   </form>
-                  <form onSubmit={handleChangePassword}>
+                  <form onSubmit={handleChangePassword} id="hidden">
                     <CardBody>
                       <GridContainer>
-                        <GridItem xs={12} sm={12} md={4}>
+                        <GridItem xs={12} sm={12} md={12}>
                           <CustomInput
                             labelText="Current Password"
                             id="password-repeat"
@@ -445,7 +444,7 @@ class ProfileEdit extends Component {
                             type="password"
                           />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={4}>
+                        <GridItem xs={12} sm={12} md={12}>
                           <CustomInput
                             labelText="New Password"
                             id="password"
@@ -454,12 +453,13 @@ class ProfileEdit extends Component {
                             }}
                             onChange={onChangePassword}
                             error={!this.state.validPassword}
-                            tip=""
+                            tip="Your password must contain at least one number and 8 or more
+                            characters"
                             disabled={this.state.validPassword}
                             type="password"
                           />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={4}>
+                        <GridItem xs={12} sm={12} md={12}>
                           <CustomInput
                             labelText="Confirm New Password"
                             id="password"

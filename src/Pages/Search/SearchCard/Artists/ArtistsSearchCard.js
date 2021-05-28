@@ -26,14 +26,15 @@ function ArtistsSearchCard(props) {
               </Header.Subheader>
             </Header>
             <div className="TrackScore">
-            <ReactStarRating
-      numberOfStar={5}
-      numberOfSelectedStar={2}
-      colorFilledStar="red"
-      colorEmptyStar="black"
-      starSize="20px"
-      spaceBetweenStar="10px"
-    />
+              <ReactStarRating
+                numberOfStar={5}
+                numberOfSelectedStar={2}
+                colorFilledStar="red"
+                colorEmptyStar="black"
+                starSize="20px"
+                spaceBetweenStar="10px"
+                edit={false}
+              />
             </div>
             <h3 className="TrackRelease">1973-09-03</h3>
           </div>

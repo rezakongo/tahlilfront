@@ -49,6 +49,7 @@ export default function CustomInput(props) {
         <InputLabel
           className={classes.labelRoot + labelClasses}
           htmlFor={id}
+          style={{ fontSize: 17 }}
           {...labelProps}
         >
           {labelText}
@@ -70,6 +71,7 @@ export default function CustomInput(props) {
         data-effect="solid"
         data-tip-disable={props.disabled}
         type={props.type}
+        inputProps={{ style: { fontSize: 15, color: "whitesmoke" } }} // font size of input text
       />
       {error ? (
         <Clear className={classes.feedback + " " + classes.labelRootError} />

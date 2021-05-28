@@ -41,23 +41,20 @@ function UserComment(props) {
             <Comment id="commentContainer">
               <Comment.Avatar
                 className="commentAvatar"
-                src="https://react.semantic-ui.com/images/avatar/small/jenny.jpg"
+                src={`http://127.0.0.1:8000${comment.avatar}`}
               />
               <Comment.Content>
                 <Comment.Author
                   id="commentAuthor"
                   as="a"
-                  href={`/profile/${comment.author}`}
+                  href={`/profile/${comment.username}`}
                 >
-                  {comment.author}
+                  {comment.username}
                 </Comment.Author>
-                <Comment.Text id="commentText">
-                  {comment.text}
-                </Comment.Text>
+                <Comment.Text id="commentText">{comment.context}</Comment.Text>
                 <Comment.Text id="commentMetadata">
                   Posted: &nbsp;{dateFormat(comment.date, " d mmmm, yyyy")}
                 </Comment.Text>
-                {comment.text}
               </Comment.Content>
             </Comment>
             <Divider inverted id="commentDivider" />

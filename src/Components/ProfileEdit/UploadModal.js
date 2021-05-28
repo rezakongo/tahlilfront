@@ -100,16 +100,11 @@ export default function SpringModal(props) {
         .then((res) => {
           console.log(res);
 
-          formData.append("first_name", "");
-          formData.append("last_name", "");
-          formData.append("email", "test14327926543@gmail.com");
-          formData.append("description", "hais");
-
           console.log(props.email);
           formData.append("avatar", new File([res], "test.png"));
 
           axios
-            .put("http://127.0.0.1:8000/update_profile/", formData, {
+            .put("http://127.0.0.1:8000/update_avatar_profile/", formData, {
               headers: {
                 Authorization: `Token ${localStorage.getItem("autToken")}`,
                 "Content-Type": "multipart/form-data",
@@ -145,8 +140,8 @@ export default function SpringModal(props) {
           <Card>
             <CardBody>
               <Avatar
-                imageHeight={300}
-                imageWidth={300}
+                imageHeight={500}
+                imageWidth={500}
                 onCrop={onCrop}
                 onClose={onClose}
                 onBeforeFileLoad={onBeforeFileLoad}

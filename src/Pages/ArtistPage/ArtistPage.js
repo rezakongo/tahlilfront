@@ -11,7 +11,6 @@ import HomePageAlbum from "../../Components/Cards/HomePageAlbum";
 import axios from "axios";
 import { Loader } from "semantic-ui-react";
 
-
 class ArtistPage extends Component {
   state = {
     id: "",
@@ -38,7 +37,7 @@ class ArtistPage extends Component {
 
   FetchData = () => {
     axios
-      .get(`http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}`, {
+      .get(`http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=1`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -51,25 +50,11 @@ class ArtistPage extends Component {
           name: res.data.general_info.name,
           type: res.data.general_info.type,
           country: res.data.general_info.country,
-        });
-      });
-
-    axios
-      .get(
-        `http://127.0.0.1:8000/api/page/ArtistAllCommentAPI/?artistid=${this.state.id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-        this.setState({
-          comments: res.data.results,
+          comments: res.data.comments,
           loading: false,
         });
       });
+    console.log(this.state.comments);
   };
 
   render() {

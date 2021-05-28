@@ -8,10 +8,16 @@ import axios from "axios";
 
 const categoryLayoutRenderer = ({ categoryContent, resultsContent }) => (
   <div>
-    <h3 className="name" style={{ margin: 0 }}>
+    <h3
+      className="name"
+      style={{ margin: 0, backgroundColor: "blue", color: "white" }}
+    >
       {categoryContent}
     </h3>
-    <div style={{ font: "20px" }} className="results">
+    <div
+      style={{ font: "20px", backgroundColor: "blue", color: "white" }}
+      className="results"
+    >
       {resultsContent}
     </div>
   </div>
