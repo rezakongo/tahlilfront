@@ -24,10 +24,10 @@ const useStylesReddit = makeStyles((theme) => ({
     backgroundColor: "#fcfcfb",
     transition: theme.transitions.create(["border-color", "box-shadow"]),
     "&:hover": {
-      backgroundColor: "#fff",
+      backgroundColor: "#d0e1f9",
     },
     "&$focused": {
-      backgroundColor: "#fff",
+      backgroundColor: "#d0e1f9",
       boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
       borderColor: theme.palette.primary.main,
     },
@@ -45,9 +45,9 @@ function CustomInput(props) {
 
 const GreyCheckbox = withStyles({
   root: {
-    color: grey[400],
+    color: "#4d648d",
     "&$checked": {
-      color: grey[600],
+      color: "#4d648d",
     },
   },
   checked: {},
@@ -193,7 +193,7 @@ export default class Login extends Component {
               <div className="form-group">
                 <p className="signup-text">
                   <a className="signup-text" href="signup">
-                    Don't have an account? Sign up
+                    Don't have an account? Sign up!
                   </a>
                 </p>
               </div>

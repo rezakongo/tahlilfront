@@ -13,12 +13,12 @@
 }
 
 #dropdown :hover {
-  background-color: rgba(90, 89, 87, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 #active_tap {
   color: aliceblue;
-  background-color: rgb(65, 65, 73, 0.5);
+  background-color: rgb(77, 100, 141, 0.5);
 }
 #dmenu1 {
   padding-left: 15px;
@@ -38,7 +38,7 @@
   top: 0;
   left: 0;
   width: auto !important;
-  background-color: rgba(48, 43, 61, 0.829);
+  background-color: rgba(40, 54, 85, 0.7);
 }
 #mmenu1 {
   margin: 0 !important;
@@ -156,5 +156,5 @@
 }
 
 #v1 {
-  color: rgb(33, 133, 208) !important;
+  color: white!important;
 }

@@ -1,9 +1,19 @@
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
+import { withStyles } from '@material-ui/core/styles';
 import { Table, Image } from "semantic-ui-react";
 import Cover from "./cover-dsotm.jpg";
 import "./HomePageTracks.css";
 import { TracksData } from "./TracksData";
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: '#d0e1f9',
+  },
+  iconHover: {
+    color: '#d0e1f9',
+  },
+})(Rating);
 
 const TableExampleUnstackable = () => (
   <Table className="table" unstackable inverted>
@@ -21,7 +31,7 @@ const TableExampleUnstackable = () => (
                   <div class="col-sm   text">{track.trackName}</div>
                   <div class="col-sm text">{track.singerName}</div>
                   <div class="col-sm  text">
-                    <Rating
+                    <StyledRating
                       value={track.rateValue}
                       precision={0.1}
                       size={"small"}

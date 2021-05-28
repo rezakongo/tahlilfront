@@ -18,16 +18,16 @@ code {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgb(65, 65, 73) !important;
+  background: #1e1f26 !important;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(0, 0, 32) !important;
+  background:#4d648d !important;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(0, 0, 53) !important;
+  background: #283655 !important;
   transition: 0.3 all ease-in-out;
 }

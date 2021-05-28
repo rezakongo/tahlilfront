@@ -26,9 +26,9 @@ const useStyles = makeStyles(() => ({
     transition: "0.3s",
     borderRadius: 12,
     padding: 6,
-    backgroundColor: "rgb(65, 65, 73)",
+    backgroundColor: "#283655",
     "&:hover": {
-      backgroundColor: "rgb(91, 91, 102)",
+      backgroundColor: "#4d648d",
     },
   },
   media: {

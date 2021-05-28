@@ -1,6 +1,6 @@
 body {
   justify-content: center;
-  background-color: black;
+  background-color: #1e1f26;
 }
 #container-navabr {
   width: 100%;
@@ -42,13 +42,13 @@ body {
 }
 
 .hpFContainer {
-  background-color: rgba(0, 0, 53, 0.4);
-  margin: 1% 10% 1% 10%;
+  background-color: #1e1f26;
+  margin: 0% 10% 0% 10%;
   border-radius: 6px;
 }
 
 .divider {
-  margin-top: 5% !important;
+  margin-top: 3% !important;
   margin-bottom: 3% !important;
   display: flex;
   color: aliceblue;
@@ -78,8 +78,8 @@ body {
   border-radius: 5px;
 }
 .glow:before {
-  background: linear-gradient(to right, rgb(5, 106, 116), rgb(0, 11, 61));
+  background: linear-gradient(to right, #d0e1f9, #4d648d);
 }
 .glow:after {
-  background: linear-gradient(to left, rgb(5, 106, 116), rgb(0, 11, 61));
+  background: linear-gradient(to left, #d0e1f9, #4d648d);
 }

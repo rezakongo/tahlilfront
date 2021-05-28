@@ -27,10 +27,10 @@ const useStylesReddit = makeStyles((theme) => ({
     backgroundColor: "#fcfcfb",
     transition: theme.transitions.create(["border-color", "box-shadow"]),
     "&:hover": {
-      backgroundColor: "#fff",
+      backgroundColor: "#d0e1f9",
     },
     "&$focused": {
-      backgroundColor: "#fff",
+      backgroundColor: "#d0e1f9",
       boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
       borderColor: theme.palette.primary.main,
     },
@@ -322,15 +322,16 @@ export default class SignUp extends Component {
                     type="submit"
                     className="btn btn-dark btn-lg btn-block submit-btn"
                     style={{
-                      marginBottom: "10px",
                       marginTop: "10px",
                     }}
                   >
                     Register
                   </button>
 
-                  <p className="forgot-password text-right" style={{ textAlign: "left" , paddingLeft:"1rem"}}>
-                    <a href="signin">Already registered? log in</a>
+                  <p className="signup-text">
+                    <a className="signup-text" href="signin">
+                      Already registered? Log in!
+                    </a>
                   </p>
                 </form>
               </div>

@@ -40,9 +40,9 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       flexDirection: "row",
       paddingTop: spacing(2),
     },
-    backgroundColor: "rgb(65, 65, 73)",
+    backgroundColor: "#283655",
     "&:hover": {
-      backgroundColor: "rgb(91, 91, 102)",
+      backgroundColor: "#4d648d",
     },
   },
   media: {
