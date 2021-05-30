@@ -4,6 +4,8 @@ import Button from "../ProfileEdit/CustomButtons/Button.js";
 import "./Comment.css";
 import axios from "axios";
 import dateFormat from "dateformat";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "bootstrap";
 
 function UserComment(props) {
   const [show, setShow] = React.useState(false);
@@ -15,7 +17,6 @@ function UserComment(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     let formData = new FormData();
     formData.append("comment", comment);
 

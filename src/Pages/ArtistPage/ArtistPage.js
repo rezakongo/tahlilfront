@@ -10,6 +10,8 @@ import eminem from "./eminem.jpg";
 import HomePageAlbum from "../../Components/Cards/HomePageAlbum";
 import axios from "axios";
 import { Loader } from "semantic-ui-react";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "bootstrap";
 
 class ArtistPage extends Component {
   state = {
@@ -22,6 +24,7 @@ class ArtistPage extends Component {
     follow: false,
     comments: [],
     loading: true,
+    open: false,
   };
   componentDidMount() {
     if (localStorage.getItem("autToken") === null)
@@ -68,12 +71,25 @@ class ArtistPage extends Component {
       backgroundImage: `url(${this.state.photo})`,
       boxShadow: "inset 0 0 0 2000px rgba(2, 2, 2, 0.534)",
     };
+    const makeOpen = () => {
+      this.setState({ open: true });
+    };
+    const closeSnackbar = () => {
+      this.setState({ open: false });
+    };
     if (this.state.loading) {
       return <Loader content="Loading" size="large" inverted />;
     } else {
       return (
         <div>
           <Navbar activeItem="artist" menuId="menu2" />
+          <Snackbar
+            open={this.state.open}
+            autoHideDuration={3000}
+            onClose={closeSnackbar}
+          >
+            <Alert severity="success">Your login was successful!</Alert>
+          </Snackbar>
           <div class="container-fluid !direction !spacing artistPageContainer">
             <div class="d-none d-sm-none d-md-none d-lg-block">
               <div
@@ -127,20 +143,23 @@ class ArtistPage extends Component {
                       width="200"
                       height="200"
                       className="imgkhodesh"
-                      src="https://content.api.news/v3/images/bin/ba49fee5bc802f0a32a9415fef635f71"
+                      src={this.state.photo}
                     />
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-6 col-sm-4 col-12 PdataContainer">
                     <div class="container">
                       <div class="row">
                         <div class="col-12 col-md-4 PtitleContainer">
-                          Eminem
+                          {this.state.name}
                         </div>
 
                         <div class="col-12 col-md-4 dateContainer">
                           1988–present
                         </div>
-                        <div class="col-12 col-md-4 dateContainer">Countr</div>
+                        <div class="col-12 col-md-4 dateContainer">
+                          {" "}
+                          Country : {this.state.country}
+                        </div>
                         <div class="col-12 col-md-4 genresContainer  ">
                           Genres : Rap
                         </div>
@@ -171,6 +190,7 @@ class ArtistPage extends Component {
                 type="artist"
                 id={this.state.id}
                 commentData={this.state.comments}
+                makeOpen={makeOpen}
               />
             </div>
           </div>
