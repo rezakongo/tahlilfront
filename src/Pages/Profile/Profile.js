@@ -17,6 +17,10 @@ import BavanRatingModal from "../../Components/BavanRatingModal/BavanRatingModal
 import Gear from "./gear.png";
 import Footer from "../../Components/Footer/footer";
 import axios from "axios";
+import { Col } from "react-bootstrap";
+
+
+
 
 class Profile extends React.Component {
   state = {
@@ -29,6 +33,10 @@ class Profile extends React.Component {
     description: "",
     avatar: "",
   };
+
+
+
+ 
 
   componentDidMount() {
     this.setState({ id: this.props.match.params.id });
@@ -94,6 +102,18 @@ class Profile extends React.Component {
       boxShadow: "inset 0 0 0 2000px rgba(2, 2, 2, 0.534)",
     };
 
+    var AlbumShowMore=true;
+
+    function AlbumShowMoreClick(){
+        if(AlbumShowMore==true){
+        AlbumShowMore=false;
+        console.log(AlbumShowMore);
+        }else{
+          AlbumShowMore=true;
+          console.log(AlbumShowMore);
+        }
+    }
+
     return (
       <div>
         <Navbar activeItem="" menuId="menu2" />
@@ -137,10 +157,10 @@ class Profile extends React.Component {
                   </div>
                   <div class="col-0 col-sm-0 col-md-3 col-lg-5 col-xl-7"></div>
                   <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
-                    <BavanRatingModal />
                   </div>
                 </div>
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ratingPosition">
+                <div className="rightContainitems">
                   <BavanRatingCard />
                   <BavanRatingCard />
                   <BavanRatingCard />
@@ -149,6 +169,12 @@ class Profile extends React.Component {
                   <BavanRatingCard />
                   <BavanRatingCard />
                   <BavanRatingCard />
+                  <BavanRatingCard />
+                  <BavanRatingCard />
+                  <BavanRatingCard />
+                  <BavanRatingCard />
+                  <BavanRatingCard />
+                  </div>
                 </div>
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
                   <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2">
@@ -156,9 +182,9 @@ class Profile extends React.Component {
                   </div>
                   <div class="col-0 col-sm-0-col-md-4 col-lg-6 col-xl-8"></div>
                   <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2">
-                    <CommentModals title="Comments" />
                   </div>
                 </div>
+                <CommentCard />
                 <CommentCard />
                 <CommentCard />
                 <CommentCard />
@@ -168,30 +194,42 @@ class Profile extends React.Component {
             <div className="col-md-4 col-sm-12 coltwo">
               <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rightContain">
                 <div className="FavoriteTitle">Albums</div>
+                <div className="rightContainitems">
                 <Favorite />
                 <Favorite />
                 <Favorite />
                 <Favorite />
                 <Favorite />
-                <ProfileModals title="Favorite Albums" />
+                <Favorite />
+                <Favorite />
+                <Favorite />
+                <Favorite />
+                <Favorite />
+                </div>
               </div>
               <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rightContain">
                 <div className="FavoriteTitle">Tracks</div>
+                <div className="rightContainitems">
                 <Favorite />
                 <Favorite />
                 <Favorite />
                 <Favorite />
                 <Favorite />
-                <ProfileModals title="Favorite Tracks" />
+                <Favorite />
+                <Favorite />
+                <Favorite />
+                <Favorite />
+                </div>
               </div>
               <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rightContain">
                 <div className="FavoriteTitle">Artists</div>
+                <div className="rightContainitems">
                 <Favorite />
                 <Favorite />
                 <Favorite />
                 <Favorite />
                 <Favorite />
-                <ProfileModals title="Favorite Artists" />
+                </div>
               </div>
             </div>
           </div>

@@ -19,6 +19,7 @@ import Profile from "./Pages/Profile/Profile";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Genres from "./Pages/Genres/Genres.js";
 import ArtistPage from "./Pages/ArtistPage/ArtistPage";
+import AlbumPage from "./Pages/AlbumPage/AlbumPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ArtistRealeasesPage from "./Pages/ArtistPage/ArtistRealeasesPage"
 
@@ -37,6 +38,7 @@ function App() {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/home" component={HomePage} />
             <Route exact path="/artists" component={ArtistsPage} />
+            <Route exact path="/album" component={AlbumPage} />
             <Route exact path="/albums" component={AlbumsPage} />
             <Route path="/signin" component={SigninPage} />
             <Route path="/signup" component={SignupPage} />

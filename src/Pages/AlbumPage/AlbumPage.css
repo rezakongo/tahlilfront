@@ -1,0 +1,183 @@
+.artistPageContainer {
+  margin-top: 4.5rem;
+}
+
+.artistDataPosition{
+    height: 100%;
+    width: 100%;
+    padding-left: 14%;
+    padding-right: 0%;
+    padding-top: 4rem;
+    font-size: 40px;
+}
+
+.PartistDataPosition{
+    height: 100%;
+    width: 100%;
+    padding-top: 4rem;
+    font-size: 40px;
+}
+
+.bdyContainer {
+  display: flex;
+  justify-items: center;
+  justify-items: center;
+}
+
+.bdyPosition{
+    width: 80%;
+    background-color: rgba(19, 0, 54, 0.329);
+    min-height: 100rem;
+    
+}
+
+.imgContainer{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: rgba(2, 2, 2, 0.534);
+}
+
+.imgkhodesh{
+    border: 5px solid white;
+    border-radius: 500px;
+}
+
+.dataContainer{
+    padding-left: 4rem;
+    height: 100%;
+    display: block;
+    line-height: 3rem;
+}
+
+.PdataContainer{
+    padding-left: 4rem;
+    height: 100%;
+    display: flex;
+    line-height: 3rem;
+    width: 100%;
+}
+
+.topf{
+    margin-top: 2rem;
+}
+
+.titleContainer{
+    color: white;
+    width: 100%;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.PtitleContainer{
+    color: white;
+    width: 100%;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.dateContainer{
+    color: white;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    
+}
+
+.followersContainer{
+    color: white;
+    width: 100%;
+    font-size: 16px;
+}
+
+.genresContainer{
+    color: white;
+    width: 100%;
+    font-size: 18px;
+}
+
+
+.imgflag{
+    width: 6rem;
+}
+
+.followButton{
+    color: white;
+    background-color: rgb(116, 106, 143);
+    font-size: 17px;
+    width: 100%;
+    height: 2.7rem;
+    border: 0px none transparent;
+    border-radius: 10px;
+}
+
+.followButton:hover {
+  background-color: rgb(67, 67, 141);
+  transition: all 0.3s ease-in-out;
+}
+
+.followButton:active{
+    background-color: rgb(0, 0, 92);
+    transition: all 0.3s ease-in-out;
+}
+
+.pfollowButton{
+    color: white;
+    background-color: rgb(116, 106, 143);
+    font-size: 17px;
+    height: 2.7rem;
+    border: 0px none transparent;
+    border-radius: 10px;
+    width: 20rem;
+}
+
+.pfollowButton:hover{
+    background-color: rgb(67, 67, 141);
+    transition: all 0.3s ease-in-out;
+}
+
+.pfollowButton:active{
+    background-color: rgb(0, 0, 92);
+    transition: all 0.3s ease-in-out;
+}
+
+.followcontain{
+    display: inline;
+    padding-top: 0rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+}
+.Pfollowcontain{
+    display: flex;
+    justify-content: center;
+    padding-top: 0rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+}
+.PimgContainer{
+    background-color: transparent;
+    padding-left: 4rem;
+}
+
+.pfol{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+
+
+.folp{
+    width: max-content;
+    align-items: center;
+    display: inline-flex;
+}
+
+.StarsContainP{
+    display: flex !important;
+    justify-content: center !important;
+    justify-items: center !important;
+    width: 100%;
+    height: 3rem;
+}

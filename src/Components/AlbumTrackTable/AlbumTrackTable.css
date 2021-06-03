@@ -1,0 +1,98 @@
+#AlbumH {
+  justify-content: center;
+}
+.atTitle {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.showAllCont {
+  position: relative;
+  color: aliceblue !important;
+}
+.showAll {
+  width: fit-content;
+  color: blueviolet;
+}
+.showAll:hover {
+  color: blueviolet;
+  text-decoration: underline;
+}
+.table td {
+  vertical-align: middle !important;
+}
+.table {
+  background-color: transparent !important;
+  color: white !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.AlbumRow {
+  width: 100%;
+  transition: background-color 2s;
+  background-color: transparent;
+  padding: 0px !important;
+  margin: 0px;
+  height: 100% !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  justify-content: center;
+}
+
+.AlbumRow :hover {
+  background-color: gray !important;
+}
+
+.text {
+  display: flex !important;
+  align-items: center !important;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+#AlbumRow2 {
+  padding: 10px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  height: 100% !important;
+  border-bottom: 0.15rem solid rgb(65, 65, 73) !important;
+}
+
+#AlbumRow :hover {
+  background-color: gray !important;
+}
+
+.sdfw {
+  background-color: rgb(65, 65, 73);
+}
+
+@media (max-width: 600px) {
+  #desktop {
+    display: none !important;
+  }
+  #mobile {
+    display: hidden !important;
+  }
+}
+
+@media (min-width: 601px) {
+  #mobile {
+    display: none !important;
+  }
+}
+
+.txt {
+  text-overflow: ellipsis;
+}
+
+
+.showAllText{
+  position: absolute;
+  right: 1rem;
+  top: 1.8rem;
+  font-size: 17px;
+  color: white;
+}
+
+.showAllText:hover{
+  color: rgb(137, 137, 255);
+  transition: all 0.3s ease-in;
+}
