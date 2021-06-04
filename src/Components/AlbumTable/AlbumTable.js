@@ -2,10 +2,9 @@ import React from "react";
 import Rating from "@material-ui/lab/Rating";
 import { Table, Image } from "semantic-ui-react";
 import Cover from "./cover-dsotm.jpg";
-import { AlbumsData } from "./AlbumsData.js";
 import "./AlbumTable.css";
 
-const AlbumTable = () => (
+const AlbumTable = (props) => (
   <Table className="table" unstackable inverted>
     <Table.Body>
       <div>
@@ -24,7 +23,7 @@ const AlbumTable = () => (
           </div>
         </div>
       </div>
-      {AlbumsData.map((Album) => {
+      {props.albumsData.map((Album) => {
         return (
           <div>
             <div
@@ -35,14 +34,14 @@ const AlbumTable = () => (
             >
               <div className="col-sm-11 col-xs">
                 <div className="row" id="AlbumRow2">
-                  <div class="col-sm-2 text">{Album.ReleaseDate}</div>
-                  <div class="col-sm-2 ">
+                  <div class="col-sm-2 text">{Album.release_date}</div>
+                  <div class="col-sm-1 ">
                     <Image src={Cover} rounded size="mini" />
                   </div>
-                  <div class="col-sm-2   text">{Album.AlbumName}</div>
+                  <div class="col-sm-4   text">{Album.title}</div>
                   <div class="col-sm-2  text">
                     <Rating
-                      value={Album.rateValue}
+                      value={2}
                       precision={0.1}
                       size={"small"}
                       readOnly={true}

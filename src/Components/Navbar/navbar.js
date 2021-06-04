@@ -74,7 +74,7 @@ export default class DNavbar extends Component {
           </Menu.Item>
           <Menu.Item
             name="Home"
-            href="home"
+            href="/home"
             id={
               activeItem === "" || activeItem === "Home" ? "active_tap" : "tap"
             }
@@ -82,19 +82,19 @@ export default class DNavbar extends Component {
           />
           <Menu.Item
             name="Artists"
-            href="artists"
+            href="/artists"
             id={activeItem === "Artists" ? "active_tap" : "tap"}
             active={activeItem === "Artists"}
           />
           <Menu.Item
             name="Albums"
-            href="albums"
+            href="/albums"
             id={activeItem === "Albums" ? "active_tap" : "tap"}
             active={activeItem === "Albums"}
           />
           <Menu.Item
             name="Genres"
-            href="genres"
+            href="/genres"
             id={activeItem === "Genres" ? "active_tap" : "tap"}
             active={activeItem === "Genres"}
           />
@@ -105,7 +105,7 @@ export default class DNavbar extends Component {
 
             <Menu.Item
               name="Sign in"
-              href="signin"
+              href="/signin"
               id={
                 this.state.isLogin
                   ? "hidden"
@@ -119,7 +119,7 @@ export default class DNavbar extends Component {
 
             <Menu.Item
               name="Sign up"
-              href="signup"
+              href="/signup"
               id={
                 this.state.isLogin
                   ? "hidden"
@@ -190,7 +190,7 @@ export default class DNavbar extends Component {
                 onClick={() => {
                   this.onClickMenu();
                 }}
-                href="home"
+                href="/home"
               >
                 Home
               </a>
@@ -199,7 +199,7 @@ export default class DNavbar extends Component {
                 onClick={() => {
                   this.onClickMenu();
                 }}
-                href="artists"
+                href="/artists"
               >
                 Artists
               </a>
@@ -208,7 +208,7 @@ export default class DNavbar extends Component {
                 onClick={() => {
                   this.onClickMenu();
                 }}
-                href="albums"
+                href="/albums"
               >
                 Albums
               </a>
@@ -217,7 +217,7 @@ export default class DNavbar extends Component {
                 onClick={() => {
                   this.onClickMenu();
                 }}
-                href="genres"
+                href="/genres"
               >
                 Genres
               </a>
@@ -234,7 +234,7 @@ export default class DNavbar extends Component {
                 onClick={() => {
                   this.onClickMenu();
                 }}
-                href="signin"
+                href="/signin"
               >
                 Sing in
               </a>
@@ -250,7 +250,7 @@ export default class DNavbar extends Component {
                   this.onClickMenu();
                 }}
                 style={{ paddingBottom: "30px" }}
-                href="signup"
+                href="/signup"
               >
                 Sign up
               </a>
@@ -266,7 +266,6 @@ export default class DNavbar extends Component {
             }}
           />
         ) : null}
-        
       </div>
     );
   }

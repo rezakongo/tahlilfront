@@ -39,11 +39,9 @@ export default class AlbumsCarousel extends Component {
         <div className="CarouselContainerTemplate">
           <div className="CarouselTemplate">
             <Slider {...settings}>
-              <AlbumCard />
-              <AlbumCard />
-              <AlbumCard />
-              <AlbumCard />
-              <AlbumCard />
+              {this.props.tracksData.map((Album) => {
+                return <AlbumCard album={Album} />;
+              })}
             </Slider>
           </div>
         </div>

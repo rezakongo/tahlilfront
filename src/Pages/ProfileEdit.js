@@ -64,7 +64,6 @@ class ProfileEdit extends Component {
     emailError: "",
     avatar: "",
     open: false,
-    aemail: "",
     redirect: false,
   };
   constructor(props) {
@@ -90,7 +89,6 @@ class ProfileEdit extends Component {
         this.setState({
           username: res.data.username,
           email: res.data.email,
-          aemail: res.data.email,
           FName: res.data.first_name,
           LName: res.data.last_name,
           loading1: false,
@@ -130,7 +128,24 @@ class ProfileEdit extends Component {
       this.setState({ open: false });
     };
     const refreshPage = () => {
-      window.location.reload();
+      axios
+        .get("http://127.0.0.1:8000/update_profile/me/", {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("autToken")}`,
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.setState({
+            avatar: `http://127.0.0.1:8000${res.data.avatar}`,
+            loading2: false,
+          });
+        })
+        .catch((error) => {
+          console.log(this.state.token);
+          console.log(error.response);
+        });
     };
     const onChangeUsername = (e) => {
       this.setState({ username: e.target.value });

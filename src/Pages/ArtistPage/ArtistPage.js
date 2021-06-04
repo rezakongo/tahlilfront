@@ -23,6 +23,8 @@ class ArtistPage extends Component {
     country: "",
     follow: false,
     comments: [],
+    albums: [],
+    toptracks: [],
     loading: true,
     open: false,
   };
@@ -43,21 +45,24 @@ class ArtistPage extends Component {
       .get(`http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=1`, {
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem("autToken")}`,
         },
       })
       .then((res) => {
         console.log(res.data);
         this.setState({
-          follow: res.data.me_follow,
+          follow: res.data.me_follow === "True" ? true : false,
           photo: res.data.general_info.photo,
           name: res.data.general_info.name,
           type: res.data.general_info.type,
           country: res.data.general_info.country,
-          comments: res.data.comments,
+          comments: res.data.comments.reverse(),
+          albums: res.data.albums,
+          toptracks: res.data.musics,
           loading: false,
         });
+        console.log(this.state.follow);
       });
-    console.log(this.state.comments);
   };
 
   render() {
@@ -77,6 +82,41 @@ class ArtistPage extends Component {
     const closeSnackbar = () => {
       this.setState({ open: false });
     };
+
+    const makeFollow = () => {
+      this.setState({ follow: true });
+      axios
+        .post(
+          `http://127.0.0.1:8000/ArtistFollowAPIView/?id=${this.state.id}`,
+          {},
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("autToken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+        });
+    };
+
+    const makeUnfollow = () => {
+      this.setState({ follow: false });
+      axios
+        .post(
+          `http://127.0.0.1:8000/ArtistUnfollowAPIView/?id=${this.state.id}`,
+          {},
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("autToken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+        });
+    };
+
     if (this.state.loading) {
       return <Loader content="Loading" size="large" inverted />;
     } else {
@@ -128,7 +168,20 @@ class ArtistPage extends Component {
                         <div className="followersContainer">+2K Follows</div>
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                        <button className="followButton">Follow</button>
+                        <button
+                          className="followButton"
+                          id={this.state.follow ? "hidden" : ""}
+                          onClick={makeFollow}
+                        >
+                          Follow
+                        </button>
+                        <button
+                          id={this.state.follow ? "" : "hidden"}
+                          className="followButton"
+                          onClick={makeUnfollow}
+                        >
+                          Unfollow
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -171,7 +224,20 @@ class ArtistPage extends Component {
                       <div class="row">
                         <div className=" folp">
                           <div className="followersContainer">+2K Follows</div>
-                          <button className="pfollowButton">Follow</button>
+                          <button
+                            id={this.state.follow ? "" : "hidden"}
+                            className="pfollowButton"
+                            onClick={makeFollow}
+                          >
+                            Follow
+                          </button>
+                          <button
+                            id={this.state.follow ? "hidden" : ""}
+                            className="pfollowButton"
+                            onClick={makeUnfollow}
+                          >
+                            Following
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -183,8 +249,8 @@ class ArtistPage extends Component {
 
           <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
             <div class="container-fluid !direction !spacing bdyPosition">
-              <AlbumsCarousel />
-              <AlbumTable />
+              <AlbumsCarousel tracksData={this.state.toptracks} />
+              <AlbumTable albumsData={this.state.albums} />
               <Comment
                 login={this.state.login}
                 type="artist"

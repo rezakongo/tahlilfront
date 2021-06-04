@@ -116,7 +116,7 @@ class Profile extends React.Component {
 
     return (
       <div>
-        <Navbar activeItem="" menuId="menu2" />
+        <Navbar activeItem="profile" menuId="menu2" />
         <div
           style={sectionStyle}
           className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowOne"
