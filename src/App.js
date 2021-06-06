@@ -21,7 +21,8 @@ import Genres from "./Pages/Genres/Genres.js";
 import ArtistPage from "./Pages/ArtistPage/ArtistPage";
 import AlbumPage from "./Pages/AlbumPage/AlbumPage";
 import NotFoundPage from "./Pages/NotFoundPage";
-import ArtistRealeasesPage from "./Pages/ArtistPage/ArtistRealeasesPage"
+import ArtistRealeasesPage from "./Pages/ArtistPage/ArtistRealeasesPage";
+import LyricsPage from "./Components/Lyric/LyricsPage";
 
 const theme = createMuiTheme({
   typography: {
@@ -49,6 +50,7 @@ function App() {
             <Route path="/changepassword" component={ChangePassPage} />
             <Route path="/genres" component={Genres} />
             <Route path="/artist/:id" component={ArtistPage} />
+            <Route path="/comment" component={LyricsPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>
