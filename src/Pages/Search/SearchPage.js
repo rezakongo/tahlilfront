@@ -226,10 +226,10 @@ class SearchPage extends React.Component {
                 onPageChange={handlePaginationChange}/>
                 </div>
               
-                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowcenter">
                   {this.state.Tracks.map((track) => {
                     return (
-                      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6">
+                      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9">
                         <TracksSearchCard track={track} />
                       </div>
                     );

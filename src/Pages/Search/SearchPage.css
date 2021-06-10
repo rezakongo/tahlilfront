@@ -175,3 +175,10 @@
   justify-content: center !important;
   justify-items: center !important;
 }
+
+
+.rowcenter{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
