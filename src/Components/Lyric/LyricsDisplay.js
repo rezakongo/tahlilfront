@@ -14,7 +14,7 @@ class LyricsDisplay extends Component {
 
     let tracked = 0;
     for (let annotation of this.props.annotations) {
-      let viewClass = "highlight";
+      let viewClass = "";
       if (this.props.selected === annotation.id || annotation.id === "temp") {
         viewClass = "selected-annotation";
       }

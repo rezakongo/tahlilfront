@@ -23,7 +23,7 @@ import AlbumPage from "./Pages/AlbumPage/AlbumPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ArtistRealeasesPage from "./Pages/ArtistPage/ArtistRealeasesPage";
 import LyricsPage from "./Components/Lyric/LyricsPage";
-
+import TrackPage from "./Pages/TrackPage/"
 const theme = createMuiTheme({
   typography: {
     fontFamily: ["'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"].join(","),
@@ -39,6 +39,7 @@ function App() {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/home" component={HomePage} />
             <Route exact path="/artists" component={ArtistsPage} />
+            <Route exact path="/track" component={TrackPage} />
             <Route exact path="/album" component={AlbumPage} />
             <Route exact path="/albums" component={AlbumsPage} />
             <Route path="/signin" component={SigninPage} />
