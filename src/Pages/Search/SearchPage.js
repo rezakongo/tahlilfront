@@ -8,13 +8,12 @@ import ArtistsSearchCard from "./SearchCard/Artists/ArtistsSearchCard";
 import TracksSearchCard from "./SearchCard/Tracks/TracksSearchCard";
 import Navbar from "../../Components/Navbar/navbar";
 import { Pagination } from "semantic-ui-react";
-
+import { Dropdown } from 'semantic-ui-react';
 import "./SearchPage.css";
 import Orbs from "./orbs.gif";
 import { Redirect, useLocation } from "react-router";
 import Footer from "../../Components/Footer/footer";
 import sag from "./sag.png";
-import { TrainOutlined } from "@material-ui/icons";
 
 class SearchPage extends React.Component {
   state = {
@@ -27,9 +26,9 @@ class SearchPage extends React.Component {
     loading1: true,
     loading2: true,
     loading3: true,
-    ArtistNf: false,
-    AlbumNf: false,
-    TrackNf: false,
+    ArtistNf:false,
+    AlbumNf:false,
+    TrackNf:false
   };
   componentDidMount() {
     this.setState(
@@ -44,11 +43,11 @@ class SearchPage extends React.Component {
         );
       }
     );
+
     console.log(this.state.activePage);
   }
 
   APICallFunction = () => {
-    this.setState({ loading1: true, loading2: true, loading3: true });
     axios
       .get(
         `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?search=${
@@ -59,9 +58,10 @@ class SearchPage extends React.Component {
         console.log(res.data);
         const Artists = res.data.results;
 
-        this.setState({ Artists, loading1: false });
-        if (Artists.length <= 0) {
-          this.setState({ ArtistNf: true });
+        this.setState({ Artists });
+        this.setState({ loading1: false });
+        if(Artists.length<=0){
+          this.setState({ArtistNf:true})
         }
       })
       .catch((error) => {
@@ -76,9 +76,10 @@ class SearchPage extends React.Component {
       .then((res) => {
         const Albums = res.data.results;
         console.log(res.data);
-        this.setState({ Albums, loading2: false });
-        if (Albums.length <= 0) {
-          this.setState({ AlbumNf: true });
+        this.setState({ Albums });
+        this.setState({ loading2: false });
+        if(Albums.length<=0){
+          this.setState({AlbumNf:true})
         }
       });
     axios
@@ -90,9 +91,10 @@ class SearchPage extends React.Component {
       .then((res) => {
         const Tracks = res.data.results;
         console.log(res.data);
-        this.setState({ Tracks, loading3: false });
-        if (Tracks.length <= 0) {
-          this.setState({ TrackNf: true });
+        this.setState({ Tracks });
+        this.setState({ loading3: false });
+        if(Tracks.length<=0){
+          this.setState({TrackNf:true})
         }
       });
   };
@@ -100,18 +102,11 @@ class SearchPage extends React.Component {
     const handleChange = (e) => {
       const inputValueToUrl = encodeURI(e.target.value);
       this.state.searchField = inputValueToUrl;
-      this.setState({ Artists: [], Albums: [], Tracks: [] });
-      this.APICallFunction();
     };
 
     const handleClick = (e) => {
       this.componentDidMount();
     };
-
-    const refreshPage = () => {
-      window.location.reload();
-    };
-
     const handlePaginationChange = (e, { activePage }) => {
       this.setState({ activePage });
       this.setState({ changePage: true });
@@ -128,10 +123,17 @@ class SearchPage extends React.Component {
 
         <div className="container-fluid !direction !spacing">
           <div className="badbakhti">
+            
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} SearchTop">
               <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 titr"></div>
-              <div className="col-0 col-sm-0 col-md-1 col-lg-2 col-xl-5"></div>
+              <div className="col-0 col-sm-0 col-md-1 col-lg-2 col-xl-5">
+
+              
+
+
+              </div>
               <div className="col-12 col-sm-9 col-md-5 col-lg-4 col-xl-3 jojocontainer">
+
                 <Input
                   icon={
                     <Icon
@@ -151,23 +153,11 @@ class SearchPage extends React.Component {
                 />
               </div>
               <div className="col-12 col-sm-3 col-md-2 col-lg-2 col-xl-1 ddContainer">
-                <div className="dropdown dd">
-                  <button
-                    className="btn btn-secondary dropdown-toggle ddButton"
-                    type="button"
-                    id="dropdownMenuButton2"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Filter
-                  </button>
-                  <ul
-                    className="dropdown-menu dropdown-menu-dark"
-                    aria-labelledby="dropdownMenuButton2"
-                  >
-                    <li className="ddList">
+              <Dropdown text='Fiter' className="filtertabsB"> 
+                <Dropdown.Menu className="filterTabsContainer">
+                   <Dropdown.Item className="filterTabsContainer">
                       <div
-                        className="nav flex-column nav-pills me-3 ddinlist"
+                        className="nav flex-column nav-pills me-3 filterTabsKhodesh"
                         id="v-pills-tab"
                         role="tablist"
                         aria-orientation="vertical"
@@ -208,10 +198,10 @@ class SearchPage extends React.Component {
                         >
                           Artists
                         </button>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                    </div>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
               </div>
             </div>
           </div>
@@ -226,26 +216,20 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Tracks-tab"
               >
                 <div className="sagContainer">
-                  <img
-                    src={sag}
-                    id={this.state.TrackNf ? "sag" : "hidden"}
-                    onPageChange={handlePaginationChange}
-                  />
+                <img src={sag}
+                id={
+                  this.state.TrackNf
+                    ? "sag"
+                    : "hidden"
+                    
+                }
+                onPageChange={handlePaginationChange}/>
                 </div>
-
+              
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                   {this.state.Tracks.map((track) => {
                     return (
-                      <div
-                        id={
-                          this.state.loading1 ||
-                          this.state.loading2 ||
-                          this.state.loading3
-                            ? "hidden"
-                            : ""
-                        }
-                        class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12"
-                      >
+                      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6">
                         <TracksSearchCard track={track} />
                       </div>
                     );
@@ -270,21 +254,17 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Albums-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                  <div className="sagContainer">
-                    <img src={sag} id={this.state.AlbumNf ? "sag" : "hidden"} />
-                  </div>
+                <div className="sagContainer">
+                <img src={sag}
+                id={
+                  this.state.AlbumNf
+                    ? "sag"
+                    : "hidden"
+                }/>
+                </div>
                   {this.state.Albums.map((album) => {
                     return (
-                      <div
-                        id={
-                          this.state.loading1 ||
-                          this.state.loading2 ||
-                          this.state.loading3
-                            ? "hidden"
-                            : ""
-                        }
-                        class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12"
-                      >
+                      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6">
                         <AlbumsSearchCard album={album} />
                       </div>
                     );
@@ -298,12 +278,14 @@ class SearchPage extends React.Component {
                 aria-labelledby="v-pills-Artists-tab"
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                  <div className="sagContainer">
-                    <img
-                      src={sag}
-                      id={this.state.ArtistNf ? "sag" : "hidden"}
-                    />
-                  </div>
+                <div className="sagContainer">
+                <img src={sag}
+                id={
+                  this.state.ArtistNf
+                    ? "sag"
+                    : "hidden"
+                }/>
+                </div>
                   {this.state.Artists.map((artist) => {
                     return (
                       <div
@@ -314,7 +296,7 @@ class SearchPage extends React.Component {
                             ? "hidden"
                             : ""
                         }
-                        class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-6 col-xxs-6 col-xxxs-12"
+                        class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6"
                       >
                         <ArtistsSearchCard artist={artist} />
                       </div>
@@ -323,7 +305,6 @@ class SearchPage extends React.Component {
                 </div>
               </div>
             </div>
-            {console.log("page number is " + this.state.activePage)}
             <Pagination
               activePage={this.state.activePage}
               firstItem={null}

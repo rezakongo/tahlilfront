@@ -122,29 +122,31 @@ class Profile extends React.Component {
           className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowOne"
         >
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} proData">
-            <a href="/editprofile" className="editP">
-              {" "}
-              <img width="30" height="30" src={Gear} className="editImg" />
-            </a>
-
-            <div className="col-xl-3 col-lg-3 col-md-5 col-sm-6 col-xs-12 topCol">
+            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 topCol">
               <div className="imgContainer">
                 <img className="Picture" src={this.state.avatar} />
               </div>
             </div>
-            <div className="col-xl-9 col-lg-9 col-md-7 col-sm-6 col-xs-12 nameAndDesContainer">
+            <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-xs-12 nameAndDesContainer">
               <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                 <div class="col-xl-12 ">
-                  <div className="NameContainer">Zlatan Ibrahimovich</div>
+                  <div className="NameContainer">{this.state.FName} {this.state.LName}</div>
                 </div>
                 <div class="col-xl-12">
                   <div className="DescriptionContainer">
-                    Morghi ke Anjir Mikhore Nokesh Kaje
+                    {this.state.description}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-xl-4 col-lg-3 col-md-5 col-sm-12 col-xs-12"></div>
+            <div className="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <br/>
+              <br/>
+              
+              <a  href="/editprofile">
+            <button className="followButton">Edit Profile</button>
+            </a>
+            </div>
           </div>
         </div>
         <div className="container-fluid !direction !spacing Contain">

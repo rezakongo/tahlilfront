@@ -14,11 +14,6 @@ const AlbumTable = (props) => (
               <div className="col-sm-6 text atTitle">
                 <h1 text>Latest Release</h1>
               </div>
-              <div className="col-sm-6 text showAllCont ">
-                <a href="test">
-                  <p className="showAllText">Show All</p>
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -54,12 +49,12 @@ const AlbumTable = (props) => (
             <div className="row AlbumRow" id="mobile" href="test">
               <div class="col-12">
                 <div className="row" id="AlbumRow2">
-                  <div class="col-2 txt">{Album.ReleaseDate}</div>
-                  <div class="col-3 ">
+                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 txt">{Album.ReleaseDate}</div>
+                  <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                     <Image src={Cover} rounded size="mini" />
                   </div>
-                  <div class="col-7 col-xs">
-                    <div class="col-sm txt">{Album.AlbumName}</div>
+                  <div class="col-7  col-xs-7">
+                    <div className="txt">{Album.AlbumName}</div>
                   </div>
                 </div>
               </div>

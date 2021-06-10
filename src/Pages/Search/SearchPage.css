@@ -65,9 +65,10 @@
 }
 
 .ddContainer {
-  display: flex;
-  justify-content: center;
-  height: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 4rem;
 }
 
 .dd {
@@ -141,4 +142,36 @@
   display: flex;
   justify-content: center;
   justify-items: center;
+}
+
+.filterTabsContainer{
+  background-color: rgb(41, 41, 41);
+  border: 0ch none transparent !important;
+  width: 100% !important;
+  border-radius: 0.5rem;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.filterTabsKhodesh{
+  width: 100%;
+}
+
+.filterTabsContainer:hover{
+  background-color: rgb(41, 41, 41) !important;
+
+}
+
+.filtertabsB{
+  background-color: rgb(61, 61, 61);
+  display: flex;
+  align-items: center !important;
+  align-content: center !important;
+  justify-content: center !important;
+  justify-items: center !important;
+  height: 2.7rem;
+  border-radius: 2rem;
+  width: 100%;
+  justify-content: center !important;
+  justify-items: center !important;
 }

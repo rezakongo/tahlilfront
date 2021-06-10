@@ -19,7 +19,7 @@ function ArtistsSearchCard(props) {
                   : props.artist.photo
               }
             />
-            <Header as="h2" id="TrackTitle">
+            <Header as="h2" className="title">
               {props.artist.name}
               <Header.Subheader id="TrackTitle">
                 {props.artist.type}

@@ -9,6 +9,7 @@ import {
 import HomePage from "./Pages/HomePage";
 import ArtistsPage from "./Pages/ArtistsPage";
 import AlbumsPage from "./Pages/AlbumsPage";
+import TrackPage from "./Pages/TrackPage/TrackPage"
 import GenresPage from "./Pages/GenresPage";
 import SigninPage from "./Pages/SigninPage";
 import SignupPage from "./Pages/SignupPage";
@@ -23,6 +24,7 @@ import AlbumPage from "./Pages/AlbumPage/AlbumPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ArtistRealeasesPage from "./Pages/ArtistPage/ArtistRealeasesPage";
 import LyricsPage from "./Components/Lyric/LyricsPage";
+
 
 const theme = createMuiTheme({
   typography: {
@@ -47,6 +49,7 @@ function App() {
             <Route exact path="/search" component={SearchPageFunc} />
             <Route path="/profile/:id" component={Profile} />
             <Route path="/editprofile" component={ProfileEdit} />
+            <Route path="/track" component={TrackPage} />
             <Route path="/changepassword" component={ChangePassPage} />
             <Route path="/genres" component={Genres} />
             <Route path="/artist/:id" component={ArtistPage} />
