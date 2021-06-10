@@ -11,7 +11,7 @@ const cardStyle = {
     marginTop: "30px",
     borderRadius: "6px",
     color: "white",
-    background: "#414149",
+    background: "#283655",
     width: "100%",
     boxShadow: "0 1px 4px 0 rgba(" + hexToRgb(blackColor) + ", 0.14)",
     position: "relative",

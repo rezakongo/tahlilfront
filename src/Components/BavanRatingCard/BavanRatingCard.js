@@ -23,7 +23,7 @@ export default function BavanRatingCard(){
                         emptyIcon={<i className="far fa-star"></i>}
                         halfIcon={<i className="fa fa-star-half-alt"></i>}
                         fullIcon={<i className="fa fa-star"></i>}
-                        activeColor="#fbff00"
+                        activeColor="#d0e1f9"
                     />
                     </div>
                 </div>

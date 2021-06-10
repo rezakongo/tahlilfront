@@ -7,13 +7,13 @@
     justify-items: center;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.575);
+    background-color: #283655;
     padding-bottom: 1rem;
     border-radius: 8px;
 }
 
 .commentPosition:hover{
-    background-color: rgba(82, 82, 82, 0.575);
+    background-color: #4d648d;
     transition: 0.3s all ease-in;
 }
 

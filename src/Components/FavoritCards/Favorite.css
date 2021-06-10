@@ -24,7 +24,7 @@
 }
 
 .FavoritCard:hover{
-    background-color: rgba(97, 97, 97, 0.747);
+    background-color: #4d648d;
     transition:0.3s all ease-in-out;
     cursor: pointer;
 }
@@ -33,7 +33,6 @@
    display: flex;
    transition:0.5s all ease-in-out;
 }
-
 
 
 .imagePosition{
@@ -92,7 +91,7 @@
 }
 
 .removeB:hover{
-    background-color: rgba(5, 5, 141, 0.349);
+    background-color: #1e1f26;
     transition: all 0.3s ease-in-out;
 }
 
