@@ -27,8 +27,8 @@
 .bdyPosition {
   width: 80%;
   background-color: #1e1f26;
+  height: fit-content !important;
 
-  min-height: 100rem;
 }
 
 .imgContainer {

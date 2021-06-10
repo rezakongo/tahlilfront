@@ -54,3 +54,23 @@ body {
     width: 600px;
   }
 }
+
+.ChangePassword{
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items:flex-end;
+  align-content: flex-end;
+  padding-bottom: 1rem;
+  width: 10rem;
+}
+
+.CPC{
+  color: white;
+  font-size: 16px;
+}
+
+#pashmDivider{
+  width: 158% !important;
+}
