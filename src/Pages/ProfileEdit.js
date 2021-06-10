@@ -18,7 +18,7 @@ import CardFooter from "../Components/ProfileEdit/Card/CardFooter.js";
 import avatarIcon from "../Components/ProfileEdit/avatar.png";
 import axios from "axios";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
-import { Loader } from "semantic-ui-react";
+import { Divider, Loader } from "semantic-ui-react";
 import { Redirect } from "react-router";
 
 const styles = {
@@ -435,9 +435,19 @@ class ProfileEdit extends Component {
                     <CardFooter>
                       <GridContainer>
                         <GridItem xs={12} sm={12} md={6}>
+                        
                           <Button color="primary" type="submit">
                             Update Profile
                           </Button>
+                          
+                        </GridItem>
+                        
+                        <GridItem xs={12} sm={12} md={12}>
+
+                        <Divider inverted id="pashmDivider"/>
+                        <div className="ChangePassword">
+                        <a href="/changepassword" className="CPC">Change Password</a>
+                        </div>
                         </GridItem>
                       </GridContainer>
                     </CardFooter>

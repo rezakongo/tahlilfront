@@ -94,3 +94,12 @@
   color: rgb(137, 137, 255);
   transition: all 0.3s ease-in;
 }
+
+.ArtistsAlbumContainer{
+  max-height: 36rem;
+  overflow-y: hidden;
+}
+
+.ArtistsAlbumContainer:hover{
+  overflow-y: auto;
+}
