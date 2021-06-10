@@ -41,6 +41,7 @@ function App() {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/home" component={HomePage} />
             <Route exact path="/artists" component={ArtistsPage} />
+            <Route exact path="/track" component={TrackPage} />
             <Route exact path="/album" component={AlbumPage} />
             <Route exact path="/albums" component={AlbumsPage} />
             <Route path="/signin" component={SigninPage} />

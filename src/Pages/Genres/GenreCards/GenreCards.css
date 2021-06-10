@@ -2,7 +2,7 @@
     width: 100%;
     height: 15rem;
     border-radius: 7px;
-    background-color: rgb(39, 39, 39);
+    background-color: #283655;
     margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     border: 0px none transparent;
     padding-bottom: 0px;
@@ -16,7 +16,7 @@
 .GenreButton:hover{
     transition: 0.3s all ease-in-out;
     background-color: rgb(0, 0, 185);
-    box-shadow: inset 0 0 0 2000px rgba(51, 51, 51, 0.719);
+    box-shadow: inset 0 0 0 2000px rgba(40, 54, 85, 0.919);
 }
 
 .GenreButton:hover .GenreTitleContainer{
@@ -55,7 +55,7 @@
 }
 
 .GenresModalBody{
-    background-color: rgb(0, 88, 110);
+    background-color: #283655;
     width: 30rem;
     height: fit-content !important;
     overflow-y: hidden;

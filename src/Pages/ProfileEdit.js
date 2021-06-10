@@ -491,7 +491,7 @@ class ProfileEdit extends Component {
                       </GridContainer>
                     </CardBody>
                     <CardFooter>
-                      <Button color="primary" type="submit">
+                      <Button color="#283655" type="submit">
                         Change Password
                       </Button>
                     </CardFooter>

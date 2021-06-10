@@ -2,6 +2,7 @@ import React from "react";
 import cx from "clsx";
 import Cover from "./cover-dsotm.jpg";
 import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from '@material-ui/core/styles';
 import Rating from "@material-ui/lab/Rating";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -18,6 +19,15 @@ import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over";
 const titleFontSize = "1em";
 const subtitleFontSize = "1rem";
 const captionFontSize = "0.8rem";
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: '#d0e1f9',
+  },
+  iconHover: {
+    color: '#d0e1f9',
+  },
+})(Rating);
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -74,14 +84,14 @@ function HomePageAlbum(props) {
           <InfoSubtitle className={styles.subtitle}>
             The Dark Side of the Moon
           </InfoSubtitle>
-          <Rating
+          <StyledRating
             className={styles.rating}
             name={"rating"}
             value={4.5}
             precision={0.5}
             size={"small"}
             readOnly={true}
-          ></Rating>
+          ></StyledRating>
           <InfoCaption className={styles.captionyear}>1973</InfoCaption>
           <InfoCaption className={styles.captiongenre}>
             progressive rock, rock, art rock, psychedelic rock, classic rock

@@ -1,76 +1,42 @@
 import React, { Component } from "react";
+import Annotation from "./Annotation/Annotation";
 import LyricsDisplay from "./LyricsDisplay";
 import "./Song.css";
 class LyricsPage extends Component {
   state = {
     song: {
-      id: 1,
-      artist: "Galantis",
-      title: "Peanut Butter Jelly",
       lyrics:
         "[Verse]\nSleepless nights at the château\nVisualize it\nI'll give you something to do\n\nKush kush (cwtch cwtch?) wherever we go\nVisualize it\nI'll give you something to do\nTo get a wildfire burning\nVisualize it\nI'll give you something to do\n\nAce high, I'm going all in\nVisualize it\nI'll give you something to do\n\n[Chorus]\nSpread it like peanut butter jelly\nDo it like I owe you some money\nDo it like I owe you some money\nMoney, money, money…\n\nSpread it like\nSpread it like\nVisualize it\nI'll give you something to do\nSpread it like\n\n[Verse + Chorus]\nSleepless nights at the château\nVisualize it\nI'll give you something to do\n\nKush kush (cwtch cwtch?) wherever we go\nVisualize it\nI'll give you something to do\n\nTo get a wildfire burning\nVisualize it\nI'll give you something to do\n\nAce high, I'm going all in\nVisualize it\nI'll give you something to do\n\nSpread it like peanut butter jelly\nDo it like I owe you some money\nDo it like I owe you some money\nMoney, money, money…\n\nSpread it like\nVisualize it\nI'll give you something to do\n\nSpread it like\nVisualize it\nI'll give you something to do\nI'll give you something to do",
-      youtube_url: "https://www.youtube.com/watch?v=0DaInuaZz08",
-      soundcloud_url:
-        "https://soundcloud.com/wearegalantis/peanut-butter-jelly",
-      featuring: null,
-      produced_by: "Bloodshy \u0026 Style Of Eye",
-      written_by: null,
-      release_date: null,
-      album: "Pharmacy",
-      album_cover:
-        "https://i.scdn.co/image/d87d7b97348c80ef8dbd46d36c12f4836381dd61",
-      about:
-        "“Peanut Butter Jelly” is the 9th track and the 3rd single from Galantis' album Pharmacy.",
-      votes: {
-        2: {
-          id: 11,
-          user_id: 2,
-          vote: 1,
-          upvotable_id: 1,
-          upvotable_type: "Song",
-          created_at: "2016-07-11T17:24:38.243Z",
-          updated_at: "2016-07-11T17:24:38.243Z",
-        },
-        9: {
-          id: 55,
-          user_id: 9,
-          vote: 1,
-          upvotable_id: 1,
-          upvotable_type: "Song",
-          created_at: "2016-07-13T17:12:24.337Z",
-          updated_at: "2016-07-13T17:12:24.337Z",
-        },
-      },
       comments: [],
     },
     annotations: [
       {
         id: 1,
-        author_id: 2,
-        start_index: 8,
-        end_index: 39,
+        author_id: "2",
+        start_index: "8",
+        end_index: "39",
         body: "PB - classic late night snack",
-        song_id: 1,
+        song_id: "1",
         updated_at: "2016-07-11T17:24:19.009Z",
         author: "songsta",
       },
       {
         id: 53,
-        author_id: 1,
-        start_index: 41,
-        end_index: 52,
+        author_id: "1",
+        start_index: "41",
+        end_index: "52",
         body: "Write something interesting...I am wiring things because it is very intersting and we should all listen to the way that this will look on screen and yeah!",
-        song_id: 1,
+        song_id: "1",
         updated_at: "2017-10-10T02:10:07.462Z",
         author: "guest",
       },
       {
         id: 25,
-        author_id: 1,
-        start_index: 60,
-        end_index: 83,
+        author_id: "1",
+        start_index: "60",
+        end_index: "83",
         body: "Write something interesting...",
-        song_id: 1,
+        song_id: "1",
         updated_at: "2016-07-28T17:07:36.955Z",
         author: "guest",
       },
@@ -347,12 +313,7 @@ class LyricsPage extends Component {
       selectedStart: sortedIndices[0],
       selectedEnd: sortedIndices[1],
     });
-    if (this.state.editing === true) {
-      return;
-    } else if (
-      selection.isCollapsed ||
-      this.selectionOverlapping(...sortedIndices)
-    ) {
+    if (selection.isCollapsed || this.selectionOverlapping(...sortedIndices)) {
       this.setState({
         showInfo: true,
         selectedAnnotationId: "",
@@ -364,11 +325,49 @@ class LyricsPage extends Component {
     }
   };
 
+  heightOfElement = (element) => {
+    const style = {};
+    const relative = document.body.parentNode.getBoundingClientRect();
+    const r = element.getBoundingClientRect();
+    const relHeight = r.top - relative.top - 305;
+    if (relHeight < 125) {
+      style.top = "120px";
+    } else {
+      style.top = relHeight + "px";
+    }
+    return style;
+  };
+
+  selectionOverlapping = (startIdx, endIdx) => {
+    return this.state.annotations.some((annotation) => {
+      return !(
+        endIdx < annotation.start_index || startIdx > annotation.end_index
+      );
+    });
+  };
+
+  activateAnnotationPrompt = () => {
+    this.setState({
+      selectedAnnotationId: "prompt",
+      showInfo: false,
+    });
+    window.addEventListener("click", (event) => {
+      if (this.state.selectedAnnotationId === "prompt") {
+        this.setState({
+          showInfo: true,
+          selectedAnnotationId: "",
+          editing: false,
+        });
+      }
+    });
+    console.log("start =" + this.state.selectedStart);
+    console.log("end =" + this.state.selectedEnd);
+  };
+
   render() {
     const annotations = this.state.annotations;
     const selection = this.state.selectedAnnotationId;
     return (
-      <div className="song">
         <div className="not-splash">
           <div className="song-left-col">
             <LyricsDisplay
@@ -378,11 +377,19 @@ class LyricsPage extends Component {
               onHighlight={this.handleHighlight}
               handleHighlightClick={this.handleHighlightClick}
             />
-            
           </div>
-          <div className="song-right-col"></div>
+          <div className="song-right-col">
+            <Annotation
+              popupStyle={this.state.popupStyle}
+              selectedStart={this.state.selectedStart}
+              selectedEnd={this.state.selectedEnd}
+              tempAnnotation={this.tempAnnotation}
+              afterSubmit={this.afterSubmit}
+              handleCancelCreate={this.handleCancelCreate}
+              annotationId={selection}
+            />
+          </div>
         </div>
-      </div>
     );
   }
 }

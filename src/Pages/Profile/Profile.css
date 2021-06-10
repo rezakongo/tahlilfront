@@ -1,7 +1,8 @@
 .Contain{
     width: 80%;
     min-height: 70rem;
-    background-color: rgba(0, 0, 53, 0.4);
+    background-color: #1e1f26;
+    border-radius: 6px 6px 0 0;
 }
 .rowOne{
     height: max-content;
@@ -67,7 +68,7 @@
     display: block;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    background-color: rgba(0, 0, 0, 0.575);
+    background-color: #283655;
     width: 95%;
     border-radius: 10px;
     height: 27rem;

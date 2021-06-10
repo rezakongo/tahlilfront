@@ -16,6 +16,7 @@ class AlbumPage extends Component {
   state = {
     id: "f4abc0b5-3f7a-4eff-8f78-ac078dbce533",
     login: true,
+    comments:[]
   };
 
   render() {
