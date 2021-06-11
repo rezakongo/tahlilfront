@@ -18,6 +18,7 @@ import Gear from "./gear.png";
 import Footer from "../../Components/Footer/footer";
 import axios from "axios";
 import { Col } from "react-bootstrap";
+import { Loader } from "semantic-ui-react";
 
 class Profile extends React.Component {
   state = {
@@ -29,18 +30,19 @@ class Profile extends React.Component {
     LName: "",
     description: "",
     avatar: "",
+    artistsData: [],
+    loading: true,
   };
 
   componentDidMount() {
-    this.setState({ id: this.props.match.params.id });
-
-    if (localStorage.getItem("autToken") !== null) this.APICallFunction();
+    this.setState({ id: this.props.match.params.id }, () => {
+      this.APICallFunction();
+    });
   }
   APICallFunction = () => {
     axios
-      .get("http://127.0.0.1:8000/djoser/users/me/", {
+      .get(`http://127.0.0.1:8000/ProfileInfoAPI/?username=${this.state.id}`, {
         headers: {
-          Authorization: `Token ${localStorage.getItem("autToken")}`,
           "Content-Type": "application/json",
         },
       })
@@ -52,6 +54,10 @@ class Profile extends React.Component {
           aemail: res.data.email,
           FName: res.data.first_name,
           LName: res.data.last_name,
+          description: res.data.description,
+          avatar: `http://127.0.0.1:8000${res.data.avatar}`,
+          artistsData: res.data.followed_artists,
+          loading: false,
         });
       })
       .catch((error) => {
@@ -62,26 +68,6 @@ class Profile extends React.Component {
     if (this.state.id === this.state.username) {
       this.setState({ userProfile: true });
     }
-
-    axios
-      .get("http://127.0.0.1:8000/update_profile/me/", {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("autToken")}`,
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-
-        this.setState({
-          description: res.data.description,
-          avatar: `http://127.0.0.1:8000${res.data.avatar}`,
-        });
-      })
-      .catch((error) => {
-        console.log(this.state.token);
-        console.log(error.response);
-      });
   };
   render() {
     var sectionStyle = {
@@ -106,130 +92,120 @@ class Profile extends React.Component {
         console.log(AlbumShowMore);
       }
     }
+    if (this.state.loading) {
+      return <Loader content="Loading" size="large" inverted />;
+    } else {
+      return (
+        <div>
+          <Navbar activeItem="profile" menuId="menu2" />
+          <div
+            style={sectionStyle}
+            className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowOne"
+          >
+            <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} proData">
+              <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 topCol">
+                <div className="imgContainer">
+                  <img className="Picture" src={this.state.avatar} />
+                </div>
+              </div>
+              <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-xs-12 nameAndDesContainer">
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                  <div class="col-xl-12 ">
+                    <div className="NameContainer">
+                      {this.state.FName} {this.state.LName}
+                    </div>
+                  </div>
+                  <div class="col-xl-12">
+                    <div className="DescriptionContainer">
+                      {this.state.description}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                <br />
+                <br />
 
-    return (
-      <div>
-        <Navbar activeItem="profile" menuId="menu2" />
-        <div
-          style={sectionStyle}
-          className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowOne"
-        >
-          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} proData">
-            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 topCol">
-              <div className="imgContainer">
-                <img className="Picture" src={this.state.avatar} />
+                <a href="/editprofile">
+                  <button className="followButton">Edit Profile</button>
+                </a>
               </div>
-            </div>
-            <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-xs-12 nameAndDesContainer">
-              <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                <div class="col-xl-12 ">
-                  <div className="NameContainer">{this.state.FName} {this.state.LName}</div>
-                </div>
-                <div class="col-xl-12">
-                  <div className="DescriptionContainer">
-                    {this.state.description}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
-              <br/>
-              <br/>
-              
-              <a  href="/editprofile">
-            <button className="followButton">Edit Profile</button>
-            </a>
             </div>
           </div>
-        </div>
-        <div className="container-fluid !direction !spacing Contain">
-          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowtwo">
-            <div className="col-md-8 col-sm-12  colone">
-              <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} leftContain">
-                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
-                  <h2 className="divider line glow" contenteditable>
-                    RATINGS
-                  </h2>
-                  <div class="col-0 col-sm-0 col-md-3 col-lg-5 col-xl-7"></div>
-                  <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3"></div>
+          <div className="container-fluid !direction !spacing Contain">
+            <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowtwo">
+              <div className="col-md-8 col-sm-12  colone">
+                <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} leftContain">
+                  <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
+                    <h2 className="divider line glow" contenteditable>
+                      RATINGS
+                    </h2>
+                    <div class="col-0 col-sm-0 col-md-3 col-lg-5 col-xl-7"></div>
+                    <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3"></div>
+                  </div>
+                  <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ratingPosition">
+                    <div className="rightContainitems">
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                      <BavanRatingCard />
+                    </div>
+                  </div>
+                  <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
+                    <h2 className="divider line glow" contenteditable>
+                      COMMENTS
+                    </h2>
+                    <div class="col-0 col-sm-0-col-md-4 col-lg-6 col-xl-8"></div>
+                    <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2"></div>
+                  </div>
+                  <CommentCard />
+                  <CommentCard />
+                  <CommentCard />
+                  <CommentCard />
+                  <CommentCard />
                 </div>
-                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ratingPosition">
+              </div>
+              <div className="col-md-4 col-sm-12 coltwo">
+                <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rightContain">
+                  <div className="FavoriteTitle">Albums</div>
                   <div className="rightContainitems">
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
-                    <BavanRatingCard />
+                    {this.state.artistsData.map((artist) => {
+                      return <Favorite item={artist} />;
+                    })}
                   </div>
                 </div>
-                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titlecomment">
-                <h2 className="divider line glow" contenteditable>
-                    COMMENTS
-                  </h2>
-                  <div class="col-0 col-sm-0-col-md-4 col-lg-6 col-xl-8"></div>
-                  <div class="col-12 col-sm-6-col-md-4 col-lg-3 col-xl-2"></div>
+                <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rightContain">
+                  <div className="FavoriteTitle">Tracks</div>
+                  <div className="rightContainitems">
+                    {this.state.artistsData.map((artist) => {
+                      return <Favorite item={artist} />;
+                    })}
+                  </div>
                 </div>
-                <CommentCard />
-                <CommentCard />
-                <CommentCard />
-                <CommentCard />
-                <CommentCard />
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-12 coltwo">
-              <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rightContain">
-                <div className="FavoriteTitle">Albums</div>
-                <div className="rightContainitems">
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                </div>
-              </div>
-              <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rightContain">
-                <div className="FavoriteTitle">Tracks</div>
-                <div className="rightContainitems">
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                </div>
-              </div>
-              <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rightContain">
-                <div className="FavoriteTitle">Artists</div>
-                <div className="rightContainitems">
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
-                  <Favorite />
+                <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rightContain">
+                  <div className="FavoriteTitle">Artists</div>
+                  <div className="rightContainitems">
+                    {this.state.artistsData.map((artist) => {
+                      return <Favorite item={artist} />;
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <Footer style={{ marginTop: "5px" }} />
         </div>
-        <Footer style={{ marginTop: "5px" }} />
-      </div>
-    );
+      );
+    }
   }
 }
 

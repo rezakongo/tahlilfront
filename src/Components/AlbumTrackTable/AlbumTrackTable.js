@@ -43,20 +43,20 @@ const AlbumTrackTable = () => (
             >
               <div className="col-sm-11 col-xs">
                 <div className="row" id="AlbumRow2">
-                  <div className="col-sm-2 text">{Album.ReleaseDate}</div>
-                  <div className="col-sm-2 ">
+                  <div className="col-2 col-sm-2 text">{Album.ReleaseDate}</div>
+                  <div className="col-2 col-sm-2 ">
                     <Image src={Cover} rounded size="mini" />
                   </div>
-                  <div className="col-sm-2  AlbumText">{Album.AlbumName}</div>
-                  <div className="col-sm-2  text">
-                    <StyledRating
+                  <div className="col-2 col-sm-2  AlbumText">{Album.AlbumName}</div>
+                  <div className="col-2 col-sm-2  text">
+                    <Rating
                       value={Album.rateValue}
                       precision={0.1}
                       size={"small"}
                       readOnly={true}
                     />
                   </div>
-                  <div class="col-sm-4   text">{Album.Genres}</div>
+                  <div class="col-4 col-sm-4   text">{Album.Genres}</div>
                 </div>
               </div>
             </div>

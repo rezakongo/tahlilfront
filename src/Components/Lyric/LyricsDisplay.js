@@ -39,9 +39,9 @@ class LyricsDisplay extends Component {
     return (
       <div className="lyrics-display">
         <h3>{this.props.song.title} Lyrics</h3>
-        <Lyrics
+        <Lyrics 
           populatedLyrics={this.populatedLyrics()}
-          lyrics={this.props.song.lyrics}
+          lyrics={this.props.lyrics}
           onHighlight={this.props.onHighlight}
         />
       </div>

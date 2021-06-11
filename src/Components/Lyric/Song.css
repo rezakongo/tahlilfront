@@ -4,6 +4,8 @@
   max-width: 1020px;
   margin: 0 auto;
   text-align: left;
+  margin-top: 20px;
+  margin-bottom: 100px;
 }
 
 .song-left-col {
@@ -14,6 +16,8 @@
   white-space: pre-line;
   font-size: 1.25em;
   line-height: 1.7em;
+  min-height: 100vh;
+  overflow-y: scroll;
 }
 
 .song-right-col {
@@ -29,13 +33,14 @@
   position: absolute;
   max-width: 100%;
   padding-bottom: 10px;
+  color: white !important;
 }
 .lyrics a,
 .ghost-lyrics a {
   position: relative;
   display: inline;
   background-color: #e6e6e6;
-  color: #222;
+  color: aqua;
   z-index: 3;
 }
 

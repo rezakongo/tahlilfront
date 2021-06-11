@@ -89,7 +89,7 @@ class ArtistPage extends Component {
       this.setState({ follow: true });
       axios
         .post(
-          `http://127.0.0.1:8000/ArtistFollowAPIView/?id=${this.state.id}`,
+          `http://127.0.0.1:8000/ArtistFollowAPI/?id=${this.state.id}`,
           {},
           {
             headers: {
@@ -106,7 +106,7 @@ class ArtistPage extends Component {
       this.setState({ follow: false });
       axios
         .post(
-          `http://127.0.0.1:8000/ArtistUnfollowAPIView/?id=${this.state.id}`,
+          `http://127.0.0.1:8000/ArtistUnfollowAPI/?id=${this.state.id}`,
           {},
           {
             headers: {
