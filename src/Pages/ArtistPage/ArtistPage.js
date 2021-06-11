@@ -42,12 +42,14 @@ class ArtistPage extends Component {
 
   FetchData = () => {
     axios
-      .get(`http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=1`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${localStorage.getItem("autToken")}`,
-        },
-      })
+      .get(
+        `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=1&commentlimit=10&commentpage=0`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         console.log(res.data);
         this.setState({

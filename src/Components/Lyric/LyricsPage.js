@@ -1,13 +1,15 @@
+import axios from "axios";
 import React, { Component } from "react";
+import { Loader } from "semantic-ui-react";
 import Annotation from "./Annotation/Annotation";
 import LyricsDisplay from "./LyricsDisplay";
 import "./Song.css";
 class LyricsPage extends Component {
   state = {
     song: {
-      lyrics:
-        "[Verse]\nSleepless nights at the château\nVisualize it\nI'll give you something to do\n\nKush kush (cwtch cwtch?) wherever we go\nVisualize it\nI'll give you something to do\nTo get a wildfire burning\nVisualize it\nI'll give you something to do\n\nAce high, I'm going all in\nVisualize it\nI'll give you something to do\n\n[Chorus]\nSpread it like peanut butter jelly\nDo it like I owe you some money\nDo it like I owe you some money\nMoney, money, money…\n\nSpread it like\nSpread it like\nVisualize it\nI'll give you something to do\nSpread it like\n\n[Verse + Chorus]\nSleepless nights at the château\nVisualize it\nI'll give you something to do\n\nKush kush (cwtch cwtch?) wherever we go\nVisualize it\nI'll give you something to do\n\nTo get a wildfire burning\nVisualize it\nI'll give you something to do\n\nAce high, I'm going all in\nVisualize it\nI'll give you something to do\n\nSpread it like peanut butter jelly\nDo it like I owe you some money\nDo it like I owe you some money\nMoney, money, money…\n\nSpread it like\nVisualize it\nI'll give you something to do\n\nSpread it like\nVisualize it\nI'll give you something to do\nI'll give you something to do",
+      lyrics: "",
       comments: [],
+      loading: true,
     },
     annotations: [
       {
@@ -297,6 +299,23 @@ class LyricsPage extends Component {
     showInfo: true,
     selectedAnnotationId: "",
   };
+
+  componentDidMount() {
+    axios
+      .get(`http://127.0.0.1:8000/Lyrics/LyricsAPI/?id=${this.props.songId}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log(res.data.results);
+        this.setState({
+          lyrics: res.data.results[0].lyrics,
+          loading: false,
+        });
+      });
+  }
+
   handleHighlightClick = (e) => {
     const element = e.target;
     this.setState({
@@ -367,7 +386,10 @@ class LyricsPage extends Component {
   render() {
     const annotations = this.state.annotations;
     const selection = this.state.selectedAnnotationId;
-    return (
+    if (this.state.loading) {
+      return <Loader content="Loading" size="large" inverted />;
+    } else {
+      return (
         <div className="not-splash">
           <div className="song-left-col">
             <LyricsDisplay
@@ -390,8 +412,8 @@ class LyricsPage extends Component {
             />
           </div>
         </div>
-    );
+      );
+    }
   }
 }
-
 export default LyricsPage;

@@ -18,7 +18,7 @@ import LyricsPage from "../../Components/Lyric/LyricsPage";
 
 class TrackPage extends Component {
   state = {
-    id: "f4abc0b5-3f7a-4eff-8f78-ac078dbce533",
+    id: "46d32ced-77f7-4f85-b38b-1b547dc0722b",
     login: true,
     comments: [],
   };
@@ -167,7 +167,7 @@ class TrackPage extends Component {
 
         <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
           <div class="container-fluid !direction !spacing bdyPosition">
-            <LyricsPage />
+            <LyricsPage songId={this.state.id} />
             <Comment
               login={this.state.login}
               type="artist"
