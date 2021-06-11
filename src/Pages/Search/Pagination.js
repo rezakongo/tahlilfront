@@ -4,7 +4,7 @@ import { Pagination } from "semantic-ui-react";
 const Pagination = (props) => (
   <Pagination
     activePage={props.activePage}
-    defaultActivePage={1}
+    defaultActivePage={props.defaultActivePage}
     firstItem={null}
     lastItem={null}
     pointing

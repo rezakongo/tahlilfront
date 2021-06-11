@@ -5,7 +5,7 @@ import Cover from "./cover-dsotm.jpg";
 import "./AlbumTable.css";
 
 const AlbumTable = (props) => (
-  <Table className="table" unstackable inverted>
+  <Table id="Albumtable" unstackable inverted>
     <Table.Body>
       <div>
         <div className="row " id="AlbumH">
@@ -50,12 +50,14 @@ const AlbumTable = (props) => (
             <div className="row AlbumRow" id="mobile" href="test">
               <div class="col-12">
                 <div className="row" id="AlbumRow2">
-                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 txt">{Album.ReleaseDate}</div>
+                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 txt">
+                    {Album.ReleaseDate}
+                  </div>
                   <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                     <Image src={Cover} rounded size="mini" />
                   </div>
                   <div class="col-7  col-sm-7 col-md-7 col-lg-7 col-xl-7">
-                    <div className="txt">{Album.AlbumName}</div>
+                    <div className="AlbumText">{Album.AlbumName}</div>
                   </div>
                 </div>
               </div>

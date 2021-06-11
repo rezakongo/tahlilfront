@@ -59,6 +59,17 @@
   background-color: #4d648d !important;
 }
 
+.AlbumText {
+  text-align: left !important;
+  width: 80%;
+  font-size: 20px;
+  color: white;
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+}
+
 .sdfw {
   background-color: #4d648d !important;
 }

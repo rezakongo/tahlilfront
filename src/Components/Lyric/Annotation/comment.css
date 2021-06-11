@@ -1,0 +1,60 @@
+.commentCont {
+  max-height: 80vh;
+  overflow: auto;
+  text-align: left;
+  color: aliceblue !important;
+}
+
+#commentsContainer {
+  min-width: 100% !important;
+  text-align: left;
+  color: aliceblue !important;
+  padding: 40px;
+  display: flex !important;
+}
+
+#commentDiv {
+  width: 100% !important;
+}
+
+#commentAuthor {
+  color: aliceblue;
+  border-radius: 50px !important;
+}
+#commentMetadata {
+  color: rgb(165, 172, 179);
+  font-size: 0.8rem;
+}
+#commentText {
+  color: aliceblue;
+  font-size: 1rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  justify-content: start;
+}
+#commentDivider {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+#AddComment {
+  margin: 0px !important;
+  color: aliceblue !important;
+  background-color: transparent;
+  border-color: rgb(48, 43, 61);
+}
+
+#AddCommentContainer {
+  margin: 20px 0px 10px 0px !important;
+  padding: 0px !important;
+}
+
+#CommentLogin {
+  border: 1px solid rgb(48, 43, 61);
+  color: aliceblue;
+  padding: 10px;
+  margin: 20px 0px 20px 0px;
+}
+
+#hidden {
+  display: none;
+}

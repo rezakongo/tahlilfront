@@ -48,7 +48,7 @@ const AlbumTableAll = () => (
                 </div>
               </div>
             </div>
-            <div className="row AlbumRow" id="mobile" href="test">
+            <div className="row text" id="mobile" href="test">
               <div class="col-12">
                 <div className="row" id="AlbumRow2">
                   <div class="col-2 txt">{Album.ReleaseDate}</div>

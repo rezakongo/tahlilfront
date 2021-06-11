@@ -20,10 +20,12 @@
 .table td {
   vertical-align: middle !important;
 }
-.table {
+#Tracktable {
   background-color: transparent !important;
   color: white !important;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-y: auto !important;
+  height: 80vh !important;
 }
 .AlbumRow {
   width: 100%;
@@ -46,6 +48,17 @@
   align-items: center !important;
   text-overflow: ellipsis;
   text-align: center;
+}
+
+.AlbumText {
+  text-align: left !important;
+  width: 80%;
+  font-size: 20px;
+  color: white;
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
 }
 
 #AlbumRow2 {
@@ -83,8 +96,7 @@
   text-overflow: ellipsis;
 }
 
-
-.showAllText{
+.showAllText {
   position: absolute;
   right: 1rem;
   top: 1.8rem;
@@ -92,7 +104,7 @@
   color: white;
 }
 
-.showAllText:hover{
+.showAllText:hover {
   color: rgb(137, 137, 255);
   transition: all 0.3s ease-in;
 }

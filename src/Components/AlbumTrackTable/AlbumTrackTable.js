@@ -6,7 +6,7 @@ import { AlbumsTrackData } from "./AlbumsTrackData.js";
 import "./AlbumTrackTable.css";
 
 const AlbumTrackTable = () => (
-  <Table className="table" unstackable inverted>
+  <Table id="Tracktable" unstackable inverted>
     <Table.Body>
       <div>
         <div className="row " id="AlbumH">
@@ -16,8 +16,7 @@ const AlbumTrackTable = () => (
                 <h1 text>Tracks</h1>
               </div>
               <div className="col-sm-6 text showAllCont ">
-                <a href="test">
-                </a>
+                <a href="test"></a>
               </div>
             </div>
           </div>
@@ -34,12 +33,12 @@ const AlbumTrackTable = () => (
             >
               <div className="col-sm-11 col-xs">
                 <div className="row" id="AlbumRow2">
-                  <div class="col-sm-2 text">{Album.ReleaseDate}</div>
-                  <div class="col-sm-2 ">
+                  <div className="col-sm-2 text">{Album.ReleaseDate}</div>
+                  <div className="col-sm-2 ">
                     <Image src={Cover} rounded size="mini" />
                   </div>
-                  <div class="col-sm-2   text">{Album.AlbumName}</div>
-                  <div class="col-sm-2  text">
+                  <div className="col-sm-2  AlbumText">{Album.AlbumName}</div>
+                  <div className="col-sm-2  text">
                     <Rating
                       value={Album.rateValue}
                       precision={0.1}

@@ -9,7 +9,7 @@ function SearcgPageFunc() {
 
   return (
     <div>
-      <SearchPage que={query.get("q")} page={query.get("P")} />
+      <SearchPage que={query.get("q")} page={query.get("p")} />
     </div>
   );
 }
