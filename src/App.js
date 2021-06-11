@@ -49,7 +49,7 @@ function App() {
             <Route exact path="/search" component={SearchPageFunc} />
             <Route path="/profile/:id" component={Profile} />
             <Route path="/editprofile" component={ProfileEdit} />
-            <Route path="/track" component={TrackPage} />
+            <Route path="/track/:id" component={TrackPage} />
             <Route path="/changepassword" component={ChangePassPage} />
             <Route path="/genres" component={Genres} />
             <Route path="/artist/:id" component={ArtistPage} />

@@ -44,8 +44,14 @@ class TrackPage extends Component {
           lyrics: res.data.results[0].lyrics,
           loading: false,
         });
+      })
+      .catch((error) => {
+        this.setState({
+          lyrics: "there is no lyrics",
+          loading: false,
+        });
       });
-    console.log(this.state.lyrics);
+      
   };
   render() {
     var sectionStyle = {
