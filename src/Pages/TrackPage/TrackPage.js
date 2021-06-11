@@ -66,7 +66,7 @@ class TrackPage extends Component {
                     </div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer"></div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                      Genre : Rap
+                      Genre: Rap
                     </div>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ class TrackPage extends Component {
                         emptyIcon={<i className="far fa-star"></i>}
                         halfIcon={<i className="fa fa-star-half-alt"></i>}
                         fullIcon={<i className="fa fa-star"></i>}
-                        activeColor="#ffd700"
+                        activeColor="#d0e1f9"
                         classNames="StarsContainP"
                       />
                     </div>
@@ -124,7 +124,7 @@ class TrackPage extends Component {
                       <div class="col-12 col-md-4 dateContainer">3.5</div>
                       <div class="col-12 col-md-4 dateContainer">Countr</div>
                       <div class="col-12 col-md-4 genresContainer  ">
-                        Genres : Rap
+                        Genres: Rap
                       </div>
                     </div>
                   </div>

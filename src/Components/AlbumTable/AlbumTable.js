@@ -1,8 +1,18 @@
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
+import { withStyles } from "@material-ui/core/styles";
 import { Table, Image } from "semantic-ui-react";
 import Cover from "./cover-dsotm.jpg";
 import "./AlbumTable.css";
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: "#d0e1f9",
+  },
+  iconHover: {
+    color: "#d0e1f9",
+  },
+})(Rating);
 
 const AlbumTable = (props) => (
   <Table id="Albumtable" unstackable inverted>
@@ -38,7 +48,7 @@ const AlbumTable = (props) => (
                     </div>
                     <div class="col-sm-4   text">{Album.title}</div>
                     <div class="col-sm-2  text">
-                      <Rating
+                      <StyledRating
                         value={2}
                         precision={0.1}
                         size={"small"}

@@ -156,10 +156,10 @@ class ArtistPage extends Component {
                         1988–present
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                        Country : {this.state.country}
+                        Country: {this.state.country}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                        Genres : Rap
+                        Genres: Rap
                       </div>
                     </div>
                   </div>
@@ -213,10 +213,10 @@ class ArtistPage extends Component {
                         </div>
                         <div class="col-12 col-md-4 dateContainer">
                           {" "}
-                          Country : {this.state.country}
+                          Country: {this.state.country}
                         </div>
                         <div class="col-12 col-md-4 genresContainer  ">
-                          Genres : Rap
+                          Genres: Rap
                         </div>
                       </div>
                     </div>

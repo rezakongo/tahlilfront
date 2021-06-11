@@ -1,9 +1,19 @@
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
+import { withStyles } from "@material-ui/core/styles";
 import { Table, Image } from "semantic-ui-react";
 import Cover from "./cover-dsotm.jpg";
 import { AlbumsTrackData } from "./AlbumsTrackData.js";
 import "./AlbumTrackTable.css";
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: "#d0e1f9",
+  },
+  iconHover: {
+    color: "#d0e1f9",
+  },
+})(Rating);
 
 const AlbumTrackTable = () => (
   <Table id="Tracktable" unstackable inverted>
@@ -39,7 +49,7 @@ const AlbumTrackTable = () => (
                   </div>
                   <div className="col-sm-2  AlbumText">{Album.AlbumName}</div>
                   <div className="col-sm-2  text">
-                    <Rating
+                    <StyledRating
                       value={Album.rateValue}
                       precision={0.1}
                       size={"small"}

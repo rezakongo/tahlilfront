@@ -66,10 +66,10 @@ class AlbumPage extends Component {
                       1988
                     </div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                      Country : USA
+                      Country: USA
                     </div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                      Genres : Rap
+                      Genres: Rap
                     </div>
                   </div>
                 </div>
@@ -86,12 +86,12 @@ class AlbumPage extends Component {
                         emptyIcon={<i className="far fa-star"></i>}
                         halfIcon={<i className="fa fa-star-half-alt"></i>}
                         fullIcon={<i className="fa fa-star"></i>}
-                        activeColor="#ffd700"
+                        activeColor="#d0e1f9"
                         classNames="StarsContainP"
                       />
                     </div>
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                      <button className="followButton">Add to Favorits</button>
+                      <button className="followButton">Add to favorites</button>
                     </div>
                   </div>
                 </div>
@@ -118,7 +118,7 @@ class AlbumPage extends Component {
                       <div class="col-12 col-md-4 dateContainer">3.5</div>
                       <div class="col-12 col-md-4 dateContainer">Countr</div>
                       <div class="col-12 col-md-4 genresContainer  ">
-                        Genres : Rap
+                        Genres: Rap
                       </div>
                     </div>
                   </div>
@@ -141,7 +141,7 @@ class AlbumPage extends Component {
                       </div>
                       <div class="col-12  col-sm-6">
                         <button className="pfollowButton">
-                          Add To Favorite
+                          Add to favorites
                         </button>
                       </div>
                     </div>
