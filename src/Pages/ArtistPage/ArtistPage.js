@@ -59,8 +59,7 @@ class ArtistPage extends Component {
           type: res.data.general_info.type,
           country: res.data.general_info.country,
           comments: res.data.comments.reverse(),
-          albums: res.data.albums,
-          toptracks: res.data.musics,
+          albums: res.data.musics_albums,
           loading: false,
         });
         console.log(this.state.follow);
