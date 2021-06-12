@@ -44,18 +44,20 @@ const AlbumTable = (props) => (
                       {Album.release_date}
                     </div>
                     <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                      <Image src={Cover} rounded size="mini" />
+                      <Image src={Album.cover_image} rounded size="mini" />
                     </div>
-                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4   text">{Album.title}</div>
+                    <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3   text">
+                      {Album.title}
+                    </div>
                     <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2  text">
                       <Rating
-                        value={2}
+                        value={Album.rating}
                         precision={0.1}
                         size={"small"}
                         readOnly={true}
                       />
                     </div>
-                    <div class="col-sm-4   text">{Album.Genres}</div>
+                    <div class="col-4 col-sm-4   text">{Album.genre}</div>
                   </div>
                 </div>
               </div>
