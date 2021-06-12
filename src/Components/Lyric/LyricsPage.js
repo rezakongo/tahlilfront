@@ -70,19 +70,17 @@ class LyricsPage extends Component {
   activateAnnotationPrompt = () => {
     this.setState({
       selectedAnnotationId: "prompt",
-      showInfo: false,
     });
     window.addEventListener("click", (event) => {
-      if (this.state.selectedAnnotationId === "prompt") {
+      if (
+        !event.target.closest("#annotation-prompt") === null &&
+        this.state.selectedAnnotationId === "prompt"
+      ) {
         this.setState({
-          showInfo: true,
           selectedAnnotationId: "",
-          editing: false,
         });
       }
     });
-    console.log("start =" + this.state.selectedStart);
-    console.log("end =" + this.state.selectedEnd);
   };
 
   render() {

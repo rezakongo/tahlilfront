@@ -1,7 +1,10 @@
 import dateFormat from "dateformat";
 import React, { Component } from "react";
-import AnnotationPrompt from "./AnnotationPrompt";
 import Comment from "../../Comment/Comment";
+import axios from "axios";
+import { Form } from "semantic-ui-react";
+import Button from "../../ProfileEdit/CustomButtons/Button.js";
+
 export const commentData = [
   {
     username: "Spoiler240012",
@@ -35,13 +38,47 @@ export const commentData = [
   },
 ];
 class Annotation extends Component {
-  state = {};
+  state = {
+    comment: "",
+  };
   render() {
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      let formData = new FormData();
+
+      axios.post(
+        `http://127.0.0.1:8000/api/page/ArtistCommentAPI/?artistid=`,
+        formData,
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("autToken")}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+    };
+
+    const onChangeComment = (e) => {
+      this.setState({ comment: e.target.value });
+    };
+
     const command = this.props.annotationId;
     let annotationSegment = <div></div>;
     if (command === "prompt") {
       annotationSegment = (
-        <AnnotationPrompt handleClick={this.handlePromptClick} />
+        <div className="prompt" id="annotation-prompt">
+          <Form inverted>
+            <Form.TextArea
+              placeholder="Add a comment"
+              inverted
+              id="AddComment"
+              onChange={onChangeComment}
+            />
+            <Button color="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </div>
       );
     } else if (command > 0) {
       annotationSegment = (
