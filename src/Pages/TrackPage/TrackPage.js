@@ -53,6 +53,11 @@ class TrackPage extends Component {
         });
       });
   };
+
+
+  heartbibil = ()  => {
+    this.setState({trackIsFavorit: !this.state.trackIsFavorit})
+  }
   render() {
     var sectionStyle = {
       width: "100%",
@@ -127,7 +132,7 @@ class TrackPage extends Component {
 
                         <div class="col-4 testt">
                           <div style={{ width: "3rem" }}>
-                            <Heart isActive={true} />
+                            <Heart inactiveColor='red' isActive={this.state.trackIsFavorit} onClick={this.heartbibil} />
                           </div>
                         </div>
                       </div>
@@ -185,7 +190,7 @@ class TrackPage extends Component {
                           <div class="col-4 tests"></div>
                           <div class="col-4 testt">
                             <div style={{ width: "3rem" }}>
-                              <Heart isActive={true} />
+                              <Heart inactiveColor="red" isActive={this.state.trackIsFavorit} onClick={this.heartbibil} />
                             </div>
                           </div>
                         </div>

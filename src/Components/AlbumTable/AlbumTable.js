@@ -38,17 +38,17 @@ const AlbumTable = (props) => (
                 href="test"
                 onClick="test"
               >
-                <div className="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                <div class="container-fluid !direction !spacing boooogh">
                   <div className="row" id="AlbumRow2">
                     <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text">
                       {Album.release_date}
                     </div>
-                    <div class="col-sm-1 ">
+                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
                       <Image src={Cover} rounded size="mini" />
                     </div>
-                    <div class="col-sm-4   text">{Album.title}</div>
-                    <div class="col-sm-2  text">
-                      <StyledRating
+                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4   text">{Album.title}</div>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2  text">
+                      <Rating
                         value={2}
                         precision={0.1}
                         size={"small"}

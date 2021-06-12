@@ -35,20 +35,21 @@ const AlbumTrackTable = () => (
       {AlbumsTrackData.map((Album) => {
         return (
           <div>
+            
             <div
               className="row AlbumRow"
               id="desktop"
               href="test"
               onClick="test"
             >
-              <div className="col-sm-11 col-xs">
-                <div className="row" id="AlbumRow2">
-                  <div className="col-2 col-sm-2 text">{Album.ReleaseDate}</div>
-                  <div className="col-2 col-sm-2 ">
+              <div class="container-fluid !direction !spacing ">
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}" id="AlbumRow2">
+                  <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text">{Album.ReleaseDate}</div>
+                  <div className="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 imgcontaner">
                     <Image src={Cover} rounded size="mini" />
                   </div>
-                  <div className="col-2 col-sm-2  AlbumText">{Album.AlbumName}</div>
-                  <div className="col-2 col-sm-2  text">
+                  <div className="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 trackAlbumTitle">{Album.AlbumName}</div>
+                  <div className="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text   ttttest">
                     <Rating
                       value={Album.rateValue}
                       precision={0.1}
@@ -56,7 +57,6 @@ const AlbumTrackTable = () => (
                       readOnly={true}
                     />
                   </div>
-                  <div class="col-4 col-sm-4   text">{Album.Genres}</div>
                 </div>
               </div>
             </div>

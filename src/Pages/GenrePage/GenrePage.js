@@ -5,27 +5,21 @@ import Comment from "../../Components/Comment/Comment.js";
 import Footer from "../../Components/Footer/footer";
 import Navbar from "../../Components/Navbar/navbar";
 import Slider from "react-slick";
-import "./AlbumPage.css";
+import "./GenrePage.css";
 import eminem from "./eminem.jpg";
 import HomePageAlbum from "../../Components/Cards/HomePageAlbum";
 import axios from "axios";
-import Heart from "react-heart";
 import { Loader } from "semantic-ui-react";
 import ReactStars from "react-rating-stars-component";
-import star from "./star.png";
 
-
-class AlbumPage extends Component {
+class GenrePage extends Component {
   state = {
     id: "f4abc0b5-3f7a-4eff-8f78-ac078dbce533",
     login: true,
-    comments:[],
-    AlbumIsFavorit: false,
+    comments:[]
   };
 
-  heartbibil = ()  => {
-    this.setState({AlbumIsFavorit: !this.state.AlbumIsFavorit})
-  }
+
 
   render() {
     const makeOpen = () => {
@@ -34,6 +28,15 @@ class AlbumPage extends Component {
     const closeSnackbar = () => {
       this.setState({ open: false });
     };
+
+    const backs=[
+      "https://www.stockmusiclab.com/wp-content/uploads/2019/08/cropped-studio_aim_musiclab_royalty_free_background_music.jpg",
+      "https://media.istockphoto.com/vectors/music-background-vector-id1076840920?b=1&k=6&m=1076840920&s=612x612&w=0&h=nztxOFS4yKFkGr54v-4rM6RcQAC0BpV3lYNWS8fMJdI=",
+      "https://cdn.wallpapersafari.com/11/43/6AXtlL.jpg",
+      "https://images.ctfassets.net/bdyhigkzupmv/3qbcPWr60odpUo4PE7aQ79/5848e32e4fec473461e65e82d1c25753/hero-generic-console-production.jpg",
+      "https://cdn.britannica.com/03/151903-131-E310E9EC/Microphone-background-sound-waves-energy-Music.jpg",
+
+    ]
     var sectionStyle = {
       width: "100%",
       minHeight: "25rem",
@@ -41,7 +44,7 @@ class AlbumPage extends Component {
       backgroundPosition: "center",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      backgroundImage: `url(https://upload.wikimedia.org/wikipedia/en/0/02/Radioheadkida.png)`,
+      backgroundImage: `url(`+backs[Math.floor(Math.random()*backs.length)]+`)`,
       boxShadow: "inset 0 0 0 2000px rgba(2, 2, 2, 0.850)",
     };
     return (
@@ -54,62 +57,16 @@ class AlbumPage extends Component {
               class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} x"
             >
               <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistDataPosition">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 imgContainer">
-                  <img
-                    width="280"
-                    height="280"
-                    className="imgkhodesh"
-                    src="https://upload.wikimedia.org/wikipedia/en/0/02/Radioheadkida.png"
-                  />
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 GenreTitle">
+                  Pop
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-3 col-sm-4 col-6">
-                  <div class="container-fluid !direction !spacing dataContainer">
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titleContainer">
-                      KidA
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                      3.5
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                      1988
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                      Country: USA
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                      Genres: Rap
-                    </div>
-                  </div>
                 </div>
                 <div class="col-xl-3 col-lg-1 col-md-0 col-sm-0 col-0"></div>
                 <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5 col-12 ">
                   <div class="container-fluid !direction !spacing ">
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} followcontain"></div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ">
-                      <ReactStars
-                        count={5}
-                        size={35}
-                        value={2}
-                        isHalf={true}
-                        emptyIcon={<i className="far fa-star"></i>}
-                        halfIcon={<i className="fa fa-star-half-alt"></i>}
-                        fullIcon={<i className="fa fa-star"></i>}
-                        activeColor="#d0e1f9"
-                        classNames="StarsContainP"
-                      />
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bibilContainer">
-                      <div class="col-4 tests"></div>
-                      <div class="col-4 testo">
-                        3.5 <img src={star} width="25" height="25" />
-                      </div>
-
-                      <div class="col-4 testt">
-                        <div style={{ width: "3rem" }}>
-                          <Heart inactiveColor='red' isActive={this.state.AlbumIsFavorit} onClick={this.heartbibil} />
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -135,7 +92,7 @@ class AlbumPage extends Component {
                       <div class="col-12 col-md-4 dateContainer">3.5</div>
                       <div class="col-12 col-md-4 dateContainer">Countr</div>
                       <div class="col-12 col-md-4 genresContainer  ">
-                        Genres: Rap
+                        Genres : Rap
                       </div>
                     </div>
                   </div>
@@ -156,18 +113,11 @@ class AlbumPage extends Component {
                           classNames="StarsContainP"
                         />
                       </div>
-                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bibilContainer">
-                      <div class="col-4 tests"></div>
-                      <div class="col-4 testo">
-                        3.5 <img src={star} width="25" height="25" />
+                      <div class="col-12  col-sm-6">
+                        <button className="pfollowButton">
+                          Add To Favorite
+                        </button>
                       </div>
-
-                      <div class="col-4 testt">
-                        <div style={{ width: "3rem" }}>
-                          <Heart inactiveColor='red' isActive={this.state.AlbumIsFavorit} onClick={this.heartbibil}  />
-                        </div>
-                      </div>
-                    </div>
                     </div>
                   </div>
                 </div>
@@ -194,4 +144,4 @@ class AlbumPage extends Component {
     );
   }
 }
-export default AlbumPage;
+export default GenrePage;

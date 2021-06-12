@@ -21,6 +21,7 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Genres from "./Pages/Genres/Genres.js";
 import ArtistPage from "./Pages/ArtistPage/ArtistPage";
 import AlbumPage from "./Pages/AlbumPage/AlbumPage";
+import GenrePage from "./Pages/GenrePage/GenrePage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ArtistRealeasesPage from "./Pages/ArtistPage/ArtistRealeasesPage";
 import LyricsPage from "./Components/Lyric/LyricsPage";
@@ -52,6 +53,7 @@ function App() {
             <Route path="/track/:id" component={TrackPage} />
             <Route path="/changepassword" component={ChangePassPage} />
             <Route path="/genres" component={Genres} />
+            <Route path="/genre" component={GenrePage} />
             <Route path="/artist/:id" component={ArtistPage} />
             <Route path="/comment" component={LyricsPage} />
             <Route component={NotFoundPage} />

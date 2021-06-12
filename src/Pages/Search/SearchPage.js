@@ -254,13 +254,13 @@ class SearchPage extends React.Component {
                 role="tabpanel"
                 aria-labelledby="v-pills-Albums-tab"
               >
-                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowcenter">
                   <div className="sagContainer">
                     <img src={sag} id={this.state.AlbumNf ? "sag" : "hidden"} />
                   </div>
                   {this.state.Albums.map((album) => {
                     return (
-                      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6">
+                      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9">
                         <AlbumsSearchCard album={album} />
                       </div>
                     );
@@ -273,7 +273,7 @@ class SearchPage extends React.Component {
                 role="tabpanel"
                 aria-labelledby="v-pills-Artists-tab"
               >
-                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowcenter">
                   <div className="sagContainer">
                     <img
                       src={sag}
@@ -290,7 +290,7 @@ class SearchPage extends React.Component {
                             ? "hidden"
                             : ""
                         }
-                        class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6"
+                        class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9"
                       >
                         <ArtistsSearchCard artist={artist} />
                       </div>

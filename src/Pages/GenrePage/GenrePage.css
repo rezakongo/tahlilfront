@@ -26,6 +26,7 @@
 
 .bdyPosition{
     width: 80%;
+    background-color: rgba(19, 0, 54, 0.329);
     min-height: 100rem;
     
 }
@@ -103,7 +104,7 @@
 
 .followButton{
     color: white;
-    background-color: #4d648d;
+    background-color: rgb(116, 106, 143);
     font-size: 17px;
     width: 100%;
     height: 2.7rem;
@@ -112,12 +113,12 @@
 }
 
 .followButton:hover {
-  background-color: #d0e1f9;
+  background-color: rgb(67, 67, 141);
   transition: all 0.3s ease-in-out;
 }
 
 .followButton:active{
-    background-color: #d0e1f9;
+    background-color: rgb(0, 0, 92);
     transition: all 0.3s ease-in-out;
 }
 
@@ -181,23 +182,14 @@
     height: 3rem;
 }
 
-.testo{
+.GenreTitle{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 13rem;
     color: white;
-    font-size: 24px;
+    font-size: 60px;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-}
-
-.testt{
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-}
-
-.tests{
-    background-color: transparent;
+    align-content: center;
+    justify-items: flex-start;
 }
