@@ -5,11 +5,11 @@ class LyricsDisplay extends Component {
   state = {};
 
   populatedLyrics = () => {
-    if (this.props.annotations.length === 0 || !this.props.song.lyrics) {
-      return this.props.song.lyrics;
+    if (this.props.annotations.length === 0 || !this.props.lyrics) {
+      return this.propslyrics;
     }
 
-    const lyrics = this.props.song.lyrics;
+    const lyrics = this.props.lyrics;
     const lyricsEls = [];
 
     let tracked = 0;
@@ -39,7 +39,7 @@ class LyricsDisplay extends Component {
     return (
       <div className="lyrics-display">
         <h3>{this.props.song.title} Lyrics</h3>
-        <Lyrics 
+        <Lyrics
           populatedLyrics={this.populatedLyrics()}
           lyrics={this.props.lyrics}
           onHighlight={this.props.onHighlight}

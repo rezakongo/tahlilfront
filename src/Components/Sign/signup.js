@@ -178,7 +178,6 @@ export default class SignUp extends Component {
             console.log(res);
             if (res.status === 201) {
               this.setState({ redirect: true });
-              console.log("hi");
             }
           })
           .catch((error) => {

@@ -16,7 +16,7 @@
   white-space: pre-line;
   font-size: 1.25em;
   line-height: 1.7em;
-  min-height: 100vh;
+  max-height: 100vh;
   overflow-y: scroll;
 }
 
@@ -40,7 +40,7 @@
   position: relative;
   display: inline;
   background-color: #e6e6e6;
-  color: aqua;
+  color: rgb(0, 0, 0);
   z-index: 3;
 }
 
