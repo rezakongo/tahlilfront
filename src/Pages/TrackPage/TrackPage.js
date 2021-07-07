@@ -26,35 +26,11 @@ class TrackPage extends Component {
     loading: false,
     loading2: false,
     result: [],
-    annotations: [
-      {
-        id: 1,
-        username: "Spoiler2400",
-        userimage: "/media/Images/test.png",
-        comment: "rwar",
-        date: "2021-07-03T20:59:57.445850Z",
-        start_index: 10,
-        end_index: 26,
-      },
-      {
-        id: 2,
-        username: "Spoiler2400",
-        userimage: "/media/Images/test.png",
-        comment: "hi",
-        date: "2021-07-03T21:00:17.414005Z",
-        start_index: 173,
-        end_index: 189,
-      },
-      {
-        id: 3,
-        username: "Spoiler2400",
-        userimage: "/media/Images/test.png",
-        comment: "it is just a test",
-        date: "2021-07-03T21:14:07.494858Z",
-        start_index: 206,
-        end_index: 227,
-      },
-    ],
+    artist: [],
+    album: [],
+    annotations: [],
+    trackIsFavorit: false,
+    rate: 0,
   };
 
   componentDidMount() {
@@ -72,6 +48,9 @@ class TrackPage extends Component {
       })
       .then((res) => {
         this.setState({ result: res.data.general_info });
+        this.setState({ artist: res.data.general_info.artist[0] });
+        this.setState({ album: res.data.general_info.album[0] });
+        console.log(this.state.result);
       });
 
     axios
@@ -112,11 +91,50 @@ class TrackPage extends Component {
       });
   };
 
-  heartbibil = () => {
-    this.setState({ trackIsFavorit: !this.state.trackIsFavorit });
-  };
-
   render() {
+    const makeFavorite = () => {
+      if (!this.state.trackIsFavorit)
+        axios.post(
+          `http://127.0.0.1:8000/MusicFavoriteAPI/?id=${this.state.id}`,
+          {},
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("autToken")}`,
+            },
+          }
+        );
+      else
+        axios
+          .post(
+            `http://127.0.0.1:8000/MusicUnfavoriteAPI/?id=${this.state.id}`,
+            {},
+            {
+              headers: {
+                Authorization: `Token ${localStorage.getItem("autToken")}`,
+              },
+            }
+          )
+          .then((res) => {
+            console.log(res.data);
+          });
+      this.setState({ trackIsFavorit: !this.state.trackIsFavorit });
+    };
+    const RateTrack = (e) => {
+      const rateTemp = e;
+      this.setState({ rate: rateTemp });
+      let formData = new FormData();
+      formData.append("rate", rateTemp);
+      axios.post(
+        `http://127.0.0.1:8000/MusicRateAPI/?id=${this.state.id}`,
+        formData,
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("autToken")}`,
+          },
+        }
+      );
+    };
+
     var sectionStyle = {
       width: "100%",
       minHeight: "25rem",
@@ -141,12 +159,27 @@ class TrackPage extends Component {
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistDataPosition">
                   <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 imgContainer">
-                    <img
-                      width="280"
-                      height="280"
-                      className="imgkhodesh"
-                      src={this.state.result.photo}
-                    />
+                    <div className="imageFollowContainer">
+                      <img
+                        width="280"
+                        height="280"
+                        className={
+                          this.state.trackIsFavorit
+                            ? "imgkhodeshFollow"
+                            : "imgkhodesh"
+                        }
+                        src={this.state.result.photo}
+                      />
+                      <div id="heart1F">
+                        <div style={{ width: "4rem" }}>
+                          <Heart
+                            inactiveColor="white"
+                            isActive={this.state.trackIsFavorit}
+                            onClick={makeFavorite}
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-3 col-sm-4 col-6">
                     <div class="container-fluid !direction !spacing dataContainer">
@@ -154,14 +187,20 @@ class TrackPage extends Component {
                         {this.state.result.title}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                        Eminem
+                        {this.state.artist.name}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                        Released in 1988
+                        Released Date : {this.state.album.date}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer"></div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
                         Genre : Rap
+                      </div>
+                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
+                        Rate :
+                        <div class="col-3 testo">
+                          3.5 <img src={star} width="25" height="25" />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -173,30 +212,18 @@ class TrackPage extends Component {
                         <ReactStars
                           count={5}
                           size={35}
-                          value={0}
+                          value={this.state.rate}
                           isHalf={true}
                           emptyIcon={<i className="far fa-star"></i>}
                           halfIcon={<i className="fa fa-star-half-alt"></i>}
                           fullIcon={<i className="fa fa-star"></i>}
                           activeColor="#ffd700"
                           classNames="StarsContainP"
+                          onChange={RateTrack}
                         />
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bibilContainer">
                         <div class="col-4 tests"></div>
-                        <div class="col-4 testo">
-                          3.5 <img src={star} width="25" height="25" />
-                        </div>
-
-                        <div class="col-4 testt">
-                          <div style={{ width: "3rem" }}>
-                            <Heart
-                              inactiveColor="red"
-                              isActive={this.state.trackIsFavorit}
-                              onClick={this.heartbibil}
-                            />
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -242,7 +269,6 @@ class TrackPage extends Component {
                             fullIcon={<i className="fa fa-star"></i>}
                             activeColor="#ffd700"
                             classNames="StarsContainP"
-                            on
                           />
                         </div>
 
@@ -256,7 +282,7 @@ class TrackPage extends Component {
                               <Heart
                                 inactiveColor="red"
                                 isActive={this.state.trackIsFavorit}
-                                onClick={this.heartbibil}
+                                onClick={makeFavorite}
                               />
                             </div>
                           </div>

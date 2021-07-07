@@ -252,13 +252,15 @@ class ArtistPage extends Component {
             <div class="container-fluid !direction !spacing bdyPosition">
               <AlbumsCarousel tracksData={this.state.toptracks} />
               <AlbumTable albumsData={this.state.albums} />
-              <Comment
-                login={this.state.login}
-                type="artist"
-                id={this.state.id}
-                commentData={this.state.comments}
-                makeOpen={makeOpen}
-              />
+              <div className="testMi">
+                <Comment
+                  login={this.state.login}
+                  type="artist"
+                  id={this.state.id}
+                  commentData={this.state.comments}
+                  makeOpen={makeOpen}
+                />
+              </div>
             </div>
           </div>
 
