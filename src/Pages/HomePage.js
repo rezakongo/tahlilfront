@@ -10,6 +10,7 @@ import { useLocation } from "react-router";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import axios from "axios";
+import { Loader } from "semantic-ui-react";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -59,7 +60,7 @@ function HomePage() {
   };
 
   if (loading1) {
-    return <div />;
+    return <Loader content="Loading" size="large" inverted />;
   } else {
     return (
       <div id="container-navabr" onScroll={onScrollNavbar}>
