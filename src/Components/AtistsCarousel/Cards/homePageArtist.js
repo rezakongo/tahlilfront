@@ -111,7 +111,7 @@ function HomePageArtist(props) {
     <Card className={cx(styles.root, shadowStyles.root)}>
       <CardMedia
         className={cx(styles.media, mediaStyles.root)}
-        image={Artist}
+        image={props.artistt.photo}
       />
       <CardContent>
         <Info className={styles.content}>
@@ -119,7 +119,7 @@ function HomePageArtist(props) {
           <InfoSubtitle className={styles.subtitle}>
           <Flag className={styles.flag} code="GB" height="20rem"/>
           </InfoSubtitle>
-          <InfoCaption className={styles.captionyear}>1965-2014</InfoCaption>
+          <InfoCaption className={styles.captionyear}>{props.artistt.life_span.begin}-{props.artistt.life_span.end}</InfoCaption>
           <InfoCaption className={styles.captiongenre}>
             progressive rock, psychedelic rock, rock, art rock, progressive
           </InfoCaption>

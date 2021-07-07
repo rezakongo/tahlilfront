@@ -2,9 +2,30 @@ import React,{Component} from "react";
 import "./Container.css";
 import Slider from "react-slick";
 import HomePageAlbum from "../Cards/HomePageAlbum"
+import axios from 'axios';
 
+
+const api=axios.create({
+    baseURL:'http://127.0.0.1:8000/api/page/TenTopAlbumAPIView/'
+  })
+  
 
 export default class Container extends Component {
+
+
+    state={
+        Albums:[]
+      }
+    
+      constructor(){
+        super();
+        api.get('/').then(
+          res=>{console.log(res.data)
+          this.setState({Albums:res.data})
+        }
+        )
+      }
+    
     render() {
       const settings = {
           slidesToShow: 3,
@@ -35,32 +56,9 @@ export default class Container extends Component {
         <div className="containerBody d-none d-md-block">
             <div className="container contain">
                 <div className="row align-items-center ContainerRows">
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
-                        <HomePageAlbum/>
-                    </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
-                        <HomePageAlbum/>
-                    </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
-                        <HomePageAlbum/>
-                    </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
-                        <HomePageAlbum/>
-                    </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
-                        <HomePageAlbum/>
-                    </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
-                        <HomePageAlbum/>
-                    </div>
-                    <div className="col-xl-2 col-lg-0 col-md-0 d-none d-xl-block d-xxl-none">
-                    </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
-                        <HomePageAlbum/>
-                    </div>
-                    <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
-                        <HomePageAlbum/>
-                    </div>
+                    {this.state.Albums.map(Album => <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 containcells">
+                        <HomePageAlbum Albm={Album}/>
+                    </div>)}
                     <div className="col-xl-2 col-lg-0 col-md-0 d-none d-xl-block d-xxl-none">
                     </div>
                 </div>
@@ -70,13 +68,9 @@ export default class Container extends Component {
         <div className="CarouselContainerTemplate">
               <div className="CarouselTemplate">
                   <Slider {...settings} >
-                      <HomePageAlbum/>
-                      <HomePageAlbum/>
-                      <HomePageAlbum/>
-                      <HomePageAlbum/>
-                      <HomePageAlbum/>
-                      <HomePageAlbum/>
-                      <HomePageAlbum/>
+                  {this.state.Albums.map(Album => {
+                        <HomePageAlbum Albm={Album}/>
+                    })}
                   </Slider>
               </div>
           </div>

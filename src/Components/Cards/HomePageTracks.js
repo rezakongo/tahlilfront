@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import Rating from "@material-ui/lab/Rating";
 import { withStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 import { Table, Image } from "semantic-ui-react";
 import Cover from "./cover-dsotm.jpg";
 import "./HomePageTracks.css";
@@ -15,24 +16,44 @@ const StyledRating = withStyles({
   },
 })(Rating);
 
-const TableExampleUnstackable = () => (
+const api=axios.create({
+  baseURL:'http://127.0.0.1:8000/api/page/TenTopMusicAPIView/'
+})
+
+class TableExampleUnstackable extends Component {
+
+  state={
+    Tracks:[]
+  }
+
+  constructor(){
+    super();
+    api.get('/').then(
+      res=>{console.log(res.data)
+      this.setState({Tracks:res.data})
+    }
+    )
+  }
+  render() {
+return (
   <Table className="table" unstackable inverted>
     <Table.Body>
-      {TracksData.map((track) => {
+      {this.state
+      .Tracks.map((track) => {
         return (
-          <div>
+          <a href={`track\\${track.id}`}>
             <div className="row trackRow" id="desktop" href="test">
               <div class="col-sm col-xs">
                 <div className="row" id="trackRow2">
                   <div class="col-sm-1 text">{track.num}</div>
                   <div class="col-sm-2 ">
-                    <Image src={Cover} rounded size="mini" />
+                    <img height="50" src={track.photo == "" ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOFanuE2gd0DCvahQUv0nZm4DAMOmqdRVaiTkwbjA5mkQlzTr4hzQmhrYk3u66drjIwFY0Grx0HTZX3g&usqp=CAU" : track.photo}  rounded size="mini" />
                   </div>
-                  <div class="col-sm   text">{track.trackName}</div>
-                  <div class="col-sm text">{track.singerName}</div>
+                  <div class="col-sm   text">{track.title}</div>
+                  <div class="col-sm text">{track.artist[0].name}</div>
                   <div class="col-sm  text">
                     <StyledRating
-                      value={track.rateValue}
+                      value={track.rating}
                       precision={0.1}
                       size={"small"}
                       readOnly={true}
@@ -49,17 +70,20 @@ const TableExampleUnstackable = () => (
                     <Image src={Cover} rounded size="mini" />
                   </div>
                   <div class="col-7 col-xs">
-                    <div class="col-sm txt">{track.trackName}</div>
-                    <div class="col-sm txt">{track.singerName}</div>
+                    <div class="col-sm txt">{track.title}</div>
+                    <div class="col-sm txt">{track.artist[0].name}</div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
+          
         );
       })}
     </Table.Body>
   </Table>
 );
+}
+}
 
 export default TableExampleUnstackable;

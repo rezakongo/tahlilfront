@@ -3,16 +3,33 @@ import LandingTop from "../Components/LandingTop/LandingTop";
 import Navbar from "./../Components/Navbar/navbar";
 import ArtistsCarousel from "../Components/AtistsCarousel/ArtistsCarousel";
 import HomePageTracks from "../Components/Cards/HomePageTracks";
-import Container from "../Components/Container/Container";
+import Container from "../Components/Container/Container.js";
 import "./HomePage.css";
 import Footer from "../Components/Footer/footer";
 import { useLocation } from "react-router";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
+import axios from 'axios';
+
+
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
+
+const apiArtist=axios.create({
+  baseURL:'http://127.0.0.1:8000/api/page/TenTopArtistAPIView/'
+})
+
+const apiAlbum=axios.create({
+  baseURL:'http://127.0.0.1:8000/api/page/TenTopAlbumAPIView/'
+})
+
+const apiTeack=axios.create({
+  baseURL:'http://127.0.0.1:8000/api/page/TenTopMusicAPIView/'
+})
+
+
 
 function HomePage() {
   let query = useQuery();
@@ -21,7 +38,23 @@ function HomePage() {
   const [open, setOpen] = React.useState(
     query.get("l") === "true" ? true : false
   );
+  const[loading1,setLoading1]=React.useState(true);
 
+  
+    
+  const [ArtistData, setArtistData] = React.useState(()=>{
+    var Artistss;
+      apiArtist.get('/').then(
+        res=>{console.log(res.data);
+        Artistss=res.data;
+      }
+      )
+    setLoading1(false);
+    return (Artistss)
+  });
+  console.log(ArtistData);
+
+  
   const onScrollNavbar = () => {
     if (document.getElementById("container-navabr").scrollTop > 330) {
       setMenuId("menu2");
@@ -32,6 +65,12 @@ function HomePage() {
   const closeSnackbar = () => {
     setOpen(false);
   };
+
+  if(loading1){
+    return(
+      <div/>
+    )
+  }else{
   return (
     <div id="container-navabr" onScroll={onScrollNavbar}>
       <Snackbar open={open} autoHideDuration={3000} onClose={closeSnackbar}>
@@ -43,14 +82,14 @@ function HomePage() {
           <LandingTop />
         </div>
         <div className="hpFContainer">
-          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}  tracksContain rowSetting">
-            <h2 class="divider line glow" contenteditable>
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}  tracksContain rowSetting">
+            <h2 className="divider line glow" contentEditable>
               TOP &nbsp; ARTISTS
             </h2>
-            <ArtistsCarousel />
+            <ArtistsCarousel Rtist={ArtistData}/>
           </div>
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
-            <h2 class="divider line glow" contenteditable>
+            <h2 className="divider line glow" contentEditable>
               TOP &nbsp; TRACKS
             </h2>
             <div className="tracks">
@@ -58,7 +97,7 @@ function HomePage() {
             </div>
           </div>
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
-            <h2 className="divider line glow" contenteditable>
+            <h2 className="divider line glow" contentEditable>
               TOP &nbsp; ALBUMS
             </h2>
             <Container />
@@ -68,6 +107,7 @@ function HomePage() {
       </div>
     </div>
   );
+  }
 }
 
 export default HomePage;

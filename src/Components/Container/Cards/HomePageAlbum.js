@@ -67,24 +67,24 @@ function HomePageAlbum(props) {
   const shadowStyles = useOverShadowStyles({ inactive: true });
   return (
     <Card className={cx(styles.root)}>
-      <CardMedia className={cx(styles.media, mediaStyles.root)} image={Cover} />
+      <CardMedia className={cx(styles.media, mediaStyles.root)} image={props.Albm.cover_image} />
       <CardContent>
         <Info>
-          <InfoTitle className={styles.title}>Pink Floyd</InfoTitle>
+          <InfoTitle className={styles.title}>{props.Albm.artist[0].name}</InfoTitle>
           <InfoSubtitle className={styles.subtitle}>
-            The Dark Side of the Moon
+            {props.Albm.title}
           </InfoSubtitle>
           <Rating
             className={styles.rating}
             name={"rating"}
-            value={4.5}
+            value={props.Albm.rating}
             precision={0.5}
             size={"small"}
             readOnly={true}
           ></Rating>
-          <InfoCaption className={styles.captionyear}>1973</InfoCaption>
+          <InfoCaption className={styles.captionyear}>{props.Albm.release-date}</InfoCaption>
           <InfoCaption className={styles.captiongenre}>
-            progressive rock, rock, art rock, psychedelic rock, classic rock
+            {props.Albm.genre[0]}
           </InfoCaption>
         </Info>
       </CardContent>

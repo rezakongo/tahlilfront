@@ -2,8 +2,20 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "./ArtistsCarousel.css";
 import HomePageArtist from "../Cards/homePageArtist";
+import axios from 'axios';
+
+
 
 export default class ArtistsCarousel extends Component {
+
+  state={
+
+  }
+
+
+
+
+
   render() {
     const settings = {
       slidesToShow: 3,
@@ -32,33 +44,7 @@ export default class ArtistsCarousel extends Component {
       <div className="CarouselContainerTemplate">
         <div className="CarouselTemplate">
           <Slider {...settings}>
-            <div className="Cells">
-              <HomePageArtist />
-            </div>
-            <div className="Cells">
-              <HomePageArtist />
-            </div>
-            <div className="Cells">
-              <HomePageArtist />
-            </div>
-            <div className="Cells">
-              <HomePageArtist />
-            </div>
-            <div className="Cells">
-              <HomePageArtist />
-            </div>
-            <div className="Cells">
-              <HomePageArtist />
-            </div>
-            <div className="Cells">
-              <HomePageArtist />
-            </div>
-            <div className="Cells">
-              <HomePageArtist />
-            </div>
-            <div className="Cells">
-              <HomePageArtist />
-            </div>
+            {this.props.Rtist.map(Artist => <div className="Cells"><HomePageArtist artistt={Artist}/></div>)}
           </Slider>
         </div>
       </div>

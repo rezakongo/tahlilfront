@@ -1,6 +1,6 @@
 .CardBody {
   display: flex;
-  background-color: rgba(83, 83, 83, 0.61);
+  background-color: #4d648d;
   width: 70%;
   height: fit-content;
   color: black;
@@ -11,7 +11,7 @@
 }
 
 .CardBody:hover {
-  background-color: gray;
+  background-color: #213b68;
   transition: 0.3s all ease-in;
   cursor: pointer;
 }

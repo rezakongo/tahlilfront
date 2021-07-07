@@ -92,6 +92,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     color: "#d57b7b",
     fontSize: captionFontSize,
     lineHeight: 1.2,
+    width:'7rem'
   },
   flag: {
     margin: spacing(1),
@@ -107,27 +108,29 @@ function HomePageArtist(props) {
   const shadowStyles = useOverShadowStyles();
   const mediaStyles = useSquareCardMediaStyles();
   return (
+    <a href={`artist\\${props.artistt.id}`}>
     <Card className={cx(styles.root, shadowStyles.root)}>
       <CardMedia
         className={cx(styles.media, mediaStyles.root)}
-        image={Artist}
+        image={props.artistt.photo}
       />
       <CardContent>
         <Info className={styles.content}>
-          <InfoTitle className={styles.title}>Pink Floyd</InfoTitle>
+          <InfoTitle className={styles.title}>{props.artistt.name}</InfoTitle>
           <Flag
             className={styles.flag}
-            code="GB"
+            code={props.artistt.country}
             height="20rem"
             style={{ marginLeft: "auto", marginRight: "auto" }}
           />
-          <InfoCaption className={styles.captionyear}>1965-2014</InfoCaption>
+          <InfoCaption className={styles.captionyear}>{props.artistt.life_span.span}</InfoCaption>
           <InfoCaption className={styles.captiongenre}>
-            progressive rock, psychedelic rock, rock, art rock, progressive
+            {props.artistt.followings} Followers
           </InfoCaption>
         </Info>
       </CardContent>
     </Card>
+    </a>
   );
 }
 export default HomePageArtist;
