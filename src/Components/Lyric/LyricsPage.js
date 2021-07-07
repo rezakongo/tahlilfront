@@ -11,29 +11,6 @@ class LyricsPage extends Component {
       comments: [],
       loading: true,
     },
-    annotations: [
-      {
-        id: 1,
-        author_id: "2",
-        start_index: "0",
-        end_index: "20",
-        body: "PB - classic late night snack",
-        song_id: "1",
-        updated_at: "2016-07-11T17:24:19.009Z",
-        author: "songsta",
-      },
-      {
-        id: 53,
-        author_id: "1",
-        start_index: "41",
-        end_index: "52",
-        body: "Write something interesting...I am wiring things because it is very intersting and we should all listen to the way that this will look on screen and yeah!",
-        song_id: "1",
-        updated_at: "2017-10-10T02:10:07.462Z",
-        author: "guest",
-      },
-    ],
-    editing: false,
     selectedStart: "",
     selectedEnd: "",
     showInfo: true,
@@ -72,17 +49,13 @@ class LyricsPage extends Component {
     const style = {};
     const relative = document.body.parentNode.getBoundingClientRect();
     const r = element.getBoundingClientRect();
-    const relHeight = r.top - relative.top - 455;
-    if (relHeight < 125) {
-      style.top = "0px";
-    } else {
-      style.top = relHeight + "px";
-    }
+    style.top = "0px";
+
     return style;
   };
 
   selectionOverlapping = (startIdx, endIdx) => {
-    return this.state.annotations.some((annotation) => {
+    return this.props.annotations.some((annotation) => {
       return !(
         endIdx < annotation.start_index || startIdx > annotation.end_index
       );
@@ -107,32 +80,48 @@ class LyricsPage extends Component {
   };
 
   render() {
-    const annotations = this.state.annotations;
     const selection = this.state.selectedAnnotationId;
-    if (this.props.lyrics === null) {
+    if (this.props.lyrics === null || this.props.annotations === null) {
       return <div></div>;
     } else {
+      const annotations = this.props.annotations;
       return (
-        <div className="not-splash">
-          <div className="song-left-col">
-            <LyricsDisplay
-              song={this.state.song}
-              annotations={annotations}
-              lyrics={this.props.lyrics}
-              selected={selection}
-              onHighlight={this.handleHighlight}
-              handleHighlightClick={this.handleHighlightClick}
-            />
+        <div>
+          <div className="not-splash">
+            <div className="song-left-col">
+              <LyricsDisplay
+                song={this.state.song}
+                annotations={annotations}
+                lyrics={this.props.lyrics}
+                selected={selection}
+                onHighlight={this.handleHighlight}
+                handleHighlightClick={this.handleHighlightClick}
+              />
+            </div>
+            <div className="song-right-col">
+              <Annotation
+                popupStyle={this.state.popupStyle}
+                selectedStart={this.state.selectedStart}
+                selectedEnd={this.state.selectedEnd}
+                tempAnnotation={annotations}
+                afterSubmit={this.afterSubmit}
+                handleCancelCreate={this.handleCancelCreate}
+                annotationId={selection}
+                songId={this.props.songId}
+              />
+            </div>
           </div>
-          <div className="song-right-col">
+          <div id="footer-annotation">
             <Annotation
+              id="mobile"
               popupStyle={this.state.popupStyle}
               selectedStart={this.state.selectedStart}
               selectedEnd={this.state.selectedEnd}
-              tempAnnotation={this.tempAnnotation}
+              tempAnnotation={annotations}
               afterSubmit={this.afterSubmit}
               handleCancelCreate={this.handleCancelCreate}
               annotationId={selection}
+              songId={this.props.songId}
             />
           </div>
         </div>

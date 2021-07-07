@@ -21,7 +21,7 @@ function UserComment(props) {
     formData.append("comment", comment);
 
     axios.post(
-      `http://127.0.0.1:8000/api/page/ArtistCommentAPI/?artistid=${props.id}`,
+      `http://127.0.0.1:8000/api/page/${props.type}CommentAPI/?id=${props.id}`,
       formData,
       {
         headers: {

@@ -41,7 +41,7 @@
   display: inline;
   background-color: #e6e6e6;
   color: rgb(0, 0, 0);
-  z-index: 3;
+  z-index: 1;
 }
 
 .lyrics a:hover,
@@ -56,11 +56,35 @@
 }
 
 .ghost-lyrics {
-  z-index: 2;
+  z-index: 1;
   color: transparent;
 }
 
 .annotation-segment {
   position: absolute;
   width: 85%;
+}
+
+#footer-annotation {
+  position: fixed;
+  bottom: 0;
+  width: 100vh;
+  white-space: pre-line;
+  z-index: 2;
+  height: 200px;
+}
+
+@media only screen and (max-width: 700px) {
+  .song-left-col {
+    width: 100%;
+  }
+  .song-right-col {
+    width: 0%;
+    display: none;
+  }
+}
+@media only screen and (min-width: 701px) {
+  #footer-annotation {
+    display: none;
+  }
 }

@@ -181,7 +181,7 @@ class AlbumPage extends Component {
             <AlbumTrackTable />
             <Comment
               login={this.state.login}
-              type="artist"
+              type="Album"
               id={this.state.id}
               commentData={this.state.comments}
               makeOpen={makeOpen}

@@ -5,36 +5,12 @@
   color: aliceblue !important;
 }
 
-#commentsContainer {
-  min-width: 100% !important;
-  text-align: left;
-  color: aliceblue !important;
-  padding: 40px;
-  display: flex !important;
-}
-
 #commentDiv {
   width: 100% !important;
 }
-
-#commentAuthor {
-  color: aliceblue;
+.ui.comments .comment .avatar img,
+.ui.comments .comment img.avatar {
   border-radius: 50px !important;
-}
-#commentMetadata {
-  color: rgb(165, 172, 179);
-  font-size: 0.8rem;
-}
-#commentText {
-  color: aliceblue;
-  font-size: 1rem;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  justify-content: start;
-}
-#commentDivider {
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
 }
 #AddComment {
   margin: 0px !important;
@@ -57,4 +33,29 @@
 
 #hidden {
   display: none;
+}
+
+#commentContainer2 {
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  min-width: 100% !important;
+  text-align: left;
+  color: aliceblue !important;
+}
+
+@media only screen and (max-width: 700px) {
+  #annotation-prompt {
+    background-color: rgba(2, 2, 2, 1) !important;
+    z-index: 2;
+    justify-content: end;
+  }
+  #commentsContainer {
+    background-color: rgba(2, 2, 2, 1) !important;
+    z-index: 2;
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
 }

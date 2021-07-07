@@ -1,42 +1,10 @@
 import dateFormat from "dateformat";
 import React, { Component } from "react";
-import Comment from "../../Comment/Comment";
+import { Comment, Divider, Form, Header } from "semantic-ui-react";
 import axios from "axios";
-import { Form } from "semantic-ui-react";
 import Button from "../../ProfileEdit/CustomButtons/Button.js";
+import "./comment.css";
 
-export const commentData = [
-  {
-    username: "Spoiler240012",
-    avatar: "/media/Images/test_H6AdhpI.png",
-    context: "test",
-    date: "2021-05-28T15:19:45.471481Z",
-  },
-  {
-    username: "Spoiler240012",
-    avatar: "/media/Images/test_H6AdhpI.png",
-    context: "te",
-    date: "2021-05-28T16:34:15.469886Z",
-  },
-  {
-    username: "Spoiler240012",
-    avatar: "/media/Images/test_H6AdhpI.png",
-    context: "test1235",
-    date: "2021-05-28T16:44:29.007999Z",
-  },
-  {
-    username: "Spoiler2400",
-    avatar: "/media/Images/test_jX5C5VI.png",
-    context: "test2",
-    date: "2021-05-29T12:22:05.899284Z",
-  },
-  {
-    username: "Spoiler2400",
-    avatar: "/media/Images/test_jX5C5VI.png",
-    context: "test",
-    date: "2021-06-01T14:30:11.688798Z",
-  },
-];
 class Annotation extends Component {
   state = {
     comment: "",
@@ -45,9 +13,9 @@ class Annotation extends Component {
     const handleSubmit = (e) => {
       e.preventDefault();
       let formData = new FormData();
-
+      formData.append("comment", this.state.comment);
       axios.post(
-        `http://127.0.0.1:8000/api/page/ArtistCommentAPI/?artistid=`,
+        `http://127.0.0.1:8000/Lyrics/LyricsCommentAPI/?id=${this.props.songId}&start=${this.props.selectedStart}&end=${this.props.selectedEnd}`,
         formData,
         {
           headers: {
@@ -60,14 +28,19 @@ class Annotation extends Component {
 
     const onChangeComment = (e) => {
       this.setState({ comment: e.target.value });
+      console.log(this.props.tempAnnotation);
     };
 
     const command = this.props.annotationId;
+    const commentData = this.props.tempAnnotation.filter((entry) =>
+      Object.values(entry).some((val) => entry.id === command)
+    );
+    console.log(command);
     let annotationSegment = <div></div>;
     if (command === "prompt") {
       annotationSegment = (
         <div className="prompt" id="annotation-prompt">
-          <Form inverted>
+          <Form inverted onSubmit={handleSubmit}>
             <Form.TextArea
               placeholder="Add a comment"
               inverted
@@ -82,18 +55,39 @@ class Annotation extends Component {
       );
     } else if (command > 0) {
       annotationSegment = (
-        <div
-          style={{
-            maxHeight: "80vh",
-            overflowY: "scroll",
-          }}
-        >
-          <Comment
-            login="true"
-            type="artist"
-            id="1433"
-            commentData={commentData}
-          />
+        <div>
+          <Comment.Group id="commentsContainer">
+            {commentData.map((comment) => {
+              return (
+                <div>
+                  <Divider inverted id="commentDivider" />
+                  <Comment id="commentContainer2">
+                    <Comment.Avatar
+                      className="commentAvatar"
+                      src={`http://127.0.0.1:8000${comment.userimage}`}
+                    />
+                    <Comment.Content>
+                      <Comment.Author
+                        id="commentAuthor"
+                        as="a"
+                        href={`/profile/${comment.username}`}
+                      >
+                        {comment.username}
+                      </Comment.Author>
+                      <Comment.Text id="commentText">
+                        {comment.comment}
+                      </Comment.Text>
+                      <Comment.Text id="commentMetadata">
+                        Posted: &nbsp;
+                        {dateFormat(comment.date, " d mmmm, yyyy")}
+                      </Comment.Text>
+                    </Comment.Content>
+                  </Comment>
+                  <Divider inverted id="commentDivider" />
+                </div>
+              );
+            })}
+          </Comment.Group>
         </div>
       );
     }

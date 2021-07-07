@@ -24,15 +24,56 @@ class TrackPage extends Component {
     login: true,
     comments: [],
     loading: false,
+    loading2: false,
+    result: [],
+    annotations: [
+      {
+        id: 1,
+        username: "Spoiler2400",
+        userimage: "/media/Images/test.png",
+        comment: "rwar",
+        date: "2021-07-03T20:59:57.445850Z",
+        start_index: 10,
+        end_index: 26,
+      },
+      {
+        id: 2,
+        username: "Spoiler2400",
+        userimage: "/media/Images/test.png",
+        comment: "hi",
+        date: "2021-07-03T21:00:17.414005Z",
+        start_index: 173,
+        end_index: 189,
+      },
+      {
+        id: 3,
+        username: "Spoiler2400",
+        userimage: "/media/Images/test.png",
+        comment: "it is just a test",
+        date: "2021-07-03T21:14:07.494858Z",
+        start_index: 206,
+        end_index: 227,
+      },
+    ],
   };
 
   componentDidMount() {
-    // this.setState({ id: this.props.match.params.id }, () => {
-    //   this.FetchData();
-    // });
+    this.setState({ id: this.props.match.params.id }, () => {
+      this.FetchData();
+    });
   }
 
   FetchData = () => {
+    axios
+      .get(`http://127.0.0.1:8000/MusicAPIView/?id=${this.state.id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        this.setState({ result: res.data.general_info });
+      });
+
     axios
       .get(`http://127.0.0.1:8000/Lyrics/LyricsAPI/?id=${this.state.id}`, {
         headers: {
@@ -46,18 +87,35 @@ class TrackPage extends Component {
           loading: false,
         });
       })
+
       .catch((error) => {
         this.setState({
           lyrics: "",
           loading: false,
         });
       });
+
+    axios
+      .get(
+        `http://127.0.0.1:8000/Lyrics/LyricsTextCommentAPI/?id=${this.state.id}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        this.setState({
+          annotations: res.data.results,
+          loading2: false,
+        });
+      });
   };
 
+  heartbibil = () => {
+    this.setState({ trackIsFavorit: !this.state.trackIsFavorit });
+  };
 
-  heartbibil = ()  => {
-    this.setState({trackIsFavorit: !this.state.trackIsFavorit})
-  }
   render() {
     var sectionStyle = {
       width: "100%",
@@ -69,7 +127,7 @@ class TrackPage extends Component {
       backgroundImage: `url(https://upload.wikimedia.org/wikipedia/en/0/02/Radioheadkida.png)`,
       boxShadow: "inset 0 0 0 2000px rgba(2, 2, 2, 0.850)",
     };
-    if (this.state.loading) {
+    if (this.state.loading || this.state.loading2) {
       return <Loader content="Loading" size="large" inverted />;
     } else {
       return (
@@ -87,13 +145,13 @@ class TrackPage extends Component {
                       width="280"
                       height="280"
                       className="imgkhodesh"
-                      src="https://upload.wikimedia.org/wikipedia/en/0/02/Radioheadkida.png"
+                      src={this.state.result.photo}
                     />
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-3 col-sm-4 col-6">
                     <div class="container-fluid !direction !spacing dataContainer">
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titleContainer">
-                        Rap God
+                        {this.state.result.title}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
                         Eminem
@@ -115,7 +173,7 @@ class TrackPage extends Component {
                         <ReactStars
                           count={5}
                           size={35}
-                          value={2}
+                          value={0}
                           isHalf={true}
                           emptyIcon={<i className="far fa-star"></i>}
                           halfIcon={<i className="fa fa-star-half-alt"></i>}
@@ -132,7 +190,11 @@ class TrackPage extends Component {
 
                         <div class="col-4 testt">
                           <div style={{ width: "3rem" }}>
-                            <Heart inactiveColor='red' isActive={this.state.trackIsFavorit} onClick={this.heartbibil} />
+                            <Heart
+                              inactiveColor="red"
+                              isActive={this.state.trackIsFavorit}
+                              onClick={this.heartbibil}
+                            />
                           </div>
                         </div>
                       </div>
@@ -173,13 +235,14 @@ class TrackPage extends Component {
                           <ReactStars
                             count={5}
                             size={35}
-                            value={2}
+                            value={0}
                             isHalf={true}
                             emptyIcon={<i className="far fa-star"></i>}
                             halfIcon={<i className="fa fa-star-half-alt"></i>}
                             fullIcon={<i className="fa fa-star"></i>}
                             activeColor="#ffd700"
                             classNames="StarsContainP"
+                            on
                           />
                         </div>
 
@@ -190,7 +253,11 @@ class TrackPage extends Component {
                           <div class="col-4 tests"></div>
                           <div class="col-4 testt">
                             <div style={{ width: "3rem" }}>
-                              <Heart inactiveColor="red" isActive={this.state.trackIsFavorit} onClick={this.heartbibil} />
+                              <Heart
+                                inactiveColor="red"
+                                isActive={this.state.trackIsFavorit}
+                                onClick={this.heartbibil}
+                              />
                             </div>
                           </div>
                         </div>
@@ -204,10 +271,14 @@ class TrackPage extends Component {
 
           <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
             <div class="container-fluid !direction !spacing bdyPosition">
-              <LyricsPage songId={this.state.id} lyrics={this.state.lyrics} />
+              <LyricsPage
+                songId={this.state.id}
+                lyrics={this.state.lyrics}
+                annotations={this.state.annotations}
+              />
               <Comment
                 login={this.state.login}
-                type="artist"
+                type="Music"
                 id={this.state.id}
                 commentData={this.state.comments}
               />

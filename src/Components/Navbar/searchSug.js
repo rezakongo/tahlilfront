@@ -10,12 +10,21 @@ const categoryLayoutRenderer = ({ categoryContent, resultsContent }) => (
   <div>
     <h3
       className="name"
-      style={{ margin: 0, backgroundColor: "blue", color: "white" }}
+      style={{
+        margin: 0,
+        backgroundColor: "rgb(55,71,103)",
+        color: "white !important",
+      }}
     >
       {categoryContent}
     </h3>
     <div
-      style={{ font: "20px", backgroundColor: "blue", color: "white" }}
+      style={{
+        font: "20px",
+        backgroundColor: "rgb(40,54,85)",
+
+        color: "white !important",
+      }}
       className="results"
     >
       {resultsContent}
