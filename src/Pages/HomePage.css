@@ -83,3 +83,21 @@ body {
 .glow:after {
   background: linear-gradient(to left, #d0e1f9, #4d648d);
 }
+
+
+.loaderSt{
+  display:flex;
+  justify-content: center;
+  justify-items: center;
+  min-height: 17rem !important;
+  background-color: #1e1f26;
+  border-radius: 6px;
+  min-width: 80% !important;
+  margin-top: 20rem !important;
+  padding-top: 5rem !important;
+}
+
+.LC{
+  margin-top: 10rem;
+  padding-top: 5rem !important;
+}

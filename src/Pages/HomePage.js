@@ -36,14 +36,27 @@ function HomePage() {
     query.get("l") === "true" ? true : false
   );
   const [loading1, setLoading1] = React.useState(true);
-
+  const [loading2, setLoading2] = React.useState(true);
+  const [loading3, setLoading3] = React.useState(true);
   const [ArtistData, setArtistData] = React.useState([]);
+  const [TrackData, setTrackData] = React.useState([]);
+  const [AlbumData, setAlbumData] = React.useState([]);
 
   React.useEffect(() => {
     apiArtist.get("/").then((res) => {
       console.log(res.data);
       setArtistData(res.data);
       setLoading1(false);
+    });
+    apiTeack.get("/").then((res) => {
+      console.log(res.data);
+      setTrackData(res.data);
+      setLoading2(false);
+    });
+    apiAlbum.get("/").then((res) => {
+      console.log(res.data);
+      setAlbumData(res.data);
+      setLoading3(false);
     });
   });
   console.log(ArtistData);
@@ -59,8 +72,25 @@ function HomePage() {
     setOpen(false);
   };
 
-  if (loading1) {
-    return <Loader content="Loading" size="large" inverted />;
+  if (loading1 || loading2 || loading3) {
+
+    return (
+      <div id="container-navabr" onScroll={onScrollNavbar}>
+      <Snackbar open={open} autoHideDuration={3000} onClose={closeSnackbar}>
+        <Alert severity="success">Your login was successful!</Alert>
+      </Snackbar>
+      <Navbar id="navbar" menuId={menuId} activeItem="Home" />
+      <div id="landingtop" className="container-fluid !direction !spacing ">
+        <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
+          <LandingTop />
+        </div>
+        <div className="LC">
+        <Loader content="Loading" className="loaderSt" size="large" inverted />
+        </div>
+        <Footer />
+      </div>
+    </div>
+    );
   } else {
     return (
       <div id="container-navabr" onScroll={onScrollNavbar}>
@@ -84,14 +114,14 @@ function HomePage() {
                 TOP &nbsp; TRACKS
               </h2>
               <div className="tracks">
-                <HomePageTracks />
+                <HomePageTracks trc={TrackData}/>
               </div>
             </div>
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
               <h2 className="divider line glow" contentEditable>
                 TOP &nbsp; ALBUMS
               </h2>
-              <Container />
+              <Container Alb={AlbumData}/>
             </div>
           </div>
           <Footer />

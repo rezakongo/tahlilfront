@@ -16,30 +16,20 @@ const StyledRating = withStyles({
   },
 })(Rating);
 
-const api=axios.create({
-  baseURL:'http://127.0.0.1:8000/api/page/TenTopMusicAPIView/'
-})
+
 
 class TableExampleUnstackable extends Component {
 
   state={
-    Tracks:[]
   }
 
-  constructor(){
-    super();
-    api.get('/').then(
-      res=>{console.log(res.data)
-      this.setState({Tracks:res.data})
-    }
-    )
-  }
+
   render() {
 return (
   <Table className="table" unstackable inverted>
     <Table.Body>
-      {this.state
-      .Tracks.map((track) => {
+      {this.props
+      .trc.map((track) => {
         return (
           <a href={`track\\${track.id}`}>
             <div className="row trackRow" id="desktop" href="test">
