@@ -1,311 +1,324 @@
-.Contain{
-    width: 80%;
-    min-height: 70rem;
-    background-color: #1e1f26;
-    border-radius: 6px 6px 0 0;
+.Contain {
+  width: 80%;
+  min-height: 70rem;
+  background-color: #1e1f26;
+  border-radius: 6px 6px 0 0;
 }
-.rowOne{
-    height: max-content;
-    margin-top: 4.5rem;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    background-color: #283655;
-    padding-bottom: 1rem;
-}
-
-.proData{
-    border-radius: 10px;
-    width: 78%;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-    max-height: fit-content;
+.rowOne {
+  height: max-content;
+  margin-top: 4.5rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  background-color: #283655;
+  padding-bottom: 1rem;
 }
 
-.colone{
-    display: flex;
-    background-color: transparent;
-    min-height: 20rem;
-    justify-content: center;
-
+.proData {
+  border-radius: 10px;
+  width: 78%;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  max-height: fit-content;
 }
 
-.titlecomment{
-    color: rgb(255, 255, 255);
-    font-size: 28px;
-    font-weight: bold;
-    padding-bottom: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 1rem;
-
-}
-.coltwo{
-    background-color: transparent;
-    min-height: 50rem;
-    display:flexbox;
-    justify-content: center !important;
+.colone {
+  display: flex;
+  background-color: transparent;
+  min-height: 20rem;
+  justify-content: center;
 }
 
-
-
-.topContain{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    width:96.5%;
-    display: flex;
+.titlecomment {
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+.coltwo {
+  background-color: transparent;
+  min-height: 50rem;
+  display: flexbox;
+  justify-content: center !important;
 }
 
-.leftContain{
-    width: 95%;
-    margin-top: 1rem;
-    border-radius: 10px;
-    display: block;
+.topContain {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 96.5%;
+  display: flex;
 }
 
-.rightContain{
-    display: block;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background-color: #283655;
-    width: 95%;
-    border-radius: 10px;
-    height: 27rem;
-    overflow-y: hidden;
-    margin-left: 1rem;
-}
-.rightContainitems{
-    display: block;
-    width: 100%;
-    border-radius: 10px;
-    height: 27rem;
-    overflow-y: hidden;
+.leftContain {
+  width: 95%;
+  margin-top: 1rem;
+  border-radius: 10px;
+  display: block;
 }
 
-.rightContainitems:hover{
-    overflow-y: auto;
-    transition: 0.3s all ease-in;
+.rightContain {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #283655;
+  width: 95%;
+  border-radius: 10px;
+  height: 27rem;
+  overflow-y: hidden;
+  margin-left: 1rem;
+}
+.rightContainitems {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  height: 27rem;
+  overflow-y: hidden;
 }
 
-.imgContainer{
-    height: 15rem;
-    width:15rem;
-    background-color: transparent !important;
+.rightContainitems:hover {
+  overflow-y: auto;
+  transition: 0.3s all ease-in;
 }
 
-.topCol{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.imgContainer {
+  height: 15rem;
+  width: 15rem;
+  background-color: transparent !important;
 }
 
-.dataContainer{
-    color:white;
-    height: 85%;
-    width: 90%;
-    display: flex;
-    justify-content: left;
+.topCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.scoreContainer{
-    width: 90%;
-    height: 90%;
-    display: flex;
-    justify-content: left;
-    margin-left: 0px;
+.dataContainer {
+  color: white;
+  height: 85%;
+  width: 90%;
+  display: flex;
+  justify-content: left;
 }
 
-.Picture{
-    width: 100%;
-    height: 100%;
-    border-radius: 90px;
-    object-fit: cover;
-    border-radius: 500px !important;
+.scoreContainer {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: left;
+  margin-left: 0px;
 }
 
-.nameAndDesContainer{
-    display:flex;
-    align-items:flex-start;
-    justify-items:left;
-    padding-top: 3rem;
+.Picture {
+  width: 100%;
+  height: 100%;
+  border-radius: 90px;
+  object-fit: cover;
+  border-radius: 500px !important;
 }
 
-.NameContainer{
-    display: flex;
-    color: white;
-    justify-content: left;
-    font-size: 27px;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    line-height: 35px;
-    
+.nameAndDesContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-items: left;
+  padding-top: 3rem;
 }
 
-.DescriptionContainer{
-    display: flex;
-    justify-content: left;
-    color: white;
-    font-size: 16px;
-    margin-top: 1rem;
-    line-height: 20px;
+.NameContainer {
+  display: flex;
+  color: white;
+  justify-content: left;
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 35px;
 }
 
-.rowtwo{
-    margin-top: 1rem;
-
+.DescriptionContainer {
+  display: flex;
+  justify-content: left;
+  color: white;
+  font-size: 16px;
+  margin-top: 1rem;
+  line-height: 20px;
 }
 
-.editP{
-    position:relative;
-    left: 90%;
-    top: 0%;
-    color: white;
-    font-size: 15px;
-    display:inline-flex;
+.rowtwo {
+  margin-top: 1rem;
 }
 
-.editPt{
-    padding-left: 1rem;
-    color: white;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
+.editP {
+  position: relative;
+  left: 90%;
+  top: 0%;
+  color: white;
+  font-size: 15px;
+  display: inline-flex;
 }
 
-.signupDate{
-    display:inline-flex;
-    align-items:flex-end;
-    justify-content: flex-end !important;
-    color: white;
-    font-size: 18px;
+.editPt {
+  padding-left: 1rem;
+  color: white;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
 }
 
-.FavoriteTitle{
-    color: rgb(145, 145, 145);
-    font-size: 25px;
-    padding-top: 1rem;
-    padding-bottom: 1.5rem;
-    padding-left: 3rem;
-    display: flex;
-    justify-content: left;
+.signupDate {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-end !important;
+  color: white;
+  font-size: 18px;
 }
 
-.ratingPosition{
-    width: 100%;
-    height: 30rem;
+.FavoriteTitle {
+  color: rgb(145, 145, 145);
+  font-size: 25px;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  padding-left: 3rem;
+  display: flex;
+  justify-content: left;
 }
 
-.profileRatingContainer{
-    padding: 0.5rem;
+.ratingPosition {
+  width: 100%;
+  height: 30rem;
 }
 
-.editImg{
-    background-color: transparent;
-    transform: rotateZ(0deg);
-    transition: 1s all ease-in;
+.profileRatingContainer {
+  padding: 0.5rem;
 }
 
-.editImg:hover{
-    transform: rotateZ(360deg);
-    transition: 0.8s all ease-in;
+.editImg {
+  background-color: transparent;
+  transform: rotateZ(0deg);
+  transition: 1s all ease-in;
 }
 
-.accordingDesign{
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-    margin-top: 0px !important;
-    padding-top: 0px !important;
-    display: block;
-    background-color: transparent;
-
-    
+.editImg:hover {
+  transform: rotateZ(360deg);
+  transition: 0.8s all ease-in;
 }
 
-.collapseDesign{
-    background-color: transparent;
-    border: 0px none transparent !important;
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-    margin-top: 0px !important;
-    padding-top: 0px !important;
-
+.accordingDesign {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+  display: block;
+  background-color: transparent;
 }
 
-.accordionItemDesign{
-    background-color: transparent;
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-    width: 100% !important;
-    margin-top: 0px !important;
-    padding-top: 0px !important;
-
+.collapseDesign {
+  background-color: transparent;
+  border: 0px none transparent !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
 }
 
-
-.accordionD{
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-    margin-top: 0px !important;
-    padding-top: 0px !important;
-
+.accordionItemDesign {
+  background-color: transparent;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  width: 100% !important;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
 }
 
-.ShowMoreDesign{
-    background-color: transparent !important;
-    border: 0ch none transparent;
-    color: white !important;
-    margin-top: 0px !important;
+.accordionD {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
 }
 
-.ShowMoreDesign:hover{
-    color: white;
-    background: rgb(0,1,64);
-background: linear-gradient(0deg, rgba(0,1,64,1) 0%, rgba(103,103,145,1) 0%, rgba(63,57,105,0.6082808123249299) 49%, rgba(150,133,162,0) 100%);
-transition: 0.3s all ease-in;
+.ShowMoreDesign {
+  background-color: transparent !important;
+  border: 0ch none transparent;
+  color: white !important;
+  margin-top: 0px !important;
 }
 
-.ShowMoreCDesign{
-    margin-top: 0px !important;
+.ShowMoreDesign:hover {
+  color: white;
+  background: rgb(0, 1, 64);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 1, 64, 1) 0%,
+    rgba(103, 103, 145, 1) 0%,
+    rgba(63, 57, 105, 0.6082808123249299) 49%,
+    rgba(150, 133, 162, 0) 100%
+  );
+  transition: 0.3s all ease-in;
 }
 
-.favShow{
-    background-color: red;
+.ShowMoreCDesign {
+  margin-top: 0px !important;
 }
 
-.favNone{
-    background-color: green;
+.favShow {
+  background-color: red;
 }
 
-.pfollowButton {
-    color: white;
-    margin-top: 8rem !important;
-    background-color: rgb(116, 106, 143);
-    font-size: 17px;
-    height: 2.7rem !important;
-    border: 0px none transparent;
-    border-radius: 10px;
-    width: 20rem;
-  }
+.favNone {
+  background-color: green;
+}
 
-.pfollowButton:hover {
-    background-color: rgb(67, 67, 141);
-    transition: all 0.3s ease-in-out;
-    width: 70%;
-  }
-  
-  .pfollowButton:active {
-    background-color: rgb(0, 0, 92);
-    transition: all 0.3s ease-in-out;
-  }
+.accordionD {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+}
 
-  .thinkingImage{
-      width: 28rem !important;
-      height: 28rem !important;
-  }
+.ShowMoreDesign {
+  background-color: transparent !important;
+  border: 0ch none transparent;
+  color: white !important;
+  margin-top: 0px !important;
+}
+
+.ShowMoreDesign:hover {
+  color: white;
+  background: rgb(0, 1, 64);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 1, 64, 1) 0%,
+    rgba(103, 103, 145, 1) 0%,
+    rgba(63, 57, 105, 0.6082808123249299) 49%,
+    rgba(150, 133, 162, 0) 100%
+  );
+  transition: 0.3s all ease-in;
+}
+
+.ShowMoreCDesign {
+  margin-top: 0px !important;
+}
+
+.favShow {
+  background-color: red;
+}
+
+.favNone {
+  background-color: green;
+}
+
+.thinkingImage {
+  width: 28rem !important;
+  height: 28rem !important;
+}

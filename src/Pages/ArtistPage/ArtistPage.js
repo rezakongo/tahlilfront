@@ -17,16 +17,14 @@ class ArtistPage extends Component {
   state = {
     id: "",
     login: false,
-    photo: "",
-    name: "",
-    type: "",
-    country: "",
     follow: false,
     comments: [],
     albums: [],
     toptracks: [],
     loading: true,
     open: false,
+    photo: "",
+    general_info: null,
   };
   componentDidMount() {
     if (localStorage.getItem("autToken") === null)
@@ -43,7 +41,7 @@ class ArtistPage extends Component {
   FetchData = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=1&commentlimit=10&commentpage=0`,
+        `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=10`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -54,12 +52,32 @@ class ArtistPage extends Component {
         console.log(res.data);
         this.setState({
           follow: res.data.me_follow === "True" ? true : false,
+          general_info: res.data.general_info,
           photo: res.data.general_info.photo,
-          name: res.data.general_info.name,
-          type: res.data.general_info.type,
-          country: res.data.general_info.country,
-          comments: res.data.comments.reverse(),
-          albums: res.data.musics_albums,
+          albums: res.data.albums,
+          toptracks: res.data.top_musics_albums,
+          loading: false,
+        });
+        console.log(this.state.follow);
+      });
+
+      axios
+      .get(
+        `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=10`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          follow: res.data.me_follow === "True" ? true : false,
+          general_info: res.data.general_info,
+          photo: res.data.general_info.photo,
+          albums: res.data.albums,
+          toptracks: res.data.top_musics_albums,
           loading: false,
         });
         console.log(this.state.follow);
@@ -143,22 +161,22 @@ class ArtistPage extends Component {
                       width="280"
                       height="280"
                       className="imgkhodesh"
-                      src={this.state.photo}
+                      src={this.state.general_info.photo}
                     />
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-3 col-sm-4 col-6">
                     <div class="container-fluid !direction !spacing dataContainer">
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titleContainer">
-                        {this.state.name}
+                        {this.state.general_info.name}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                        1988–present
+                        {this.state.general_info.life_span.span}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                        Country: {this.state.country}
+                        Country: {this.state.general_info.country}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                        Genres: Rap
+                        Genres: {this.state.general_info.genre}
                       </div>
                     </div>
                   </div>
@@ -166,7 +184,9 @@ class ArtistPage extends Component {
                   <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5 col-12 ">
                     <div class="container-fluid !direction !spacing ">
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} followcontain">
-                        <div className="followersContainer">+2K Follows</div>
+                        <div className="followersContainer">
+                          {this.state.general_info.followings} Follows
+                        </div>
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                         <button
@@ -197,25 +217,25 @@ class ArtistPage extends Component {
                       width="200"
                       height="200"
                       className="imgkhodesh"
-                      src={this.state.photo}
+                      src={this.state.general_info.photo}
                     />
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-6 col-sm-4 col-12 PdataContainer">
                     <div class="container">
                       <div class="row">
                         <div class="col-12 col-md-4 PtitleContainer">
-                          {this.state.name}
+                          {this.state.general_info.name}
                         </div>
 
                         <div class="col-12 col-md-4 dateContainer">
-                          1988–present
+                          {this.state.general_info.life_span.span}
                         </div>
                         <div class="col-12 col-md-4 dateContainer">
                           {" "}
                           Country: {this.state.country}
                         </div>
                         <div class="col-12 col-md-4 genresContainer  ">
-                          Genres: Rap
+                          Genres: {this.state.general_info.genre}
                         </div>
                       </div>
                     </div>
@@ -224,7 +244,9 @@ class ArtistPage extends Component {
                     <div className="Pfollowcontain">
                       <div class="row">
                         <div className=" folp">
-                          <div className="followersContainer">+2K Follows</div>
+                          <div className="followersContainer">
+                            {this.state.general_info.followings} Follows
+                          </div>
                           <button
                             id={this.state.follow ? "" : "hidden"}
                             className="pfollowButton"
@@ -252,15 +274,12 @@ class ArtistPage extends Component {
             <div class="container-fluid !direction !spacing bdyPosition">
               <AlbumsCarousel tracksData={this.state.toptracks} />
               <AlbumTable albumsData={this.state.albums} />
-              <div className="testMi">
-                <Comment
-                  login={this.state.login}
-                  type="artist"
-                  id={this.state.id}
-                  commentData={this.state.comments}
-                  makeOpen={makeOpen}
-                />
-              </div>
+              <Comment
+                login={this.state.login}
+                type="Artist"
+                id={this.state.id}
+                makeOpen={makeOpen}
+              />
             </div>
           </div>
 

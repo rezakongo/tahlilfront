@@ -28,7 +28,6 @@
   width: 80%;
   background-color: rgba(19, 0, 54, 0.329);
   min-height: 100vh;
-  height: fit-content;
 }
 
 .imgContainer {
@@ -44,7 +43,7 @@
   border-radius: 500px;
 }
 .imgkhodeshFollow {
-  border: 5px solid red !important;
+  border: 5px solid rgb(97, 6, 6) !important;
   border-radius: 500px;
 }
 .imageFollowContainer {
@@ -113,46 +112,6 @@
   width: 6rem;
 }
 
-.followButton {
-  color: white;
-  background-color: rgb(116, 106, 143);
-  font-size: 17px;
-  width: 100%;
-  height: 2.7rem;
-  border: 0px none transparent;
-  border-radius: 10px;
-}
-
-.followButton:hover {
-  background-color: rgb(67, 67, 141);
-  transition: all 0.3s ease-in-out;
-}
-
-.followButton:active {
-  background-color: rgb(0, 0, 92);
-  transition: all 0.3s ease-in-out;
-}
-
-.pfollowButton {
-  color: white;
-  background-color: rgb(116, 106, 143);
-  font-size: 17px;
-  height: 2.7rem;
-  border: 0px none transparent;
-  border-radius: 10px;
-  width: 20rem;
-}
-
-.pfollowButton:hover {
-  background-color: rgb(67, 67, 141);
-  transition: all 0.3s ease-in-out;
-}
-
-.pfollowButton:active {
-  background-color: rgb(0, 0, 92);
-  transition: all 0.3s ease-in-out;
-}
-
 .followcontain {
   display: inline;
   padding-top: 0rem;
@@ -216,8 +175,4 @@
 
 .tests {
   background-color: transparent;
-}
-
-.testMi {
-  background-color: red !important;
 }

@@ -2,20 +2,20 @@
   margin-top: 4.5rem;
 }
 
-.artistDataPosition{
-    height: 100%;
-    width: 100%;
-    padding-left: 14%;
-    padding-right: 0%;
-    padding-top: 4rem;
-    font-size: 40px;
+.artistDataPosition {
+  height: 100%;
+  width: 100%;
+  padding-left: 14%;
+  padding-right: 0%;
+  padding-top: 4rem;
+  font-size: 40px;
 }
 
-.PartistDataPosition{
-    height: 100%;
-    width: 100%;
-    padding-top: 4rem;
-    font-size: 40px;
+.PartistDataPosition {
+  height: 100%;
+  width: 100%;
+  padding-top: 4rem;
+  font-size: 40px;
 }
 
 .bdyContainer {
@@ -24,180 +24,137 @@
   justify-items: center;
 }
 
-.bdyPosition{
-    width: 80%;
-    min-height: 100rem;
-    
+.bdyPosition {
+  width: 80%;
+  min-height: 100vh;
 }
 
-.imgContainer{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    background-color: rgba(2, 2, 2, 0.534);
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  background-color: rgba(2, 2, 2, 0.534);
 }
 
-.imgkhodesh{
-    border: 5px solid white;
-    border-radius: 500px;
+.imgkhodesh {
+  border: 5px solid white;
+  border-radius: 500px;
 }
 
-.dataContainer{
-    padding-left: 4rem;
-    height: 100%;
-    display: block;
-    line-height: 3rem;
+.dataContainer {
+  padding-left: 4rem;
+  height: 100%;
+  display: block;
+  line-height: 3rem;
 }
 
-.PdataContainer{
-    padding-left: 4rem;
-    height: 100%;
-    display: flex;
-    line-height: 3rem;
-    width: 100%;
+.PdataContainer {
+  padding-left: 4rem;
+  height: 100%;
+  display: flex;
+  line-height: 3rem;
+  width: 100%;
 }
 
-.topf{
-    margin-top: 2rem;
+.topf {
+  margin-top: 2rem;
 }
 
-.titleContainer{
-    color: white;
-    width: 100%;
-    font-size: 40px;
-    font-weight: bolder;
+.titleContainer {
+  color: white;
+  width: 100%;
+  font-size: 40px;
+  font-weight: bolder;
 }
 
-.PtitleContainer{
-    color: white;
-    width: 100%;
-    font-size: 27px;
-    font-weight: bold;
+.PtitleContainer {
+  color: white;
+  width: 100%;
+  font-size: 27px;
+  font-weight: bold;
 }
 
-.dateContainer{
-    color: white;
-    width: 100%;
-    font-size: 20px;
-    font-weight: bolder;
-    
+.dateContainer {
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
-.followersContainer{
-    color: white;
-    width: 100%;
-    font-size: 16px;
+.followersContainer {
+  color: white;
+  width: 100%;
+  font-size: 16px;
 }
 
-.genresContainer{
-    color: white;
-    width: 100%;
-    font-size: 18px;
+.genresContainer {
+  color: white;
+  width: 100%;
+  font-size: 18px;
 }
 
-
-.imgflag{
-    width: 6rem;
-}
-
-.followButton{
-    color: white;
-    background-color: #4d648d;
-    font-size: 17px;
-    width: 100%;
-    height: 2.7rem;
-    border: 0px none transparent;
-    border-radius: 10px;
-}
-
-.followButton:hover {
-  background-color: #d0e1f9;
-  transition: all 0.3s ease-in-out;
-}
-
-.followButton:active{
-    background-color: #d0e1f9;
-    transition: all 0.3s ease-in-out;
-}
-
-.pfollowButton{
-    color: white;
-    background-color: rgb(116, 106, 143);
-    font-size: 17px;
-    height: 2.7rem;
-    border: 0px none transparent;
-    border-radius: 10px;
-    width: 20rem;
-}
-
-.pfollowButton:hover{
-    background-color: rgb(67, 67, 141);
-    transition: all 0.3s ease-in-out;
-}
-
-.pfollowButton:active{
-    background-color: rgb(0, 0, 92);
-    transition: all 0.3s ease-in-out;
-}
-
-.followcontain{
-    display: inline;
-    padding-top: 0rem;
-    padding-bottom: 0.5rem;
-    width: 100%;
-}
-.Pfollowcontain{
-    display: flex;
-    justify-content: center;
-    padding-top: 0rem;
-    padding-bottom: 0.5rem;
-    width: 100%;
-}
-.PimgContainer{
-    background-color: transparent;
-    padding-left: 4rem;
-}
-
-.pfol{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    width: 100%;
+.imgflag {
+  width: 6rem;
 }
 
 
-.folp{
-    width: max-content;
-    align-items: center;
-    display: inline-flex;
+.followcontain {
+  display: inline;
+  padding-top: 0rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+.Pfollowcontain {
+  display: flex;
+  justify-content: center;
+  padding-top: 0rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+.PimgContainer {
+  background-color: transparent;
+  padding-left: 4rem;
 }
 
-.StarsContainP{
-    display: flex !important;
-    justify-content: center !important;
-    justify-items: center !important;
-    width: 100%;
-    height: 3rem;
+.pfol {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
 }
 
-.testo{
-    color: white;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.folp {
+  width: max-content;
+  align-items: center;
+  display: inline-flex;
 }
 
-.testt{
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+.StarsContainP {
+  display: flex !important;
+  justify-content: center !important;
+  justify-items: center !important;
+  width: 100%;
+  height: 3rem;
 }
 
-.tests{
-    background-color: transparent;
+.testo {
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testt {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.tests {
+  background-color: transparent;
 }

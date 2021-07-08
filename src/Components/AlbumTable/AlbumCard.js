@@ -6,7 +6,7 @@ import "./AlbumCard.css";
 const AlbumCard = (props) => (
   <a className="aCon" href="1">
     <div className="containerAC">
-      <img src={Cover} className="image" />
+      <img src={props.album.photo} className="image" />
       <div className="centered">
         <h3>{props.album.title}</h3>
       </div>

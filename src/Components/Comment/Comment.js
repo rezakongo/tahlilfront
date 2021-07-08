@@ -5,38 +5,79 @@ import "./Comment.css";
 import axios from "axios";
 import dateFormat from "dateformat";
 import { Snackbar } from "@material-ui/core";
-import { Alert } from "bootstrap";
+import { Alert } from "@material-ui/lab";
 
 function UserComment(props) {
   const [show, setShow] = React.useState(false);
+  const [first, setFirst] = React.useState(true);
   const [comment, setComment] = React.useState("");
+  const [commentData, setCommentData] = React.useState([]);
+  const [page, setPage] = React.useState(0);
+
+  const onPageIncrease = () => {
+    axios
+      .get(
+        `http://127.0.0.1:8000/${props.type}CommentAPI/?id=${props.id}&commentlimit=1&commentpage=${page}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        setCommentData([...commentData, ...res.data.result]);
+        console.log(commentData);
+      });
+    setPage(page + 1);
+  };
 
   const onChangeComment = (e) => {
     setComment(e.target.value);
   };
+
+  React.useEffect(() => {
+    if (first) {
+      onPageIncrease();
+      setFirst(false);
+    }
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let formData = new FormData();
     formData.append("comment", comment);
 
-    axios.post(
-      `http://127.0.0.1:8000/api/page/${props.type}CommentAPI/?id=${props.id}`,
-      formData,
-      {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("autToken")}`,
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    axios
+      .post(
+        `http://127.0.0.1:8000/api/page/${props.type}CommentAPI/?id=${props.id}`,
+        formData,
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("autToken")}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then(() => {
+        setComment("");
+        setShow(true);
+      });
   };
+  const closeSnackbar = () => {
+    setShow(false);
+  };
+
   return (
     <Comment.Group id="commentsContainer">
+      <Snackbar open={show} autoHideDuration={3000} onClose={closeSnackbar}>
+        <Alert severity="success">
+          Your comment has been successfully submitted
+        </Alert>
+      </Snackbar>
       <Header as="h3" dividing inverted id="commentDiv">
         Comments
       </Header>
-      {props.commentData.map((comment) => {
+      {commentData.map((comment) => {
         return (
           <div>
             <Comment id="commentContainer">
@@ -62,6 +103,9 @@ function UserComment(props) {
           </div>
         );
       })}
+      <a role="button" onClick={onPageIncrease}>
+        <div id="showMoreComment">SHOW &nbsp;MORE</div>
+      </a>
       <div>
         <Form
           id={props.login ? "AddCommentContainer" : "hidden"}
