@@ -43,21 +43,24 @@ function HomePage() {
   const [AlbumData, setAlbumData] = React.useState([]);
 
   React.useEffect(() => {
-    apiArtist.get("/").then((res) => {
-      console.log(res.data);
-      setArtistData(res.data);
-      setLoading1(false);
-    });
-    apiTeack.get("/").then((res) => {
-      console.log(res.data);
-      setTrackData(res.data);
-      setLoading2(false);
-    });
-    apiAlbum.get("/").then((res) => {
-      console.log(res.data);
-      setAlbumData(res.data);
-      setLoading3(false);
-    });
+    if (loading1)
+      apiArtist.get("/").then((res) => {
+        console.log(res.data);
+        setArtistData(res.data);
+        setLoading1(false);
+      });
+    if (loading2)
+      apiTeack.get("/").then((res) => {
+        console.log(res.data);
+        setTrackData(res.data);
+        setLoading2(false);
+      });
+    if (loading3)
+      apiAlbum.get("/").then((res) => {
+        console.log(res.data);
+        setAlbumData(res.data);
+        setLoading3(false);
+      });
   });
   console.log(ArtistData);
 
@@ -73,23 +76,27 @@ function HomePage() {
   };
 
   if (loading1 || loading2 || loading3) {
-
     return (
       <div id="container-navabr" onScroll={onScrollNavbar}>
-      <Snackbar open={open} autoHideDuration={3000} onClose={closeSnackbar}>
-        <Alert severity="success">Your login was successful!</Alert>
-      </Snackbar>
-      <Navbar id="navbar" menuId={menuId} activeItem="Home" />
-      <div id="landingtop" className="container-fluid !direction !spacing ">
-        <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
-          <LandingTop />
+        <Snackbar open={open} autoHideDuration={3000} onClose={closeSnackbar}>
+          <Alert severity="success">Your login was successful!</Alert>
+        </Snackbar>
+        <Navbar id="navbar" menuId={menuId} activeItem="Home" />
+        <div id="landingtop" className="container-fluid !direction !spacing ">
+          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowSetting">
+            <LandingTop />
+          </div>
+          <div className="LC">
+            <Loader
+              content="Loading"
+              className="loaderSt"
+              size="large"
+              inverted
+            />
+          </div>
+          <Footer />
         </div>
-        <div className="LC">
-        <Loader content="Loading" className="loaderSt" size="large" inverted />
-        </div>
-        <Footer />
       </div>
-    </div>
     );
   } else {
     return (
@@ -114,14 +121,14 @@ function HomePage() {
                 TOP &nbsp; TRACKS
               </h2>
               <div className="tracks">
-                <HomePageTracks trc={TrackData}/>
+                <HomePageTracks trc={TrackData} />
               </div>
             </div>
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
               <h2 className="divider line glow" contentEditable>
                 TOP &nbsp; ALBUMS
               </h2>
-              <Container Alb={AlbumData}/>
+              <Container Alb={AlbumData} />
             </div>
           </div>
           <Footer />

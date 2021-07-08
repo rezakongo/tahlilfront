@@ -173,9 +173,10 @@ class TrackPage extends Component {
                       <div id="heart1F">
                         <div style={{ width: "4rem" }}>
                           <Heart
-                            inactiveColor="white"
+                            inactiveColor="rgba(40, 54, 85, 0.7)"
                             isActive={this.state.trackIsFavorit}
                             onClick={makeFavorite}
+                            style={{ fill: "rgba(40, 54, 85, 0.7)" }}
                           />
                         </div>
                       </div>
