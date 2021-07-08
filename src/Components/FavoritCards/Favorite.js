@@ -7,7 +7,7 @@ function Favorite(props) {
   if (props.item == null) return <div />;
   else
     return (
-      <div className="container-fluid !direction !spacing FavoriteCartContainer">
+      <a href={'\\'+props.dist+'\\'+props.item.id} className="container-fluid !direction !spacing FavoriteCartContainer">
         <div className="row  FavoritCard">
           <div className="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 imagePosition">
             <img
@@ -23,13 +23,11 @@ function Favorite(props) {
           </div>
           <div className="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2  scorePosition">
             <div className="score">
-              <button className="removeB">
-                <img width="20" height="20" src={close} className="ax" />
-              </button>
+              
             </div>
           </div>
         </div>
-      </div>
+      </a>
     );
 }
 

@@ -304,3 +304,8 @@ transition: 0.3s all ease-in;
     background-color: rgb(0, 0, 92);
     transition: all 0.3s ease-in-out;
   }
+
+  .thinkingImage{
+      width: 28rem !important;
+      height: 28rem !important;
+  }
