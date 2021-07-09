@@ -6,7 +6,7 @@ import { Header } from "semantic-ui-react";
 
 function AlbumsSearchCard(props) {
   return (
-    <div className="CardBody">
+    <a href={`album\\${props.album.id}`} className="CardBody">
       <div className="container-fluid !direction !spacing test">
         <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
           <div className="col-md-12 col-sm-12  textContainer">
@@ -41,7 +41,7 @@ function AlbumsSearchCard(props) {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 

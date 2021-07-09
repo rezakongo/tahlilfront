@@ -322,3 +322,10 @@
   width: 28rem !important;
   height: 28rem !important;
 }
+
+#NoLyric {
+  font-size: 20px;
+  color: white;
+  text-align: left;
+  padding: 40px;
+}

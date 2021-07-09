@@ -1,20 +1,15 @@
 import React, { Component } from "react";
-import AlbumsCarousel from "../../Components/AlbumTable/AlbumsCarousel";
-import AlbumTrackTable from "../../Components/AlbumTrackTable/AlbumTrackTable";
 import Comment from "../../Components/Comment/Comment.js";
 import Footer from "../../Components/Footer/footer";
 import Navbar from "../../Components/Navbar/navbar";
-import { useState } from "react";
-import Slider from "react-slick";
 import "./TrackPage.css";
-import eminem from "./eminem.jpg";
 import star from "./star.png";
-import HomePageAlbum from "../../Components/Cards/HomePageAlbum";
 import axios from "axios";
 import { Loader } from "semantic-ui-react";
 import ReactStars from "react-rating-stars-component";
 import Heart from "react-heart";
 import LyricsPage from "../../Components/Lyric/LyricsPage";
+import { Star } from "@material-ui/icons";
 
 class TrackPage extends Component {
   state = {
@@ -36,27 +31,52 @@ class TrackPage extends Component {
   };
 
   componentDidMount() {
+    if (localStorage.getItem("autToken") === null)
+      this.setState({ login: false });
+    else {
+      this.setState({ login: true });
+    }
     this.setState({ id: this.props.match.params.id }, () => {
       this.FetchData();
     });
   }
 
   FetchData = () => {
-    axios
-      .get(`http://127.0.0.1:8000/MusicAPIView/?id=${this.state.id}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => {
-        this.setState({
-          trackIsFavorit: res.data.me_favorite !== "False",
-          result: res.data.general_info,
-          artist: res.data.general_info.artist[0],
-          album: res.data.general_info.album[0],
-          loading3: false,
+    if (this.state.login)
+      axios
+        .get(`http://127.0.0.1:8000/MusicAPIView/?id=${this.state.id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("autToken")}`,
+          },
+        })
+        .then((res) => {
+          this.setState({
+            trackIsFavorit: res.data.me_favorite !== "False",
+            result: res.data.general_info,
+            artist: res.data.general_info.artist[0],
+            album: res.data.general_info.album[0],
+            rate: res.data.me_rate === null ? 0 : res.data.me_rate,
+            loading3: false,
+          });
         });
-      });
+    else
+      axios
+        .get(`http://127.0.0.1:8000/MusicAPIView/?id=${this.state.id}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          this.setState({
+            trackIsFavorit: res.data.me_favorite !== "False",
+            result: res.data.general_info,
+            artist: res.data.general_info.artist[0],
+            album: res.data.general_info.album[0],
+            rate: res.data.me_rate === null ? 0 : res.data.me_rate,
+            loading3: false,
+          });
+        });
 
     axios
       .get(`http://127.0.0.1:8000/Lyrics/LyricsAPI/?id=${this.state.id}`, {
@@ -182,7 +202,10 @@ class TrackPage extends Component {
                         src={this.state.result.photo}
                       />
                       <div id="heart1F">
-                        <div style={{ width: "4rem" }}>
+                        <div
+                          style={{ width: "4rem" }}
+                          id={this.state.login ? "" : "hidden"}
+                        >
                           <Heart
                             inactiveColor="white"
                             isActive={this.state.trackIsFavorit}
@@ -209,10 +232,14 @@ class TrackPage extends Component {
                         Released Date : {this.state.album.date}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                        Rate :
                         <div class="col-3 testo">
-                          {this.state.result.rating}{" "}
-                          <img src={star} width="25" height="25" />
+                          Rate :{this.state.result.rating}{" "}
+                          <Star
+                            src={star}
+                            width="50"
+                            height="50"
+                            style={{ fill: "#d0e1f9" }}
+                          />
                         </div>
                       </div>
                     </div>
@@ -221,7 +248,10 @@ class TrackPage extends Component {
                   <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5 col-12 ">
                     <div class="container-fluid !direction !spacing ">
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} followcontain"></div>
-                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ">
+                      <div
+                        class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} "
+                        id={this.state.login ? "" : "hidden"}
+                      >
                         <ReactStars
                           count={5}
                           size={35}
@@ -231,7 +261,7 @@ class TrackPage extends Component {
                           emptyIcon={<i className="far fa-star"></i>}
                           halfIcon={<i className="fa fa-star-half-alt"></i>}
                           fullIcon={<i className="fa fa-star"></i>}
-                          activeColor="#ffd700"
+                          activeColor="#d0e1f9"
                           classNames="StarsContainP"
                           onChange={RateTrack}
                         />
@@ -265,14 +295,16 @@ class TrackPage extends Component {
                         <div class="col-12 col-md-4 dateContainer">
                           Released Date : {this.state.album.date}
                         </div>
-                        <div class="col-12 col-md-4 dateContainer">3.5</div>
                       </div>
                     </div>
                   </div>
                   <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5 col-6 pfol">
                     <div className="Pfollowcontain">
                       <div class="row">
-                        <div class="col-12 col-sm-6 ">
+                        <div
+                          class="col-12 col-sm-6 "
+                          id={this.state.login ? "" : "hidden"}
+                        >
                           <ReactStars
                             count={5}
                             size={35}
@@ -282,7 +314,7 @@ class TrackPage extends Component {
                             emptyIcon={<i className="far fa-star"></i>}
                             halfIcon={<i className="fa fa-star-half-alt"></i>}
                             fullIcon={<i className="fa fa-star"></i>}
-                            activeColor="#ffd700"
+                            activeColor="#d0e1f9"
                             classNames="StarsContainP"
                           />
                         </div>
@@ -291,11 +323,19 @@ class TrackPage extends Component {
                           Rate :
                           <div class="col-3 testo">
                             {this.state.result.rating}{" "}
-                            <img src={star} width="25" height="25" />
+                            <Star
+                              src={star}
+                              width="50"
+                              height="50"
+                              style={{ fill: "#d0e1f9" }}
+                            />
                           </div>
                           <div class="col-4 tests"></div>
                           <div class="col-4 testt">
-                            <div style={{ width: "3rem" }}>
+                            <div
+                              style={{ width: "3rem" }}
+                              id={this.state.login ? "" : "hidden"}
+                            >
                               <Heart
                                 inactiveColor="red"
                                 isActive={this.state.trackIsFavorit}
@@ -321,7 +361,9 @@ class TrackPage extends Component {
                   annotations={this.state.annotations}
                 />
               ) : (
-                <p>there is no Lyric</p>
+                <div id="NoLyric">
+                  <p>There is no Lyric</p>
+                </div>
               )}
 
               <Comment

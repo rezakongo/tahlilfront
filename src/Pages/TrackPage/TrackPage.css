@@ -38,14 +38,6 @@
   background-color: rgba(2, 2, 2, 0.534);
 }
 
-.imgkhodesh {
-  border: 5px solid white !important;
-  border-radius: 500px;
-}
-.imgkhodeshFollow {
-  border: 5px solid rgb(97, 6, 6) !important;
-  border-radius: 500px;
-}
 .imageFollowContainer {
   position: relative;
 }

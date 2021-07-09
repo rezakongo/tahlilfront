@@ -12,10 +12,6 @@ export default class ArtistsCarousel extends Component {
 
   }
 
-
-
-
-
   render() {
     const settings = {
       slidesToShow: 3,

@@ -14,25 +14,105 @@ import { Loader } from "semantic-ui-react";
 import ReactStars from "react-rating-stars-component";
 import star from "./star.png";
 
-
 class AlbumPage extends Component {
   state = {
-    id: "f4abc0b5-3f7a-4eff-8f78-ac078dbce533",
+    id: "d8fa32bb-8ee3-4194-b87f-a6f72c6ec46b",
     login: true,
-    comments:[],
-    AlbumIsFavorit: false,
+    loading: true,
+    albumIsFavorit: false,
+    rate: 0,
+    result: [],
+    tracks: [],
   };
-
-  heartbibil = ()  => {
-    this.setState({AlbumIsFavorit: !this.state.AlbumIsFavorit})
+  componentDidMount() {
+    if (localStorage.getItem("autToken") === null)
+      this.setState({ login: false });
+    else {
+      this.setState({ login: true });
+    }
+    this.setState({ id: this.props.match.params.id }, () => {
+      this.FetchData();
+    });
   }
 
+  FetchData = () => {
+    if (this.state.login)
+      axios
+        .get(`http://127.0.0.1:8000/AlbumAPIView/?id=${this.state.id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("autToken")}`,
+          },
+        })
+        .then((res) => {
+          this.setState({
+            albumIsFavorit: res.data.me_favorite !== "False",
+            result: res.data.general_info,
+            tracks: res.data.musics,
+            rate: res.data.me_rate === null ? 0 : res.data.me_rate,
+            loading: false,
+          });
+        });
+    else
+      axios
+        .get(`http://127.0.0.1:8000/AlbumAPIView/?id=${this.state.id}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          this.setState({
+            albumIsFavorit: res.data.me_favorite !== "False",
+            result: res.data.general_info,
+            tracks: res.data.musics,
+            rate: res.data.me_rate === null ? 0 : res.data.me_rate,
+            loading: false,
+          });
+        });
+  };
+
   render() {
-    const makeOpen = () => {
-      this.setState({ open: true });
+    const makeFavorite = () => {
+      if (!this.state.trackIsFavorit)
+        axios.post(
+          `http://127.0.0.1:8000/AlbumFavoriteAPI/?id=${this.state.id}`,
+          {},
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("autToken")}`,
+            },
+          }
+        );
+      else
+        axios
+          .post(
+            `http://127.0.0.1:8000/AlbumUnfavoriteAPI/?id=${this.state.id}`,
+            {},
+            {
+              headers: {
+                Authorization: `Token ${localStorage.getItem("autToken")}`,
+              },
+            }
+          )
+          .then((res) => {
+            console.log(res.data);
+          });
+      this.setState({ albumIsFavorit: !this.state.albumIsFavorit });
     };
-    const closeSnackbar = () => {
-      this.setState({ open: false });
+    const RateTrack = (e) => {
+      const rateTemp = e;
+      this.setState({ rate: rateTemp });
+      let formData = new FormData();
+      formData.append("rate", rateTemp);
+      axios.post(
+        `http://127.0.0.1:8000/AlbumRateAPI/?id=${this.state.id}`,
+        formData,
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("autToken")}`,
+          },
+        }
+      );
     };
     var sectionStyle = {
       width: "100%",
@@ -41,157 +121,189 @@ class AlbumPage extends Component {
       backgroundPosition: "center",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      backgroundImage: `url(https://upload.wikimedia.org/wikipedia/en/0/02/Radioheadkida.png)`,
+      backgroundImage: `url(${this.state.result.cover_image})`,
       boxShadow: "inset 0 0 0 2000px rgba(2, 2, 2, 0.850)",
     };
-    return (
-      <div>
-        <Navbar activeItem="artist" menuId="menu2" />
-        <div class="container-fluid !direction !spacing artistPageContainer">
-          <div class="d-none d-sm-none d-md-none d-lg-block">
-            <div
-              style={sectionStyle}
-              class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} x"
-            >
-              <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistDataPosition">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 imgContainer">
-                  <img
-                    width="280"
-                    height="280"
-                    className="imgkhodesh"
-                    src="https://upload.wikimedia.org/wikipedia/en/0/02/Radioheadkida.png"
-                  />
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-3 col-sm-4 col-6">
-                  <div class="container-fluid !direction !spacing dataContainer">
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titleContainer">
-                      KidA
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                      3.5
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                      1988
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                      Country: USA
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                      Genres: Rap
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-lg-1 col-md-0 col-sm-0 col-0"></div>
-                <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5 col-12 ">
-                  <div class="container-fluid !direction !spacing ">
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} followcontain"></div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ">
-                      <ReactStars
-                        count={5}
-                        size={35}
-                        value={2}
-                        isHalf={true}
-                        emptyIcon={<i className="far fa-star"></i>}
-                        halfIcon={<i className="fa fa-star-half-alt"></i>}
-                        fullIcon={<i className="fa fa-star"></i>}
-                        activeColor="#d0e1f9"
-                        classNames="StarsContainP"
+    if (this.state.loading) {
+      return <Loader content="Loading" size="large" inverted />;
+    } else {
+      return (
+        <div>
+          <Navbar activeItem="artist" menuId="menu2" />
+          <div class="container-fluid !direction !spacing artistPageContainer">
+            <div class="d-none d-sm-none d-md-none d-lg-block">
+              <div
+                style={sectionStyle}
+                class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} x"
+              >
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistDataPosition">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 imgContainer">
+                    <div className="imageFollowContainer">
+                      <img
+                        width="280"
+                        height="280"
+                        className={
+                          this.state.albumIsFavorit
+                            ? "imgkhodeshFollow"
+                            : "imgkhodesh"
+                        }
+                        src={this.state.result.cover_image}
                       />
-                    </div>
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bibilContainer">
-                      <div class="col-4 tests"></div>
-                      <div class="col-4 testo">
-                        3.5 <img src={star} width="25" height="25" />
-                      </div>
-
-                      <div class="col-4 testt">
-                        <div style={{ width: "3rem" }}>
-                          <Heart inactiveColor='red' isActive={this.state.AlbumIsFavorit} onClick={this.heartbibil} />
+                      <div id="heart1F">
+                        <div
+                          style={{ width: "4rem" }}
+                          id={this.state.login ? "" : "hidden"}
+                        >
+                          <Heart
+                            inactiveColor="white"
+                            isActive={this.state.albumIsFavorit}
+                            onClick={makeFavorite}
+                            style={
+                              this.state.albumIsFavorit
+                                ? { fill: "rgb(97, 6, 6)" }
+                                : { fill: "white" }
+                            }
+                          />
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="d-block d-lg-none">
-            <div style={sectionStyle} class="row ">
-              <div class="row PartistDataPosition">
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 PimgContainer">
-                  <img
-                    width="200"
-                    height="200"
-                    className="imgkhodesh"
-                    src="https://content.api.news/v3/images/bin/ba49fee5bc802f0a32a9415fef635f71"
-                  />
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-4 col-12 PdataContainer">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-12 col-md-4 PtitleContainer">KidA</div>
-
-                      <div class="col-12 col-md-4 dateContainer">1988</div>
-                      <div class="col-12 col-md-4 dateContainer">3.5</div>
-                      <div class="col-12 col-md-4 dateContainer">Countr</div>
-                      <div class="col-12 col-md-4 genresContainer  ">
-                        Genres: Rap
+                  <div class="col-xl-4 col-lg-4 col-md-3 col-sm-4 col-6">
+                    <div class="container-fluid !direction !spacing dataContainer">
+                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titleContainer">
+                        {this.state.result.title}
+                      </div>
+                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
+                        {this.state.result.rating}
+                      </div>
+                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
+                        Released Date : {this.state.result.relase_date}
+                      </div>
+                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
+                        Genres: {this.state.result.genre}
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5 col-6 pfol">
-                  <div className="Pfollowcontain">
-                    <div class="row">
-                      <div class="col-12 col-sm-6 ">
+                  <div class="col-xl-3 col-lg-1 col-md-0 col-sm-0 col-0"></div>
+                  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5 col-12 ">
+                    <div class="container-fluid !direction !spacing ">
+                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} followcontain"></div>
+                      <div
+                        class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} "
+                        id={this.state.login ? "" : "hidden"}
+                      >
                         <ReactStars
                           count={5}
                           size={35}
-                          value={2}
+                          value={this.state.rate}
+                          edit={this.state.rate === 0}
                           isHalf={true}
                           emptyIcon={<i className="far fa-star"></i>}
                           halfIcon={<i className="fa fa-star-half-alt"></i>}
                           fullIcon={<i className="fa fa-star"></i>}
-                          activeColor="#ffd700"
+                          activeColor="#d0e1f9"
                           classNames="StarsContainP"
+                          onChange={RateTrack}
                         />
                       </div>
-                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bibilContainer">
-                      <div class="col-4 tests"></div>
-                      <div class="col-4 testo">
-                        3.5 <img src={star} width="25" height="25" />
-                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-block d-lg-none">
+              <div style={sectionStyle} class="row ">
+                <div class="row PartistDataPosition">
+                  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 PimgContainer">
+                    <img
+                      width="200"
+                      height="200"
+                      className="imgkhodesh"
+                      src={this.state.result.cover_image}
+                    />
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-4 col-12 PdataContainer">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-12 col-md-4 PtitleContainer">
+                          {this.state.result.title}
+                        </div>
 
-                      <div class="col-4 testt">
-                        <div style={{ width: "3rem" }}>
-                          <Heart inactiveColor='red' isActive={this.state.AlbumIsFavorit} onClick={this.heartbibil}  />
+                        <div class="col-12 col-md-4 dateContainer">
+                          Released Date : {this.state.result.relase_date}
+                        </div>
+                        <div class="col-12 col-md-4 dateContainer">
+                          Rate : {this.state.result.rating}
+                        </div>
+                        <div class="col-12 col-md-4 genresContainer  ">
+                          Genres: {this.state.result.genre}
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5 col-6 pfol">
+                    <div className="Pfollowcontain">
+                      <div class="row">
+                        <div
+                          class="col-12 col-sm-6 "
+                          id={this.state.login ? "" : "hidden"}
+                        >
+                          <ReactStars
+                            count={5}
+                            size={35}
+                            value={this.state.rate}
+                            edit={this.state.rate === 0}
+                            isHalf={true}
+                            emptyIcon={<i className="far fa-star"></i>}
+                            halfIcon={<i className="fa fa-star-half-alt"></i>}
+                            fullIcon={<i className="fa fa-star"></i>}
+                            activeColor="#d0e1f9"
+                            classNames="StarsContainP"
+                            onChange={RateTrack}
+                          />
+                        </div>
+                        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bibilContainer">
+                          <div class="col-4 tests"></div>
+                          <div class="col-4 testo">
+                            3.5 <img src={star} width="25" height="25" />
+                          </div>
+
+                          <div class="col-4 testt">
+                            <div
+                              style={{ width: "3rem" }}
+                              id={this.state.login ? "" : "hidden"}
+                            >
+                              <Heart
+                                inactiveColor="red"
+                                isActive={this.state.AlbumIsFavorit}
+                                onClick={RateTrack}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
-          <div class="container-fluid !direction !spacing bdyPosition">
-            <AlbumTrackTable />
-            <Comment
-              login={this.state.login}
-              type="Album"
-              id={this.state.id}
-              commentData={this.state.comments}
-              makeOpen={makeOpen}
-            />
+          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
+            <div class="container-fluid !direction !spacing bdyPosition">
+              <AlbumTrackTable tracks={this.state.tracks} />
+              <Comment
+                login={this.state.login}
+                type="Album"
+                id={this.state.id}
+              />
+            </div>
           </div>
-        </div>
 
-        <Footer />
-      </div>
-    );
+          <Footer />
+        </div>
+      );
+    }
   }
 }
 export default AlbumPage;

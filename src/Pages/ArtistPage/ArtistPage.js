@@ -26,8 +26,8 @@ class ArtistPage extends Component {
     open: false,
     photo: "",
     general_info: null,
-    genres:[],
-    musics:[],
+    genres: [],
+    musics: [],
   };
   componentDidMount() {
     if (localStorage.getItem("autToken") === null)
@@ -42,51 +42,54 @@ class ArtistPage extends Component {
   }
 
   FetchData = () => {
-    axios
-      .get(
-        `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=10`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-        this.setState({
-          follow: res.data.me_follow === "True" ? true : false,
-          general_info: res.data.general_info,
-          photo: res.data.general_info.photo,
-          albums: res.data.albums,
-          musics:res.data.musics,
-          toptracks: res.data.top_musics_albums,
-          loading: false,
-        });
-        console.log(this.state.follow);
-      });
-
+    if (this.state.login)
       axios
-      .get(
-        `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=10`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-        this.setState({
-          follow: res.data.me_follow === "True" ? true : false,
-          general_info: res.data.general_info,
-          photo: res.data.general_info.photo,
-          albums: res.data.albums,
-          musics:res.data.musics,
-          toptracks: res.data.top_musics_albums,
-          loading: false,
+        .get(
+          `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=10`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${localStorage.getItem("autToken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+          this.setState({
+            follow: res.data.me_follow === "True" ? true : false,
+            general_info: res.data.general_info,
+            photo: res.data.general_info.photo,
+            albums: res.data.albums,
+            musics: res.data.musics,
+            toptracks: res.data.top_musics_albums,
+            loading: false,
+          });
+          console.log(this.state.follow);
         });
-        console.log(this.state.follow);
-      });
+    else
+      axios
+        .get(
+          `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=10`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+          this.setState({
+            follow: res.data.me_follow === "True" ? true : false,
+            general_info: res.data.general_info,
+            photo: res.data.general_info.photo,
+            albums: res.data.albums,
+            musics: res.data.musics,
+
+            toptracks: res.data.top_musics_albums,
+            loading: false,
+          });
+          console.log(this.state.follow);
+        });
   };
 
   render() {
@@ -99,12 +102,6 @@ class ArtistPage extends Component {
       backgroundRepeat: "no-repeat",
       backgroundImage: `url(${this.state.photo})`,
       boxShadow: "inset 0 0 0 2000px rgba(2, 2, 2, 0.534)",
-    };
-    const makeOpen = () => {
-      this.setState({ open: true });
-    };
-    const closeSnackbar = () => {
-      this.setState({ open: false });
     };
 
     const makeFollow = () => {
@@ -147,13 +144,6 @@ class ArtistPage extends Component {
       return (
         <div>
           <Navbar activeItem="artist" menuId="menu2" />
-          <Snackbar
-            open={this.state.open}
-            autoHideDuration={3000}
-            onClose={closeSnackbar}
-          >
-            <Alert severity="success">Your login was successful!</Alert>
-          </Snackbar>
           <div class="container-fluid !direction !spacing artistPageContainer">
             <div class="d-none d-sm-none d-md-none d-lg-block">
               <div
@@ -179,21 +169,29 @@ class ArtistPage extends Component {
                       </div>
                       <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ">
                         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 artistPageDateContainer ">
-                        Country:
+                          Country:
                         </div>
                         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ArtistPageFlag">
-                        <Flag
+                          <Flag
                             code={this.state.general_info.country}
                             height="20rem"
-                          /> 
+                          />
                         </div>
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
                         <div className="artistPageGenresContainer">
-                        {this.state.general_info.genre.length>0 ? 'Genres: '+this.state.general_info.genre[0]:''}
-                        {this.state.general_info.genre.length>1 ? ', '+this.state.general_info.genre[1]:''}
-                        {this.state.general_info.genre.length>2 ? ', '+this.state.general_info.genre[2]:''}
-                        {this.state.general_info.genre.length>3 ? ', '+this.state.general_info.genre[3]:''}
+                          {this.state.general_info.genre.length > 0
+                            ? "Genres: " + this.state.general_info.genre[0]
+                            : ""}
+                          {this.state.general_info.genre.length > 1
+                            ? ", " + this.state.general_info.genre[1]
+                            : ""}
+                          {this.state.general_info.genre.length > 2
+                            ? ", " + this.state.general_info.genre[2]
+                            : ""}
+                          {this.state.general_info.genre.length > 3
+                            ? ", " + this.state.general_info.genre[3]
+                            : ""}
                         </div>
                       </div>
                     </div>
@@ -206,7 +204,10 @@ class ArtistPage extends Component {
                           {this.state.general_info.followings} Follows
                         </div>
                       </div>
-                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                      <div
+                        id={this.state.login ? "" : "hidden"}
+                        class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}"
+                      >
                         <button
                           className="followButton"
                           id={this.state.follow ? "hidden" : ""}
@@ -249,23 +250,31 @@ class ArtistPage extends Component {
                           {this.state.general_info.life_span.span}
                         </div>
                         <div class="col-12 col-md-4 dateContainer">
-                        <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistPageMobileCountryContainer">
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 artistPageDateContainer ">
-                        Country:
-                        </div>
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ArtistPageFlag">
-                        <Flag
-                            code={this.state.general_info.country}
-                            height="20rem"
-                          /> 
-                        </div>
-                      </div>
+                          <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistPageMobileCountryContainer">
+                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 artistPageDateContainer ">
+                              Country:
+                            </div>
+                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ArtistPageFlag">
+                              <Flag
+                                code={this.state.general_info.country}
+                                height="20rem"
+                              />
+                            </div>
+                          </div>
                         </div>
                         <div class="col-12 col-md-4 genresContainer  ">
-                          {this.state.general_info.genre.length>0 ? 'Genres: '+this.state.general_info.genre[0]:''}
-                          {this.state.general_info.genre.length>1 ? ', '+this.state.general_info.genre[1]:''}
-                          {this.state.general_info.genre.length>2 ? ', '+this.state.general_info.genre[2]:''}
-                          {this.state.general_info.genre.length>3 ? ', '+this.state.general_info.genre[3]:''}
+                          {this.state.general_info.genre.length > 0
+                            ? "Genres: " + this.state.general_info.genre[0]
+                            : ""}
+                          {this.state.general_info.genre.length > 1
+                            ? ", " + this.state.general_info.genre[1]
+                            : ""}
+                          {this.state.general_info.genre.length > 2
+                            ? ", " + this.state.general_info.genre[2]
+                            : ""}
+                          {this.state.general_info.genre.length > 3
+                            ? ", " + this.state.general_info.genre[3]
+                            : ""}
                         </div>
                       </div>
                     </div>
@@ -277,20 +286,22 @@ class ArtistPage extends Component {
                           <div className="followersContainer">
                             {this.state.general_info.followings} Follows
                           </div>
-                          <button
-                            id={this.state.follow ? "" : "hidden"}
-                            className="pfollowButton"
-                            onClick={makeFollow}
-                          >
-                            Follow
-                          </button>
-                          <button
-                            id={this.state.follow ? "hidden" : ""}
-                            className="pfollowButton"
-                            onClick={makeUnfollow}
-                          >
-                            Following
-                          </button>
+                          <div id={this.state.login ? "" : "hidden"}>
+                            <button
+                              id={this.state.follow ? "" : "hidden"}
+                              className="pfollowButton"
+                              onClick={makeFollow}
+                            >
+                              Follow
+                            </button>
+                            <button
+                              id={this.state.follow ? "hidden" : ""}
+                              className="pfollowButton"
+                              onClick={makeUnfollow}
+                            >
+                              unFollow
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -303,12 +314,14 @@ class ArtistPage extends Component {
           <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
             <div class="container-fluid !direction !spacing bdyPosition">
               <AlbumsCarousel tracksData={this.state.toptracks} />
-              <AlbumTable albumsData={this.state.albums} tracksData={this.state.musics}/>
+              <AlbumTable
+                albumsData={this.state.albums}
+                tracksData={this.state.musics}
+              />
               <Comment
                 login={this.state.login}
                 type="Artist"
                 id={this.state.id}
-                makeOpen={makeOpen}
               />
             </div>
           </div>

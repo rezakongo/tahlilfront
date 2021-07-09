@@ -42,7 +42,7 @@ function App() {
             <Route exact path="/home" component={HomePage} />
             <Route exact path="/artists" component={ArtistsPage} />
             <Route exact path="/track/:id" component={TrackPage} />
-            <Route exact path="/album" component={AlbumPage} />
+            <Route exact path="/album/:id" component={AlbumPage} />
             <Route exact path="/albums" component={AlbumsPage} />
             <Route path="/signin" component={SigninPage} />
             <Route path="/signup" component={SignupPage} />
@@ -50,7 +50,6 @@ function App() {
             <Route exact path="/search" component={SearchPageFunc} />
             <Route path="/profile/:id" component={Profile} />
             <Route path="/editprofile" component={ProfileEdit} />
-            <Route path="/track/:id" component={TrackPage} />
             <Route path="/changepassword" component={ChangePassPage} />
             <Route path="/genres" component={Genres} />
             <Route path="/genre/:name" component={GenrePage} />
