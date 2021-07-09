@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Navbar from "../../Components/Navbar/navbar";
 import GenreCards from "./GenreCards/GenreCards";
 import { Pagination } from "semantic-ui-react";
+import { Loader } from "semantic-ui-react";
 
 import "./Genres.css";
 
@@ -18,9 +19,10 @@ class Genres extends Component {
   }
 
   fetchData = () => {
+    this.setState({loading:true});
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/GenreAPIView/?limit=10&page=${this.state.activePage}`
+        `http://127.0.0.1:8000/api/page/GenreAPIView/?limit=12&page=${this.state.activePage-1}`
       )
       .then((res) => {
         console.log(res.data);
@@ -30,15 +32,19 @@ class Genres extends Component {
   };
 
   render() {
-    const handlePaginationChange = (e, { activePage }) => {
+    var handlePaginationChange = (e, { activePage }) => {
       this.setState({ activePage });
+      this.setState({ activePage });
+      console.log(this.state.activePage);
       this.fetchData();
     };
     return (
       <div>
         <Navbar activeItem="Genres" menuId="menu2" />
         <div className="pgBdy">
+          
           <div className="container-fluid !direction !spacing cardsPosition">
+          {this.state.loading ?  <Loader content="Loading" size="large" inverted />:
             <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genrepr">
               {this.state.GenreTitles.map((genres) => {
                 return (
@@ -47,10 +53,16 @@ class Genres extends Component {
                   </div>
                 );
               })}
+          
             </div>
-            <Pagination
+          }
+            
+          </div>
+          
+        </div>
+        <Pagination
               activePage={this.state.activePage}
-              defaultActivePage={this.state.activePage}
+              defaultActivePage={1}
               firstItem={null}
               lastItem={null}
               pointing
@@ -66,8 +78,6 @@ class Genres extends Component {
               }
               onPageChange={handlePaginationChange}
             />
-          </div>
-        </div>
       </div>
     );
   }

@@ -115,3 +115,31 @@
 .ArtistsAlbumContainer:hover {
   overflow-y: auto;
 }
+
+
+.AlbumTableBody{
+  overflow-y: hidden;
+  overflow-x: hidden;
+  max-height: 36rem;
+  width: 90%;
+}
+.AlbumTableBody:hover{
+  overflow-y: auto;
+}
+
+.ArtistAlbumTableRow{
+  width: 100%;
+  border-bottom: 0.15rem solid #4d648d !important ;
+  height: 3.8rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.ArtistAlbumTableRow:hover{
+  transition: 0.3s all ease-in;
+  background-color: #4d648d;
+  cursor: pointer;
+  color: white;
+}

@@ -12,6 +12,7 @@ import axios from "axios";
 import { Loader } from "semantic-ui-react";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "bootstrap";
+import Flag from "react-world-flags";
 
 class ArtistPage extends Component {
   state = {
@@ -25,6 +26,8 @@ class ArtistPage extends Component {
     open: false,
     photo: "",
     general_info: null,
+    genres:[],
+    musics:[],
   };
   componentDidMount() {
     if (localStorage.getItem("autToken") === null)
@@ -55,6 +58,7 @@ class ArtistPage extends Component {
           general_info: res.data.general_info,
           photo: res.data.general_info.photo,
           albums: res.data.albums,
+          musics:res.data.musics,
           toptracks: res.data.top_musics_albums,
           loading: false,
         });
@@ -77,6 +81,7 @@ class ArtistPage extends Component {
           general_info: res.data.general_info,
           photo: res.data.general_info.photo,
           albums: res.data.albums,
+          musics:res.data.musics,
           toptracks: res.data.top_musics_albums,
           loading: false,
         });
@@ -172,11 +177,24 @@ class ArtistPage extends Component {
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
                         {this.state.general_info.life_span.span}
                       </div>
-                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                        Country: {this.state.general_info.country}
+                      <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ">
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 artistPageDateContainer ">
+                        Country:
+                        </div>
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ArtistPageFlag">
+                        <Flag
+                            code={this.state.general_info.country}
+                            height="20rem"
+                          /> 
+                        </div>
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                        Genres: {this.state.general_info.genre}
+                        <div className="artistPageGenresContainer">
+                        {this.state.general_info.genre.length>0 ? 'Genres: '+this.state.general_info.genre[0]:''}
+                        {this.state.general_info.genre.length>1 ? ', '+this.state.general_info.genre[1]:''}
+                        {this.state.general_info.genre.length>2 ? ', '+this.state.general_info.genre[2]:''}
+                        {this.state.general_info.genre.length>3 ? ', '+this.state.general_info.genre[3]:''}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -231,11 +249,23 @@ class ArtistPage extends Component {
                           {this.state.general_info.life_span.span}
                         </div>
                         <div class="col-12 col-md-4 dateContainer">
-                          {" "}
-                          Country: {this.state.country}
+                        <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistPageMobileCountryContainer">
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 artistPageDateContainer ">
+                        Country:
+                        </div>
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ArtistPageFlag">
+                        <Flag
+                            code={this.state.general_info.country}
+                            height="20rem"
+                          /> 
+                        </div>
+                      </div>
                         </div>
                         <div class="col-12 col-md-4 genresContainer  ">
-                          Genres: {this.state.general_info.genre}
+                          {this.state.general_info.genre.length>0 ? 'Genres: '+this.state.general_info.genre[0]:''}
+                          {this.state.general_info.genre.length>1 ? ', '+this.state.general_info.genre[1]:''}
+                          {this.state.general_info.genre.length>2 ? ', '+this.state.general_info.genre[2]:''}
+                          {this.state.general_info.genre.length>3 ? ', '+this.state.general_info.genre[3]:''}
                         </div>
                       </div>
                     </div>
@@ -273,7 +303,7 @@ class ArtistPage extends Component {
           <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
             <div class="container-fluid !direction !spacing bdyPosition">
               <AlbumsCarousel tracksData={this.state.toptracks} />
-              <AlbumTable albumsData={this.state.albums} />
+              <AlbumTable albumsData={this.state.albums} tracksData={this.state.musics}/>
               <Comment
                 login={this.state.login}
                 type="Artist"

@@ -223,9 +223,8 @@ class SearchPage extends React.Component {
                     return (
                       <div
                         id={
-                          this.state.loading1 ||
-                          this.state.loading2 ||
-                          this.state.loading3
+                          
+                          !this.state.loading3
                             ? "hidden"
                             : ""
                         }
@@ -239,9 +238,9 @@ class SearchPage extends React.Component {
               </div>
               <div
                 id={
-                  this.state.loading1 ||
-                  this.state.loading2 ||
-                  this.state.loading3
+                  
+                  !this.state.loading2
+                  
                     ? "loading"
                     : "hidden"
                 }
@@ -284,9 +283,8 @@ class SearchPage extends React.Component {
                     return (
                       <div
                         id={
-                          this.state.loading1 ||
-                          this.state.loading2 ||
-                          this.state.loading3
+                          !this.state.loading1
+                          
                             ? "hidden"
                             : ""
                         }

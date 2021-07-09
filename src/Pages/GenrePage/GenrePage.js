@@ -14,9 +14,41 @@ import ReactStars from "react-rating-stars-component";
 
 class GenrePage extends Component {
   state = {
+    name:"",
     id: "f4abc0b5-3f7a-4eff-8f78-ac078dbce533",
     login: true,
-    comments:[]
+    comments:[],
+    tracks:[],
+    loading:true,
+  };
+
+  componentDidMount() {
+    this.setState({ name: this.props.match.params.name },
+    () => {
+      this.FetchData();
+    })
+  }
+
+  FetchData = () => {
+    console.log('adfdad');
+    axios
+      .get(
+        `http://127.0.0.1:8000/api/page/GenrePageAPIView/?name=${this.state.name}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        
+        this.setState({
+          tracks:res.data.result,
+          loading : false,
+        });
+      });
+
+      
   };
 
 
@@ -26,7 +58,8 @@ class GenrePage extends Component {
       this.setState({ open: true });
     };
     const closeSnackbar = () => {
-      this.setState({ open: false });
+      this.setState({ open: false })
+      
     };
 
     const backs=[
@@ -47,18 +80,21 @@ class GenrePage extends Component {
       backgroundImage: `url(`+backs[Math.floor(Math.random()*backs.length)]+`)`,
       boxShadow: "inset 0 0 0 2000px rgba(2, 2, 2, 0.850)",
     };
+    if (this.state.loading) {
+      return <Loader content="Loading" size="large" inverted />;
+    } else {
     return (
       <div>
         <Navbar activeItem="artist" menuId="menu2" />
         <div class="container-fluid !direction !spacing artistPageContainer">
-          <div class="d-none d-sm-none d-md-none d-lg-block">
+          <div >
             <div
               style={sectionStyle}
               class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} x"
             >
               <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} artistDataPosition">
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 GenreTitle">
-                  Pop
+                  {this.state.name}
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-3 col-sm-4 col-6">
                 </div>
@@ -72,76 +108,20 @@ class GenrePage extends Component {
               </div>
             </div>
           </div>
-          <div class="d-block d-lg-none">
-            <div style={sectionStyle} class="row ">
-              <div class="row PartistDataPosition">
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 PimgContainer">
-                  <img
-                    width="200"
-                    height="200"
-                    className="imgkhodesh"
-                    src="https://content.api.news/v3/images/bin/ba49fee5bc802f0a32a9415fef635f71"
-                  />
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-4 col-12 PdataContainer">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-12 col-md-4 PtitleContainer">KidA</div>
-
-                      <div class="col-12 col-md-4 dateContainer">1988</div>
-                      <div class="col-12 col-md-4 dateContainer">3.5</div>
-                      <div class="col-12 col-md-4 dateContainer">Countr</div>
-                      <div class="col-12 col-md-4 genresContainer  ">
-                        Genres : Rap
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5 col-6 pfol">
-                  <div className="Pfollowcontain">
-                    <div class="row">
-                      <div class="col-12 col-sm-6 ">
-                        <ReactStars
-                          count={5}
-                          size={35}
-                          value={2}
-                          isHalf={true}
-                          emptyIcon={<i className="far fa-star"></i>}
-                          halfIcon={<i className="fa fa-star-half-alt"></i>}
-                          fullIcon={<i className="fa fa-star"></i>}
-                          activeColor="#ffd700"
-                          classNames="StarsContainP"
-                        />
-                      </div>
-                      <div class="col-12  col-sm-6">
-                        <button className="pfollowButton">
-                          Add To Favorite
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
 
         <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
           <div class="container-fluid !direction !spacing bdyPosition">
             <AlbumTrackTable />
-            <Comment
-              login={this.state.login}
-              type="artist"
-              id={this.state.id}
-              commentData={this.state.comments}
-              makeOpen={makeOpen}
-            />
+            
           </div>
         </div>
 
         <Footer />
       </div>
     );
+    }
   }
 }
 export default GenrePage;

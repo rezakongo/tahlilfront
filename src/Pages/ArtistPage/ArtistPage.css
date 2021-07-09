@@ -43,7 +43,7 @@
   border-radius: 500px;
 }
 
-.dataContainer {
+.DataContainer {
   padding-left: 4rem;
   height: 100%;
   display: block;
@@ -172,4 +172,45 @@
 
 #hidden {
   display: none;
+}
+
+.ArtistPageFlag{
+
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+.artistPageDateContainer {
+  display: inline-table !important;
+  color: white;
+  width:fit-content;
+  font-size: 20px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.artistPageMobileCountryContainer{
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.artistPageGenresContainer {
+  color: white !important;
+  width: 100% !important;
+  font-size: 18px !important;
+ 
+  text-align: left;
 }
