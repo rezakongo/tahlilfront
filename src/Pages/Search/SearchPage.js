@@ -206,7 +206,7 @@ class SearchPage extends React.Component {
             <div class="tab-content" id="pills-tabContent">
               
             <div
-                className="tab-pane fade tabsBody"
+                className="tab-pane fade show active tabsBody"
                 id="v-pills-Tracks"
                 role="tabpanel"
                 aria-labelledby="v-pills-Tracks-tab"

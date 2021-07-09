@@ -27,7 +27,6 @@ class ArtistPage extends Component {
     photo: "",
     general_info: null,
     genres: [],
-    musics: [],
   };
   componentDidMount() {
     if (localStorage.getItem("autToken") === null)
@@ -59,8 +58,7 @@ class ArtistPage extends Component {
             follow: res.data.me_follow === "True" ? true : false,
             general_info: res.data.general_info,
             photo: res.data.general_info.photo,
-            albums: res.data.albums,
-            musics: res.data.musics,
+            albums: res.data.musics_albums,
             toptracks: res.data.top_musics_albums,
             loading: false,
           });
@@ -179,7 +177,7 @@ class ArtistPage extends Component {
                         </div>
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                        <div className="artistPageGenresContainer">
+                        <div className="artistPageDateContainer">
                           {this.state.general_info.genre.length > 0
                             ? "Genres: " + this.state.general_info.genre[0]
                             : ""}
@@ -316,7 +314,6 @@ class ArtistPage extends Component {
               <AlbumsCarousel tracksData={this.state.toptracks} />
               <AlbumTable
                 albumsData={this.state.albums}
-                tracksData={this.state.musics}
               />
               <Comment
                 login={this.state.login}
