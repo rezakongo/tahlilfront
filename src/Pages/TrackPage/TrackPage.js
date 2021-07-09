@@ -258,6 +258,7 @@ class TrackPage extends Component {
                         class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} "
                         id={this.state.login ? "" : "hidden"}
                       >
+                        
                         <ReactStars
                           count={5}
                           size={35}
@@ -311,6 +312,7 @@ class TrackPage extends Component {
                           class="col-12 col-sm-6 "
                           id={this.state.login ? "" : "hidden"}
                         >
+                          <div className='trackPageStarContain'>
                           <ReactStars
                             count={5}
                             size={35}
@@ -323,21 +325,27 @@ class TrackPage extends Component {
                             activeColor="#d0e1f9"
                             classNames="StarsContainP"
                           />
+                          </div>
                         </div>
-
-                        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bibilContainer">
-                          Rate :
-                          <div class="col-3 testo">
-                            {this.state.result.rating}{" "}
-                            <Star
+                        
+                        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ">
+                        <div className="TrackPageRating">
+                        <div class="col-4 testo">
+                            
+                            
+                          <div className="genresContainer">
+                          Rate :{" "}{this.state.result.rating}{" "}
+                          <Star
                               src={star}
                               width="50"
                               height="50"
                               style={{ fill: "#d0e1f9" }}
                             />
                           </div>
-                          <div class="col-4 tests"></div>
-                          <div class="col-4 testt">
+                          
+                          </div>
+                          <div class="col-9 tests"></div>
+                          <div class="col-2 testHeart">
                             <div
                               style={{ width: "3rem" }}
                               id={this.state.login ? "" : "hidden"}
@@ -349,6 +357,7 @@ class TrackPage extends Component {
                               />
                             </div>
                           </div>
+                        </div>
                         </div>
                       </div>
                     </div>
