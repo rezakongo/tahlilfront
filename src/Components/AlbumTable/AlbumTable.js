@@ -30,17 +30,18 @@ const AlbumTable = (props) => (
         </div>
       </div>
       <div class="container-fluid !direction !spacing AlbumTableBody">
-      {props.albumsData.map((Album) => {
+        {props.albumsData.map((Album) => {
           return (
-            
-            <a href={'\\'+'album'+'\\'+Album.id} class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ArtistAlbumTableRow">
+            <a
+              href={"\\" + "album" + "\\" + Album.id}
+              class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ArtistAlbumTableRow"
+            >
               <div class="d-none d-sm-none d-md-block col-3  col-sm-3 col-md-3 col-lg-3 col-xl-3">
                 {Album.release_date}
               </div>
-              
-              
+
               <div class="d-block d-sm-block d-md-none col-2  col-sm-3 col-md-0 col-lg-0 col-xl-0">
-                {Album.release_date.substr(0,4)}
+                {Album.release_date.substr(0, 4)}
               </div>
 
               <div className="d-none d-sm-block col-5  col-sm-4 col-md-3 col-lg-3 col-xl-3">
@@ -48,32 +49,31 @@ const AlbumTable = (props) => (
               </div>
 
               <div className="d-block d-sm-none col-5  col-sm-4 col-md-3 col-lg-3 col-xl-3">
-                {Album.title.substr(0,8)}{Album.title.length>8?'...':''}
+                {Album.title.substr(0, 8)}
+                {Album.title.length > 8 ? "..." : ""}
               </div>
 
               <div class=" col-5  col-sm-4 col-md-3 col-lg-3 col-xl-3">
-              <ReactStars
-                            count={5}
-                            size={20}
-                            value={Album.rating}
-                            isHalf={true}
-                            edit={false}
-                            emptyIcon={<i className="far fa-star"></i>}
-                            halfIcon={<i className="fa fa-star-half-alt"></i>}
-                            fullIcon={<i className="fa fa-star"></i>}
-                            activeColor="#d0e1f9"
-                          />
+                <ReactStars
+                  count={5}
+                  size={20}
+                  value={Album.rating}
+                  isHalf={true}
+                  edit={false}
+                  emptyIcon={<i className="far fa-star"></i>}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  activeColor="#d0e1f9"
+                />
               </div>
-              
+
               <div class="d-none d-sm-none d-md-block col-0  col-sm-0 col-md-3 col-lg-3 col-xl-3">
-                {Album.genre.substr(0,12)}{Album.genre.length>13 ? '...':''}
+                {Album.genre.substr(0, 12)}
+                {Album.genre.length > 13 ? "..." : ""}
               </div>
             </a>
-            
-          )
-      })}
-      
-     
+          );
+        })}
       </div>
       {/*<div className="ArtistsAlbumContainer">
         {props.albumsData.map((Album) => {

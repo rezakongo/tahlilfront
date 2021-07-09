@@ -10,6 +10,7 @@
 #dropdown {
   color: aliceblue;
   text-transform: none;
+  font-size: 16px;
 }
 
 #dropdown :hover {
@@ -32,6 +33,16 @@
 }
 
 #dmenu2 {
+  padding-right: 15px;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: auto !important;
+  background-color: rgba(40, 54, 85, 0.7);
+}
+
+#dmenu3 {
   padding-right: 15px;
   position: -webkit-sticky; /* Safari */
   position: sticky;
@@ -63,10 +74,23 @@
   width: 100% !important;
   background-color: rgba(48, 43, 61, 0.829);
 }
+#mmenu3 {
+  margin: 0 !important;
+  width: auto !important;
+  text-align: center !important;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  background-color: rgba(48, 43, 61, 0.829);
+}
 #dmenu1 #search-container {
   display: none !important;
 }
-
+#dmenu3 #search-container {
+  display: none !important;
+}
 #search {
   border-radius: 50px;
 }
@@ -89,6 +113,9 @@
   #dmenu2 {
     display: none !important;
   }
+  #dmenu3 {
+    display: none !important;
+  }
 }
 
 @media (min-width: 901px) {
@@ -96,6 +123,9 @@
     display: none !important;
   }
   #mmenu2 {
+    display: none !important;
+  }
+  #mmenu3 {
     display: none !important;
   }
   #mmenu-container {
@@ -118,9 +148,13 @@
 #mmenu-container a {
   padding: 18px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 50px !important;
   color: aliceblue;
   display: block;
+}
+
+.ui.secondary.menu .item {
+  font-size: 16px;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -156,5 +190,5 @@
 }
 
 #v1 {
-  color: white!important;
+  color: white !important;
 }

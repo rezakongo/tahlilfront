@@ -16,6 +16,7 @@ import CardFooter from "./Card/CardFooter.js";
 import "./UploadModal.css";
 import axios from "axios";
 import ReactDOM from "react-dom";
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -65,6 +66,7 @@ export default function SpringModal(props) {
   const classes = useStyles();
   const [preview, setPreview] = React.useState(null);
   const [image, setImage] = React.useState(props.image);
+  const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
     setImage(props.image);
@@ -86,6 +88,9 @@ export default function SpringModal(props) {
       alert("File is too big!");
       elem.target.value = "";
     }
+  };
+  const closeSnackbar = () => {
+    this.setOpen(false);
   };
 
   const onSave = () => {
@@ -124,6 +129,11 @@ export default function SpringModal(props) {
   if (props.image === null || image === null) return <div></div>;
   return (
     <div>
+      <Snackbar open={open} autoHideDuration={3000} onClose={closeSnackbar}>
+        <Alert severity="success">
+          your password was successfully changed!
+        </Alert>
+      </Snackbar>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"

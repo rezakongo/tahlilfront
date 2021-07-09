@@ -15,7 +15,7 @@ class Annotation extends Component {
       let formData = new FormData();
       formData.append("comment", this.state.comment);
       axios.post(
-        `http://127.0.0.1:8000/Lyrics/LyricsCommentAPI/?id=${this.props.songId}&start=${this.props.selectedStart}&end=${this.props.selectedEnd}`,
+        `http://37.152.182.41/Lyrics/LyricsCommentAPI/?id=${this.props.songId}&start=${this.props.selectedStart}&end=${this.props.selectedEnd}`,
         formData,
         {
           headers: {
@@ -64,7 +64,7 @@ class Annotation extends Component {
                   <Comment id="commentContainer2">
                     <Comment.Avatar
                       className="commentAvatar"
-                      src={`http://127.0.0.1:8000${comment.userimage}`}
+                      src={`http://37.152.182.41/${comment.userimage}`}
                     />
                     <Comment.Content>
                       <Comment.Author

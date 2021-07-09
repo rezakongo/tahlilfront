@@ -20,6 +20,8 @@ import axios from "axios";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import { Loader } from "semantic-ui-react";
 import { Redirect } from "react-router";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const styles = {
   cardCategoryWhite: {
@@ -42,6 +44,7 @@ const styles = {
 
 class ChangePassPage extends Component {
   state = {
+    show: false,
     validPassword: true,
     validCPassword: true,
     validCurrentPassword: true,
@@ -133,15 +136,20 @@ class ChangePassPage extends Component {
             if (res.status === 201) {
               console.log("finish");
             }
+
+            this.setState({ show: true });
+            this.setState({ validCurrentPassword: true });
           })
           .catch((error) => {
             console.log(error.response);
-
             if (error.response.data.hasOwnProperty("current_password")) {
               this.setState({ validCurrentPassword: false });
             }
           });
       }
+    };
+    const closeSnackbar = () => {
+      this.setState({ show: false });
     };
 
     if (this.state.loading1 || this.state.loading2) {
@@ -155,6 +163,15 @@ class ChangePassPage extends Component {
       return (
         <div>
           <Navbar menuId="menu2" />
+          <Snackbar
+            open={this.state.show}
+            autoHideDuration={3000}
+            onClose={closeSnackbar}
+          >
+            <Alert severity="success">
+              your password was successfully changed!
+            </Alert>
+          </Snackbar>
           <div className="hpFContainer2">
             <GridContainer id="testCife">
               <GridItem xs={12} sm={12} md={12}>

@@ -53,6 +53,7 @@ export default function MenuListComposition(props) {
   const handleLogout = () => {
     localStorage.removeItem("autToken");
     console.log(localStorage.getItem("autToken"));
+    window.location.reload();
     props.Logout();
     setOpen(false);
   };

@@ -59,9 +59,8 @@
   color: white;
 }
 
-#sag{
+#sag {
   width: 40rem;
-
 }
 
 .ddContainer {
@@ -134,7 +133,7 @@
   display: none;
 }
 
-.sagContainer{
+.sagContainer {
   width: 100%;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -144,7 +143,7 @@
   justify-items: center;
 }
 
-.filterTabsContainer{
+.filterTabsContainer {
   background-color: rgb(41, 41, 41);
   border: 0ch none transparent !important;
   width: 100% !important;
@@ -153,16 +152,15 @@
   padding-right: 0px;
 }
 
-.filterTabsKhodesh{
+.filterTabsKhodesh {
   width: 100%;
 }
 
-.filterTabsContainer:hover{
+.filterTabsContainer:hover {
   background-color: rgb(41, 41, 41) !important;
-
 }
 
-.filtertabsB{
+.filtertabsB {
   background-color: rgb(61, 61, 61);
   display: flex;
   align-items: center !important;
@@ -176,9 +174,9 @@
   justify-items: center !important;
 }
 
-
-.rowcenter{
+.rowcenter {
   display: flex;
   justify-content: left;
-  justify-items:left;
+  justify-items: left;
 }
+

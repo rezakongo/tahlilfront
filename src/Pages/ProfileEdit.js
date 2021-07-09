@@ -20,6 +20,8 @@ import axios from "axios";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import { Divider, Loader } from "semantic-ui-react";
 import { Redirect } from "react-router";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const styles = {
   cardCategoryWhite: {
@@ -42,6 +44,7 @@ const styles = {
 
 class ProfileEdit extends Component {
   state = {
+    show: false,
     validUsername: true,
     validEmail: true,
     validPassword: true,
@@ -244,17 +247,20 @@ class ProfileEdit extends Component {
         })
         .then((response) => {
           console.log(response);
+          this.setState({ show: true });
         })
         .catch((error) => {
-          console.log(error.response);
-
-          if (error.response.data.hasOwnProperty("email")) {
-            this.setState({ validEmail: false });
-            this.setState({ emailError: error.response.data.email });
-          }
-          if (error.response.data.hasOwnProperty("username")) {
-            this.setState({ validUsername: false });
-            this.setState({ usernameError: error.response.data.username });
+          if (error === undefined) {
+            if (error.response.data.hasOwnProperty("email"))
+              this.setState({
+                validEmail: false,
+                emailError: error.response.data.email,
+              });
+            if (error.response.data.hasOwnProperty("username"))
+              this.setState({
+                validUsername: false,
+                usernameError: error.response.data.username,
+              });
           }
         });
     };
@@ -293,6 +299,9 @@ class ProfileEdit extends Component {
           });
       }
     };
+    const closeSnackbar = () => {
+      this.setState({ show: false });
+    };
 
     if (this.state.loading1 || this.state.loading2) {
       return (
@@ -305,6 +314,15 @@ class ProfileEdit extends Component {
       return (
         <div>
           <Navbar menuId="menu2" />
+          <Snackbar
+            open={this.state.show}
+            autoHideDuration={3000}
+            onClose={closeSnackbar}
+          >
+            <Alert severity="success">
+              your profile was successfully updated!
+            </Alert>
+          </Snackbar>
           <div className="hpFContainer2">
             <GridContainer id="testCife">
               <GridItem xs={12} sm={12} md={12}>
@@ -435,19 +453,18 @@ class ProfileEdit extends Component {
                     <CardFooter>
                       <GridContainer>
                         <GridItem xs={12} sm={12} md={6}>
-                        
                           <Button color="primary" type="submit">
                             Update Profile
                           </Button>
-                          
                         </GridItem>
-                        
-                        <GridItem xs={12} sm={12} md={12}>
 
-                        <Divider inverted id="pashmDivider"/>
-                        <div className="ChangePassword">
-                        <a href="/changepassword" className="CPC">Change Password</a>
-                        </div>
+                        <GridItem xs={12} sm={12} md={12}>
+                          <Divider inverted id="pashmDivider" />
+                          <div className="ChangePassword">
+                            <a href="/changepassword" className="CPC">
+                              Change Password
+                            </a>
+                          </div>
                         </GridItem>
                       </GridContainer>
                     </CardFooter>
