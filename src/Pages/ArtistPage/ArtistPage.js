@@ -82,7 +82,6 @@ class ArtistPage extends Component {
             photo: res.data.general_info.photo,
             albums: res.data.albums,
             musics: res.data.musics,
-
             toptracks: res.data.top_musics_albums,
             loading: false,
           });

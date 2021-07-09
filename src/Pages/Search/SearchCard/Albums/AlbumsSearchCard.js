@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./AlbumsSearchCard.css";
-import ReactStarRating from "react-rating-stars-component";
 import { Header } from "semantic-ui-react";
+import ReactStars from "react-rating-stars-component";
+
 
 function AlbumsSearchCard(props) {
   return (
@@ -27,17 +28,19 @@ function AlbumsSearchCard(props) {
               </Header.Subheader>
             </Header>
             <div className="TrackScore">
-              <ReactStarRating
-                numberOfStar={5}
-                numberOfSelectedStar={2}
-                colorFilledStar="red"
-                colorEmptyStar="black"
-                starSize="20px"
-                spaceBetweenStar="10px"
+              <ReactStars
+                count={5}
+                size={20}
+                value={props.album.rating}
+                isHalf={true}
                 edit={false}
+                emptyIcon={<i className="far fa-star"></i>}
+                halfIcon={<i className="fa fa-star-half-alt"></i>}
+                fullIcon={<i className="fa fa-star"></i>}
+                activeColor="#d0e1f9"
               />
             </div>
-            <h3 className="TrackRelease">2007.02.14</h3>
+            <h3 className="TrackRelease">{props.album.first_release_date}</h3>
           </div>
         </div>
       </div>

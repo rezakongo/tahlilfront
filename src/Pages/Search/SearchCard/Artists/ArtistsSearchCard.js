@@ -2,6 +2,7 @@ import React from "react";
 import "./ArtistsSearchCard.css";
 import ReactStarRating from "react-rating-stars-component";
 import { Header } from "semantic-ui-react";
+import ReactStars from "react-rating-stars-component";
 
 function ArtistsSearchCard(props) {
   return (
@@ -25,18 +26,7 @@ function ArtistsSearchCard(props) {
                 {props.artist.type}
               </Header.Subheader>
             </Header>
-            <div className="TrackScore">
-              <ReactStarRating
-                numberOfStar={5}
-                numberOfSelectedStar={2}
-                colorFilledStar="red"
-                colorEmptyStar="black"
-                starSize="20px"
-                spaceBetweenStar="10px"
-                edit={false}
-              />
-            </div>
-            <h3 className="TrackRelease">1973-09-03</h3>
+            <h3 className="TrackRelease">{props.artist.life_span.span}</h3>
           </div>
         </div>
       </div>

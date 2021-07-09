@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import { useSpring, animated } from 'react-spring/web.cjs';
-import BavanRatingCard from "../BavanRatingCard/BavanRatingCard"
+import BavanRatingCard from "../RatingCard/RatingCard"
 import "./BavanRatingModal.css"
 
 const useStyles = makeStyles((theme) => ({

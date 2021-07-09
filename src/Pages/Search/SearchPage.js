@@ -102,6 +102,11 @@ class SearchPage extends React.Component {
     };
 
     const handleClick = (e) => {
+      this.setState({
+        loading1: true,
+        loading2: true,
+        loading3: true,
+      });
       this.componentDidMount();
     };
     const handlePaginationChange = (e, { activePage }) => {
@@ -116,7 +121,10 @@ class SearchPage extends React.Component {
     };
     return (
       <div>
-        <Navbar activeItem="search" menuId="menu1" />
+        <Navbar
+          activeItem="search"
+          menuId="menu3"
+        />
         {this.state.changePage ? (
           <Redirect
             push
@@ -204,8 +212,7 @@ class SearchPage extends React.Component {
         <div className="badbakhti2">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bodyContain">
             <div class="tab-content" id="pills-tabContent">
-              
-            <div
+              <div
                 className="tab-pane fade show active tabsBody"
                 id="v-pills-Tracks"
                 role="tabpanel"
@@ -215,18 +222,9 @@ class SearchPage extends React.Component {
                   <div className="sagContainer">
                     <img src={sag} id={this.state.TrackNf ? "sag" : "hidden"} />
                   </div>
-                  <div
-                id={
-                  
-                  this.state.loading3
-                  
-                    ? "loading"
-                    : "hidden"
-                }
-              >
-                <Loader content="Loading" size="large" inverted />
-                
-              </div>
+                  <div id={this.state.loading3 ? "loading" : "hidden"}>
+                    <Loader content="Loading" size="large" inverted />
+                  </div>
                   {this.state.Tracks.map((album) => {
                     return (
                       <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9">
@@ -235,8 +233,8 @@ class SearchPage extends React.Component {
                     );
                   })}
                 </div>
-                </div>
-              
+              </div>
+
               <div
                 className="tab-pane fade tabsBody"
                 id="v-pills-Albums"
@@ -247,18 +245,9 @@ class SearchPage extends React.Component {
                   <div className="sagContainer">
                     <img src={sag} id={this.state.AlbumNf ? "sag" : "hidden"} />
                   </div>
-                  <div
-                id={
-                  
-                  this.state.loading2
-                  
-                    ? "loading"
-                    : "hidden"
-                }
-              >
-                <Loader content="Loading" size="large" inverted />
-                
-              </div>
+                  <div id={this.state.loading2 ? "loading" : "hidden"}>
+                    <Loader content="Loading" size="large" inverted />
+                  </div>
                   {this.state.Albums.map((album) => {
                     return (
                       <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9">
@@ -267,8 +256,8 @@ class SearchPage extends React.Component {
                     );
                   })}
                 </div>
-                </div>
-                <div
+              </div>
+              <div
                 className="tab-pane fade tabsBody"
                 id="v-pills-Artists"
                 role="tabpanel"
@@ -276,20 +265,14 @@ class SearchPage extends React.Component {
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowcenter">
                   <div className="sagContainer">
-                    <img src={sag} id={this.state.ArtistNf ? "sag" : "hidden"} />
+                    <img
+                      src={sag}
+                      id={this.state.ArtistNf ? "sag" : "hidden"}
+                    />
                   </div>
-                  <div
-                id={
-                  
-                  this.state.loading1
-                  
-                    ? "loading"
-                    : "hidden"
-                }
-              >
-                <Loader content="Loading" size="large" inverted />
-                
-              </div>
+                  <div id={this.state.loading1 ? "loading" : "hidden"}>
+                    <Loader content="Loading" size="large" inverted />
+                  </div>
                   {this.state.Artists.map((album) => {
                     return (
                       <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9">
@@ -298,8 +281,7 @@ class SearchPage extends React.Component {
                     );
                   })}
                 </div>
-                </div>
-           
+              </div>
             </div>
             <Pagination
               activePage={this.state.activePage}

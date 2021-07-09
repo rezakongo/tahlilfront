@@ -17,7 +17,7 @@ function UserComment(props) {
   const onPageIncrease = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/${props.type}CommentAPI/?id=${props.id}&commentlimit=1&commentpage=${page}`,
+        `http://37.152.182.41/${props.type}CommentAPI/?id=${props.id}&commentlimit=1&commentpage=${page}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,7 @@ function UserComment(props) {
 
     axios
       .post(
-        `http://127.0.0.1:8000/api/page/${props.type}CommentAPI/?id=${props.id}`,
+        `http://37.152.182.41/api/page/${props.type}CommentAPI/?id=${props.id}`,
         formData,
         {
           headers: {
@@ -83,7 +83,7 @@ function UserComment(props) {
             <Comment id="commentContainer">
               <Comment.Avatar
                 className="commentAvatar"
-                src={`http://127.0.0.1:8000${comment.avatar}`}
+                src={`http://37.152.182.41/${comment.avatar}`}
               />
               <Comment.Content>
                 <Comment.Author
