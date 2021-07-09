@@ -95,7 +95,7 @@ export default class Login extends Component {
       const loginJSON = JSON.stringify(login);
       console.log(loginJSON);
       axios
-        .post("http://127.0.0.1:8000/djoser/token/login/", loginJSON, config)
+        .post("http://37.152.182.41/djoser/token/login/", loginJSON, config)
         .then((res) => {
           console.log(res);
           localStorage.setItem("autToken", res.data.auth_token);

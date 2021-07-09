@@ -49,7 +49,7 @@ class Profile extends React.Component {
   }
   APICallFunction = () => {
     axios
-      .get(`http://127.0.0.1:8000/ProfileInfoAPI/?username=${this.state.id}`, {
+      .get(`http://37.152.182.41/ProfileInfoAPI/?username=${this.state.id}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -63,7 +63,7 @@ class Profile extends React.Component {
           FName: res.data.first_name,
           LName: res.data.last_name,
           description: res.data.description,
-          avatar: `http://127.0.0.1:8000${res.data.avatar}`,
+          avatar: `http://37.152.182.41${res.data.avatar}`,
           artistsData: res.data.followed_artists,
           favoriteAlbums:res.data.favorite_albums,
           favoriteTracks:res.data.favorite_musics,
@@ -214,7 +214,7 @@ class Profile extends React.Component {
                       this.state.favoriteAlbums.length==0 ? <img width="300" height="300" src={think}/>:<div/>
                     }
                     {this.state.favoriteAlbums.map((Album) => {
-                      return <Favorite item={Album} />;
+                      return <Favorite tag='album' item={Album} />;
                     })}
                   </div>
                 </div>
@@ -225,7 +225,7 @@ class Profile extends React.Component {
                       this.state.favoriteTracks.length==0 ? <img width="300" height="300" src={think}/>:<div/>
                     }
                     {this.state.favoriteTracks.map((Track) => {
-                      return <Favorite item={Track} />;
+                      return <Favorite tag='track' item={Track} />;
                     })}
                   </div>
                 </div>
@@ -236,7 +236,7 @@ class Profile extends React.Component {
                       this.state.artistsData.length==0 ? <img width="300" height="300" src={think}/>:<div/>
                     }
                     {this.state.artistsData.map((artist) => {
-                      return <Favorite dist='artist' item={artist} />;
+                      return <Favorite tag='artist' item={artist} />;
                     })}
                   </div>
                 </div>

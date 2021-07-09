@@ -78,7 +78,7 @@ class ProfileEdit extends Component {
   }
   APICallFunction = () => {
     axios
-      .get("http://127.0.0.1:8000/djoser/users/me/", {
+      .get("http://37.152.182.41/djoser/users/me/", {
         headers: {
           Authorization: `Token ${localStorage.getItem("autToken")}`,
           "Content-Type": "application/json",
@@ -100,7 +100,7 @@ class ProfileEdit extends Component {
       });
 
     axios
-      .get("http://127.0.0.1:8000/update_profile/me/", {
+      .get("http://37.152.182.41/update_profile/me/", {
         headers: {
           Authorization: `Token ${localStorage.getItem("autToken")}`,
           "Content-Type": "application/json",
@@ -110,7 +110,7 @@ class ProfileEdit extends Component {
         console.log(res.data);
         this.setState({
           description: res.data.description,
-          avatar: `http://127.0.0.1:8000${res.data.avatar}`,
+          avatar: `http://37.152.182.41${res.data.avatar}`,
           loading2: false,
         });
       })
@@ -129,7 +129,7 @@ class ProfileEdit extends Component {
     };
     const refreshPage = () => {
       axios
-        .get("http://127.0.0.1:8000/update_profile/me/", {
+        .get("http://37.152.182.41/update_profile/me/", {
           headers: {
             Authorization: `Token ${localStorage.getItem("autToken")}`,
             "Content-Type": "application/json",
@@ -138,7 +138,7 @@ class ProfileEdit extends Component {
         .then((res) => {
           console.log(res.data);
           this.setState({
-            avatar: `http://127.0.0.1:8000${res.data.avatar}`,
+            avatar: `http://37.152.182.41${res.data.avatar}`,
             loading2: false,
           });
         })
@@ -236,7 +236,7 @@ class ProfileEdit extends Component {
       formData.append("description", this.state.description);
 
       axios
-        .put("http://127.0.0.1:8000/update_profile/", formData, {
+        .put("http://37.152.182.41/update_profile/", formData, {
           headers: {
             Authorization: `Token ${localStorage.getItem("autToken")}`,
             "Content-Type": "multipart/form-data",
@@ -269,7 +269,7 @@ class ProfileEdit extends Component {
         const chngepassJSON = JSON.stringify(chngepass);
         axios
           .post(
-            "http://127.0.0.1:8000/djoser/users/set_password/",
+            "http://37.152.182.41/djoser/users/set_password/",
             chngepassJSON,
             {
               headers: {
@@ -326,7 +326,7 @@ class ProfileEdit extends Component {
                                 <img
                                   src={
                                     this.state.avatar ===
-                                    "http://127.0.0.1:8000null"
+                                    "http://37.152.182.41null"
                                       ? avatarIcon
                                       : this.state.avatar
                                   }

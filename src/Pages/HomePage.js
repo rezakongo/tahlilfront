@@ -17,15 +17,15 @@ function useQuery() {
 }
 
 const apiArtist = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/page/TenTopArtistAPIView/",
+  baseURL: "http://37.152.182.41/api/page/TenTopArtistAPIView/",
 });
 
 const apiAlbum = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/page/TenTopAlbumAPIView/",
+  baseURL: "http://37.152.182.41/api/page/TenTopAlbumAPIView/",
 });
 
 const apiTeack = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/page/TenTopMusicAPIView/",
+  baseURL: "http://37.152.182.41/api/page/TenTopMusicAPIView/",
 });
 
 function HomePage() {

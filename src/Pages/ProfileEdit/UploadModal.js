@@ -104,7 +104,7 @@ export default function SpringModal(props) {
           formData.append("avatar", new File([res], "test.png"));
 
           axios
-            .put("http://127.0.0.1:8000/update_avatar_profile/", formData, {
+            .put("http://37.152.182.41/update_avatar_profile/", formData, {
               headers: {
                 Authorization: `Token ${localStorage.getItem("autToken")}`,
                 "Content-Type": "multipart/form-data",

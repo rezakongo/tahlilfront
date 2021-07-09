@@ -159,3 +159,20 @@
 .tests {
   background-color: transparent;
 }
+
+.albumPageGenresContainer {
+  color: white !important;
+  width: 100% !important;
+  font-size: 18px !important;
+  text-align: left;
+}
+
+.albumPageRatingStar{
+
+  display: flex;
+  justify-content: left;
+  justify-items: left;
+  align-items: center;
+  align-content: center;
+  text-align: left;
+}

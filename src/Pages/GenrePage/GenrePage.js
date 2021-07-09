@@ -33,7 +33,7 @@ class GenrePage extends Component {
     console.log('adfdad');
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/GenrePageAPIView/?name=${this.state.name}`,
+        `http://37.152.182.41/api/page/GenrePageAPIView/?name=${this.state.name}`,
         {
           headers: {
             "Content-Type": "application/json",

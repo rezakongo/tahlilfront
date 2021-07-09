@@ -49,7 +49,7 @@ class SearchPage extends React.Component {
   APICallFunction = () => {
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/ArtistSearchAPIView/?search=${
+        `http://37.152.182.41/api/page/ArtistSearchAPIView/?search=${
           this.state.searchField
         }&limit=10&page=${this.state.activePage - 1}&photo=True`
       )
@@ -67,7 +67,7 @@ class SearchPage extends React.Component {
       });
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/AlbumSearchAPIView/?search=${
+        `http://37.152.182.41/api/page/AlbumSearchAPIView/?search=${
           this.state.searchField
         }&limit=10&page=${this.state.activePage - 1}&photo=True`
       )
@@ -82,7 +82,7 @@ class SearchPage extends React.Component {
       });
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/MusicSearchAPIView/?search=${
+        `http://37.152.182.41/api/page/MusicSearchAPIView/?search=${
           this.state.searchField
         }&limit=10&page=${this.state.activePage - 1}&photo=True`
       )

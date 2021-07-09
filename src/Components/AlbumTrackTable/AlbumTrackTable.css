@@ -1,4 +1,4 @@
-#AlbumH {
+#AlbumTrackTableAlbumH {
   justify-content: center;
 }
 .atTitle {
@@ -20,26 +20,28 @@
 .table td {
   vertical-align: middle !important;
 }
-#Tracktable {
+#AlbumTracktable {
   background-color: transparent !important;
   color: white !important;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  overflow-y: auto !important;
-  height: 80vh !important;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  height: 40rem !important;
 }
-.AlbumRow {
+.AlbumTrackTableRow {
   width: 100%;
   transition: background-color 2s;
   background-color: transparent;
   padding: 0px !important;
   margin: 0px;
-  height: 100% !important;
+  height: 3rem !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
   justify-content: center;
+  background-color: green;
 }
 
-.AlbumRow :hover {
+.AlbumTrackTableRow :hover {
   background-color: gray !important;
 }
 
@@ -61,15 +63,26 @@
   overflow: hidden;
 }
 
-#AlbumRow2 {
-  padding: 10px;
+.AlbumTrackTableRRRow {
+  height: 4rem !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
-  height: 100% !important;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  color: white;
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   border-bottom: 0.15rem solid rgb(65, 65, 73) !important;
 }
 
-#AlbumRow :hover {
+.AlbumTrackTableRRRow:hover {
+  transition: all 0.3s ease-in;
+  color: white !important;
+  background-color: gray ;
+}
+
+#AlbumTrackTableRow :hover {
   background-color: gray !important;
 }
 
@@ -124,4 +137,22 @@
   align-content: center;
   justify-content: center;
   justify-items: center;
+}
+
+.albumTrackTableBody{
+  max-height: 36rem;
+  overflow-y: hidden;
+  overflow-x: hidden !important;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  
+}
+
+.albumTrackTableBody{
+  overflow-y: auto;
+}
+
+.albumTrackTableRow{
+  width: 80%;
 }

@@ -45,7 +45,7 @@ class ArtistPage extends Component {
     if (this.state.login)
       axios
         .get(
-          `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=10`,
+          `http://37.152.182.41/ArtistAPIView/?id=${this.state.id}&limit=10`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -69,7 +69,7 @@ class ArtistPage extends Component {
     else
       axios
         .get(
-          `http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=10`,
+          `http://37.152.182.41/ArtistAPIView/?id=${this.state.id}&limit=10`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -108,7 +108,7 @@ class ArtistPage extends Component {
       this.setState({ follow: true });
       axios
         .post(
-          `http://127.0.0.1:8000/ArtistFollowAPI/?id=${this.state.id}`,
+          `http://37.152.182.41/ArtistFollowAPI/?id=${this.state.id}`,
           {},
           {
             headers: {
@@ -125,7 +125,7 @@ class ArtistPage extends Component {
       this.setState({ follow: false });
       axios
         .post(
-          `http://127.0.0.1:8000/ArtistUnfollowAPI/?id=${this.state.id}`,
+          `http://37.152.182.41/ArtistUnfollowAPI/?id=${this.state.id}`,
           {},
           {
             headers: {

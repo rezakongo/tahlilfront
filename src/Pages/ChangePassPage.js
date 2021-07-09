@@ -119,7 +119,7 @@ class ChangePassPage extends Component {
         const chngepassJSON = JSON.stringify(chngepass);
         axios
           .post(
-            "http://127.0.0.1:8000/djoser/users/set_password/",
+            "http://37.152.182.41/djoser/users/set_password/",
             chngepassJSON,
             {
               headers: {

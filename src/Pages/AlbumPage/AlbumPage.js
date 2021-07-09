@@ -38,7 +38,7 @@ class AlbumPage extends Component {
   FetchData = () => {
     if (this.state.login)
       axios
-        .get(`http://127.0.0.1:8000/AlbumAPIView/?id=${this.state.id}`, {
+        .get(`http://37.152.182.41/AlbumAPIView/?id=${this.state.id}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Token ${localStorage.getItem("autToken")}`,
@@ -55,7 +55,7 @@ class AlbumPage extends Component {
         });
     else
       axios
-        .get(`http://127.0.0.1:8000/AlbumAPIView/?id=${this.state.id}`, {
+        .get(`http://37.152.182.41/AlbumAPIView/?id=${this.state.id}`, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -75,7 +75,7 @@ class AlbumPage extends Component {
     const makeFavorite = () => {
       if (!this.state.trackIsFavorit)
         axios.post(
-          `http://127.0.0.1:8000/AlbumFavoriteAPI/?id=${this.state.id}`,
+          `http://37.152.182.41/AlbumFavoriteAPI/?id=${this.state.id}`,
           {},
           {
             headers: {
@@ -86,7 +86,7 @@ class AlbumPage extends Component {
       else
         axios
           .post(
-            `http://127.0.0.1:8000/AlbumUnfavoriteAPI/?id=${this.state.id}`,
+            `http://37.152.182.41/AlbumUnfavoriteAPI/?id=${this.state.id}`,
             {},
             {
               headers: {
@@ -105,7 +105,7 @@ class AlbumPage extends Component {
       let formData = new FormData();
       formData.append("rate", rateTemp);
       axios.post(
-        `http://127.0.0.1:8000/AlbumRateAPI/?id=${this.state.id}`,
+        `http://37.152.182.41/AlbumRateAPI/?id=${this.state.id}`,
         formData,
         {
           headers: {
@@ -173,14 +173,18 @@ class AlbumPage extends Component {
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titleContainer">
                         {this.state.result.title}
                       </div>
-                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
-                        {this.state.result.rating}
-                      </div>
+                      
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
                         Released Date : {this.state.result.relase_date}
                       </div>
-                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
+                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} albumPageGenresContainer">
                         Genres: {this.state.result.genre}
+                      </div>
+                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
+                        Rate: {this.state.result.rating}
+                        <div class="col-1  albumPageRatingStar">
+                            <img width='20' height='20' src='https://www.freeiconspng.com/thumbs/white-star-icon/white-star-icon-14.png'/>
+                        </div>
                       </div>
                     </div>
                   </div>

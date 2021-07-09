@@ -22,7 +22,7 @@ class Genres extends Component {
     this.setState({loading:true});
     axios
       .get(
-        `http://127.0.0.1:8000/api/page/GenreAPIView/?limit=12&page=${this.state.activePage-1}`
+        `http://37.152.182.41/api/page/GenreAPIView/?limit=12&page=${this.state.activePage-1}`
       )
       .then((res) => {
         console.log(res.data);

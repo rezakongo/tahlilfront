@@ -42,7 +42,7 @@ class ArtistPage extends Component {
 
   FetchData = () => {
     axios
-      .get(`http://127.0.0.1:8000/ArtistAPIView/?id=${this.state.id}&limit=1`, {
+      .get(`http://37.152.182.41/ArtistAPIView/?id=${this.state.id}&limit=1`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -86,7 +86,7 @@ class ArtistPage extends Component {
       this.setState({ follow: true });
       axios
         .post(
-          `http://127.0.0.1:8000/ArtistFollowAPIView/?id=${this.state.id}`,
+          `http://37.152.182.41/ArtistFollowAPIView/?id=${this.state.id}`,
           {},
           {
             headers: {
@@ -103,7 +103,7 @@ class ArtistPage extends Component {
       this.setState({ follow: false });
       axios
         .post(
-          `http://127.0.0.1:8000/ArtistUnfollowAPIView/?id=${this.state.id}`,
+          `http://37.152.182.41/ArtistUnfollowAPIView/?id=${this.state.id}`,
           {},
           {
             headers: {

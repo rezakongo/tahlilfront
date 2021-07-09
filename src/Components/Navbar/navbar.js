@@ -28,7 +28,7 @@ export default class DNavbar extends Component {
   }
   APICallFunction = () => {
     axios
-      .get("http://127.0.0.1:8000/djoser/users/me/", {
+      .get("http://37.152.182.41/djoser/users/me/", {
         headers: {
           Authorization: `Token ${localStorage.getItem("autToken")}`,
           "Content-Type": "application/json",

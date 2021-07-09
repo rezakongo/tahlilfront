@@ -44,7 +44,7 @@ class TrackPage extends Component {
   FetchData = () => {
     if (this.state.login)
       axios
-        .get(`http://127.0.0.1:8000/MusicAPIView/?id=${this.state.id}`, {
+        .get(`http://37.152.182.41/MusicAPIView/?id=${this.state.id}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Token ${localStorage.getItem("autToken")}`,
@@ -62,7 +62,7 @@ class TrackPage extends Component {
         });
     else
       axios
-        .get(`http://127.0.0.1:8000/MusicAPIView/?id=${this.state.id}`, {
+        .get(`http://37.152.182.41/MusicAPIView/?id=${this.state.id}`, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -79,7 +79,7 @@ class TrackPage extends Component {
         });
 
     axios
-      .get(`http://127.0.0.1:8000/Lyrics/LyricsAPI/?id=${this.state.id}`, {
+      .get(`http://37.152.182.41/Lyrics/LyricsAPI/?id=${this.state.id}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -101,7 +101,7 @@ class TrackPage extends Component {
 
     axios
       .get(
-        `http://127.0.0.1:8000/Lyrics/LyricsTextCommentAPI/?id=${this.state.id}`,
+        `http://37.152.182.41/Lyrics/LyricsTextCommentAPI/?id=${this.state.id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -126,7 +126,7 @@ class TrackPage extends Component {
     const makeFavorite = () => {
       if (!this.state.trackIsFavorit)
         axios.post(
-          `http://127.0.0.1:8000/MusicFavoriteAPI/?id=${this.state.id}`,
+          `http://37.152.182.41/MusicFavoriteAPI/?id=${this.state.id}`,
           {},
           {
             headers: {
@@ -137,7 +137,7 @@ class TrackPage extends Component {
       else
         axios
           .post(
-            `http://127.0.0.1:8000/MusicUnfavoriteAPI/?id=${this.state.id}`,
+            `http://37.152.182.41/MusicUnfavoriteAPI/?id=${this.state.id}`,
             {},
             {
               headers: {
@@ -156,7 +156,7 @@ class TrackPage extends Component {
       let formData = new FormData();
       formData.append("rate", rateTemp);
       axios.post(
-        `http://127.0.0.1:8000/MusicRateAPI/?id=${this.state.id}`,
+        `http://37.152.182.41/MusicRateAPI/?id=${this.state.id}`,
         formData,
         {
           headers: {

@@ -74,7 +74,7 @@ export default class SearchExampleCategory extends Component {
 
         axios
           .get(
-            `http://127.0.0.1:8000/api/page/SuggestionSearchAPIView/?search=${value}`,
+            `http://37.152.182.41/api/page/SuggestionSearchAPIView/?search=${value}`,
             {
               headers: {
                 "Content-Type": "application/json",

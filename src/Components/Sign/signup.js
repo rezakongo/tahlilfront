@@ -173,7 +173,7 @@ export default class SignUp extends Component {
         const signupJSON = JSON.stringify(signup);
         console.log(signupJSON);
         axios
-          .post("http://127.0.0.1:8000/djoser/users/", signupJSON, config)
+          .post("http://37.152.182.41/djoser/users/", signupJSON, config)
           .then((res) => {
             console.log(res);
             if (res.status === 201) {
