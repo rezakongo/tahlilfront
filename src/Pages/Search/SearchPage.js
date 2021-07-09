@@ -219,6 +219,17 @@ class SearchPage extends React.Component {
                 </div>
 
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowcenter">
+                <div
+                id={
+                  
+                  this.state.loading3
+                  
+                    ? "loading"
+                    : "hidden"
+                }
+              >
+                <Loader content="Loading" size="large" inverted />
+              </div>
                   {this.state.Tracks.map((track) => {
                     return (
                       <div
@@ -236,17 +247,7 @@ class SearchPage extends React.Component {
                   })}
                 </div>
               </div>
-              <div
-                id={
-                  
-                  !this.state.loading2
-                  
-                    ? "loading"
-                    : "hidden"
-                }
-              >
-                <Loader content="Loading" size="large" inverted />
-              </div>
+              
               <div
                 className="tab-pane fade tabsBody"
                 id="v-pills-Albums"
@@ -257,6 +258,17 @@ class SearchPage extends React.Component {
                   <div className="sagContainer">
                     <img src={sag} id={this.state.AlbumNf ? "sag" : "hidden"} />
                   </div>
+                  <div
+                id={
+                  
+                  this.state.loading2
+                  
+                    ? "loading"
+                    : "hidden"
+                }
+              >
+                <Loader content="Loading" size="large" inverted />
+              </div>
                   {this.state.Albums.map((album) => {
                     return (
                       <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9">
@@ -279,6 +291,17 @@ class SearchPage extends React.Component {
                       id={this.state.ArtistNf ? "sag" : "hidden"}
                     />
                   </div>
+                  <div
+                id={
+                  
+                  this.state.loading1
+                  
+                    ? "loading"
+                    : "hidden"
+                }
+              >
+                <Loader content="Loading" size="large" inverted />
+              </div>
                   {this.state.Artists.map((artist) => {
                     return (
                       <div
