@@ -197,7 +197,7 @@ class Profile extends React.Component {
                     return <CommentCard tag='track' item={trc}/>;
                   })}
 
-                  {this.state.albumComments.map((trc)=>{
+                  {this.state.artistComments.map((trc)=>{
                     return <CommentCard tag='artist' item={trc}/>;
                   })}
                   

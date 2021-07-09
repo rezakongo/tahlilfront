@@ -179,6 +179,6 @@
 
 .rowcenter{
   display: flex;
-  justify-content: center;
-  justify-items: center;
+  justify-content: left;
+  justify-items:left;
 }

@@ -204,22 +204,18 @@ class SearchPage extends React.Component {
         <div className="badbakhti2">
           <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bodyContain">
             <div class="tab-content" id="pills-tabContent">
-              <div
-                className="tab-pane fade show active tabsBody"
+              
+            <div
+                className="tab-pane fade tabsBody"
                 id="v-pills-Tracks"
                 role="tabpanel"
                 aria-labelledby="v-pills-Tracks-tab"
               >
-                <div className="sagContainer">
-                  <img
-                    src={sag}
-                    id={this.state.TrackNf ? "sag" : "hidden"}
-                    onPageChange={handlePaginationChange}
-                  />
-                </div>
-
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowcenter">
-                <div
+                  <div className="sagContainer">
+                    <img src={sag} id={this.state.TrackNf ? "sag" : "hidden"} />
+                  </div>
+                  <div
                 id={
                   
                   this.state.loading3
@@ -229,24 +225,17 @@ class SearchPage extends React.Component {
                 }
               >
                 <Loader content="Loading" size="large" inverted />
+                
               </div>
-                  {this.state.Tracks.map((track) => {
+                  {this.state.Tracks.map((album) => {
                     return (
-                      <div
-                        id={
-                          
-                          !this.state.loading3
-                            ? "hidden"
-                            : ""
-                        }
-                        class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9"
-                      >
-                        <TracksSearchCard track={track} />
+                      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9">
+                        <TracksSearchCard track={album} />
                       </div>
                     );
                   })}
                 </div>
-              </div>
+                </div>
               
               <div
                 className="tab-pane fade tabsBody"
@@ -268,6 +257,7 @@ class SearchPage extends React.Component {
                 }
               >
                 <Loader content="Loading" size="large" inverted />
+                
               </div>
                   {this.state.Albums.map((album) => {
                     return (
@@ -277,8 +267,8 @@ class SearchPage extends React.Component {
                     );
                   })}
                 </div>
-              </div>
-              <div
+                </div>
+                <div
                 className="tab-pane fade tabsBody"
                 id="v-pills-Artists"
                 role="tabpanel"
@@ -286,10 +276,7 @@ class SearchPage extends React.Component {
               >
                 <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} rowcenter">
                   <div className="sagContainer">
-                    <img
-                      src={sag}
-                      id={this.state.ArtistNf ? "sag" : "hidden"}
-                    />
+                    <img src={sag} id={this.state.ArtistNf ? "sag" : "hidden"} />
                   </div>
                   <div
                 id={
@@ -301,24 +288,18 @@ class SearchPage extends React.Component {
                 }
               >
                 <Loader content="Loading" size="large" inverted />
+                
               </div>
-                  {this.state.Artists.map((artist) => {
+                  {this.state.Artists.map((album) => {
                     return (
-                      <div
-                        id={
-                          !this.state.loading1
-                          
-                            ? "hidden"
-                            : ""
-                        }
-                        class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9"
-                      >
-                        <ArtistsSearchCard artist={artist} />
+                      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-9">
+                        <ArtistsSearchCard artist={album} />
                       </div>
                     );
                   })}
                 </div>
-              </div>
+                </div>
+           
             </div>
             <Pagination
               activePage={this.state.activePage}
