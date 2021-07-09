@@ -31,7 +31,7 @@ const StyledRating = withStyles({
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: "100%",
+    width: "14rem",
     height: "100%",
     transition: "0.3s",
     borderRadius: 12,
@@ -81,9 +81,9 @@ function HomePageAlbum(props) {
       <CardMedia className={cx(styles.media, mediaStyles.root)} image={props.Albm.cover_image} />
       <CardContent>
         <Info>
-          <InfoTitle className={styles.title}>{props.Albm.artist[0].name}</InfoTitle>
+          <InfoTitle className={styles.title}>{props.Albm.title.substr(0,8)}</InfoTitle>
           <InfoSubtitle className={styles.subtitle}>
-          {props.Albm.title}
+          {props.Albm.artist[0].name}
           </InfoSubtitle>
           <StyledRating
             className={styles.rating}

@@ -173,7 +173,7 @@ class TrackPage extends Component {
       backgroundPosition: "center",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      backgroundImage: `url(https://upload.wikimedia.org/wikipedia/en/0/02/Radioheadkida.png)`,
+      backgroundImage: `url(${this.state.result.photo})`,
       boxShadow: "inset 0 0 0 2000px rgba(2, 2, 2, 0.850)",
     };
     if (this.state.loading || this.state.loading2 || this.state.loading3) {
@@ -232,15 +232,21 @@ class TrackPage extends Component {
                         Released Date : {this.state.album.date}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                        <div class="col-3 testo">
-                          Rate :{this.state.result.rating}{" "}
+                        
+                          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                           
+
+                          Rate {" "}:{" "}{this.state.result.rating}
+                          <div class="col-1  TrackPageRating">
                           <Star
                             src={star}
                             width="50"
                             height="50"
                             style={{ fill: "#d0e1f9" }}
                           />
-                        </div>
+                          </div>
+                          </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -282,7 +288,7 @@ class TrackPage extends Component {
                       width="200"
                       height="200"
                       className="imgkhodesh"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzmhpekH-gt4ImCXO_3i0fZP83-OpiXA6MgwOf-lIFx4wInXNZeB7Js3DhIuCE3aau6t4&usqp=CAU"
+                      src={this.state.result.photo}
                     />
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-6 col-sm-4 col-12 PdataContainer">

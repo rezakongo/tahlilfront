@@ -18,7 +18,7 @@ class GenrePage extends Component {
     id: "f4abc0b5-3f7a-4eff-8f78-ac078dbce533",
     login: true,
     comments:[],
-    tracks:[],
+    track:[],
     loading:true,
   };
 
@@ -33,18 +33,20 @@ class GenrePage extends Component {
     console.log('adfdad');
     axios
       .get(
-        `http://37.152.182.41/api/page/GenrePageAPIView/?name=${this.state.name}`,
+        `http://127.0.0.1:8000/api/page/GenrePageAPIView/?name=${this.state.name}`,
         {
           headers: {
             "Content-Type": "application/json",
           },
+          
         }
       )
       .then((res) => {
         
         this.setState({
-          tracks:res.data.result,
+          track:res.data.result,
           loading : false,
+          
         });
       });
 
@@ -113,7 +115,7 @@ class GenrePage extends Component {
 
         <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bdyContainer">
           <div class="container-fluid !direction !spacing bdyPosition">
-            <AlbumTrackTable />
+            <AlbumTrackTable tracks={this.state.track}/>
             
           </div>
         </div>

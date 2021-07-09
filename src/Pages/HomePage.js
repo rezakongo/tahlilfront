@@ -87,12 +87,14 @@ function HomePage() {
             <LandingTop />
           </div>
           <div className="LC">
+
             <Loader
               content="Loading"
               className="loaderSt"
               size="large"
               inverted
             />
+
           </div>
           <Footer />
         </div>

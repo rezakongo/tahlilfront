@@ -56,7 +56,7 @@ function GenreCards(props) {
     <div>
       <a href={'\\'+'genre'+'\\'+props.genre.name} style={sectionStyle} className="GenreButton" type="button">
         <div className="GenreTitleContainer">
-          <h1 className="GenreCardTitle">{props.genre.name}</h1>
+          <h1 className="GenreCardTitle">{props.genre.name.substr(0,6)}</h1>
         </div>
       </a>
       <Modal
@@ -73,7 +73,7 @@ function GenreCards(props) {
       >
         <Fade in={open}>
           <div className="GenresModalBody">
-            <h1 id="ModalGenreTitle">{props.genre.name}</h1>
+            <h1 id="ModalGenreTitle">{props.genre.name.substr(0,6)}</h1>
             <p id="ModalGenreDescription">{props.genre.description}</p>
           </div>
         </Fade>
