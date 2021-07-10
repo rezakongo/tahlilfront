@@ -12,12 +12,13 @@ function UserComment(props) {
   const [first, setFirst] = React.useState(true);
   const [comment, setComment] = React.useState("");
   const [commentData, setCommentData] = React.useState([]);
+  const [num, setNum] = React.useState(0);
   const [page, setPage] = React.useState(0);
 
   const onPageIncrease = () => {
     axios
       .get(
-        `http://37.152.182.41/${props.type}CommentAPI/?id=${props.id}&commentlimit=1&commentpage=${page}`,
+        `http://37.152.182.41/${props.type}CommentAPI/?id=${props.id}&commentlimit=5&commentpage=${page}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -25,7 +26,9 @@ function UserComment(props) {
         }
       )
       .then((res) => {
+        setNum(res.data.comments_num);
         setCommentData([...commentData, ...res.data.result]);
+
         console.log(commentData);
       });
     setPage(page + 1);
@@ -103,7 +106,11 @@ function UserComment(props) {
           </div>
         );
       })}
-      <a role="button" onClick={onPageIncrease}>
+      <a
+        role="button"
+        onClick={onPageIncrease}
+        id={5 * page >= num ? "hidden" : ""}
+      >
         <div id="showMoreComment">SHOW &nbsp;MORE</div>
       </a>
       <div>

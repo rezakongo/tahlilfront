@@ -174,12 +174,9 @@ export default class Login extends Component {
                   }}
                 />
                 <p className="forgot-password text-left">
-                  <a href="#">Forgot password?</a>
                 </p>
                 <div className="form-group" style={{ textAlign: "left" }}>
-                  <GreyCheckbox defaultChecked id="customCheck1" />
                   <label htmlFor="customCheck1" style={{ color: "aliceblue" }}>
-                    Remember me
                   </label>
                 </div>
               </div>

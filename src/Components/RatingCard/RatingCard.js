@@ -29,7 +29,7 @@ export default function BavanRatingCard(props) {
                 height="40"
                 width="40"
                 src={
-                  (props.tag == "album" ? props.item.album.cover_image : "") +
+                  (props.tag == "album" ? props.item.album.photo : "") +
                   (props.tag == "track" ? props.item.music.photo : "")
                 }
               />

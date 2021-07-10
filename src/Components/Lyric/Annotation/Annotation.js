@@ -40,7 +40,13 @@ class Annotation extends Component {
     if (command === "prompt") {
       annotationSegment = (
         <div className="prompt" id="annotation-prompt">
-          <Form inverted onSubmit={handleSubmit}>
+          <div id={this.props.login ? "hidden" : "CommentLogin2"}>
+            <p>
+              Please &nbsp;<a href="/signin">Login</a> &nbsp;or &nbsp;
+              <a href="/signUp">Register</a> &nbsp;to &nbsp;post &nbsp;comment.
+            </p>
+          </div>
+          <Form id={this.props.login ? "" : "hidden"} inverted onSubmit={handleSubmit}>
             <Form.TextArea
               placeholder="Add a comment"
               inverted

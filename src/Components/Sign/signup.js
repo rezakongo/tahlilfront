@@ -176,9 +176,7 @@ export default class SignUp extends Component {
           .post("http://37.152.182.41/djoser/users/", signupJSON, config)
           .then((res) => {
             console.log(res);
-            if (res.status === 201) {
-              this.setState({ redirect: true });
-            }
+            this.setState({ redirect: true });
           })
           .catch((error) => {
             console.log(error.response);

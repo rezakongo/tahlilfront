@@ -13,7 +13,7 @@ function Favorite(props) {
             <img
               width="50"
               height="50"
-              src={(props.tag=='artist'?props.item.photo:props.item.cover_image)}
+              src={(props.tag=='artist'?props.item.photo:props.item.photo)}
               className="imag"
             />
           </div>

@@ -173,17 +173,30 @@ class AlbumPage extends Component {
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} albumPageTitleContainer">
                         {this.state.result.title}
                       </div>
-                      
+
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
                         Released Date : {this.state.result.relase_date}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} albumPageGenresContainer">
-                        Genres:  {(this.state.result.genre.length>0?this.state.result.genre[0]:'')+(this.state.result.genre.length>1?', '+this.state.result.genre[1]:'')+(this.state.result.genre.length>2?', '+this.state.result.genre[2]:'')}
+                        Genres:{" "}
+                        {(this.state.result.genre.length > 0
+                          ? this.state.result.genre[0]
+                          : "") +
+                          (this.state.result.genre.length > 1
+                            ? ", " + this.state.result.genre[1]
+                            : "") +
+                          (this.state.result.genre.length > 2
+                            ? ", " + this.state.result.genre[2]
+                            : "")}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
                         Rate: {this.state.result.rating}
                         <div class="col-1  albumPageRatingStar">
-                            <img width='20' height='20' src='https://www.freeiconspng.com/thumbs/white-star-icon/white-star-icon-14.png'/>
+                          <img
+                            width="20"
+                            height="20"
+                            src="https://www.freeiconspng.com/thumbs/white-star-icon/white-star-icon-14.png"
+                          />
                         </div>
                       </div>
                     </div>
@@ -216,44 +229,42 @@ class AlbumPage extends Component {
               </div>
             </div>
             <div class="d-block d-lg-none">
-              
               <div style={sectionStyle} class="row  ">
-
                 <div class="row PartistDataPosition">
                   <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 PimgContainer">
-                  <div className="albumPageMobileImage">
-                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 imgContainer">
-                    <div className="imageFollowContainer">
-                      <img
-                        width="280"
-                        height="280"
-                        className={
-                          this.state.albumIsFavorit
-                            ? "imgkhodeshFollow"
-                            : "imgkhodesh"
-                        }
-                        src={this.state.result.cover_image}
-                      />
-                      <div id="heart1F">
-                        <div
-                          style={{ width: "4rem" }}
-                          id={this.state.login ? "" : "hidden"}
-                        >
-                          <Heart
-                            inactiveColor="white"
-                            isActive={this.state.albumIsFavorit}
-                            onClick={makeFavorite}
-                            style={
+                    <div className="albumPageMobileImage">
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 imgContainer">
+                        <div className="imageFollowContainer">
+                          <img
+                            width="280"
+                            height="280"
+                            className={
                               this.state.albumIsFavorit
-                                ? { fill: "rgb(97, 6, 6)" }
-                                : { fill: "white" }
+                                ? "imgkhodeshFollow"
+                                : "imgkhodesh"
                             }
+                            src={this.state.result.cover_image}
                           />
+                          <div id="heart1F">
+                            <div
+                              style={{ width: "4rem" }}
+                              id={this.state.login ? "" : "hidden"}
+                            >
+                              <Heart
+                                inactiveColor="white"
+                                isActive={this.state.albumIsFavorit}
+                                onClick={makeFavorite}
+                                style={
+                                  this.state.albumIsFavorit
+                                    ? { fill: "rgb(97, 6, 6)" }
+                                    : { fill: "white" }
+                                }
+                              />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  </div>
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-6 col-sm-4 col-12 PdataContainer">
                     <div class="container">
@@ -265,11 +276,26 @@ class AlbumPage extends Component {
                         <div class="col-12 col-md-4 mobileDateContainer">
                           Released Date : {this.state.result.relase_date}
                         </div>
+<<<<<<< Updated upstream
                         <div class="col-12 col-md-4 mobileDateContainer">
                           Rate : {this.state.result.rating}<img src={star} width="25" height="25" />
+=======
+                        <div class="col-12 col-md-4 dateContainer">
+                          Rate : {this.state.result.rating}
+                          <img src={star} width="25" height="25" />
+>>>>>>> Stashed changes
                         </div>
                         <div class="col-12 col-md-4 genresContainer  ">
-                          Genres: {(this.state.result.genre.length>0?this.state.result.genre[0]:'')+(this.state.result.genre.length>1?', '+this.state.result.genre[1]:'')+(this.state.result.genre.length>2?', '+this.state.result.genre[2]:'')}
+                          Genres:{" "}
+                          {(this.state.result.genre.length > 0
+                            ? this.state.result.genre[0]
+                            : "") +
+                            (this.state.result.genre.length > 1
+                              ? ", " + this.state.result.genre[1]
+                              : "") +
+                            (this.state.result.genre.length > 2
+                              ? ", " + this.state.result.genre[2]
+                              : "")}
                         </div>
                       </div>
                     </div>
@@ -285,7 +311,6 @@ class AlbumPage extends Component {
                             count={5}
                             size={35}
                             value={this.state.rate}
-                            edit={this.state.rate === 0}
                             isHalf={true}
                             emptyIcon={<i className="far fa-star"></i>}
                             halfIcon={<i className="fa fa-star-half-alt"></i>}
@@ -295,7 +320,6 @@ class AlbumPage extends Component {
                             onChange={RateTrack}
                           />
                         </div>
-                        
                       </div>
                     </div>
                   </div>

@@ -59,3 +59,10 @@
     padding-bottom: 0px;
   }
 }
+
+#CommentLogin2 {
+  border: 1px solid rgb(48, 43, 61);
+  color: aliceblue;
+  padding: 10px;
+  margin: 20px 10px 20px 20px;
+}

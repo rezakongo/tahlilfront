@@ -108,6 +108,7 @@ class LyricsPage extends Component {
                 handleCancelCreate={this.handleCancelCreate}
                 annotationId={selection}
                 songId={this.props.songId}
+                login={this.props.login}
               />
             </div>
           </div>

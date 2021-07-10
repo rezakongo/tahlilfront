@@ -232,21 +232,17 @@ class TrackPage extends Component {
                         Released Date : {this.state.album.date}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} genresContainer">
-                        
-                          <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                           
-
-                          Rate {" "}:{" "}{this.state.result.rating}
+                        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                          Rate : {this.state.result.rating}
                           <div class="col-1  TrackPageRating">
-                          <Star
-                            src={star}
-                            width="50"
-                            height="50"
-                            style={{ fill: "#d0e1f9" }}
-                          />
+                            <Star
+                              src={star}
+                              width="50"
+                              height="50"
+                              style={{ fill: "#d0e1f9" }}
+                            />
                           </div>
-                          </div>
-                        
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -258,7 +254,6 @@ class TrackPage extends Component {
                         class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} "
                         id={this.state.login ? "" : "hidden"}
                       >
-                        
                         <ReactStars
                           count={5}
                           size={35}
@@ -372,7 +367,7 @@ class TrackPage extends Component {
                           />
                           </div>
                         </div>
-                        
+
                         <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ">
                        
                         </div>
@@ -391,6 +386,7 @@ class TrackPage extends Component {
                   songId={this.state.id}
                   lyrics={this.state.lyrics}
                   annotations={this.state.annotations}
+                  login={this.state.login}
                 />
               ) : (
                 <div id="NoLyric">

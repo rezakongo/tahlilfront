@@ -6,6 +6,11 @@
   color: aliceblue !important;
 }
 
+.ui.search > .results .result:hover {
+  color: aliceblue !important;
+  background-color: rgb(55, 71, 103) !important;
+}
+
 .name {
   color: aliceblue !important;
 }

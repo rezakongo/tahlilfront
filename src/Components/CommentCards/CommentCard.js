@@ -1,5 +1,6 @@
 import React from "react";
 import "./CommentCard.css";
+import dateFormat from "dateformat";
 import pic from "./Rihanna.jpg";
 
 function CommentCard(props) {
@@ -21,8 +22,8 @@ function CommentCard(props) {
               width="150"
               height="150"
               src={
-                (props.tag == "track" ? props.item.music.cover_image : "") +
-                (props.tag == "album" ? props.item.album.cover_image : "") +
+                (props.tag == "track" ? props.item.music.photo : "") +
+                (props.tag == "album" ? props.item.album.photo : "") +
                 (props.tag == "artist" ? props.item.artist.photo : "")
               }
             />
@@ -37,7 +38,7 @@ function CommentCard(props) {
               <p id="test">{props.item.comment}</p>
             </div>
             <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} date">
-              12 April
+              Posted: &nbsp;{dateFormat(props.item.date, " d mmmm, yyyy")}
             </div>
           </div>
         </div>
