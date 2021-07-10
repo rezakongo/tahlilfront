@@ -170,7 +170,7 @@ class AlbumPage extends Component {
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-3 col-sm-4 col-6">
                     <div class="container-fluid !direction !spacing dataContainer">
-                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} titleContainer">
+                      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} albumPageTitleContainer">
                         {this.state.result.title}
                       </div>
                       
@@ -216,15 +216,44 @@ class AlbumPage extends Component {
               </div>
             </div>
             <div class="d-block d-lg-none">
-              <div style={sectionStyle} class="row ">
+              
+              <div style={sectionStyle} class="row  ">
+
                 <div class="row PartistDataPosition">
                   <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 PimgContainer">
-                    <img
-                      width="200"
-                      height="200"
-                      className="imgkhodesh"
-                      src={this.state.result.cover_image}
-                    />
+                  <div className="albumPageMobileImage">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 imgContainer">
+                    <div className="imageFollowContainer">
+                      <img
+                        width="280"
+                        height="280"
+                        className={
+                          this.state.albumIsFavorit
+                            ? "imgkhodeshFollow"
+                            : "imgkhodesh"
+                        }
+                        src={this.state.result.cover_image}
+                      />
+                      <div id="heart1F">
+                        <div
+                          style={{ width: "4rem" }}
+                          id={this.state.login ? "" : "hidden"}
+                        >
+                          <Heart
+                            inactiveColor="white"
+                            isActive={this.state.albumIsFavorit}
+                            onClick={makeFavorite}
+                            style={
+                              this.state.albumIsFavorit
+                                ? { fill: "rgb(97, 6, 6)" }
+                                : { fill: "white" }
+                            }
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-6 col-sm-4 col-12 PdataContainer">
                     <div class="container">
@@ -237,7 +266,7 @@ class AlbumPage extends Component {
                           Released Date : {this.state.result.relase_date}
                         </div>
                         <div class="col-12 col-md-4 dateContainer">
-                          Rate : {this.state.result.rating}
+                          Rate : {this.state.result.rating}<img src={star} width="25" height="25" />
                         </div>
                         <div class="col-12 col-md-4 genresContainer  ">
                           Genres: {(this.state.result.genre.length>0?this.state.result.genre[0]:'')+(this.state.result.genre.length>1?', '+this.state.result.genre[1]:'')+(this.state.result.genre.length>2?', '+this.state.result.genre[2]:'')}
@@ -247,7 +276,7 @@ class AlbumPage extends Component {
                   </div>
                   <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5 col-6 pfol">
                     <div className="Pfollowcontain">
-                      <div class="row">
+                      <div class="row albumPageMobileStarsContainer">
                         <div
                           class="col-12 col-sm-6 "
                           id={this.state.login ? "" : "hidden"}
@@ -266,25 +295,7 @@ class AlbumPage extends Component {
                             onChange={RateTrack}
                           />
                         </div>
-                        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bibilContainer">
-                          <div class="col-4 tests"></div>
-                          <div class="col-4 testo">
-                            3.5 <img src={star} width="25" height="25" />
-                          </div>
-
-                          <div class="col-4 testt">
-                            <div
-                              style={{ width: "3rem" }}
-                              id={this.state.login ? "" : "hidden"}
-                            >
-                              <Heart
-                                inactiveColor="red"
-                                isActive={this.state.AlbumIsFavorit}
-                                onClick={RateTrack}
-                              />
-                            </div>
-                          </div>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>

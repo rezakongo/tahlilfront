@@ -70,6 +70,14 @@
   font-weight: bolder;
 }
 
+.albumPageTitleContainer {
+  color: white;
+  width: 100%;
+  font-size: 40px;
+  font-weight: bolder;
+  text-align: left;
+}
+
 .PtitleContainer {
   color: white;
   width: 100%;
@@ -184,4 +192,17 @@
   min-width: 11rem !important;
   width: 100%;
   height: 3rem;
+}
+
+.albumPageMobileStarsContainer{
+  padding-left: 2rem;
+
+  width: 100%;
+}
+
+.albumPageMobileImage{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  min-height: 280px;
 }
