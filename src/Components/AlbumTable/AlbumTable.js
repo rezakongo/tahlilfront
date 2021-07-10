@@ -33,7 +33,7 @@ const AlbumTable = (props) => (
         {props.albumsData.map((Album) => {
           return (
             <a
-              href={"\\" + "album" + "\\" + Album.id}
+              href={"\\" + (Album.version=='album'?"album":"track") + "\\" + Album.id}
               class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ArtistAlbumTableRow"
             >
               <div class="d-none d-sm-none d-md-block col-3  col-sm-3 col-md-3 col-lg-3 col-xl-3">
