@@ -284,13 +284,38 @@ class TrackPage extends Component {
             <div class="d-block d-lg-none">
               <div style={sectionStyle} class="row ">
                 <div class="row PartistDataPosition">
-                  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 PimgContainer">
-                    <img
-                      width="200"
-                      height="200"
-                      className="imgkhodesh"
-                      src={this.state.result.photo}
-                    />
+                <div className="trackPageMobileImage">
+                  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 trackPageMobileTopContainer">
+                  <div className="trackPageImageFollowContainer">
+                      <img
+                        width="280"
+                        height="280"
+                        className={
+                          this.state.trackIsFavorit
+                            ? "imgkhodeshFollow"
+                            : "imgkhodesh"
+                        }
+                        src={this.state.result.photo}
+                      ></img>
+                      <div id="mobileHeart1F">
+                        <div
+                          style={{ width: "4rem" }}
+                          id={this.state.login ? "" : "hidden"}
+                        >
+                          <Heart
+                            inactiveColor="white"
+                            isActive={this.state.trackIsFavorit}
+                            onClick={makeFavorite}
+                            style={
+                              this.state.trackIsFavorit
+                                ? { fill: "rgb(97, 6, 6)" }
+                                : { fill: "white" }
+                            }
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-6 col-sm-4 col-12 PdataContainer">
                     <div class="container">
@@ -298,10 +323,30 @@ class TrackPage extends Component {
                         <div class="col-12 col-md-4 PtitleContainer">
                           {this.state.result.title}
                         </div>
+                        <div class="col-12 col-md-4 PtitleContainer">
+                          {this.state.result.artist.name}
+                        </div>
+                        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} mobileGenresContainer">
+                        
+                        
+                         
 
-                        <div class="col-12 col-md-4 dateContainer">
+                        Rate {" "}:{" "}{this.state.result.rating}
+                        <div class="col-1  TrackPageRating">
+                        <Star
+                          src={star}
+                          width="50"
+                          height="50"
+                          style={{ fill: "#d0e1f9" }}
+                        />
+                        </div>
+                        
+                      
+                    </div>
+                        <div class="col-12 col-md-4 mobilDateContainer">
                           Released Date : {this.state.album.date}
                         </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -312,7 +357,7 @@ class TrackPage extends Component {
                           class="col-12 col-sm-6 "
                           id={this.state.login ? "" : "hidden"}
                         >
-                          <div className='trackPageStarContain'>
+                          <div className='trackPageMobileStarContain'>
                           <ReactStars
                             count={5}
                             size={35}
@@ -329,35 +374,7 @@ class TrackPage extends Component {
                         </div>
                         
                         <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} ">
-                        <div className="TrackPageRating">
-                        <div class="col-4 testo">
-                            
-                            
-                          <div className="genresContainer">
-                          Rate :{" "}{this.state.result.rating}{" "}
-                          <Star
-                              src={star}
-                              width="50"
-                              height="50"
-                              style={{ fill: "#d0e1f9" }}
-                            />
-                          </div>
-                          
-                          </div>
-                          <div class="col-9 tests"></div>
-                          <div class="col-2 testHeart">
-                            <div
-                              style={{ width: "3rem" }}
-                              id={this.state.login ? "" : "hidden"}
-                            >
-                              <Heart
-                                inactiveColor="red"
-                                isActive={this.state.trackIsFavorit}
-                                onClick={makeFavorite}
-                              />
-                            </div>
-                          </div>
-                        </div>
+                       
                         </div>
                       </div>
                     </div>

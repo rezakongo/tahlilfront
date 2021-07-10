@@ -42,11 +42,25 @@
   position: relative;
 }
 
+.trackPageImageFollowContainer {
+  position: relative;
+  width: 300px;
+}
+
+
 #heart1F {
   position: absolute;
   bottom: 0px;
   right: 0px;
   padding: 15px;
+}
+
+#mobileHeart1F {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 15px;
+
 }
 .dataContainer {
   padding-left: 4rem;
@@ -86,6 +100,14 @@
   width: 100%;
   font-size: 20px;
   font-weight: bolder;
+  text-align: left;
+}
+
+.mobilDateContainer {
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 .followersContainer {
@@ -98,6 +120,16 @@
   color: white;
   width: 100%;
   font-size: 18px;
+}
+
+.mobileGenresContainer {
+  color: white;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  padding-left: 3rem;
 }
 
 .imgflag {
@@ -122,6 +154,15 @@
   padding-left: 4rem;
 }
 
+.trackPageMobileTopContainer {
+  background-color: transparent;
+  padding-left: 4rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+
 .pfol {
   display: flex;
   justify-content: center;
@@ -144,8 +185,9 @@
   height: 3rem;
 }
 
-.trackPageStarContain{
+.trackPageMobileStarContain{
   width: 110%;
+  padding-left: 17%;
 }
 
 .bibilContainer {
@@ -185,4 +227,22 @@
   justify-items: left;
   align-items: center;
   align-content: center;
+  
+}
+
+
+.mobileTrackPageRating{
+  display: flex;
+  justify-content: left;
+  justify-items: left;
+  align-items: center;
+  align-content: center;
+  background-color: red;
+}
+
+.trackPageMobileImage{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  min-height: 280px;
 }
