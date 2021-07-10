@@ -215,3 +215,12 @@
  
   text-align: left;
 }
+
+.ArtistPageStarsContainP {
+  display: flex !important;
+  justify-content: center !important;
+  justify-items: center !important;
+  min-width: 11rem !important;
+  width: 100%;
+  height: 3rem;
+}

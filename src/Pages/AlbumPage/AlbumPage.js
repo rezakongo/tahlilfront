@@ -178,7 +178,7 @@ class AlbumPage extends Component {
                         Released Date : {this.state.result.relase_date}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} albumPageGenresContainer">
-                        Genres: {this.state.result.genre}
+                        Genres:  {(this.state.result.genre.length>0?this.state.result.genre[0]:'')+(this.state.result.genre.length>1?', '+this.state.result.genre[1]:'')+(this.state.result.genre.length>2?', '+this.state.result.genre[2]:'')}
                       </div>
                       <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} dateContainer">
                         Rate: {this.state.result.rating}
@@ -206,7 +206,7 @@ class AlbumPage extends Component {
                           halfIcon={<i className="fa fa-star-half-alt"></i>}
                           fullIcon={<i className="fa fa-star"></i>}
                           activeColor="#d0e1f9"
-                          classNames="StarsContainP"
+                          classNames="AlbumPageStarsContainP"
                           onChange={RateTrack}
                         />
                       </div>
@@ -240,7 +240,7 @@ class AlbumPage extends Component {
                           Rate : {this.state.result.rating}
                         </div>
                         <div class="col-12 col-md-4 genresContainer  ">
-                          Genres: {this.state.result.genre}
+                          Genres: {(this.state.result.genre.length>0?this.state.result.genre[0]:'')+(this.state.result.genre.length>1?', '+this.state.result.genre[1]:'')+(this.state.result.genre.length>2?', '+this.state.result.genre[2]:'')}
                         </div>
                       </div>
                     </div>
@@ -262,7 +262,7 @@ class AlbumPage extends Component {
                             halfIcon={<i className="fa fa-star-half-alt"></i>}
                             fullIcon={<i className="fa fa-star"></i>}
                             activeColor="#d0e1f9"
-                            classNames="StarsContainP"
+                            classNames="AlbumPageStarsContainP"
                             onChange={RateTrack}
                           />
                         </div>
