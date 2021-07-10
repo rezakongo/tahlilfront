@@ -106,8 +106,11 @@ class SearchPage extends React.Component {
         loading1: true,
         loading2: true,
         loading3: true,
+        Artists: [],
+        Albums: [],
+        Tracks: [],
       });
-      this.componentDidMount();
+      this.APICallFunction();
     };
     const handlePaginationChange = (e, { activePage }) => {
       this.setState({
@@ -116,15 +119,15 @@ class SearchPage extends React.Component {
         loading1: true,
         loading2: true,
         loading3: true,
+        Artists: [],
+        Albums: [],
+        Tracks: [],
       });
       this.APICallFunction();
     };
     return (
       <div>
-        <Navbar
-          activeItem="search"
-          menuId="menu3"
-        />
+        <Navbar activeItem="search" menuId="menu3" />
         {this.state.changePage ? (
           <Redirect
             push
