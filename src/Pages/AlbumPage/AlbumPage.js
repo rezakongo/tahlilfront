@@ -262,10 +262,10 @@ class AlbumPage extends Component {
                           {this.state.result.title}
                         </div>
 
-                        <div class="col-12 col-md-4 dateContainer">
+                        <div class="col-12 col-md-4 mobileDateContainer">
                           Released Date : {this.state.result.relase_date}
                         </div>
-                        <div class="col-12 col-md-4 dateContainer">
+                        <div class="col-12 col-md-4 mobileDateContainer">
                           Rate : {this.state.result.rating}<img src={star} width="25" height="25" />
                         </div>
                         <div class="col-12 col-md-4 genresContainer  ">

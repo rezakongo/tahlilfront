@@ -51,6 +51,8 @@
   line-height: 3rem;
 }
 
+
+
 .PdataContainer {
   padding-left: 4rem;
   height: 100%;
@@ -90,6 +92,14 @@
   width: 100%;
   font-size: 20px;
   font-weight: bolder;
+}
+
+.mobileDateContainer {
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bolder;
+
 }
 
 .followersContainer {
