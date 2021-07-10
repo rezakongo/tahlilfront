@@ -22,7 +22,6 @@ const categoryLayoutRenderer = ({ categoryContent, resultsContent }) => (
       style={{
         font: "20px",
         backgroundColor: "rgb(40,54,85)",
-
         color: "white !important",
       }}
       className="results"

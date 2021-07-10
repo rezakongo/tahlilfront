@@ -10,7 +10,16 @@ function TracksSearchCard(props) {
       <div className="container-fluid !direction !spacing test">
         <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
           <div className="col-md-12 col-sm-12  textContainer">
-            <img width="100%" height="185" id="trackImg" src={props.track.album.length>0 ? props.track.album[0].cover_image:''} />
+            <img
+              width="100%"
+              height="185"
+              id="trackImg"
+              src={
+                props.track.album.length > 0
+                  ? props.track.album[0].cover_image
+                  : ""
+              }
+            />
 
             <Header as="h2" id="TrackTitle">
               {props.track.title}

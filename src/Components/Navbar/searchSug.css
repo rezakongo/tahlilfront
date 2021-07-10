@@ -1,3 +1,11 @@
 #cat {
   padding: 10px;
 }
+
+.ui.search > .results .result {
+  color: aliceblue !important;
+}
+
+.name {
+  color: aliceblue !important;
+}

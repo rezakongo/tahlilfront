@@ -14,11 +14,7 @@ function ArtistsSearchCard(props) {
               width="100%"
               height="185"
               id="trackImg"
-              src={
-                props.artist.photo == ""
-                  ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPzxLjgPNZxJ_P_BH-k9DCKnd-StnfPdtnoA&usqp=CAU"
-                  : props.artist.photo
-              }
+              src={props.artist.photo}
             />
             <Header as="h2" className="title">
               {props.artist.name}

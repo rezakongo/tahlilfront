@@ -4,7 +4,6 @@ import "./AlbumsSearchCard.css";
 import { Header } from "semantic-ui-react";
 import ReactStars from "react-rating-stars-component";
 
-
 function AlbumsSearchCard(props) {
   return (
     <a href={`album\\${props.album.id}`} className="CardBody">
@@ -15,11 +14,7 @@ function AlbumsSearchCard(props) {
               width="100%"
               height="185"
               id="trackImg"
-              src={
-                props.album.cover_image == ""
-                  ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgvtOLF1dL5l5PBmVkb75sFOb3FA6rFT4ATJzIGKTCrhwNLTVXSP53ZSebjAKdub87ZhY&usqp=CAU"
-                  : props.album.cover_image
-              }
+              src={props.album.cover_image}
             />
             <Header as="h2" id="TrackTitle">
               {props.album.title}
