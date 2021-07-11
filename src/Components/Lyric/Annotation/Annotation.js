@@ -86,7 +86,7 @@ class Annotation extends Component {
     } else if (command > 0) {
       annotationSegment = (
         <div>
-          <Comment.Group id="commentsContainer">
+          <Comment.Group id="commentsContainer3">
             {commentData.map((comment) => {
               return (
                 <div>
