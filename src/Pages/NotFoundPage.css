@@ -1,0 +1,20 @@
+.bdyContainer {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.bdyPosition {
+  width: 80%;
+  background-color: #1e1f26;
+  min-height: 100vh;
+  vertical-align: middle;
+  justify-items: center;
+}
+
+#wrapper {
+  margin-top: 15%;
+}

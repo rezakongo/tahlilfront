@@ -276,14 +276,9 @@ class AlbumPage extends Component {
                         <div class="col-12 col-md-4 mobileDateContainer">
                           Released Date : {this.state.result.relase_date}
                         </div>
-<<<<<<< Updated upstream
                         <div class="col-12 col-md-4 mobileDateContainer">
-                          Rate : {this.state.result.rating}<img src={star} width="25" height="25" />
-=======
-                        <div class="col-12 col-md-4 dateContainer">
                           Rate : {this.state.result.rating}
                           <img src={star} width="25" height="25" />
->>>>>>> Stashed changes
                         </div>
                         <div class="col-12 col-md-4 genresContainer  ">
                           Genres:{" "}

@@ -4,31 +4,42 @@ import { Comment, Divider, Form, Header } from "semantic-ui-react";
 import axios from "axios";
 import Button from "../../ProfileEdit/CustomButtons/Button.js";
 import "./comment.css";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 class Annotation extends Component {
   state = {
     comment: "",
+    show: false,
   };
   render() {
     const handleSubmit = (e) => {
       e.preventDefault();
       let formData = new FormData();
       formData.append("comment", this.state.comment);
-      axios.post(
-        `http://37.152.182.41/Lyrics/LyricsCommentAPI/?id=${this.props.songId}&start=${this.props.selectedStart}&end=${this.props.selectedEnd}`,
-        formData,
-        {
-          headers: {
-            Authorization: `Token ${localStorage.getItem("autToken")}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      axios
+        .post(
+          `http://37.152.182.41/Lyrics/LyricsCommentAPI/?id=${this.props.songId}&start=${this.props.selectedStart}&end=${this.props.selectedEnd}`,
+          formData,
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("autToken")}`,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((res) => {
+          this.setState({ show: true });
+        });
     };
 
     const onChangeComment = (e) => {
       this.setState({ comment: e.target.value });
       console.log(this.props.tempAnnotation);
+    };
+
+    const closeSnackbar = () => {
+      this.setState({ show: false });
     };
 
     const command = this.props.annotationId;
@@ -46,7 +57,20 @@ class Annotation extends Component {
               <a href="/signUp">Register</a> &nbsp;to &nbsp;post &nbsp;comment.
             </p>
           </div>
-          <Form id={this.props.login ? "" : "hidden"} inverted onSubmit={handleSubmit}>
+          <Snackbar
+            open={this.state.show}
+            autoHideDuration={3000}
+            onClose={closeSnackbar}
+          >
+            <Alert severity="success">
+              Your comment has been successfully submitted
+            </Alert>
+          </Snackbar>
+          <Form
+            id={this.props.login ? "" : "hidden"}
+            inverted
+            onSubmit={handleSubmit}
+          >
             <Form.TextArea
               placeholder="Add a comment"
               inverted

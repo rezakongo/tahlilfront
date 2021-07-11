@@ -72,7 +72,7 @@
   top: 0;
   left: 0;
   width: 100% !important;
-  background-color: rgba(48, 43, 61, 0.829);
+  background-color: rgba(40, 54, 85, 0.7);
 }
 #mmenu3 {
   margin: 0 !important;
@@ -83,7 +83,7 @@
   top: 0;
   left: 0;
   width: 100% !important;
-  background-color: rgba(48, 43, 61, 0.829);
+  background-color: rgba(40, 54, 85, 0.7);
 }
 #dmenu1 #search-container {
   display: none !important;
@@ -137,10 +137,10 @@
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 100%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
+  z-index: 5; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: rgba(40, 36, 54); /* Black */
+  background-color: rgba(40, 54, 85, 1);
   overflow: hidden;
   justify-content: center;
 }
@@ -148,7 +148,7 @@
 #mmenu-container a {
   padding: 18px;
   text-decoration: none;
-  font-size: 50px !important;
+  font-size: 20px !important;
   color: aliceblue;
   display: block;
 }

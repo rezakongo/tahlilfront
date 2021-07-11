@@ -86,7 +86,7 @@ function UserComment(props) {
             <Comment id="commentContainer">
               <Comment.Avatar
                 className="commentAvatar"
-                src={`http://37.152.182.41/${comment.avatar}`}
+                src={`http://37.152.182.41${comment.avatar}`}
               />
               <Comment.Content>
                 <Comment.Author

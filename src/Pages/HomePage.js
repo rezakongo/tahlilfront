@@ -87,14 +87,12 @@ function HomePage() {
             <LandingTop />
           </div>
           <div className="LC">
-
             <Loader
               content="Loading"
               className="loaderSt"
               size="large"
               inverted
             />
-
           </div>
           <Footer />
         </div>
@@ -113,23 +111,17 @@ function HomePage() {
           </div>
           <div className="hpFContainer">
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}  tracksContain rowSetting">
-              <h2 className="divider line glow" contentEditable>
-                TOP &nbsp; ARTISTS
-              </h2>
+              <h2 className="divider line glow">TOP &nbsp; ARTISTS</h2>
               <ArtistsCarousel Rtist={ArtistData} />
             </div>
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} tracksContain rowSetting">
-              <h2 className="divider line glow" contentEditable>
-                TOP &nbsp; TRACKS
-              </h2>
+              <h2 className="divider line glow">TOP &nbsp; TRACKS</h2>
               <div className="tracks">
                 <HomePageTracks trc={TrackData} />
               </div>
             </div>
             <div className="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} containerSetting rowSetting">
-              <h2 className="divider line glow" contentEditable>
-                TOP &nbsp; ALBUMS
-              </h2>
+              <h2 className="divider line glow">TOP &nbsp; ALBUMS</h2>
               <Container Alb={AlbumData} />
             </div>
           </div>
